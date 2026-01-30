@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lextra hack stuff</title>
+    <link>http://localhost:1313/writeups/htb-soulmate/</link>
+    <description>Recent content on Lextra hack stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Sun, 18 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/writeups/htb-soulmate/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTB-Soulmate</title>
+      <link>http://localhost:1313/writeups/htb-soulmate/test/</link>
+      <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/writeups/htb-soulmate/test/</guid>
+      <description>&lt;div class=&#34;infobox&#34;&gt;&#xA;    &lt;div class=&#34;infobox-item&#34;&gt;&#xA;        &lt;span class=&#34;infobox-label&#34;&gt;Platform&lt;/span&gt;&#xA;        &lt;span class=&#34;infobox-value&#34;&gt;HackTheBox&lt;/span&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;div class=&#34;infobox-item&#34;&gt;&#xA;        &lt;span class=&#34;infobox-label&#34;&gt;Difficulty&lt;/span&gt;&#xA;        &lt;span class=&#34;infobox-value hard&#34;&gt;&#xA;            Hard&#xA;        &lt;/span&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;div class=&#34;infobox-item&#34;&gt;&#xA;        &lt;span class=&#34;infobox-label&#34;&gt;OS&lt;/span&gt;&#xA;        &lt;span class=&#34;infobox-value&#34;&gt;Linux&lt;/span&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;div class=&#34;infobox-item&#34;&gt;&#xA;        &lt;span class=&#34;infobox-label&#34;&gt;Date&lt;/span&gt;&#xA;        &lt;span class=&#34;infobox-value&#34;&gt;2026-01-18&lt;/span&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;Context&#xA;    &lt;div id=&#34;context&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#context&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&lt;p&gt;This page is a test writeup used to validate layout, typography,&#xA;and Table of Contents behavior in the Monochrome theme.&lt;/p&gt;&#xA;&lt;p&gt;The scenario represents a generic web application with limited exposure.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;Threat Model&#xA;    &lt;div id=&#34;threat-model&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#threat-model&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Attacker has network access to the target&lt;/li&gt;&#xA;&lt;li&gt;No credentials are initially available&lt;/li&gt;&#xA;&lt;li&gt;Scope is limited to the web application layer&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&#xA;&lt;h2 class=&#34;relative group&#34;&gt;Attack Surface Enumeration&#xA;    &lt;div id=&#34;attack-surface-enumeration&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#attack-surface-enumeration&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h2&gt;&#xA;&lt;p&gt;High-level enumeration focused on identifying exposed functionality:&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

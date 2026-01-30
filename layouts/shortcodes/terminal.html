@@ -1,0 +1,13 @@
+<div class="terminal-window">
+  <div class="terminal-header">
+    <div class="terminal-dots">
+      <span class="terminal-dot red"></span>
+      <span class="terminal-dot yellow"></span>
+      <span class="terminal-dot green"></span>
+    </div>
+    <div class="terminal-title">{{ .Get "title" | default "Terminal" }}</div>
+  </div>
+  <div class="terminal-content">
+    {{ .Inner }}
+  </div>
+</div>

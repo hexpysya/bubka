@@ -1,0 +1,186 @@
+@font-face {
+    font-family: font;
+    src: url('/fonts/JetBrainsMono-Bold.ttf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: small;
+}
+
+body a {
+    font-family: font;
+}
+
+/* Збільшуємо ширину контенту */
+.article-content.max-w-prose {
+    max-width: 1200px !important; /* Вкажіть бажану ширину в пікселях */
+}
+
+
+
+
+
+
+
+
+/* === META INFO BOX (STYLED WITH LINES) === */
+.meta-box {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  /* Лінії зверху і знизу */
+  border-top: 2px solid rgba(128, 128, 128, 0.3);
+  border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+  
+  padding: 10px 0;
+  margin: 5px 0 32px 0;
+
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Окремий елемент */
+.meta-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 6px 14px;
+  border-radius: 6px; /* Повернув овальні, якщо хочеш - зміни на 6px */
+
+  /* Нейтральний фон (стандартний) */
+  background: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral-300);
+
+  font-size: 0.8rem;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+/* Темна тема для фону таблеток */
+html.dark .meta-pill {
+  background: var(--color-neutral-800);
+  border-color: var(--color-neutral-700);
+}
+
+/* Label */
+.meta-label {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  color: var(--color-neutral-500);
+  font-weight: 600;
+}
+
+/* Value */
+.meta-value {
+  font-weight: 700;
+  color: var(--color-neutral-900);
+}
+
+html.dark .meta-value {
+  color: var(--color-neutral-100);
+}
+
+/* === DIFFICULTY STATES (Лише рамка і текст) === */
+
+/* Easy */
+.meta-pill.difficulty.easy {
+  border-color: rgba(80, 250, 123, 0.4);
+}
+.meta-pill.difficulty.easy .meta-value { color: #16a34a; }
+html.dark .meta-pill.difficulty.easy .meta-value { color: #50fa7b; }
+
+/* Medium */
+.meta-pill.difficulty.medium {
+  border-color: rgba(255, 184, 108, 0.5);
+}
+.meta-pill.difficulty.medium .meta-value { color: #d97706; }
+html.dark .meta-pill.difficulty.medium .meta-value { color: #ffb86c; }
+
+/* Hard */
+.meta-pill.difficulty.hard {
+  border-color: rgba(255, 85, 85, 0.6);
+}
+.meta-pill.difficulty.hard .meta-value { color: #dc2626; }
+html.dark .meta-pill.difficulty.hard .meta-value { color: #ff5555; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Tech Docs Style (Notion/GitBook) --- */
+
+/* 1. Базовий стан усіх посилань */
+#TableOfContents a {
+  display: block;               /* Займає весь рядок */
+  border-left: 3px solid transparent; /* Лінія є, але прозора (невидима) */
+  padding-left: 12px;           /* Відступ тексту від лінії */
+  margin-left: 2px;             /* Невеликий відступ від краю контейнера */
+  text-decoration: none;        /* Без підкреслення тексту */
+  color: inherit;               /* Колір як у звичайного тексту */
+  opacity: 0.65;                /* Трохи тьмяний неактивний текст */
+  
+  transition: all 0.2s ease;    /* Плавна анімація для всіх змін */
+}
+
+/* 2. Стан HOVER (коли просто наводиш мишкою) */
+#TableOfContents a:hover {
+  opacity: 1;                   /* Текст стає яскравим */
+  color: var(--primary);        /* Колір тексту змінюється на головний */
+  border-left-color: rgba(120, 120, 120, 0.3); /* Напівпрозора лінія-підказка */
+}
+
+/* 3. Стан ACTIVE (поточний розділ при скролі) */
+/* Цей клас додається твоїм JavaScript автоматично */
+#TableOfContents a.active {
+  opacity: 1;                   /* Текст яскравий */
+  font-weight: 600;             /* Текст стає жирнішим */
+  color: var(--primary);        /* Колір тексту - акцентний */
+  border-left-color: var(--primary); /* Лінія стає суцільною і кольоровою */
+  background: linear-gradient(90deg, rgba(var(--primary-rgb), 0.1) 0%, transparent 100%); /* (Опціонально) Легкий фон */
+}
+
+/* --- Зменшення заголовків у списку Writeups (Текстовий режим) --- */
+
+/* Націлюємось конкретно на заголовки статей (h3) всередині розділу writeups */
+body.type-writeups article {
+  font-size: 14px !important;  /* Розмір шрифту (було десь 1.25rem або 1.5rem) */
+  line-height: 1.3 !important;   /* Міжрядковий інтервал */
+  margin-bottom: 0.2rem !important; /* Відступ знизу до тегів */
+}
+
+/* Якщо хочеш зменшити і самі теги (Web, Nmap...) під заголовком */
+body.type-writeups article .text-xs {
+  font-size: 0.75rem !important; /* Ще трохи менше */
+}
+
+.page-writeups {
+  font-size: 0.875rem; /* ≈ text-sm */
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+<div class="meta-box">
+  <div class="meta-pill difficulty {{ .Get "difficulty" | lower }}">
+    <span class="meta-label">Difficulty:</span>
+    <span class="meta-value">{{ .Get "difficulty" | default "Medium" }}</span>
+  </div>
+
+  <div class="meta-pill">
+    <span class="meta-label">OS:</span>
+    <span class="meta-value">{{ .Get "os" | default "Linux" }}</span>
+  </div>
+
+  <div class="meta-pill">
+    <span class="meta-label">Date:</span>
+    <span class="meta-value">{{ .Get "date" }}</span>
+  </div>
+</div>
