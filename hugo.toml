@@ -11,13 +11,3 @@ theme = "blowfish"
   [markup.highlight]
     #style = 'github-dark'
     style = 'github-dark'
-
-[[main]]
- name = "writeups"
- pageRef = "writeups"
- weight = 10
-
-[[main]]
- name = "about"
- pageRef = "/"
- weight = 20
