@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en-us">
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-Partial_Encryption &middot; Lextra hack stuff</title>
-    <meta name="title" content="HTB-Partial_Encryption &middot; Lextra hack stuff">
+    <title>HTB-Partial_Encryption &middot; bubka hack stuff</title>
+    <meta name="title" content="HTB-Partial_Encryption &middot; bubka hack stuff">
   
 
   
@@ -26,7 +26,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/writeups/htb-partial_encryption/">
+  <link rel="canonical" href="http://localhost:1313/bubka/writeups/htb-partial_encryption/">
   
 
   
@@ -34,8 +34,8 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/writeups/htb-partial_encryption/">
-  <meta property="og:site_name" content="Lextra hack stuff">
+  <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-partial_encryption/">
+  <meta property="og:site_name" content="bubka hack stuff">
   <meta property="og:title" content="HTB-Partial_Encryption">
   <meta property="og:description" content="Difficulty: Easy OS: Windows Date: 2026-01-18 Description:
 Static-Analysis on this program didn’t reveal much. There must be a better way to approach this…
@@ -106,14 +106,14 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6b395820ab321b4c24aa8173a69bca3235f876d3f10d16751c61a6f9340cb1051d8b88ad605be3ccc58d4f7cb218140d9dc97409e0c68afef4a5fc1a982ad3fd.css"
-    integrity="sha512-azlYIKsyG0wkqoFzppvKMjX4dtPxDRZ1HGGm&#43;TQMsQUdi4itYFvjzMWNT3yyGBQNncl0CeDGiv70pfwamCrT/Q==">
+    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
+    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
 
   
   
   <script
     type="text/javascript"
-    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    src="/bubka/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
     integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
   
   
@@ -122,7 +122,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
   
   
     
-    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+    <script src="/bubka/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
   
 
   
@@ -144,7 +144,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
       defer
       type="text/javascript"
       id="script-bundle"
-      src="/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
+      src="/bubka/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
       integrity="sha512-Z2JKNXySjSm5/hm6AaHjLAWtEynKKnEr8QRG3wxocpA9DBSyH3aJa1eloHEJQIBUFs7jiFHZBn22VViBGI41pQ=="
       data-copy="Copy"
       data-copied="Copied"></script>
@@ -153,7 +153,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
   
   
 
-<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+<script src="/bubka/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
 
 
@@ -199,10 +199,10 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
 
   
   
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/bubka/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bubka/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/bubka/favicon-16x16.png">
+    <link rel="manifest" href="/bubka/site.webmanifest">
   
 
   
@@ -215,7 +215,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
     "headline": "HTB-Partial_Encryption",
     
     "inLanguage": "en-us",
-    "url" : "http://localhost:1313/writeups/htb-partial_encryption/",
+    "url" : "http://localhost:1313/bubka/writeups/htb-partial_encryption/",
     "author" : {
       "@type": "Person",
       "name": ""
@@ -286,8 +286,8 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
     <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
   
   
-    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
-      Lextra hack stuff
+    <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
+      bubka hack stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -298,7 +298,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
       
   
     <a
-      href="/writeups/"
+      href="/bubka/writeups/"
       
       class="flex items-center bf-icon-color-hover"
       aria-label="writeups"
@@ -316,11 +316,11 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
       
   
     <a
-      href="/"
+      href="/bubka/"
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="Lextra hack stuff">
+      title="bubka hack stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -426,7 +426,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
     
     <div class="px-2">
       <a
-        href="/writeups/"
+        href="/bubka/writeups/"
         aria-label="writeups"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
@@ -443,12 +443,12 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
     
     <div class="px-2">
       <a
-        href="/"
+        href="/bubka/"
         aria-label="about"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="Lextra hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -571,7 +571,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
         
           
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/reversing/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/reversing/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -581,7 +581,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/packer/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/packer/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -591,7 +591,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/ida/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/ida/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -601,7 +601,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/x64dbg/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/x64dbg/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -847,7 +847,7 @@ Static-Analysis on this program didn&rsquo;t reveal much. There must be a better
     
 </h2>
 <p>Отриманий файл - PE execiteble для Windows 64-bit</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ file *                                                        
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ file *                                                        
 </span></span><span style="display:flex;"><span>partialencryption.exe: PE32+ executable <span style="color:#ff7b72">for</span> MS Windows 6.00 <span style="color:#ff7b72;font-weight:bold">(</span>console<span style="color:#ff7b72;font-weight:bold">)</span>, x86-64, <span style="color:#a5d6ff">5</span> sections</span></span></code></pre></div></div>
 
 <h3 class="relative group">Packer
@@ -862,7 +862,7 @@ Static-Analysis on this program didn&rsquo;t reveal much. There must be a better
 <p>Містить невелику кількість imports, що вказують на пакуваня (<code>VirtualAlloc VirtualProtect VirtualFree</code>) та на anti-dynamic analysis:<br>
 - <code>IsDebuggerPresent</code> - перевірка чи програма працює під дебагером
 - <code>QueryPerformanceCounter</code> та <code>GetSystemTimeAsFileTime</code> - можуть використовутися для вимирювання часу між інструкціями</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>VirtualAlloc
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>VirtualAlloc
 </span></span><span style="display:flex;"><span>VirtualProtect
 </span></span><span style="display:flex;"><span>VirtualFree
 </span></span><span style="display:flex;"><span>QueryPerformanceCounter
@@ -901,10 +901,10 @@ Static-Analysis on this program didn&rsquo;t reveal much. There must be a better
     alt="alt text"
     width="915"
     height="329"
-    src="/writeups/htb-partial_encryption/image_hu_d747400c85c50b09.png"
-    srcset="/writeups/htb-partial_encryption/image_hu_d747400c85c50b09.png 800w, /writeups/htb-partial_encryption/image.png 1280w"
+    src="/bubka/writeups/htb-partial_encryption/image_hu_d747400c85c50b09.png"
+    srcset="/bubka/writeups/htb-partial_encryption/image_hu_d747400c85c50b09.png 800w, /bubka/writeups/htb-partial_encryption/image.png 1280w"
     sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/writeups/htb-partial_encryption/image.png"></figure>
+    data-zoom-src="/bubka/writeups/htb-partial_encryption/image.png"></figure>
 </li>
 </ul>
 
@@ -952,10 +952,10 @@ No</code></pre></div>
     alt="alt text"
     width="827"
     height="197"
-    src="/writeups/htb-partial_encryption/image-1_hu_243a6b0401cdd298.png"
-    srcset="/writeups/htb-partial_encryption/image-1_hu_243a6b0401cdd298.png 800w, /writeups/htb-partial_encryption/image-1.png 1280w"
+    src="/bubka/writeups/htb-partial_encryption/image-1_hu_243a6b0401cdd298.png"
+    srcset="/bubka/writeups/htb-partial_encryption/image-1_hu_243a6b0401cdd298.png 800w, /bubka/writeups/htb-partial_encryption/image-1.png 1280w"
     sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/writeups/htb-partial_encryption/image-1.png"></figure>
+    data-zoom-src="/bubka/writeups/htb-partial_encryption/image-1.png"></figure>
 </p>
 <p>I then executed the program with a longer input string (e.g., <code>aaa...</code>) to observe its behavior under those conditions.</p>
 <p><figure><img
@@ -966,13 +966,13 @@ No</code></pre></div>
     alt="alt text"
     width="749"
     height="442"
-    src="/writeups/htb-partial_encryption/image-2.png"
-    srcset="/writeups/htb-partial_encryption/image-2.png 800w, /writeups/htb-partial_encryption/image-2.png 1280w"
+    src="/bubka/writeups/htb-partial_encryption/image-2.png"
+    srcset="/bubka/writeups/htb-partial_encryption/image-2.png 800w, /bubka/writeups/htb-partial_encryption/image-2.png 1280w"
     sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/writeups/htb-partial_encryption/image-2.png"></figure>
+    data-zoom-src="/bubka/writeups/htb-partial_encryption/image-2.png"></figure>
 </p>
 <p>In this case, the program began checking individual characters of the flag.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rax</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rdx</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rax</span>]          <span style="color:#f85149">|</span>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">movsx</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#79c0ff;font-weight:bold">byte</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rax</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rcx</span>]         <span style="color:#f85149">|</span>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">48</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">48</span>:<span style="color:#f85149">&#39;</span><span style="color:#79c0ff;font-weight:bold">H</span><span style="color:#f85149">&#39;</span>
@@ -996,7 +996,7 @@ No</code></pre></div>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">7</span><span style="color:#79c0ff;font-weight:bold">D</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">7</span><span style="color:#79c0ff;font-weight:bold">D</span>:<span style="color:#f85149">&#39;}}&#39;</span>
 </span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...</span></span></code></pre></div></div>
 <p>Continuing debugging, I found three identical blocks of code that handle decryption and execution:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">r8d</span>,<span style="color:#a5d6ff">8000</span>                            <span style="color:#f85149">|</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">r8d</span>,<span style="color:#a5d6ff">8000</span>                            <span style="color:#f85149">|</span>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">xor</span> <span style="color:#79c0ff;font-weight:bold">edx</span>,<span style="color:#79c0ff;font-weight:bold">edx</span>                             <span style="color:#f85149">|</span>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rcx</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ss</span>:[<span style="color:#79c0ff;font-weight:bold">rsp</span><span style="color:#f85149">+</span><span style="color:#a5d6ff">30</span>]           <span style="color:#f85149">|</span>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">call</span> <span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#f85149">&lt;</span><span style="color:#79c0ff;font-weight:bold">VirtualFree</span><span style="color:#f85149">&gt;</span>]       <span style="color:#f85149">|</span>
@@ -1010,7 +1010,7 @@ No</code></pre></div>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">call</span> <span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ss</span>:[<span style="color:#79c0ff;font-weight:bold">rsp</span><span style="color:#f85149">+</span><span style="color:#a5d6ff">58</span>]              <span style="color:#f85149">|</span>  <span style="color:#f85149">##</span> <span style="color:#79c0ff;font-weight:bold">jumps</span> <span style="color:#79c0ff;font-weight:bold">directly</span> <span style="color:#79c0ff;font-weight:bold">to</span> <span style="color:#79c0ff;font-weight:bold">the</span> <span style="color:#79c0ff;font-weight:bold">start</span> <span style="color:#79c0ff;font-weight:bold">of</span> <span style="color:#79c0ff;font-weight:bold">that</span> <span style="color:#79c0ff;font-weight:bold">new</span> <span style="color:#79c0ff;font-weight:bold">decrypted</span> <span style="color:#79c0ff;font-weight:bold">code</span></span></span></code></pre></div></div>
 <p>By placing breakpoints on these dynamic <code>call qword ptr ss:[rsp+??] </code> instructions, we intercepted the decrypted logic for each stage.</p>
 <p><strong>call qword ptr ss:[rsp+58]:</strong></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rax</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rdx</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rax</span>]          <span style="color:#f85149">|</span>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">movsx</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#79c0ff;font-weight:bold">byte</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rax</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rcx</span>]         <span style="color:#f85149">|</span>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">57</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">57</span>:<span style="color:#f85149">&#39;</span><span style="color:#79c0ff;font-weight:bold">W</span><span style="color:#f85149">&#39;</span>
@@ -1050,54 +1050,16 @@ No</code></pre></div>
         
         <script
           type="text/javascript"
-          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          src="/bubka/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_writeups/HTB-Partial_Encryption/index.md"
-          data-oid-likes="likes_writeups/HTB-Partial_Encryption/index.md"></script>
+          data-oid="views_writeups\HTB-Partial_Encryption\index.md"
+          data-oid-likes="likes_writeups\HTB-Partial_Encryption\index.md"></script>
       
     </section>
 
     
     <footer class="pt-8 max-w-prose print:hidden">
       
-  
-    
-    
-    
-      
-      
-    
-    <div class="pt-8">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
-      <div class="flex justify-between pt-3">
-        <span class="flex flex-col">
-          
-            <a
-              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/writeups/htb-wayback/">
-              <span class="leading-6">
-                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;HTB-Wayback
-              </span>
-            </a>
-            
-          
-        </span>
-        <span class="flex flex-col items-end">
-          
-            <a
-              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/writeups/htb-rauth/">
-              <span class="leading-6">
-                HTB-RAuth&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
-              </span>
-            </a>
-            
-          
-        </span>
-      </div>
-    </div>
-  
-
 
       
     </footer>
@@ -1150,7 +1112,7 @@ No</code></pre></div>
   
   <script
     type="text/javascript"
-    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    src="/bubka/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
     integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
@@ -1158,7 +1120,7 @@ No</code></pre></div>
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:1313/bubka/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

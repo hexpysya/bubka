@@ -1,6 +1,6 @@
 baseURL = 'https://hexpysya.github.io/bubka/'
 languageCode = 'en-us'
-title = 'Lextra hack stuff'
+title = 'bubka hack stuff'
 theme = "blowfish"
 
 [markup]
@@ -9,9 +9,12 @@ theme = "blowfish"
       unsafe = true
 
   [markup.highlight]
-    #style = 'github-dark'
     style = 'github-dark'
 
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
 [[menus.main]]
   name = "writeups"
   pageRef = "writeups"  
@@ -63,7 +66,7 @@ smartTOC = true
   editAppendPath = true
   seriesOpened = false
   showHeadingAnchors = true
-  showPagination = true
+  showPagination = false
   invertPagination = false
   showReadingTime = false
   showTableOfContents = true

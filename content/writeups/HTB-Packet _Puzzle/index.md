@@ -19,8 +19,8 @@ Analyzed network traffic showing exploitation of CVE-2024-4577 (PHP-CGI argument
 
 
 ### Attacker Reconnaissance
-Target Information:
-\- PHP Version: `X-Powered-By: PHP/8.1.25`  
+Target Information:  
+\- PHP Version: `PHP/8.1.25`  
 \- Victim IP: `192.168.170.130`  
 \- Attacker IP: `192.168.170.128`  
 

@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en-us">
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-CrashDump &middot; Lextra hack stuff</title>
-    <meta name="title" content="HTB-CrashDump &middot; Lextra hack stuff">
+    <title>HTB-CrashDump &middot; bubka hack stuff</title>
+    <meta name="title" content="HTB-CrashDump &middot; bubka hack stuff">
   
 
   
@@ -26,7 +26,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/writeups/htb-crashdump/">
+  <link rel="canonical" href="http://localhost:1313/bubka/writeups/htb-crashdump/">
   
 
   
@@ -34,8 +34,8 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/writeups/htb-crashdump/">
-  <meta property="og:site_name" content="Lextra hack stuff">
+  <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-crashdump/">
+  <meta property="og:site_name" content="bubka hack stuff">
   <meta property="og:title" content="HTB-CrashDump">
   <meta property="og:description" content="Difficulty: Easy OS: Windows Date: 2026-01-30 Description:
 A suspicious executable was identified running on one of the compromised endpoints. Initial triage suggests that this process may have been leveraged by the threat actor to establish a foothold on the system. To support further malware analysis and behavioral reconstruction, a user‑mode process dump of the suspected executable has been provided.
@@ -102,14 +102,14 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6b395820ab321b4c24aa8173a69bca3235f876d3f10d16751c61a6f9340cb1051d8b88ad605be3ccc58d4f7cb218140d9dc97409e0c68afef4a5fc1a982ad3fd.css"
-    integrity="sha512-azlYIKsyG0wkqoFzppvKMjX4dtPxDRZ1HGGm&#43;TQMsQUdi4itYFvjzMWNT3yyGBQNncl0CeDGiv70pfwamCrT/Q==">
+    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
+    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
 
   
   
   <script
     type="text/javascript"
-    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    src="/bubka/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
     integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
   
   
@@ -118,7 +118,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
   
   
     
-    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+    <script src="/bubka/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
   
 
   
@@ -140,7 +140,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
       defer
       type="text/javascript"
       id="script-bundle"
-      src="/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
+      src="/bubka/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
       integrity="sha512-Z2JKNXySjSm5/hm6AaHjLAWtEynKKnEr8QRG3wxocpA9DBSyH3aJa1eloHEJQIBUFs7jiFHZBn22VViBGI41pQ=="
       data-copy="Copy"
       data-copied="Copied"></script>
@@ -149,7 +149,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
   
   
 
-<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+<script src="/bubka/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
 
 
@@ -195,10 +195,10 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
 
   
   
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/bubka/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bubka/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/bubka/favicon-16x16.png">
+    <link rel="manifest" href="/bubka/site.webmanifest">
   
 
   
@@ -211,7 +211,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
     "headline": "HTB-CrashDump",
     
     "inLanguage": "en-us",
-    "url" : "http://localhost:1313/writeups/htb-crashdump/",
+    "url" : "http://localhost:1313/bubka/writeups/htb-crashdump/",
     "author" : {
       "@type": "Person",
       "name": ""
@@ -282,8 +282,8 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
     <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
   
   
-    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
-      Lextra hack stuff
+    <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
+      bubka hack stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -294,7 +294,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
       
   
     <a
-      href="/writeups/"
+      href="/bubka/writeups/"
       
       class="flex items-center bf-icon-color-hover"
       aria-label="writeups"
@@ -312,11 +312,11 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
       
   
     <a
-      href="/"
+      href="/bubka/"
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="Lextra hack stuff">
+      title="bubka hack stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -422,7 +422,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
     
     <div class="px-2">
       <a
-        href="/writeups/"
+        href="/bubka/writeups/"
         aria-label="writeups"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
@@ -439,12 +439,12 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
     
     <div class="px-2">
       <a
-        href="/"
+        href="/bubka/"
         aria-label="about"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="Lextra hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -567,7 +567,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
         
           
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/malware-analysis/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/malware-analysis/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -577,7 +577,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/windbg/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windbg/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -587,7 +587,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/mini-dump/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/mini-dump/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -597,7 +597,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/cobalt/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cobalt/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -870,7 +870,7 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h2>
 <p>I received 2 mini dump files:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>notepad.DMP: Mini DuMP crash report, 15 streams, Wed Nov  5 01:14:37 2025, 0x21826 type
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>notepad.DMP: Mini DuMP crash report, 15 streams, Wed Nov  5 01:14:37 2025, 0x21826 type
 </span></span><span style="display:flex;"><span>update.DMP:  Mini DuMP crash report, 15 streams, Wed Nov  5 01:11:52 2025, 0x21826 type</span></span></code></pre></div></div>
 
 <h2 class="relative group"><span style="color:red">Injected Process (notepad.dmp)</span>
@@ -883,17 +883,17 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h2>
 <p>I ran <code>!analyze -v</code> to reveal OS information:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>OS_VERSION:  10.0.10240.16384
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>OS_VERSION:  10.0.10240.16384
 </span></span><span style="display:flex;"><span>OSPLATFORM_TYPE:  x64
 </span></span><span style="display:flex;"><span>OSNAME:  Windows 10</span></span></code></pre></div></div>
 <p>I checked for RWX memory regions using <code>!address -f:PAGE_EXECUTE_READWRITE</code>. The first bytes at address <code>b1221a0000</code> started with <code>MZ</code>, indicating an embedded EXE/DLL:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>        BaseAddress      EndAddress+1        RegionSize     Type       State                 Protect             Usage
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>        BaseAddress      EndAddress+1        RegionSize     Type       State                 Protect             Usage
 </span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------------------------------------------------
 </span></span><span style="display:flex;"><span>      b1`20870000       b1`20871000        0`00001000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [.H........AQAPRQ]
 </span></span><span style="display:flex;"><span>      b1`221a0000       b1`221ee000        0`0004e000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [MZARUH..H......H]
 </span></span><span style="display:flex;"><span>      b1`23bd0000       b1`23fd0000        0`00400000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [.H....3..E.H....]</span></span></code></pre></div></div>
 <p>I examined the threads. Thread with TID 0x3a8 corresponded to the memory page at BaseAddress <code>20870000</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0xc28   0x0   notepad!WinMainCRTStartup (00007ff7`8dc23fe0)       
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0xc28   0x0   notepad!WinMainCRTStartup (00007ff7`8dc23fe0)       
 </span></span><span style="display:flex;"><span>0x3a8   0x1   000000b1`20870000      
 </span></span><span style="display:flex;"><span>0x5fc   0x2   ntdll!TppWorkerThread (00007fff`47309040)       
 </span></span><span style="display:flex;"><span>0x2d0   0x3   ntdll!TppWorkerThread (00007fff`47309040)       </span></span></code></pre></div></div>
@@ -908,7 +908,7 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h3>
 <p>The code was a shellcode stager that unpacked and executed the payload at <code>b1221ee000</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span><span style="color:#f85149">0:001&gt;</span> <span style="color:#d2a8ff;font-weight:bold">u</span> <span style="color:#79c0ff">b120870000</span> <span style="color:#79c0ff">L50</span>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span><span style="color:#f85149">0:001&gt;</span> <span style="color:#d2a8ff;font-weight:bold">u</span> <span style="color:#79c0ff">b120870000</span> <span style="color:#79c0ff">L50</span>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870000</span> <span style="color:#79c0ff">fc</span>              cl<span style="color:#79c0ff">d</span>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870001</span> <span style="color:#a5d6ff">4883</span><span style="color:#79c0ff">e4f0</span>        <span style="color:#79c0ff">and</span>     rsp,<span style="color:#a5d6ff">0FFFFFFFFFFFFFFF0h</span>
 </span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#a5d6ff">`20870005 e8c8000000      call    000000b1`</span><span style="color:#a5d6ff">208700</span><span style="color:#79c0ff">d2</span>
@@ -939,7 +939,7 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h3>
 <p>I extracted the injected binary from memory address <code>b1221a0000</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.writemem c:\Users\f\Desktop\shellcode.bin b1221a0000 L?4e000</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.writemem c:\Users\f\Desktop\shellcode.bin b1221a0000 L?4e000</span></span></code></pre></div></div>
 
 <h2 class="relative group"><span style="color:red">Malicious Process (update.dmp)</span>
     <div id="malicious-process-updatedmp" class="anchor"></div>
@@ -951,7 +951,7 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h2>
 <p>I found another executable in this process and extracted it as <code>shellcode1.bin</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0:000&gt; !address -f:PAGE_EXECUTE_READWRITE
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0:000&gt; !address -f:PAGE_EXECUTE_READWRITE
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        BaseAddress      EndAddress+1        RegionSize     Type       State                 Protect             Usage
 </span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------------------------------------------------
@@ -967,10 +967,10 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h3>
 <p>I searched for HTTP connections in memory:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0:000&gt; s -a 0 L?0x7fffffffffffffff &#34;http://&#34;
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0:000&gt; s -a 0 L?0x7fffffffffffffff &#34;http://&#34;
 </span></span><span style="display:flex;"><span>00000000`0060b8b0  68 74 74 70 3a 2f 2f 31-30 31 2e 31 30 2e 32 35  http://101.10.25</span></span></code></pre></div></div>
 <p>I examined the full URL at address <code>0060b8b0</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0:000&gt; db 0060b8b0 L100
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0:000&gt; db 0060b8b0 L100
 </span></span><span style="display:flex;"><span>00000000`0060b8b0  68 74 74 70 3a 2f 2f 31-30 31 2e 31 30 2e 32 35  http://101.10.25
 </span></span><span style="display:flex;"><span>00000000`0060b8c0  2e 34 3a 38 30 32 33 2f-6a 2e 61 64 00 00 00 00  .4:8023/j.ad....</span></span></code></pre></div></div>
 <p><strong>C2 Server:</strong> <code>http://101.10.25.4:8023/j.ad</code></p>
@@ -995,7 +995,7 @@ A suspicious executable was identified running on one of the compromised endpoin
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ascii,10,0x0002C8F0,-,beacon.dll
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ascii,10,0x0002C8F0,-,beacon.dll
 </span></span><span style="display:flex;"><span>ascii,14,0x0003B892,-,beacon.x64.dll
 </span></span><span style="display:flex;"><span>ascii,16,0x0003B8A1,-,ReflectiveLoader</span></span></code></pre></div></div>
 
@@ -1008,7 +1008,7 @@ A suspicious executable was identified running on one of the compromised endpoin
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ascii,69,0x0002D3D9,-,IEX (New-Object Net.Webclient).DownloadString(&#39;http://127.0.0.1:%u/&#39;)
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ascii,69,0x0002D3D9,-,IEX (New-Object Net.Webclient).DownloadString(&#39;http://127.0.0.1:%u/&#39;)
 </span></span><span style="display:flex;"><span>ascii,49,0x0002D491,-,powershell -nop -exec bypass -EncodedCommand &#34;%s&#34;</span></span></code></pre></div></div>
 
 <h3 class="relative group">Capabilities
@@ -1053,45 +1053,16 @@ A suspicious executable was identified running on one of the compromised endpoin
         
         <script
           type="text/javascript"
-          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          src="/bubka/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_writeups/HTB-CrashDump/index.md"
-          data-oid-likes="likes_writeups/HTB-CrashDump/index.md"></script>
+          data-oid="views_writeups\HTB-CrashDump\index.md"
+          data-oid-likes="likes_writeups\HTB-CrashDump\index.md"></script>
       
     </section>
 
     
     <footer class="pt-8 max-w-prose print:hidden">
       
-  
-    
-    
-    
-      
-      
-    
-    <div class="pt-8">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
-      <div class="flex justify-between pt-3">
-        <span class="flex flex-col">
-          
-        </span>
-        <span class="flex flex-col items-end">
-          
-            <a
-              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/writeups/htb-mongobleed/">
-              <span class="leading-6">
-                HTB-MongoBleed&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
-              </span>
-            </a>
-            
-          
-        </span>
-      </div>
-    </div>
-  
-
 
       
     </footer>
@@ -1144,7 +1115,7 @@ A suspicious executable was identified running on one of the compromised endpoin
   
   <script
     type="text/javascript"
-    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    src="/bubka/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
     integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
@@ -1152,7 +1123,7 @@ A suspicious executable was identified running on one of the compromised endpoin
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:1313/bubka/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
