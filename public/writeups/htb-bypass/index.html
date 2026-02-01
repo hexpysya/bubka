@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="dark"
+  data-default-appearance="one-light"
   data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-Cyberpsychosis &middot; bubka hack stuff</title>
-    <meta name="title" content="HTB-Cyberpsychosis &middot; bubka hack stuff">
+    <title>HTB-Cyberpsychosis &middot; bubka hacks stuff</title>
+    <meta name="title" content="HTB-Cyberpsychosis &middot; bubka hacks stuff">
   
 
   
@@ -35,11 +35,11 @@
 
   
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-bypass/">
-  <meta property="og:site_name" content="bubka hack stuff">
+  <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-Cyberpsychosis">
   <meta property="og:description" content="Difficulty: Easy OS: Windows Date: 2026-01-18 Description:
 The Client is in full control. Bypass the authentication and read the key to get the Flag.
-initial analysis # $ file Bypass.exe Bypass.exe: PE32 executable for MS Windows 4.00 (console), Intel i386 Mono/.Net assembly, 3 sections C:\Users\f\Desktop&gt;Bypass.exe Enter a username: hi Enter a password: hi Wrong username and/or password Enter a username: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa Enter a password: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa Wrong username and/or password Enter a username: reversing with dnspy # Код отримує доступ до вбудованого ресурсу з іменем &#34;0&#34;. ці дані передаються у метод 3 класу 7">
+initial analysis # 1$ file Bypass.exe 2Bypass.exe: PE32 executable for MS Windows 4.00 (console), Intel i386 Mono/.Net assembly, 3 sections 1C:\Users\f\Desktop&gt;Bypass.exe 2Enter a username: hi 3Enter a password: hi 4Wrong username and/or password 5Enter a username: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 6Enter a password: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 7Wrong username and/or password 8Enter a username: reversing with dnspy # Код отримує доступ до вбудованого ресурсу з іменем &#34;0&#34;. ці дані передаються у метод 3 класу 7">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -54,7 +54,7 @@ initial analysis # $ file Bypass.exe Bypass.exe: PE32 executable for MS Windows 
   <meta name="twitter:title" content="HTB-Cyberpsychosis">
   <meta name="twitter:description" content="Difficulty: Easy OS: Windows Date: 2026-01-18 Description:
 The Client is in full control. Bypass the authentication and read the key to get the Flag.
-initial analysis # $ file Bypass.exe Bypass.exe: PE32 executable for MS Windows 4.00 (console), Intel i386 Mono/.Net assembly, 3 sections C:\Users\f\Desktop&gt;Bypass.exe Enter a username: hi Enter a password: hi Wrong username and/or password Enter a username: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa Enter a password: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa Wrong username and/or password Enter a username: reversing with dnspy # Код отримує доступ до вбудованого ресурсу з іменем &#34;0&#34;. ці дані передаються у метод 3 класу 7">
+initial analysis # 1$ file Bypass.exe 2Bypass.exe: PE32 executable for MS Windows 4.00 (console), Intel i386 Mono/.Net assembly, 3 sections 1C:\Users\f\Desktop&gt;Bypass.exe 2Enter a username: hi 3Enter a password: hi 4Wrong username and/or password 5Enter a username: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 6Enter a password: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 7Wrong username and/or password 8Enter a username: reversing with dnspy # Код отримує доступ до вбудованого ресурсу з іменем &#34;0&#34;. ці дані передаються у метод 3 класу 7">
 
   
   
@@ -101,8 +101,8 @@ initial analysis # $ file Bypass.exe Bypass.exe: PE32 executable for MS Windows 
   <link
     type="text/css"
     rel="stylesheet"
-    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
-    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
+    href="/bubka/css/main.bundle.min.c021e5819c07d4cc5a59e5328c5dd36a5597b7d868fb04bddc32d0c56e6ee89975ed188ec798a5dbff3583fba73e0d15f723602d4c97d468bc8bbc1fddbc49fb.css"
+    integrity="sha512-wCHlgZwH1MxaWeUyjF3TalWXt9ho&#43;wS93DLQxW5u6Jl17RiOx5il2/81g/unPg0V9yNgLUyX1Gi8i7wf3bxJ&#43;w==">
 
   
   
@@ -224,7 +224,7 @@ initial analysis # $ file Bypass.exe Bypass.exe: PE32 executable for MS Windows 
     "keywords": ["Reversing",".NET","dnspy"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "281"
+    "wordCount": "290"
   }]
   </script>
 
@@ -258,6 +258,10 @@ initial analysis # $ file Bypass.exe Bypass.exe: PE32 executable for MS Windows 
 
 
 
+  
+    
+  
+
 
 
 
@@ -282,7 +286,7 @@ initial analysis # $ file Bypass.exe Bypass.exe: PE32 executable for MS Windows 
   
   
     <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
-      bubka hack stuff
+      bubka hacks stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -315,7 +319,7 @@ initial analysis # $ file Bypass.exe Bypass.exe: PE32 executable for MS Windows 
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="bubka hack stuff">
+      title="bubka hacks stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -443,7 +447,7 @@ initial analysis # $ file Bypass.exe Bypass.exe: PE32 executable for MS Windows 
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hacks stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -488,6 +492,89 @@ initial analysis # $ file Bypass.exe Bypass.exe: PE32 executable for MS Windows 
   
   <article>
     
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+    
+    
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a249bad53d232748.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a249bad53d232748.jpg"></script>
+  
+      
     
 
     
@@ -813,16 +900,16 @@ The Client is in full control. Bypass the authentication and read the key to get
     </span>
     
 </h2>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$  file Bypass.exe 
-</span></span><span style="display:flex;"><span>Bypass.exe: PE32 executable <span style="color:#ff7b72">for</span> MS Windows 4.00 <span style="color:#ff7b72;font-weight:bold">(</span>console<span style="color:#ff7b72;font-weight:bold">)</span>, Intel i386 Mono/.Net assembly, <span style="color:#a5d6ff">3</span> sections</span></span></code></pre></div></div>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>C:\Users\f\Desktop&gt;Bypass.<span style="color:#79c0ff">exe</span>
-</span></span><span style="display:flex;"><span>Enter a username<span style="color:#f85149">:</span> hi
-</span></span><span style="display:flex;"><span>Enter a password<span style="color:#f85149">:</span> hi
-</span></span><span style="display:flex;"><span>Wrong username and/or password
-</span></span><span style="display:flex;"><span>Enter a username<span style="color:#f85149">:</span> aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-</span></span><span style="display:flex;"><span>Enter a password<span style="color:#f85149">:</span> aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-</span></span><span style="display:flex;"><span>Wrong username and/or password
-</span></span><span style="display:flex;"><span>Enter a username<span style="color:#f85149">:</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$  file Bypass.exe 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Bypass.exe: PE32 executable <span class="k">for</span> MS Windows 4.00 <span class="o">(</span>console<span class="o">)</span>, Intel i386 Mono/.Net assembly, <span class="m">3</span> sections</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">f</span><span class="p">\</span><span class="n">Desktop</span><span class="p">&gt;</span><span class="n">Bypass</span><span class="p">.</span><span class="py">exe</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">Enter</span> <span class="n">a</span> <span class="n">username</span><span class="err">:</span> <span class="n">hi</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">Enter</span> <span class="n">a</span> <span class="n">password</span><span class="err">:</span> <span class="n">hi</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="n">Wrong</span> <span class="n">username</span> <span class="n">and</span><span class="p">/</span><span class="n">or</span> <span class="n">password</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="n">Enter</span> <span class="n">a</span> <span class="n">username</span><span class="err">:</span> <span class="n">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">Enter</span> <span class="n">a</span> <span class="n">password</span><span class="err">:</span> <span class="n">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">Wrong</span> <span class="n">username</span> <span class="n">and</span><span class="p">/</span><span class="n">or</span> <span class="n">password</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="n">Enter</span> <span class="n">a</span> <span class="n">username</span><span class="err">:</span></span></span></code></pre></div></div>
 
 <h2 class="relative group">reversing with dnspy
     <div id="reversing-with-dnspy" class="anchor"></div>
@@ -862,10 +949,10 @@ The Client is in full control. Bypass the authentication and read the key to get
 
 it&rsquo;s AES-CBC decrytprion
 where key is 32 bytes and iv is 16 byte</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#ff7b72">byte</span>[] array = <span style="color:#ff7b72">new</span> <span style="color:#ff7b72">byte</span>[rijndaelManaged.Key.Length];
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">byte</span>[] array2 = <span style="color:#ff7b72">new</span> <span style="color:#ff7b72">byte</span>[rijndaelManaged.IV.Length];
-</span></span><span style="display:flex;"><span>memoryStream.Read(array, <span style="color:#a5d6ff">0</span>, array.Length);
-</span></span><span style="display:flex;"><span>memoryStream.Read(array2, <span style="color:#a5d6ff">0</span>, array2.Length);</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">byte</span><span class="p">[]</span> <span class="n">array</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="n">rijndaelManaged</span><span class="p">.</span><span class="n">Key</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">byte</span><span class="p">[]</span> <span class="n">array2</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="n">rijndaelManaged</span><span class="p">.</span><span class="n">IV</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">memoryStream</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="n">memoryStream</span><span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">array2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">array2</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span></span></span></code></pre></div></div>
 
 <h2 class="relative group">solution
     <div id="solution" class="anchor"></div>
@@ -876,32 +963,32 @@ where key is 32 bytes and iv is 16 byte</p>
     </span>
     
 </h2>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">Crypto.Cipher</span> <span style="color:#ff7b72">import</span> AES
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">Crypto.Util.Padding</span> <span style="color:#ff7b72">import</span> unpad
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">with</span> open(<span style="color:#a5d6ff">&#34;0.bin&#34;</span>, <span style="color:#a5d6ff">&#34;rb&#34;</span>) <span style="color:#ff7b72">as</span> f:
-</span></span><span style="display:flex;"><span>    d <span style="color:#ff7b72;font-weight:bold">=</span> f<span style="color:#ff7b72;font-weight:bold">.</span>read()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>k_s <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">32</span> 
-</span></span><span style="display:flex;"><span>iv_s <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">16</span>   
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>key <span style="color:#ff7b72;font-weight:bold">=</span> d[:k_s]
-</span></span><span style="display:flex;"><span>iv <span style="color:#ff7b72;font-weight:bold">=</span> d[k_s:k_s <span style="color:#ff7b72;font-weight:bold">+</span> iv_s]
-</span></span><span style="display:flex;"><span>enc_d<span style="color:#ff7b72;font-weight:bold">=</span> d[k_s <span style="color:#ff7b72;font-weight:bold">+</span> iv_s:]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>c <span style="color:#ff7b72;font-weight:bold">=</span> AES<span style="color:#ff7b72;font-weight:bold">.</span>new(key, AES<span style="color:#ff7b72;font-weight:bold">.</span>MODE_CBC, iv)
-</span></span><span style="display:flex;"><span>dec_d <span style="color:#ff7b72;font-weight:bold">=</span> c<span style="color:#ff7b72;font-weight:bold">.</span>decrypt(enc_d)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">with</span> open(<span style="color:#a5d6ff">&#34;re.bin&#34;</span>, <span style="color:#a5d6ff">&#39;wb&#39;</span>) <span style="color:#ff7b72">as</span> f:
-</span></span><span style="display:flex;"><span>    f<span style="color:#ff7b72;font-weight:bold">.</span>write(dec_d)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(<span style="color:#a5d6ff">&#34;re.bin</span><span style="color:#79c0ff">\n</span><span style="color:#a5d6ff">done&#34;</span>)</span></span></code></pre></div></div>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ python3 dec.py 
-</span></span><span style="display:flex;"><span>re.bin
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">done</span>
-</span></span><span style="display:flex;"><span>                                                                                                
-</span></span><span style="display:flex;"><span>$ cat re.bin 
-</span></span><span style="display:flex;"><span>&lt;Wrong username and/or password<span style="color:#79c0ff">$Enter</span> a username: <span style="color:#79c0ff">$Enter</span> a password: |ThisIsAReallyReallySecureKeyButYouCanReadItFromSourceSoItSucks:Please Enter the secret Key: 4Nice here is the Flag:HTB<span style="color:#ff7b72;font-weight:bold">{}</span>Wrong Key▒SuP3rC00lFL4g�This executable has been obfuscated by using RustemSoft Skater .NET Obfuscator Demo version. Please visit RustemSoft.com <span style="color:#ff7b72">for</span> more information.�This executable has been obfuscated by using RustemSoft Skater .NET Obfuscator Demo version. Please visit RustemSoft.com <span style="color:#ff7b72">for</span> more information.�This executable has been obfuscated by using RustemSoft Skater .NET Obfuscator Demo version. Please visit RustemSoft.com <span style="color:#ff7b72">for</span> more information.�This executable has been obfuscated by using RustemSoft Skater .NET Obfuscator Demo version. Please visit RustemSoft.com <span style="color:#ff7b72">for</span> more information. </span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">from</span> <span class="nn">Crypto.Util.Padding</span> <span class="kn">import</span> <span class="n">unpad</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;0.bin&#34;</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="n">d</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="n">k_s</span> <span class="o">=</span> <span class="mi">32</span> 
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="n">iv_s</span> <span class="o">=</span> <span class="mi">16</span>   
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="n">key</span> <span class="o">=</span> <span class="n">d</span><span class="p">[:</span><span class="n">k_s</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="n">iv</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">k_s</span><span class="p">:</span><span class="n">k_s</span> <span class="o">+</span> <span class="n">iv_s</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="n">enc_d</span><span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">k_s</span> <span class="o">+</span> <span class="n">iv_s</span><span class="p">:]</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CBC</span><span class="p">,</span> <span class="n">iv</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="n">dec_d</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">enc_d</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;re.bin&#34;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dec_d</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;re.bin</span><span class="se">\n</span><span class="s2">done&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ python3 dec.py 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">re.bin
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">                                                                                                
+</span></span><span class="line"><span class="ln">5</span><span class="cl">$ cat re.bin 
+</span></span><span class="line"><span class="ln">6</span><span class="cl">&lt;Wrong username and/or password<span class="nv">$Enter</span> a username: <span class="nv">$Enter</span> a password: <span class="p">|</span>ThisIsAReallyReallySecureKeyButYouCanReadItFromSourceSoItSucks:Please Enter the secret Key: 4Nice here is the Flag:HTB<span class="o">{}</span>Wrong Key▒SuP3rC00lFL4g�This executable has been obfuscated by using RustemSoft Skater .NET Obfuscator Demo version. Please visit RustemSoft.com <span class="k">for</span> more information.�This executable has been obfuscated by using RustemSoft Skater .NET Obfuscator Demo version. Please visit RustemSoft.com <span class="k">for</span> more information.�This executable has been obfuscated by using RustemSoft Skater .NET Obfuscator Demo version. Please visit RustemSoft.com <span class="k">for</span> more information.�This executable has been obfuscated by using RustemSoft Skater .NET Obfuscator Demo version. Please visit RustemSoft.com <span class="k">for</span> more information. </span></span></code></pre></div></div>
 <p>we see <code>HTB{}Wrong Key▒SuP3rC00lFL4g</code> so flag is <code>HTB{SuP3rC00lFL4g}</code></p>
 
           

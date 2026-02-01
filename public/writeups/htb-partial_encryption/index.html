@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="dark"
+  data-default-appearance="one-light"
   data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-Partial_Encryption &middot; bubka hack stuff</title>
-    <meta name="title" content="HTB-Partial_Encryption &middot; bubka hack stuff">
+    <title>HTB-Partial_Encryption &middot; bubka hacks stuff</title>
+    <meta name="title" content="HTB-Partial_Encryption &middot; bubka hacks stuff">
   
 
   
@@ -35,12 +35,12 @@
 
   
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-partial_encryption/">
-  <meta property="og:site_name" content="bubka hack stuff">
+  <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-Partial_Encryption">
   <meta property="og:description" content="Difficulty: Easy OS: Windows Date: 2026-01-18 Description:
 Static-Analysis on this program didn’t reveal much. There must be a better way to approach this…
 Static Analysis # Отриманий файл - PE execiteble для Windows 64-bit
-$ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (console), x86-64, 5 sections Packer # Містить невелику кількість imports, що вказують на пакуваня (VirtualAlloc VirtualProtect VirtualFree) та на anti-dynamic analysis:
+1$ file * 2partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (console), x86-64, 5 sections Packer # Містить невелику кількість imports, що вказують на пакуваня (VirtualAlloc VirtualProtect VirtualFree) та на anti-dynamic analysis:
 - IsDebuggerPresent - перевірка чи програма працює під дебагером - QueryPerformanceCounter та GetSystemTimeAsFileTime - можуть використовутися для вимирювання часу між інструкціями">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -58,7 +58,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
   <meta name="twitter:description" content="Difficulty: Easy OS: Windows Date: 2026-01-18 Description:
 Static-Analysis on this program didn’t reveal much. There must be a better way to approach this…
 Static Analysis # Отриманий файл - PE execiteble для Windows 64-bit
-$ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (console), x86-64, 5 sections Packer # Містить невелику кількість imports, що вказують на пакуваня (VirtualAlloc VirtualProtect VirtualFree) та на anti-dynamic analysis:
+1$ file * 2partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (console), x86-64, 5 sections Packer # Містить невелику кількість imports, що вказують на пакуваня (VirtualAlloc VirtualProtect VirtualFree) та на anti-dynamic analysis:
 - IsDebuggerPresent - перевірка чи програма працює під дебагером - QueryPerformanceCounter та GetSystemTimeAsFileTime - можуть використовутися для вимирювання часу між інструкціями">
 
   
@@ -106,8 +106,8 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
   <link
     type="text/css"
     rel="stylesheet"
-    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
-    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
+    href="/bubka/css/main.bundle.min.c021e5819c07d4cc5a59e5328c5dd36a5597b7d868fb04bddc32d0c56e6ee89975ed188ec798a5dbff3583fba73e0d15f723602d4c97d468bc8bbc1fddbc49fb.css"
+    integrity="sha512-wCHlgZwH1MxaWeUyjF3TalWXt9ho&#43;wS93DLQxW5u6Jl17RiOx5il2/81g/unPg0V9yNgLUyX1Gi8i7wf3bxJ&#43;w==">
 
   
   
@@ -263,6 +263,10 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
 
 
 
+  
+    
+  
+
 
 
 
@@ -287,7 +291,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
   
   
     <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
-      bubka hack stuff
+      bubka hacks stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -320,7 +324,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="bubka hack stuff">
+      title="bubka hacks stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -448,7 +452,7 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hacks stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -493,6 +497,89 @@ $ file * partialencryption.exe: PE32&#43; executable for MS Windows 6.00 (consol
   
   <article>
     
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+    
+    
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a249bad53d232748.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a249bad53d232748.jpg"></script>
+  
+      
     
 
     
@@ -847,8 +934,8 @@ Static-Analysis on this program didn&rsquo;t reveal much. There must be a better
     
 </h2>
 <p>Отриманий файл - PE execiteble для Windows 64-bit</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ file *                                                        
-</span></span><span style="display:flex;"><span>partialencryption.exe: PE32+ executable <span style="color:#ff7b72">for</span> MS Windows 6.00 <span style="color:#ff7b72;font-weight:bold">(</span>console<span style="color:#ff7b72;font-weight:bold">)</span>, x86-64, <span style="color:#a5d6ff">5</span> sections</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ file *                                                        
+</span></span><span class="line"><span class="ln">2</span><span class="cl">partialencryption.exe: PE32+ executable <span class="k">for</span> MS Windows 6.00 <span class="o">(</span>console<span class="o">)</span>, x86-64, <span class="m">5</span> sections</span></span></code></pre></div></div>
 
 <h3 class="relative group">Packer
     <div id="packer" class="anchor"></div>
@@ -862,23 +949,23 @@ Static-Analysis on this program didn&rsquo;t reveal much. There must be a better
 <p>Містить невелику кількість imports, що вказують на пакуваня (<code>VirtualAlloc VirtualProtect VirtualFree</code>) та на anti-dynamic analysis:<br>
 - <code>IsDebuggerPresent</code> - перевірка чи програма працює під дебагером
 - <code>QueryPerformanceCounter</code> та <code>GetSystemTimeAsFileTime</code> - можуть використовутися для вимирювання часу між інструкціями</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>VirtualAlloc
-</span></span><span style="display:flex;"><span>VirtualProtect
-</span></span><span style="display:flex;"><span>VirtualFree
-</span></span><span style="display:flex;"><span>QueryPerformanceCounter
-</span></span><span style="display:flex;"><span>GetCurrentProcessId
-</span></span><span style="display:flex;"><span>GetCurrentThreadId
-</span></span><span style="display:flex;"><span>GetSystemTimeAsFileTime
-</span></span><span style="display:flex;"><span>InitializeSListHead
-</span></span><span style="display:flex;"><span>RtlCaptureContext
-</span></span><span style="display:flex;"><span>RtlLookupFunctionEntry
-</span></span><span style="display:flex;"><span>RtlVirtualUnwind
-</span></span><span style="display:flex;"><span>IsDebuggerPresent
-</span></span><span style="display:flex;"><span>UnhandledExceptionFilter
-</span></span><span style="display:flex;"><span>SetUnhandledExceptionFilter
-</span></span><span style="display:flex;"><span>IsProcessorFeaturePresent
-</span></span><span style="display:flex;"><span>GetModuleHandleW
-</span></span><span style="display:flex;"><span>KERNEL32.dll</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">VirtualAlloc
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">VirtualProtect
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">VirtualFree
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">QueryPerformanceCounter
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">GetCurrentProcessId
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">GetCurrentThreadId
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">GetSystemTimeAsFileTime
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">InitializeSListHead
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">RtlCaptureContext
+</span></span><span class="line"><span class="ln">10</span><span class="cl">RtlLookupFunctionEntry
+</span></span><span class="line"><span class="ln">11</span><span class="cl">RtlVirtualUnwind
+</span></span><span class="line"><span class="ln">12</span><span class="cl">IsDebuggerPresent
+</span></span><span class="line"><span class="ln">13</span><span class="cl">UnhandledExceptionFilter
+</span></span><span class="line"><span class="ln">14</span><span class="cl">SetUnhandledExceptionFilter
+</span></span><span class="line"><span class="ln">15</span><span class="cl">IsProcessorFeaturePresent
+</span></span><span class="line"><span class="ln">16</span><span class="cl">GetModuleHandleW
+</span></span><span class="line"><span class="ln">17</span><span class="cl">KERNEL32.dll</span></span></code></pre></div></div>
 
 <h3 class="relative group">Reversing
     <div id="reversing" class="anchor"></div>
@@ -972,58 +1059,58 @@ No</code></pre></div>
     data-zoom-src="/bubka/writeups/htb-partial_encryption/image-2.png"></figure>
 </p>
 <p>In this case, the program began checking individual characters of the flag.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rax</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rdx</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rax</span>]          <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">movsx</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#79c0ff;font-weight:bold">byte</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rax</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rcx</span>]         <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">48</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">48</span>:<span style="color:#f85149">&#39;</span><span style="color:#79c0ff;font-weight:bold">H</span><span style="color:#f85149">&#39;</span>
-</span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rax</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rdx</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rax</span>]          <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">movsx</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#79c0ff;font-weight:bold">byte</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rax</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rcx</span>]         <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">54</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">54</span>:<span style="color:#f85149">&#39;</span><span style="color:#79c0ff;font-weight:bold">T</span><span style="color:#f85149">&#39;</span>
-</span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rax</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rdx</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rax</span>]          <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">movsx</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#79c0ff;font-weight:bold">byte</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rax</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rcx</span>]         <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">42</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">42</span>:<span style="color:#f85149">&#39;</span><span style="color:#79c0ff;font-weight:bold">B</span><span style="color:#f85149">&#39;</span>
-</span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rax</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rdx</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rax</span>]          <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">movsx</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#79c0ff;font-weight:bold">byte</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rax</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rcx</span>]         <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">7</span><span style="color:#79c0ff;font-weight:bold">B</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">7</span><span style="color:#79c0ff;font-weight:bold">B</span>:<span style="color:#f85149">&#39;{&#39;</span>
-</span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">imul</span> <span style="color:#79c0ff;font-weight:bold">rcx</span>,<span style="color:#79c0ff;font-weight:bold">rcx</span>,<span style="color:#a5d6ff">15</span>                         <span style="color:#f85149">|</span> <span style="color:#79c0ff;font-weight:bold">rcx</span>:<span style="color:#79c0ff;font-weight:bold">putchar</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rdx</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ss</span>:[<span style="color:#79c0ff;font-weight:bold">rsp</span><span style="color:#f85149">+</span><span style="color:#a5d6ff">48</span>]           <span style="color:#f85149">|</span> <span style="color:#79c0ff;font-weight:bold">rdx</span>:<span style="color:#79c0ff;font-weight:bold">exit</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rax</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rdx</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rax</span>]          <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">movsx</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#79c0ff;font-weight:bold">byte</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rax</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rcx</span>]         <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">7</span><span style="color:#79c0ff;font-weight:bold">D</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">7</span><span style="color:#79c0ff;font-weight:bold">D</span>:<span style="color:#f85149">&#39;}}&#39;</span>
-</span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="err">|</span> <span class="nf">mov</span> <span class="no">rax</span><span class="p">,</span><span class="no">qword</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rdx</span><span class="err">+</span><span class="no">rax</span><span class="p">]</span>          <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="err">|</span> <span class="nf">movsx</span> <span class="no">eax</span><span class="p">,</span><span class="no">byte</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rax</span><span class="err">+</span><span class="no">rcx</span><span class="p">]</span>         <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">48</span>                              <span class="err">|</span> <span class="mi">48</span><span class="p">:</span><span class="err">&#39;</span><span class="no">H</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="err">|</span> <span class="nf">mov</span> <span class="no">rax</span><span class="p">,</span><span class="no">qword</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rdx</span><span class="err">+</span><span class="no">rax</span><span class="p">]</span>          <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="err">|</span> <span class="nf">movsx</span> <span class="no">eax</span><span class="p">,</span><span class="no">byte</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rax</span><span class="err">+</span><span class="no">rcx</span><span class="p">]</span>         <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">54</span>                              <span class="err">|</span> <span class="mi">54</span><span class="p">:</span><span class="err">&#39;</span><span class="no">T</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="err">|</span> <span class="nf">mov</span> <span class="no">rax</span><span class="p">,</span><span class="no">qword</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rdx</span><span class="err">+</span><span class="no">rax</span><span class="p">]</span>          <span class="err">|</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="err">|</span> <span class="nf">movsx</span> <span class="no">eax</span><span class="p">,</span><span class="no">byte</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rax</span><span class="err">+</span><span class="no">rcx</span><span class="p">]</span>         <span class="err">|</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">42</span>                              <span class="err">|</span> <span class="mi">42</span><span class="p">:</span><span class="err">&#39;</span><span class="no">B</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="err">|</span> <span class="nf">mov</span> <span class="no">rax</span><span class="p">,</span><span class="no">qword</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rdx</span><span class="err">+</span><span class="no">rax</span><span class="p">]</span>          <span class="err">|</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="err">|</span> <span class="nf">movsx</span> <span class="no">eax</span><span class="p">,</span><span class="no">byte</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rax</span><span class="err">+</span><span class="no">rcx</span><span class="p">]</span>         <span class="err">|</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">7</span><span class="no">B</span>                              <span class="err">|</span> <span class="mi">7</span><span class="no">B</span><span class="p">:</span><span class="err">&#39;{&#39;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="err">|</span> <span class="nf">imul</span> <span class="no">rcx</span><span class="p">,</span><span class="no">rcx</span><span class="p">,</span><span class="mi">15</span>                         <span class="err">|</span> <span class="no">rcx</span><span class="p">:</span><span class="no">putchar</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="err">|</span> <span class="nf">mov</span> <span class="no">rdx</span><span class="p">,</span><span class="no">qword</span> <span class="no">ptr</span> <span class="no">ss</span><span class="p">:[</span><span class="no">rsp</span><span class="err">+</span><span class="mi">48</span><span class="p">]</span>           <span class="err">|</span> <span class="no">rdx</span><span class="p">:</span><span class="no">exit</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="err">|</span> <span class="nf">mov</span> <span class="no">rax</span><span class="p">,</span><span class="no">qword</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rdx</span><span class="err">+</span><span class="no">rax</span><span class="p">]</span>          <span class="err">|</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="err">|</span> <span class="nf">movsx</span> <span class="no">eax</span><span class="p">,</span><span class="no">byte</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rax</span><span class="err">+</span><span class="no">rcx</span><span class="p">]</span>         <span class="err">|</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">7</span><span class="no">D</span>                              <span class="err">|</span> <span class="mi">7</span><span class="no">D</span><span class="p">:</span><span class="err">&#39;}}&#39;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span></span></span></code></pre></div></div>
 <p>Continuing debugging, I found three identical blocks of code that handle decryption and execution:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">r8d</span>,<span style="color:#a5d6ff">8000</span>                            <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">xor</span> <span style="color:#79c0ff;font-weight:bold">edx</span>,<span style="color:#79c0ff;font-weight:bold">edx</span>                             <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rcx</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ss</span>:[<span style="color:#79c0ff;font-weight:bold">rsp</span><span style="color:#f85149">+</span><span style="color:#a5d6ff">30</span>]           <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">call</span> <span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#f85149">&lt;</span><span style="color:#79c0ff;font-weight:bold">VirtualFree</span><span style="color:#f85149">&gt;</span>]       <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">xor</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#79c0ff;font-weight:bold">eax</span>                             <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">1</span>                               <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">je</span> <span style="color:#79c0ff;font-weight:bold">partialencryption.7FF62E0F149A</span>       <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">edx</span>,<span style="color:#a5d6ff">1</span><span style="color:#79c0ff;font-weight:bold">E0</span>                             <span style="color:#f85149">|</span>  <span style="color:#8b949e;font-style:italic">## size 480 bytes
-</span></span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">lea</span> <span style="color:#79c0ff;font-weight:bold">rcx</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#a5d6ff">7</span><span style="color:#79c0ff;font-weight:bold">FF62E0F42E0</span>]     <span style="color:#f85149">|</span>  <span style="color:#8b949e;font-style:italic">## encryption data source
-</span></span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">call</span> <span style="color:#79c0ff;font-weight:bold">partialencryption.7FF62E0F1050</span>     <span style="color:#f85149">|</span>  <span style="color:#8b949e;font-style:italic">## decrypting payload into memory
-</span></span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">call</span> <span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ss</span>:[<span style="color:#79c0ff;font-weight:bold">rsp</span><span style="color:#f85149">+</span><span style="color:#a5d6ff">58</span>]              <span style="color:#f85149">|</span>  <span style="color:#f85149">##</span> <span style="color:#79c0ff;font-weight:bold">jumps</span> <span style="color:#79c0ff;font-weight:bold">directly</span> <span style="color:#79c0ff;font-weight:bold">to</span> <span style="color:#79c0ff;font-weight:bold">the</span> <span style="color:#79c0ff;font-weight:bold">start</span> <span style="color:#79c0ff;font-weight:bold">of</span> <span style="color:#79c0ff;font-weight:bold">that</span> <span style="color:#79c0ff;font-weight:bold">new</span> <span style="color:#79c0ff;font-weight:bold">decrypted</span> <span style="color:#79c0ff;font-weight:bold">code</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="err">|</span> <span class="nf">mov</span> <span class="no">r8d</span><span class="p">,</span><span class="mi">8000</span>                            <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="err">|</span> <span class="nf">xor</span> <span class="no">edx</span><span class="p">,</span><span class="no">edx</span>                             <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="err">|</span> <span class="nf">mov</span> <span class="no">rcx</span><span class="p">,</span><span class="no">qword</span> <span class="no">ptr</span> <span class="no">ss</span><span class="p">:[</span><span class="no">rsp</span><span class="err">+</span><span class="mi">30</span><span class="p">]</span>           <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="err">|</span> <span class="nf">call</span> <span class="no">qword</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="err">&lt;</span><span class="no">VirtualFree</span><span class="err">&gt;</span><span class="p">]</span>       <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="err">|</span> <span class="nf">xor</span> <span class="no">eax</span><span class="p">,</span><span class="no">eax</span>                             <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">1</span>                               <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="err">|</span> <span class="nf">je</span> <span class="no">partialencryption.7FF62E0F149A</span>       <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="err">|</span> <span class="nf">mov</span> <span class="no">edx</span><span class="p">,</span><span class="mi">1</span><span class="no">E0</span>                             <span class="err">|</span>  <span class="c1">## size 480 bytes
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="err">|</span> <span class="nf">lea</span> <span class="no">rcx</span><span class="p">,</span><span class="no">qword</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="mi">7</span><span class="no">FF62E0F42E0</span><span class="p">]</span>     <span class="err">|</span>  <span class="c1">## encryption data source
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="err">|</span> <span class="nf">call</span> <span class="no">partialencryption.7FF62E0F1050</span>     <span class="err">|</span>  <span class="c1">## decrypting payload into memory
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="err">|</span> <span class="nf">call</span> <span class="no">qword</span> <span class="no">ptr</span> <span class="no">ss</span><span class="p">:[</span><span class="no">rsp</span><span class="err">+</span><span class="mi">58</span><span class="p">]</span>              <span class="err">|</span>  <span class="err">##</span> <span class="no">jumps</span> <span class="no">directly</span> <span class="no">to</span> <span class="no">the</span> <span class="no">start</span> <span class="no">of</span> <span class="no">that</span> <span class="no">new</span> <span class="no">decrypted</span> <span class="no">code</span></span></span></code></pre></div></div>
 <p>By placing breakpoints on these dynamic <code>call qword ptr ss:[rsp+??] </code> instructions, we intercepted the decrypted logic for each stage.</p>
 <p><strong>call qword ptr ss:[rsp+58]:</strong></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">mov</span> <span style="color:#79c0ff;font-weight:bold">rax</span>,<span style="color:#79c0ff;font-weight:bold">qword</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rdx</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rax</span>]          <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">movsx</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#79c0ff;font-weight:bold">byte</span> <span style="color:#79c0ff;font-weight:bold">ptr</span> <span style="color:#79c0ff;font-weight:bold">ds</span>:[<span style="color:#79c0ff;font-weight:bold">rax</span><span style="color:#f85149">+</span><span style="color:#79c0ff;font-weight:bold">rcx</span>]         <span style="color:#f85149">|</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">57</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">57</span>:<span style="color:#f85149">&#39;</span><span style="color:#79c0ff;font-weight:bold">W</span><span style="color:#f85149">&#39;</span>
-</span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">33</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">33</span>:<span style="color:#f85149">&#39;</span><span style="color:#a5d6ff">3</span><span style="color:#f85149">&#39;</span>
-</span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">33</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">33</span>:<span style="color:#f85149">&#39;</span><span style="color:#a5d6ff">3</span><span style="color:#f85149">&#39;</span>
-</span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">52</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">52</span>:<span style="color:#f85149">&#39;</span><span style="color:#79c0ff;font-weight:bold">R</span><span style="color:#f85149">&#39;</span>
-</span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">52</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">52</span>:<span style="color:#f85149">&#39;</span><span style="color:#79c0ff;font-weight:bold">R</span><span style="color:#f85149">&#39;</span>
-</span></span><span style="display:flex;"><span>...[<span style="color:#79c0ff;font-weight:bold">snip</span>]...
-</span></span><span style="display:flex;"><span><span style="color:#f85149">|</span> <span style="color:#d2a8ff;font-weight:bold">cmp</span> <span style="color:#79c0ff;font-weight:bold">eax</span>,<span style="color:#a5d6ff">5</span><span style="color:#79c0ff;font-weight:bold">F</span>                              <span style="color:#f85149">|</span> <span style="color:#a5d6ff">5</span><span style="color:#79c0ff;font-weight:bold">F</span>:<span style="color:#f85149">&#39;</span><span style="color:#79c0ff;font-weight:bold">_</span><span style="color:#f85149">&#39;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="err">|</span> <span class="nf">mov</span> <span class="no">rax</span><span class="p">,</span><span class="no">qword</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rdx</span><span class="err">+</span><span class="no">rax</span><span class="p">]</span>          <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="err">|</span> <span class="nf">movsx</span> <span class="no">eax</span><span class="p">,</span><span class="no">byte</span> <span class="no">ptr</span> <span class="no">ds</span><span class="p">:[</span><span class="no">rax</span><span class="err">+</span><span class="no">rcx</span><span class="p">]</span>         <span class="err">|</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">57</span>                              <span class="err">|</span> <span class="mi">57</span><span class="p">:</span><span class="err">&#39;</span><span class="no">W</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">33</span>                              <span class="err">|</span> <span class="mi">33</span><span class="p">:</span><span class="err">&#39;</span><span class="mi">3</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">33</span>                              <span class="err">|</span> <span class="mi">33</span><span class="p">:</span><span class="err">&#39;</span><span class="mi">3</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">52</span>                              <span class="err">|</span> <span class="mi">52</span><span class="p">:</span><span class="err">&#39;</span><span class="no">R</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">52</span>                              <span class="err">|</span> <span class="mi">52</span><span class="p">:</span><span class="err">&#39;</span><span class="no">R</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="na">...</span><span class="p">[</span><span class="no">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="err">|</span> <span class="nf">cmp</span> <span class="no">eax</span><span class="p">,</span><span class="mi">5</span><span class="no">F</span>                              <span class="err">|</span> <span class="mi">5</span><span class="no">F</span><span class="p">:</span><span class="err">&#39;</span><span class="no">_</span><span class="err">&#39;</span></span></span></code></pre></div></div>
 <p>By debugging the remaining two parts, I obtained the final flag: <strong><code>HTB{W3iRd_RUnT1m3_DEC}</code></strong>.</p>
 
           

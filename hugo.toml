@@ -1,7 +1,8 @@
 baseURL = 'https://hexpysya.github.io/bubka/'
 languageCode = 'en-us'
-title = 'bubka hack stuff'
+title = 'bubka hacks stuff'
 theme = "blowfish"
+
 
 [markup]
   [markup.goldmark]
@@ -10,7 +11,9 @@ theme = "blowfish"
 
   [markup.highlight]
     style = 'github-dark'
-
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = false
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 4
@@ -26,11 +29,10 @@ theme = "blowfish"
   weight = 20
 
 [params]
-colorScheme = "ocean"
-
+colorScheme = "github"
 # avocado, fire, ocean, forest, princess, neon, bloody, terminal, marvel, noir, autumn, congo, slate, github, and one-light
-defaultAppearance = "dark" # valid options: light or dark
-
+defaultAppearance = "one-light" # valid options: light or dark
+defaultBackgroundImage = "mountains1.jpg"
 highlightCurrentMenuArea = false
 smartTOC = true
 
@@ -55,8 +57,8 @@ smartTOC = true
   showDateUpdated = false
   showAuthor = false
   # showAuthorBottom = false
-  showHero = false
-  # heroStyle = "basic" # valid options: basic, big, background, thumbAndBackground
+  showHero = true
+  heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
@@ -81,8 +83,8 @@ smartTOC = true
   # externalLinkForceNewTab = false # disable to allow external links in the same tab (defaults to true)
 
 [params.list]
-  showHero = false
-  # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  showHero = true
+  heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false

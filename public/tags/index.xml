@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on bubka hack stuff</title>
+    <title>Tags on bubka hacks stuff</title>
     <link>http://localhost:1313/bubka/tags/</link>
-    <description>Recent content in Tags on bubka hack stuff</description>
+    <description>Recent content in Tags on bubka hacks stuff</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -20,6 +20,16 @@
     </item>
     
     <item>
+      <title>CamaleonCMS</title>
+      <link>http://localhost:1313/bubka/tags/camaleoncms/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/camaleoncms/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>CVE-2024-4577</title>
       <link>http://localhost:1313/bubka/tags/cve-2024-4577/</link>
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
@@ -30,11 +40,51 @@
     </item>
     
     <item>
+      <title>CVE-2024-46987</title>
+      <link>http://localhost:1313/bubka/tags/cve-2024-46987/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/cve-2024-46987/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>CVE-2025-2304</title>
+      <link>http://localhost:1313/bubka/tags/cve-2025-2304/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/cve-2025-2304/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>Incident Response</title>
       <link>http://localhost:1313/bubka/tags/incident-response/</link>
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/incident-response/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Nmap</title>
+      <link>http://localhost:1313/bubka/tags/nmap/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/nmap/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>S3</title>
+      <link>http://localhost:1313/bubka/tags/s3/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/s3/</guid>
       <description></description>
       
     </item>
@@ -55,6 +105,16 @@
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/t1190/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>http://localhost:1313/bubka/tags/web/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/web/</guid>
       <description></description>
       
     </item>
@@ -390,16 +450,6 @@
     </item>
     
     <item>
-      <title>Nmap</title>
-      <link>http://localhost:1313/bubka/tags/nmap/</link>
-      <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/nmap/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Path-Traversal</title>
       <link>http://localhost:1313/bubka/tags/path-traversal/</link>
       <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate>
@@ -415,16 +465,6 @@
       <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/sqlite/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Web</title>
-      <link>http://localhost:1313/bubka/tags/web/</link>
-      <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/web/</guid>
       <description></description>
       
     </item>

@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="dark"
+  data-default-appearance="one-light"
   data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-CrashDump &middot; bubka hack stuff</title>
-    <meta name="title" content="HTB-CrashDump &middot; bubka hack stuff">
+    <title>HTB-CrashDump &middot; bubka hacks stuff</title>
+    <meta name="title" content="HTB-CrashDump &middot; bubka hacks stuff">
   
 
   
@@ -35,7 +35,7 @@
 
   
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-crashdump/">
-  <meta property="og:site_name" content="bubka hack stuff">
+  <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-CrashDump">
   <meta property="og:description" content="Difficulty: Easy OS: Windows Date: 2026-01-30 Description:
 A suspicious executable was identified running on one of the compromised endpoints. Initial triage suggests that this process may have been leveraged by the threat actor to establish a foothold on the system. To support further malware analysis and behavioral reconstruction, a user‑mode process dump of the suspected executable has been provided.
@@ -102,8 +102,8 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
   <link
     type="text/css"
     rel="stylesheet"
-    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
-    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
+    href="/bubka/css/main.bundle.min.c021e5819c07d4cc5a59e5328c5dd36a5597b7d868fb04bddc32d0c56e6ee89975ed188ec798a5dbff3583fba73e0d15f723602d4c97d468bc8bbc1fddbc49fb.css"
+    integrity="sha512-wCHlgZwH1MxaWeUyjF3TalWXt9ho&#43;wS93DLQxW5u6Jl17RiOx5il2/81g/unPg0V9yNgLUyX1Gi8i7wf3bxJ&#43;w==">
 
   
   
@@ -225,7 +225,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
     "keywords": ["Malware Analysis","winDBG","mini dump","cobalt"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "556"
+    "wordCount": "563"
   }]
   </script>
 
@@ -259,6 +259,10 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
 
 
 
+  
+    
+  
+
 
 
 
@@ -283,7 +287,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
   
   
     <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
-      bubka hack stuff
+      bubka hacks stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -316,7 +320,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="bubka hack stuff">
+      title="bubka hacks stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -444,7 +448,7 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hacks stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -489,6 +493,89 @@ TL;DR # Analyzed two process dumps (notepad.exe and update.exe) revealing a Coba
   
   <article>
     
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+    
+    
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a249bad53d232748.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a249bad53d232748.jpg"></script>
+  
+      
     
 
     
@@ -870,8 +957,8 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h2>
 <p>I received 2 mini dump files:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>notepad.DMP: Mini DuMP crash report, 15 streams, Wed Nov  5 01:14:37 2025, 0x21826 type
-</span></span><span style="display:flex;"><span>update.DMP:  Mini DuMP crash report, 15 streams, Wed Nov  5 01:11:52 2025, 0x21826 type</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">notepad.DMP: Mini DuMP crash report, 15 streams, Wed Nov  5 01:14:37 2025, 0x21826 type
+</span></span><span class="line"><span class="ln">2</span><span class="cl">update.DMP:  Mini DuMP crash report, 15 streams, Wed Nov  5 01:11:52 2025, 0x21826 type</span></span></code></pre></div></div>
 
 <h2 class="relative group"><span style="color:red">Injected Process (notepad.dmp)</span>
     <div id="injected-process-notepaddmp" class="anchor"></div>
@@ -883,20 +970,20 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h2>
 <p>I ran <code>!analyze -v</code> to reveal OS information:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>OS_VERSION:  10.0.10240.16384
-</span></span><span style="display:flex;"><span>OSPLATFORM_TYPE:  x64
-</span></span><span style="display:flex;"><span>OSNAME:  Windows 10</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">OS_VERSION:  10.0.10240.16384
+</span></span><span class="line"><span class="ln">2</span><span class="cl">OSPLATFORM_TYPE:  x64
+</span></span><span class="line"><span class="ln">3</span><span class="cl">OSNAME:  Windows 10</span></span></code></pre></div></div>
 <p>I checked for RWX memory regions using <code>!address -f:PAGE_EXECUTE_READWRITE</code>. The first bytes at address <code>b1221a0000</code> started with <code>MZ</code>, indicating an embedded EXE/DLL:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>        BaseAddress      EndAddress+1        RegionSize     Type       State                 Protect             Usage
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>      b1`20870000       b1`20871000        0`00001000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [.H........AQAPRQ]
-</span></span><span style="display:flex;"><span>      b1`221a0000       b1`221ee000        0`0004e000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [MZARUH..H......H]
-</span></span><span style="display:flex;"><span>      b1`23bd0000       b1`23fd0000        0`00400000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [.H....3..E.H....]</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">        BaseAddress      EndAddress+1        RegionSize     Type       State                 Protect             Usage
+</span></span><span class="line"><span class="ln">2</span><span class="cl">--------------------------------------------------------------------------------------------------------------------------
+</span></span><span class="line"><span class="ln">3</span><span class="cl">      b1`20870000       b1`20871000        0`00001000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [.H........AQAPRQ]
+</span></span><span class="line"><span class="ln">4</span><span class="cl">      b1`221a0000       b1`221ee000        0`0004e000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [MZARUH..H......H]
+</span></span><span class="line"><span class="ln">5</span><span class="cl">      b1`23bd0000       b1`23fd0000        0`00400000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [.H....3..E.H....]</span></span></code></pre></div></div>
 <p>I examined the threads. Thread with TID 0x3a8 corresponded to the memory page at BaseAddress <code>20870000</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0xc28   0x0   notepad!WinMainCRTStartup (00007ff7`8dc23fe0)       
-</span></span><span style="display:flex;"><span>0x3a8   0x1   000000b1`20870000      
-</span></span><span style="display:flex;"><span>0x5fc   0x2   ntdll!TppWorkerThread (00007fff`47309040)       
-</span></span><span style="display:flex;"><span>0x2d0   0x3   ntdll!TppWorkerThread (00007fff`47309040)       </span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">0xc28   0x0   notepad!WinMainCRTStartup (00007ff7`8dc23fe0)       
+</span></span><span class="line"><span class="ln">2</span><span class="cl">0x3a8   0x1   000000b1`20870000      
+</span></span><span class="line"><span class="ln">3</span><span class="cl">0x5fc   0x2   ntdll!TppWorkerThread (00007fff`47309040)       
+</span></span><span class="line"><span class="ln">4</span><span class="cl">0x2d0   0x3   ntdll!TppWorkerThread (00007fff`47309040)       </span></span></code></pre></div></div>
 
 <h3 class="relative group">Thread Analysis
     <div id="thread-analysis" class="anchor"></div>
@@ -908,26 +995,26 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h3>
 <p>The code was a shellcode stager that unpacked and executed the payload at <code>b1221ee000</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span><span style="color:#f85149">0:001&gt;</span> <span style="color:#d2a8ff;font-weight:bold">u</span> <span style="color:#79c0ff">b120870000</span> <span style="color:#79c0ff">L50</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870000</span> <span style="color:#79c0ff">fc</span>              cl<span style="color:#79c0ff">d</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870001</span> <span style="color:#a5d6ff">4883</span><span style="color:#79c0ff">e4f0</span>        <span style="color:#79c0ff">and</span>     rsp,<span style="color:#a5d6ff">0FFFFFFFFFFFFFFF0h</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#a5d6ff">`20870005 e8c8000000      call    000000b1`</span><span style="color:#a5d6ff">208700</span><span style="color:#79c0ff">d2</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">2087000</span><span style="color:#79c0ff">a</span> <span style="color:#a5d6ff">4151</span>            <span style="color:#79c0ff">push</span>    <span style="color:#79c0ff">r9</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">2087000</span><span style="color:#79c0ff">c</span> <span style="color:#a5d6ff">4150</span>            <span style="color:#79c0ff">push</span>    <span style="color:#79c0ff">r8</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">2087000</span><span style="color:#79c0ff">e</span> <span style="color:#a5d6ff">52</span>              <span style="color:#79c0ff">push</span>    rdx
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">2087000</span><span style="color:#79c0ff">f</span> <span style="color:#a5d6ff">51</span>              <span style="color:#79c0ff">push</span>    rcx
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870010</span> <span style="color:#a5d6ff">56</span>              <span style="color:#79c0ff">push</span>    rsi
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870011</span> <span style="color:#a5d6ff">4831</span><span style="color:#79c0ff">d2</span>          <span style="color:#79c0ff">xor</span>     rdx,rdx
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870014</span> <span style="color:#a5d6ff">65488</span><span style="color:#79c0ff">b5260</span>      <span style="color:#79c0ff">mov</span>     rdx,<span style="color:#ff7b72">qword</span> <span style="color:#79c0ff">ptr</span> gs:[rdx<span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#a5d6ff">60h</span>]
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870019</span> <span style="color:#a5d6ff">488</span><span style="color:#79c0ff">b5218</span>        <span style="color:#79c0ff">mov</span>     rdx,<span style="color:#ff7b72">qword</span> <span style="color:#79c0ff">ptr</span> [rdx<span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#a5d6ff">18h</span>]
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">2087001</span><span style="color:#79c0ff">d</span> <span style="color:#a5d6ff">488</span><span style="color:#79c0ff">b5220</span>        <span style="color:#79c0ff">mov</span>     rdx,<span style="color:#ff7b72">qword</span> <span style="color:#79c0ff">ptr</span> [rdx<span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#a5d6ff">20h</span>]
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870021</span> <span style="color:#a5d6ff">488</span><span style="color:#79c0ff">b7250</span>        <span style="color:#79c0ff">mov</span>     rsi,<span style="color:#ff7b72">qword</span> <span style="color:#79c0ff">ptr</span> [rdx<span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#a5d6ff">50h</span>]
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870025</span> <span style="color:#a5d6ff">480</span><span style="color:#79c0ff">fb74a4a</span>      <span style="color:#79c0ff">movzx</span>   rcx,<span style="color:#ff7b72">word</span> <span style="color:#79c0ff">ptr</span> [rdx<span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#a5d6ff">4Ah</span>]
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">2087002</span><span style="color:#79c0ff">a</span> <span style="color:#a5d6ff">4</span><span style="color:#79c0ff">d31c9</span>          <span style="color:#79c0ff">xor</span>     <span style="color:#79c0ff">r9</span>,<span style="color:#79c0ff">r9</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">2087002</span><span style="color:#79c0ff">d</span> <span style="color:#a5d6ff">4831</span><span style="color:#79c0ff">c0</span>          <span style="color:#79c0ff">xor</span>     rax,rax
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870030</span> <span style="color:#79c0ff">ac</span>              <span style="color:#79c0ff">lods</span>    <span style="color:#ff7b72">byte</span> <span style="color:#79c0ff">ptr</span> [rsi]
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#f85149">`</span><span style="color:#a5d6ff">20870031</span> <span style="color:#a5d6ff">3</span><span style="color:#79c0ff">c61</span>            <span style="color:#79c0ff">cmp</span>     al,<span style="color:#a5d6ff">61h</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">000000</span><span style="color:#d2a8ff;font-weight:bold">b1</span><span style="color:#a5d6ff">`20870033 7c02            jl      000000b1`</span><span style="color:#a5d6ff">20870037</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="err">0:001&gt;</span> <span class="nf">u</span> <span class="nv">b120870000</span> <span class="nv">L50</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">20870000</span> <span class="nv">fc</span>              <span class="nb">cl</span><span class="nv">d</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">20870001</span> <span class="mi">4883</span><span class="nv">e4f0</span>        <span class="nv">and</span>     <span class="nb">rsp</span><span class="p">,</span><span class="mh">0FFFFFFFFFFFFFFF0h</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="s">`20870005 e8c8000000      call    000000b1`</span><span class="mi">208700</span><span class="nv">d2</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">2087000</span><span class="nv">a</span> <span class="mi">4151</span>            <span class="nv">push</span>    <span class="nv">r9</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">2087000</span><span class="nv">c</span> <span class="mi">4150</span>            <span class="nv">push</span>    <span class="nv">r8</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">2087000</span><span class="nv">e</span> <span class="mi">52</span>              <span class="nv">push</span>    <span class="nb">rdx</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">2087000</span><span class="nv">f</span> <span class="mi">51</span>              <span class="nv">push</span>    <span class="nb">rcx</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">20870010</span> <span class="mi">56</span>              <span class="nv">push</span>    <span class="nb">rsi</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">20870011</span> <span class="mi">4831</span><span class="nv">d2</span>          <span class="nv">xor</span>     <span class="nb">rdx</span><span class="p">,</span><span class="nb">rdx</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">20870014</span> <span class="mi">65488</span><span class="nv">b5260</span>      <span class="nv">mov</span>     <span class="nb">rdx</span><span class="p">,</span><span class="kt">qword</span> <span class="nv">ptr</span> <span class="nb">gs</span><span class="p">:[</span><span class="nb">rdx</span><span class="o">+</span><span class="mh">60h</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">20870019</span> <span class="mi">488</span><span class="nv">b5218</span>        <span class="nv">mov</span>     <span class="nb">rdx</span><span class="p">,</span><span class="kt">qword</span> <span class="nv">ptr</span> <span class="p">[</span><span class="nb">rdx</span><span class="o">+</span><span class="mh">18h</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">2087001</span><span class="nv">d</span> <span class="mi">488</span><span class="nv">b5220</span>        <span class="nv">mov</span>     <span class="nb">rdx</span><span class="p">,</span><span class="kt">qword</span> <span class="nv">ptr</span> <span class="p">[</span><span class="nb">rdx</span><span class="o">+</span><span class="mh">20h</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">20870021</span> <span class="mi">488</span><span class="nv">b7250</span>        <span class="nv">mov</span>     <span class="nb">rsi</span><span class="p">,</span><span class="kt">qword</span> <span class="nv">ptr</span> <span class="p">[</span><span class="nb">rdx</span><span class="o">+</span><span class="mh">50h</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">20870025</span> <span class="mi">480</span><span class="nv">fb74a4a</span>      <span class="nv">movzx</span>   <span class="nb">rcx</span><span class="p">,</span><span class="kt">word</span> <span class="nv">ptr</span> <span class="p">[</span><span class="nb">rdx</span><span class="o">+</span><span class="mh">4Ah</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">2087002</span><span class="nv">a</span> <span class="mi">4</span><span class="nv">d31c9</span>          <span class="nv">xor</span>     <span class="nv">r9</span><span class="p">,</span><span class="nv">r9</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">2087002</span><span class="nv">d</span> <span class="mi">4831</span><span class="nv">c0</span>          <span class="nv">xor</span>     <span class="nb">rax</span><span class="p">,</span><span class="nb">rax</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">20870030</span> <span class="nv">ac</span>              <span class="nv">lods</span>    <span class="kt">byte</span> <span class="nv">ptr</span> <span class="p">[</span><span class="nb">rsi</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="err">`</span><span class="mi">20870031</span> <span class="mi">3</span><span class="nv">c61</span>            <span class="nv">cmp</span>     <span class="nb">al</span><span class="p">,</span><span class="mh">61h</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="err">000000</span><span class="nf">b1</span><span class="s">`20870033 7c02            jl      000000b1`</span><span class="mi">20870037</span></span></span></code></pre></div></div>
 
 <h3 class="relative group">Payload Extraction
     <div id="payload-extraction" class="anchor"></div>
@@ -939,7 +1026,7 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h3>
 <p>I extracted the injected binary from memory address <code>b1221a0000</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.writemem c:\Users\f\Desktop\shellcode.bin b1221a0000 L?4e000</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">.writemem c:\Users\f\Desktop\shellcode.bin b1221a0000 L?4e000</span></span></code></pre></div></div>
 
 <h2 class="relative group"><span style="color:red">Malicious Process (update.dmp)</span>
     <div id="malicious-process-updatedmp" class="anchor"></div>
@@ -951,11 +1038,11 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h2>
 <p>I found another executable in this process and extracted it as <code>shellcode1.bin</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0:000&gt; !address -f:PAGE_EXECUTE_READWRITE
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        BaseAddress      EndAddress+1        RegionSize     Type       State                 Protect             Usage
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>       0`003a0000        0`003ee000        0`0004e000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [MZARUH..H......H]</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">0:000&gt; !address -f:PAGE_EXECUTE_READWRITE
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">        BaseAddress      EndAddress+1        RegionSize     Type       State                 Protect             Usage
+</span></span><span class="line"><span class="ln">4</span><span class="cl">--------------------------------------------------------------------------------------------------------------------------
+</span></span><span class="line"><span class="ln">5</span><span class="cl">       0`003a0000        0`003ee000        0`0004e000 MEM_PRIVATE MEM_COMMIT  PAGE_EXECUTE_READWRITE             &lt;unknown&gt;  [MZARUH..H......H]</span></span></code></pre></div></div>
 
 <h3 class="relative group">C2 Server IP
     <div id="c2-server-ip" class="anchor"></div>
@@ -967,12 +1054,12 @@ A suspicious executable was identified running on one of the compromised endpoin
     
 </h3>
 <p>I searched for HTTP connections in memory:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0:000&gt; s -a 0 L?0x7fffffffffffffff &#34;http://&#34;
-</span></span><span style="display:flex;"><span>00000000`0060b8b0  68 74 74 70 3a 2f 2f 31-30 31 2e 31 30 2e 32 35  http://101.10.25</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">0:000&gt; s -a 0 L?0x7fffffffffffffff &#34;http://&#34;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">00000000`0060b8b0  68 74 74 70 3a 2f 2f 31-30 31 2e 31 30 2e 32 35  http://101.10.25</span></span></code></pre></div></div>
 <p>I examined the full URL at address <code>0060b8b0</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>0:000&gt; db 0060b8b0 L100
-</span></span><span style="display:flex;"><span>00000000`0060b8b0  68 74 74 70 3a 2f 2f 31-30 31 2e 31 30 2e 32 35  http://101.10.25
-</span></span><span style="display:flex;"><span>00000000`0060b8c0  2e 34 3a 38 30 32 33 2f-6a 2e 61 64 00 00 00 00  .4:8023/j.ad....</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">0:000&gt; db 0060b8b0 L100
+</span></span><span class="line"><span class="ln">2</span><span class="cl">00000000`0060b8b0  68 74 74 70 3a 2f 2f 31-30 31 2e 31 30 2e 32 35  http://101.10.25
+</span></span><span class="line"><span class="ln">3</span><span class="cl">00000000`0060b8c0  2e 34 3a 38 30 32 33 2f-6a 2e 61 64 00 00 00 00  .4:8023/j.ad....</span></span></code></pre></div></div>
 <p><strong>C2 Server:</strong> <code>http://101.10.25.4:8023/j.ad</code></p>
 
 <h2 class="relative group"><span style="color:red">Shellcode Analysis</span>
@@ -995,9 +1082,9 @@ A suspicious executable was identified running on one of the compromised endpoin
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ascii,10,0x0002C8F0,-,beacon.dll
-</span></span><span style="display:flex;"><span>ascii,14,0x0003B892,-,beacon.x64.dll
-</span></span><span style="display:flex;"><span>ascii,16,0x0003B8A1,-,ReflectiveLoader</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">ascii,10,0x0002C8F0,-,beacon.dll
+</span></span><span class="line"><span class="ln">2</span><span class="cl">ascii,14,0x0003B892,-,beacon.x64.dll
+</span></span><span class="line"><span class="ln">3</span><span class="cl">ascii,16,0x0003B8A1,-,ReflectiveLoader</span></span></code></pre></div></div>
 
 <h3 class="relative group">C2 Communication
     <div id="c2-communication" class="anchor"></div>
@@ -1008,8 +1095,8 @@ A suspicious executable was identified running on one of the compromised endpoin
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ascii,69,0x0002D3D9,-,IEX (New-Object Net.Webclient).DownloadString(&#39;http://127.0.0.1:%u/&#39;)
-</span></span><span style="display:flex;"><span>ascii,49,0x0002D491,-,powershell -nop -exec bypass -EncodedCommand &#34;%s&#34;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">ascii,69,0x0002D3D9,-,IEX (New-Object Net.Webclient).DownloadString(&#39;http://127.0.0.1:%u/&#39;)
+</span></span><span class="line"><span class="ln">2</span><span class="cl">ascii,49,0x0002D491,-,powershell -nop -exec bypass -EncodedCommand &#34;%s&#34;</span></span></code></pre></div></div>
 
 <h3 class="relative group">Capabilities
     <div id="capabilities" class="anchor"></div>

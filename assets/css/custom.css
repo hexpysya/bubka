@@ -5,10 +5,19 @@
     src: url('/bubka/fonts/JetBrainsMono-Bold.ttf') format('truetype');
 }
 
-body {
-    font-family: 'MyMonoFont', monospace; 
-    font-size: small;
+@font-face {
+  font-family: 'Sitka Small';
+  src: url('/font/sitka-small-599.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
+
+body {
+  font-family: 'Sitka Small', sans-serif;
+  font-size: small;
+}
+
 
 body a {
     font-family: 'MyMonoFont', monospace; 
@@ -90,53 +99,107 @@ html.dark .meta-pill.difficulty.hard .meta-value { color: #ff5555; }
 
 
 
+/* --- 0. Скидання відступів списку --- */
+#TableOfContents ul {
+  padding-left: 0;
+  margin-left: 0;
+  list-style-type: none;
+}
+
+/* --- 1. Базові стилі для всіх посилань (H3, H2) --- */
 #TableOfContents a {
-  display: block;   
+  font-family: 'Sitka Small', sans-serif;
+  display: block;  
   width: 250px;            
-  border-left: 3px solid transparent; 
-  padding-left: 12px;          
-  margin-left: 2px;           
-  text-decoration: none;       
+  border-left: 2px solid transparent;
+  padding: 0 0 0 12px;          
+  margin-left: 3px;          
+  text-decoration: none;      
   color: inherit;              
-  opacity: 0.65;              
+  opacity: 0.7;              
   font-size: 14px;
-  transition: all 0.2s ease;   
+  line-height: 1.4;
+  transition: all 0.2s ease;
+  background: none;
 }
 
 #TableOfContents a:hover {
-  opacity: 1;                   
-  color: var(--primary)
+  opacity: 1;                  
+  color: #10b981;
+  background: none;
 }
 
 #TableOfContents a.active {
-  opacity: 1;                   
+  opacity: 1;                  
   font-weight: 600;            
-  color: var(--primary);        
-  border-left-color: var(--primary); 
-  background: linear-gradient(90deg, rgba(var(--primary-rgb), 0.1) 0%, darkblue 100%); 
+  border-left-color: #10b981;
+  color: #10b981;
+  background: none;
 }
 
-
+/* --- Стилі для сторінок Writeups --- */
 body.type-writeups article {
   font-size: 13px !important;  
-  line-height: 1.3 !important;   
-  margin-bottom: 0.2rem !important; 
+  line-height: 1.3 !important;  
+  margin-bottom: 0.2rem !important;
 }
 
 body.type-writeups article .text-xs {
-  font-size: 1.5rem !important; 
+  font-size: 1.5rem !important;
 }
 
 .page-writeups {
   font-size: 0.12;
 }
 
+/* --- 2. ПРИХОВУВАННЯ ВКЛАДЕНИХ СПИСКІВ ЗА ЗАМОВЧУВАННЯМ --- */
+#TableOfContents ul ul {
+  display: none; /*Ховаємо всі вкладені списки */
+  margin-top: 2px;
+}
 
+/* --- 3. ПОКАЗ ВКЛАДЕНИХ СПИСКІВ КОЛИ БАТЬКІВСЬКИЙ АКТИВНИЙ --- */
+/* Показуємо вкладений список, якщо батьківське посилання активне */
+#TableOfContents li:has(> a.active) > ul {
+  display: block;
+}
 
+/* АБО якщо всередині є активний елемент (щоб показувати всю ієрархію) */
+#TableOfContents li:has(ul a.active) > ul {
+  display: block;
+}
 
+/* --- 4. Стилі для глибоко вкладених елементів (H4) --- */
+#TableOfContents ul ul ul a {
+  font-size: 12px !important;
+  padding-left: 40px;
+  opacity: 0.6;
+  font-weight: 400;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  background: none;
+}
 
+/* --- 5. Активний стан для H4 --- */
+#TableOfContents ul ul ul a:hover,
+#TableOfContents ul ul ul a.active {
+  opacity: 1;
+  color: #10b981;
+  background: none;
+}
 
+#TableOfContents ul ul ul a.active {
+  font-weight: 600;
+  border-left-color: #10b981;
+}
 
-
-
-
+/* --- 6. ПІДСВІТКА БАТЬКІВСЬКОГО ЕЛЕМЕНТА --- */
+#TableOfContents li:has(ul a.active) > a {
+  color: #10b981 !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+  border-left-color: #10b981;
+  background: none !important;
+}

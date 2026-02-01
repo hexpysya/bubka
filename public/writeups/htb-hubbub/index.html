@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="dark"
+  data-default-appearance="one-light"
   data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-Hubbub &middot; bubka hack stuff</title>
-    <meta name="title" content="HTB-Hubbub &middot; bubka hack stuff">
+    <title>HTB-Hubbub &middot; bubka hacks stuff</title>
+    <meta name="title" content="HTB-Hubbub &middot; bubka hacks stuff">
   
 
   
@@ -35,11 +35,11 @@
 
   
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-hubbub/">
-  <meta property="og:site_name" content="bubka hack stuff">
+  <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-Hubbub">
   <meta property="og:description" content="Description
 In the cacophony of noise lies the potential for a clear message. (The flag format is HTB{SOME TEXT HERE}.) Difficulty: Easy OS: Linux Date: 2026-01-20 Initial Analysis # I identified the binary type to understand what I was dealing with
-$ file Hubbub Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYSV), statically linked, with debug_info, not stripped Its’ an Atmel AVR 8-bit executable, commonly used in Arduino microcontrollers">
+1$ file Hubbub 2Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYSV), statically linked, with debug_info, not stripped Its’ an Atmel AVR 8-bit executable, commonly used in Arduino microcontrollers">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -54,7 +54,7 @@ $ file Hubbub Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYS
   <meta name="twitter:title" content="HTB-Hubbub">
   <meta name="twitter:description" content="Description
 In the cacophony of noise lies the potential for a clear message. (The flag format is HTB{SOME TEXT HERE}.) Difficulty: Easy OS: Linux Date: 2026-01-20 Initial Analysis # I identified the binary type to understand what I was dealing with
-$ file Hubbub Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYSV), statically linked, with debug_info, not stripped Its’ an Atmel AVR 8-bit executable, commonly used in Arduino microcontrollers">
+1$ file Hubbub 2Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYSV), statically linked, with debug_info, not stripped Its’ an Atmel AVR 8-bit executable, commonly used in Arduino microcontrollers">
 
   
   
@@ -101,8 +101,8 @@ $ file Hubbub Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYS
   <link
     type="text/css"
     rel="stylesheet"
-    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
-    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
+    href="/bubka/css/main.bundle.min.c021e5819c07d4cc5a59e5328c5dd36a5597b7d868fb04bddc32d0c56e6ee89975ed188ec798a5dbff3583fba73e0d15f723602d4c97d468bc8bbc1fddbc49fb.css"
+    integrity="sha512-wCHlgZwH1MxaWeUyjF3TalWXt9ho&#43;wS93DLQxW5u6Jl17RiOx5il2/81g/unPg0V9yNgLUyX1Gi8i7wf3bxJ&#43;w==">
 
   
   
@@ -224,7 +224,7 @@ $ file Hubbub Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYS
     "keywords": ["reversing","ghidra","avr"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "454"
+    "wordCount": "486"
   }]
   </script>
 
@@ -258,6 +258,10 @@ $ file Hubbub Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYS
 
 
 
+  
+    
+  
+
 
 
 
@@ -282,7 +286,7 @@ $ file Hubbub Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYS
   
   
     <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
-      bubka hack stuff
+      bubka hacks stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -315,7 +319,7 @@ $ file Hubbub Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYS
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="bubka hack stuff">
+      title="bubka hacks stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -443,7 +447,7 @@ $ file Hubbub Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYS
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hacks stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -488,6 +492,89 @@ $ file Hubbub Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYS
   
   <article>
     
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+    
+    
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a249bad53d232748.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a249bad53d232748.jpg"></script>
+  
+      
     
 
     
@@ -822,8 +909,8 @@ In the cacophony of noise lies the potential for a clear message. (The flag form
     
 </h2>
 <p>I identified the binary type to understand what I was dealing with</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ file Hubbub 
-</span></span><span style="display:flex;"><span>Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version <span style="color:#a5d6ff">1</span> <span style="color:#ff7b72;font-weight:bold">(</span>SYSV<span style="color:#ff7b72;font-weight:bold">)</span>, statically linked, with debug_info, not stripped</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ file Hubbub 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Hubbub: ELF 32-bit LSB executable, Atmel AVR 8-bit, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, statically linked, with debug_info, not stripped</span></span></code></pre></div></div>
 <p>Its&rsquo; an <code>Atmel AVR 8-bit</code> executable, commonly used in Arduino microcontrollers</p>
 <p>Running <code>strings</code> on the binary revealed references to Arduino library functions like <code>tone()</code> and <code>delay()</code>. This immediately suggested the program generates audio output, possibly encoding a hidden message.</p>
 
@@ -881,52 +968,52 @@ Inside main, I observed a repetitive pattern of function calls. By correlating t
     
 </h2>
 <p>I extracted the decompiled C code from Ghidra into a text file named dec.txt and wrote a Python script to parse it</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72">with</span> open(<span style="color:#a5d6ff">&#34;dec.txt&#34;</span>, <span style="color:#a5d6ff">&#39;r&#39;</span>, encoding<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#39;utf-8&#39;</span>) <span style="color:#ff7b72">as</span> f:
-</span></span><span style="display:flex;"><span>    lines <span style="color:#ff7b72;font-weight:bold">=</span> f<span style="color:#ff7b72;font-weight:bold">.</span>readlines()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>morse_code <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">for</span> l <span style="color:#ff7b72;font-weight:bold">in</span> lines:
-</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> <span style="color:#a5d6ff">&#34;0x2c&#34;</span> <span style="color:#ff7b72;font-weight:bold">in</span> l:
-</span></span><span style="display:flex;"><span>        morse_code <span style="color:#ff7b72;font-weight:bold">+=</span> <span style="color:#a5d6ff">&#34;.&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> <span style="color:#a5d6ff">&#34;0x58&#34;</span> <span style="color:#ff7b72;font-weight:bold">in</span> l:
-</span></span><span style="display:flex;"><span>        morse_code <span style="color:#ff7b72;font-weight:bold">+=</span> <span style="color:#a5d6ff">&#34;-&#34;</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> <span style="color:#a5d6ff">&#34;0xe8&#34;</span> <span style="color:#ff7b72;font-weight:bold">in</span> l:
-</span></span><span style="display:flex;"><span>        morse_code <span style="color:#ff7b72;font-weight:bold">+=</span> <span style="color:#a5d6ff">&#34; &#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> <span style="color:#a5d6ff">&#34;0xd0&#34;</span> <span style="color:#ff7b72;font-weight:bold">in</span> l:
-</span></span><span style="display:flex;"><span>        morse_code <span style="color:#ff7b72;font-weight:bold">+=</span> <span style="color:#a5d6ff">&#34; / &#34;</span> 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(morse_code)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>MORSE_dict <span style="color:#ff7b72;font-weight:bold">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#39;..-.&#39;</span>: <span style="color:#a5d6ff">&#39;F&#39;</span>, <span style="color:#a5d6ff">&#39;-..-&#39;</span>: <span style="color:#a5d6ff">&#39;X&#39;</span>, <span style="color:#a5d6ff">&#39;.--.&#39;</span>: <span style="color:#a5d6ff">&#39;P&#39;</span>, <span style="color:#a5d6ff">&#39;-&#39;</span>: <span style="color:#a5d6ff">&#39;T&#39;</span>, <span style="color:#a5d6ff">&#39;..---&#39;</span>: <span style="color:#a5d6ff">&#39;2&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#39;....-&#39;</span>: <span style="color:#a5d6ff">&#39;4&#39;</span>, <span style="color:#a5d6ff">&#39;-----&#39;</span>: <span style="color:#a5d6ff">&#39;0&#39;</span>, <span style="color:#a5d6ff">&#39;--...&#39;</span>: <span style="color:#a5d6ff">&#39;7&#39;</span>, <span style="color:#a5d6ff">&#39;...-&#39;</span>: <span style="color:#a5d6ff">&#39;V&#39;</span>, <span style="color:#a5d6ff">&#39;-.-.&#39;</span>: <span style="color:#a5d6ff">&#39;C&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#39;.&#39;</span>: <span style="color:#a5d6ff">&#39;E&#39;</span>, <span style="color:#a5d6ff">&#39;.---&#39;</span>: <span style="color:#a5d6ff">&#39;J&#39;</span>, <span style="color:#a5d6ff">&#39;---&#39;</span>: <span style="color:#a5d6ff">&#39;O&#39;</span>, <span style="color:#a5d6ff">&#39;-.-&#39;</span>: <span style="color:#a5d6ff">&#39;K&#39;</span>, <span style="color:#a5d6ff">&#39;----.&#39;</span>: <span style="color:#a5d6ff">&#39;9&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#39;..&#39;</span>: <span style="color:#a5d6ff">&#39;I&#39;</span>, <span style="color:#a5d6ff">&#39;.-..&#39;</span>: <span style="color:#a5d6ff">&#39;L&#39;</span>, <span style="color:#a5d6ff">&#39;.....&#39;</span>: <span style="color:#a5d6ff">&#39;5&#39;</span>, <span style="color:#a5d6ff">&#39;...--&#39;</span>: <span style="color:#a5d6ff">&#39;3&#39;</span>, <span style="color:#a5d6ff">&#39;-.--&#39;</span>: <span style="color:#a5d6ff">&#39;Y&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#39;-....&#39;</span>: <span style="color:#a5d6ff">&#39;6&#39;</span>, <span style="color:#a5d6ff">&#39;.--&#39;</span>: <span style="color:#a5d6ff">&#39;W&#39;</span>, <span style="color:#a5d6ff">&#39;....&#39;</span>: <span style="color:#a5d6ff">&#39;H&#39;</span>, <span style="color:#a5d6ff">&#39;-.&#39;</span>: <span style="color:#a5d6ff">&#39;N&#39;</span>, <span style="color:#a5d6ff">&#39;.-.&#39;</span>: <span style="color:#a5d6ff">&#39;R&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#39;-...&#39;</span>: <span style="color:#a5d6ff">&#39;B&#39;</span>, <span style="color:#a5d6ff">&#39;---..&#39;</span>: <span style="color:#a5d6ff">&#39;8&#39;</span>, <span style="color:#a5d6ff">&#39;--..&#39;</span>: <span style="color:#a5d6ff">&#39;Z&#39;</span>, <span style="color:#a5d6ff">&#39;-..&#39;</span>: <span style="color:#a5d6ff">&#39;D&#39;</span>, <span style="color:#a5d6ff">&#39;--.-&#39;</span>: <span style="color:#a5d6ff">&#39;Q&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#39;--.&#39;</span>: <span style="color:#a5d6ff">&#39;G&#39;</span>, <span style="color:#a5d6ff">&#39;--&#39;</span>: <span style="color:#a5d6ff">&#39;M&#39;</span>, <span style="color:#a5d6ff">&#39;..-&#39;</span>: <span style="color:#a5d6ff">&#39;U&#39;</span>, <span style="color:#a5d6ff">&#39;.-&#39;</span>: <span style="color:#a5d6ff">&#39;A&#39;</span>, <span style="color:#a5d6ff">&#39;...&#39;</span>: <span style="color:#a5d6ff">&#39;S&#39;</span>, <span style="color:#a5d6ff">&#39;.----&#39;</span>: <span style="color:#a5d6ff">&#39;1&#39;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">morse_to_text</span>(stri):
-</span></span><span style="display:flex;"><span>    res <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    stri <span style="color:#ff7b72;font-weight:bold">=</span> stri<span style="color:#ff7b72;font-weight:bold">.</span>split(<span style="color:#a5d6ff">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">for</span> s <span style="color:#ff7b72;font-weight:bold">in</span> stri:
-</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> s <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;/&#34;</span>:
-</span></span><span style="display:flex;"><span>            res <span style="color:#ff7b72;font-weight:bold">+=</span> <span style="color:#a5d6ff">&#34; &#34;</span>   
-</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">else</span>: 
-</span></span><span style="display:flex;"><span>            res <span style="color:#ff7b72;font-weight:bold">+=</span> MORSE_dict[s]
-</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">return</span> res
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(morse_to_text(morse_code))</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;dec.txt&#34;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="n">morse_code</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">if</span> <span class="s2">&#34;0x2c&#34;</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="n">morse_code</span> <span class="o">+=</span> <span class="s2">&#34;.&#34;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">elif</span> <span class="s2">&#34;0x58&#34;</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">morse_code</span> <span class="o">+=</span> <span class="s2">&#34;-&#34;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">if</span> <span class="s2">&#34;0xe8&#34;</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">morse_code</span> <span class="o">+=</span> <span class="s2">&#34; &#34;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">elif</span> <span class="s2">&#34;0xd0&#34;</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="n">morse_code</span> <span class="o">+=</span> <span class="s2">&#34; / &#34;</span> 
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">morse_code</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="n">MORSE_dict</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="s1">&#39;..-.&#39;</span><span class="p">:</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;-..-&#39;</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;.--.&#39;</span><span class="p">:</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;..---&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="s1">&#39;....-&#39;</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;-----&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;--...&#39;</span><span class="p">:</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;...-&#39;</span><span class="p">:</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;-.-.&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="s1">&#39;.&#39;</span><span class="p">:</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;.---&#39;</span><span class="p">:</span> <span class="s1">&#39;J&#39;</span><span class="p">,</span> <span class="s1">&#39;---&#39;</span><span class="p">:</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;-.-&#39;</span><span class="p">:</span> <span class="s1">&#39;K&#39;</span><span class="p">,</span> <span class="s1">&#39;----.&#39;</span><span class="p">:</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="s1">&#39;..&#39;</span><span class="p">:</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;.-..&#39;</span><span class="p">:</span> <span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="s1">&#39;.....&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;...--&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;-.--&#39;</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="s1">&#39;-....&#39;</span><span class="p">:</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;.--&#39;</span><span class="p">:</span> <span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;....&#39;</span><span class="p">:</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;-.&#39;</span><span class="p">:</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;.-.&#39;</span><span class="p">:</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="s1">&#39;-...&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;---..&#39;</span><span class="p">:</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;--..&#39;</span><span class="p">:</span> <span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;-..&#39;</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;--.-&#39;</span><span class="p">:</span> <span class="s1">&#39;Q&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="s1">&#39;--.&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;..-&#39;</span><span class="p">:</span> <span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">:</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;.----&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="k">def</span> <span class="nf">morse_to_text</span><span class="p">(</span><span class="n">stri</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="n">stri</span> <span class="o">=</span> <span class="n">stri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">
+</span></span><span class="line"><span class="ln">33</span><span class="cl">    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">stri</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&#34;/&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">            <span class="n">res</span> <span class="o">+=</span> <span class="s2">&#34; &#34;</span>   
+</span></span><span class="line"><span class="ln">36</span><span class="cl">        <span class="k">else</span><span class="p">:</span> 
+</span></span><span class="line"><span class="ln">37</span><span class="cl">            <span class="n">res</span> <span class="o">+=</span> <span class="n">MORSE_dict</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">    <span class="k">return</span> <span class="n">res</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">
+</span></span><span class="line"><span class="ln">40</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">morse_to_text</span><span class="p">(</span><span class="n">morse_code</span><span class="p">))</span></span></span></code></pre></div></div>
 <p>Running the script:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ python3 dec.py
-</span></span><span style="display:flex;"><span>.... - -... / .- / -. --- .. ... -.-- / -... ..- --.. --.. . .-. / -.-. --- -- -- .- -. -.. ... / .- - - . -. - .. --- -.
-</span></span><span style="display:flex;"><span>HTB A NOISY BUZZER COMMANDS ATTENTION</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ python3 dec.py
+</span></span><span class="line"><span class="ln">2</span><span class="cl">.... - -... / .- / -. --- .. ... -.-- / -... ..- --.. --.. . .-. / -.-. --- -- -- .- -. -.. ... / .- - - . -. - .. --- -.
+</span></span><span class="line"><span class="ln">3</span><span class="cl">HTB A NOISY BUZZER COMMANDS ATTENTION</span></span></code></pre></div></div>
 <p>the flag:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>HTB{A NOISY BUZZER COMMANDS ATTENTION}</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">HTB{A NOISY BUZZER COMMANDS ATTENTION}</span></span></code></pre></div></div>
 
           
           

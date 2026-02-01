@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="dark"
+  data-default-appearance="one-light"
   data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-RAuth &middot; bubka hack stuff</title>
-    <meta name="title" content="HTB-RAuth &middot; bubka hack stuff">
+    <title>HTB-RAuth &middot; bubka hacks stuff</title>
+    <meta name="title" content="HTB-RAuth &middot; bubka hacks stuff">
   
 
   
@@ -35,12 +35,12 @@
 
   
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-rauth/">
-  <meta property="og:site_name" content="bubka hack stuff">
+  <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-RAuth">
   <meta property="og:description" content="Difficulty: Easy OS: Linux Date: 2026-01-18 Description:
 My implementation of authentication mechanisms in C turned out to be failures. But my implementation in Rust is unbreakable. Can you retrieve my password?
 Initial Analysis # Rauth це ELF binary під архітерутур x86-64.
-$ file rauth rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=fc374b8206147fac9067599050989191b39eefcf, with debug_info, not stripped При запуску нас просять вести пароль.">
+1$ file rauth 2rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=fc374b8206147fac9067599050989191b39eefcf, with debug_info, not stripped При запуску нас просять вести пароль.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -58,7 +58,7 @@ $ file rauth rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dyn
   <meta name="twitter:description" content="Difficulty: Easy OS: Linux Date: 2026-01-18 Description:
 My implementation of authentication mechanisms in C turned out to be failures. But my implementation in Rust is unbreakable. Can you retrieve my password?
 Initial Analysis # Rauth це ELF binary під архітерутур x86-64.
-$ file rauth rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=fc374b8206147fac9067599050989191b39eefcf, with debug_info, not stripped При запуску нас просять вести пароль.">
+1$ file rauth 2rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=fc374b8206147fac9067599050989191b39eefcf, with debug_info, not stripped При запуску нас просять вести пароль.">
 
   
   
@@ -105,8 +105,8 @@ $ file rauth rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dyn
   <link
     type="text/css"
     rel="stylesheet"
-    href="/bubka/css/main.bundle.min.4f40feea4c6f59a876576bf0c99d3ffd70a8847b71c25199e21b2f316a6ea95b5fce21b78684be222289fa9c04834d56e10420f50f8f476b9919b94ccc151f28.css"
-    integrity="sha512-T0D&#43;6kxvWah2V2vwyZ0//XCohHtxwlGZ4hsvMWpuqVtfziG3hoS&#43;IiKJ&#43;pwEg01W4QQg9Q&#43;PR2uZGblMzBUfKA==">
+    href="/bubka/css/main.bundle.min.c021e5819c07d4cc5a59e5328c5dd36a5597b7d868fb04bddc32d0c56e6ee89975ed188ec798a5dbff3583fba73e0d15f723602d4c97d468bc8bbc1fddbc49fb.css"
+    integrity="sha512-wCHlgZwH1MxaWeUyjF3TalWXt9ho&#43;wS93DLQxW5u6Jl17RiOx5il2/81g/unPg0V9yNgLUyX1Gi8i7wf3bxJ&#43;w==">
 
   
   
@@ -228,7 +228,7 @@ $ file rauth rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dyn
     "keywords": ["Reversing","ida","rust","rust-gdb","salsa20"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "573"
+    "wordCount": "576"
   }]
   </script>
 
@@ -262,6 +262,10 @@ $ file rauth rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dyn
 
 
 
+  
+    
+  
+
 
 
 
@@ -286,7 +290,7 @@ $ file rauth rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dyn
   
   
     <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
-      bubka hack stuff
+      bubka hacks stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -319,7 +323,7 @@ $ file rauth rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dyn
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="bubka hack stuff">
+      title="bubka hacks stuff">
       
       
         <span class="text-base font-medium break-normal">
@@ -447,7 +451,7 @@ $ file rauth rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dyn
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="bubka hack stuff" class="text-2xl font-bold tracking-tight">
+        <span title="bubka hacks stuff" class="text-2xl font-bold tracking-tight">
           about
         </span>
         
@@ -492,6 +496,89 @@ $ file rauth rauth: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dyn
   
   <article>
     
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+    
+    
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a249bad53d232748.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a249bad53d232748.jpg"></script>
+  
+      
     
 
     
@@ -840,14 +927,14 @@ My implementation of authentication mechanisms in C turned out to be failures. B
     
 </h2>
 <p>Rauth це ELF binary під архітерутур x86-64.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ file rauth                                                    
-</span></span><span style="display:flex;"><span>rauth: ELF 64-bit LSB pie executable, x86-64, version <span style="color:#a5d6ff">1</span> <span style="color:#ff7b72;font-weight:bold">(</span>SYSV<span style="color:#ff7b72;font-weight:bold">)</span>, dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, <span style="color:#ff7b72">for</span> GNU/Linux 3.2.0, BuildID<span style="color:#ff7b72;font-weight:bold">[</span>sha1<span style="color:#ff7b72;font-weight:bold">]=</span>fc374b8206147fac9067599050989191b39eefcf, with debug_info, not stripped</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ file rauth                                                    
+</span></span><span class="line"><span class="ln">2</span><span class="cl">rauth: ELF 64-bit LSB pie executable, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, <span class="k">for</span> GNU/Linux 3.2.0, BuildID<span class="o">[</span>sha1<span class="o">]=</span>fc374b8206147fac9067599050989191b39eefcf, with debug_info, not stripped</span></span></code></pre></div></div>
 <p>При запуску нас просять вести пароль.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./rauth      
-</span></span><span style="display:flex;"><span>Welcome to secure login portal!
-</span></span><span style="display:flex;"><span>Enter the password to access the system: 
-</span></span><span style="display:flex;"><span>aaaaaaaaaaa
-</span></span><span style="display:flex;"><span>You entered a wrong password!</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ./rauth      
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Welcome to secure login portal!
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Enter the password to access the system: 
+</span></span><span class="line"><span class="ln">4</span><span class="cl">aaaaaaaaaaa
+</span></span><span class="line"><span class="ln">5</span><span class="cl">You entered a wrong password!</span></span></code></pre></div></div>
 <p>При введені невірного пароля виводиться повідомлення &ldquo;You entered a wrong password!&rdquo;. Тому найпершою ідеєю в мене було відкрити цей файл в дизассемблері IDA та подивитися яка перевірка призводить до цієї гілки.</p>
 
 <h2 class="relative group">Dissasembling
@@ -898,18 +985,18 @@ My implementation of authentication mechanisms in C turned out to be failures. B
     
 </h2>
 <p>Вирішив змінити хід виконання, змінивши в дебагері значення <code>rbx</code></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(gdb) b *0x55555540683e
-</span></span><span style="display:flex;"><span>Breakpoint 2 at 0x55555540683e
-</span></span><span style="display:flex;"><span>(gdb) c
-</span></span><span style="display:flex;"><span>Continuing.
-</span></span><span style="display:flex;"><span>Welcome to secure login portal!
-</span></span><span style="display:flex;"><span>Breakpoint 2, 0x000055555540683e in rauth::main ()
-</span></span><span style="display:flex;"><span>(gdb) set $rbx = 1
-</span></span><span style="display:flex;"><span>(gdb) c
-</span></span><span style="display:flex;"><span>Continuing.
-</span></span><span style="display:flex;"><span>Successfully Authenticated
-</span></span><span style="display:flex;"><span>(gdb) &#34;HTB{F4k3_f74g_4_t3s7ing}&#34;
-</span></span><span style="display:flex;"><span>[Inferior 1 (process 24204) exited normally]</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">(gdb) b *0x55555540683e
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Breakpoint 2 at 0x55555540683e
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">(gdb) c
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Continuing.
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">Welcome to secure login portal!
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">Breakpoint 2, 0x000055555540683e in rauth::main ()
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">(gdb) set $rbx = 1
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">(gdb) c
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Continuing.
+</span></span><span class="line"><span class="ln">10</span><span class="cl">Successfully Authenticated
+</span></span><span class="line"><span class="ln">11</span><span class="cl">(gdb) &#34;HTB{F4k3_f74g_4_t3s7ing}&#34;
+</span></span><span class="line"><span class="ln">12</span><span class="cl">[Inferior 1 (process 24204) exited normally]</span></span></code></pre></div></div>
 <p>Бачимо що ми отримали fake flag.</p>
 
 <h2 class="relative group">salsa20
@@ -922,70 +1009,70 @@ My implementation of authentication mechanisms in C turned out to be failures. B
     
 </h2>
 <p>Я помітив використання криптографічного алгоритму <code>Salsa20</code>.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(gdb) info func salsa
-</span></span><span style="display:flex;"><span>All functions matching regular expression &#34;salsa&#34;:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Non-debugging symbols:
-</span></span><span style="display:flex;"><span>0x00005555554056b0  salsa20::core::Core&lt;R&gt;::apply_keystream
-</span></span><span style="display:flex;"><span>0x0000555555405900  salsa20::core::Core&lt;R&gt;::new
-</span></span><span style="display:flex;"><span>0x00005555554059a0  salsa20::core::Core&lt;R&gt;::rounds
-</span></span><span style="display:flex;"><span>0x0000555555405d10  &lt;salsa20::salsa::Salsa&lt;R&gt; as cipher::stream::StreamCipher&gt;::try_apply_keystream</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">(gdb) info func salsa
+</span></span><span class="line"><span class="ln">2</span><span class="cl">All functions matching regular expression &#34;salsa&#34;:
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl">Non-debugging symbols:
+</span></span><span class="line"><span class="ln">5</span><span class="cl">0x00005555554056b0  salsa20::core::Core&lt;R&gt;::apply_keystream
+</span></span><span class="line"><span class="ln">6</span><span class="cl">0x0000555555405900  salsa20::core::Core&lt;R&gt;::new
+</span></span><span class="line"><span class="ln">7</span><span class="cl">0x00005555554059a0  salsa20::core::Core&lt;R&gt;::rounds
+</span></span><span class="line"><span class="ln">8</span><span class="cl">0x0000555555405d10  &lt;salsa20::salsa::Salsa&lt;R&gt; as cipher::stream::StreamCipher&gt;::try_apply_keystream</span></span></code></pre></div></div>
 <p><code>salsa20::core::Core&lt;R&gt;::new</code> - constructor that typically takes a 256-bit (32-byte) key and a 64-bit (8-byte) nonce (IV)<br>
 <code>salsa20::core::Core&lt;R&gt;::apply_keystream</code> -</p>
 <p>Вирішви подивитися які аргументи передаються в <code>Salsa20::new</code></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>(gdb) b salsa20::core::Core&lt;R&gt;::new
-</span></span><span style="display:flex;"><span>Breakpoint 2 at 0x555555405900
-</span></span><span style="display:flex;"><span>(gdb) b salsa20::core::Core&lt;R&gt;::apply_keystream
-</span></span><span style="display:flex;"><span>Breakpoint 3 at 0x5555554056b0
-</span></span><span style="display:flex;"><span>(gdb) start
-</span></span><span style="display:flex;"><span>The program being debugged has been started already.
-</span></span><span style="display:flex;"><span>Start it from the beginning? (y or n) y
-</span></span><span style="display:flex;"><span>Temporary breakpoint 4 at 0x555555406bd0
-</span></span><span style="display:flex;"><span>Starting program: /home/kali/Desktop/challanges/RAuth/rauth 
-</span></span><span style="display:flex;"><span>[Thread debugging using libthread_db enabled]
-</span></span><span style="display:flex;"><span>Using host libthread_db library &#34;/usr/lib/x86_64-linux-gnu/libthread_db.so.1&#34;.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Temporary breakpoint 4, 0x0000555555406bd0 in main ()
-</span></span><span style="display:flex;"><span>(gdb) c
-</span></span><span style="display:flex;"><span>Continuing.
-</span></span><span style="display:flex;"><span>Welcome to secure login portal!
-</span></span><span style="display:flex;"><span>Enter the password to access the system: 
-</span></span><span style="display:flex;"><span>aaaaa
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Breakpoint 2, 0x0000555555405900 in salsa20::core::Core&lt;R&gt;::new ()
-</span></span><span style="display:flex;"><span>(gdb) i r
-</span></span><span style="display:flex;"><span>rax            0x55555564fe20      93824993263136
-</span></span><span style="display:flex;"><span>rbx            0x555555408530      93824990872880
-</span></span><span style="display:flex;"><span>rcx            0x55555564fe20      93824993263136
-</span></span><span style="display:flex;"><span>rdx            0x7fffffffdaa0      140737488345760
-</span></span><span style="display:flex;"><span>rsi            0x7fffffffda70      140737488345712
-</span></span><span style="display:flex;"><span>rdi            0x7fffffffd9e0      140737488345568
-</span></span><span style="display:flex;"><span>rbp            0x1                 0x1
-</span></span><span style="display:flex;"><span>rsp            0x7fffffffd9d8      0x7fffffffd9d8
-</span></span><span style="display:flex;"><span>r8             0x7ffff7e15ac0      140737352129216
-</span></span><span style="display:flex;"><span>r9             0x30                48
-</span></span><span style="display:flex;"><span>r10            0x1                 1
-</span></span><span style="display:flex;"><span>r11            0x0                 0
-</span></span><span style="display:flex;"><span>r12            0x0                 0
-</span></span><span style="display:flex;"><span>r13            0x555555439e28      93824991075880
-</span></span><span style="display:flex;"><span>r14            0x555555649090      93824993235088
-</span></span><span style="display:flex;"><span>r15            0x55555564fe20      93824993263136
-</span></span><span style="display:flex;"><span>rip            0x555555405900      0x555555405900 &lt;salsa20::core::Core&lt;R&gt;::new&gt;
-</span></span><span style="display:flex;"><span>eflags         0x202               [ IF ]
-</span></span><span style="display:flex;"><span>cs             0x33                51
-</span></span><span style="display:flex;"><span>ss             0x2b                43
-</span></span><span style="display:flex;"><span>ds             0x0                 0
-</span></span><span style="display:flex;"><span>es             0x0                 0
-</span></span><span style="display:flex;"><span>fs             0x0                 0
-</span></span><span style="display:flex;"><span>gs             0x0                 0
-</span></span><span style="display:flex;"><span>fs_base        0x7ffff7f5d800      140737353472000
-</span></span><span style="display:flex;"><span>gs_base        0x0                 0
-</span></span><span style="display:flex;"><span>(gdb) x/s $rdi
-</span></span><span style="display:flex;"><span>0x7fffffffd9e0: &#34; &#34;
-</span></span><span style="display:flex;"><span>(gdb) x/s $rsi
-</span></span><span style="display:flex;"><span>0x7fffffffda70: &#34;ef39f4f20e76e33bd25f4db338e81b10\001&#34;
-</span></span><span style="display:flex;"><span>(gdb) x/s $rdx
-</span></span><span style="display:flex;"><span>0x7fffffffdaa0: &#34;d4c270a3&#34;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">(gdb) b salsa20::core::Core&lt;R&gt;::new
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Breakpoint 2 at 0x555555405900
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">(gdb) b salsa20::core::Core&lt;R&gt;::apply_keystream
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Breakpoint 3 at 0x5555554056b0
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">(gdb) start
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">The program being debugged has been started already.
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Start it from the beginning? (y or n) y
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">Temporary breakpoint 4 at 0x555555406bd0
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Starting program: /home/kali/Desktop/challanges/RAuth/rauth 
+</span></span><span class="line"><span class="ln">10</span><span class="cl">[Thread debugging using libthread_db enabled]
+</span></span><span class="line"><span class="ln">11</span><span class="cl">Using host libthread_db library &#34;/usr/lib/x86_64-linux-gnu/libthread_db.so.1&#34;.
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl">Temporary breakpoint 4, 0x0000555555406bd0 in main ()
+</span></span><span class="line"><span class="ln">14</span><span class="cl">(gdb) c
+</span></span><span class="line"><span class="ln">15</span><span class="cl">Continuing.
+</span></span><span class="line"><span class="ln">16</span><span class="cl">Welcome to secure login portal!
+</span></span><span class="line"><span class="ln">17</span><span class="cl">Enter the password to access the system: 
+</span></span><span class="line"><span class="ln">18</span><span class="cl">aaaaa
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl">Breakpoint 2, 0x0000555555405900 in salsa20::core::Core&lt;R&gt;::new ()
+</span></span><span class="line"><span class="ln">21</span><span class="cl">(gdb) i r
+</span></span><span class="line"><span class="ln">22</span><span class="cl">rax            0x55555564fe20      93824993263136
+</span></span><span class="line"><span class="ln">23</span><span class="cl">rbx            0x555555408530      93824990872880
+</span></span><span class="line"><span class="ln">24</span><span class="cl">rcx            0x55555564fe20      93824993263136
+</span></span><span class="line"><span class="ln">25</span><span class="cl">rdx            0x7fffffffdaa0      140737488345760
+</span></span><span class="line"><span class="ln">26</span><span class="cl">rsi            0x7fffffffda70      140737488345712
+</span></span><span class="line"><span class="ln">27</span><span class="cl">rdi            0x7fffffffd9e0      140737488345568
+</span></span><span class="line"><span class="ln">28</span><span class="cl">rbp            0x1                 0x1
+</span></span><span class="line"><span class="ln">29</span><span class="cl">rsp            0x7fffffffd9d8      0x7fffffffd9d8
+</span></span><span class="line"><span class="ln">30</span><span class="cl">r8             0x7ffff7e15ac0      140737352129216
+</span></span><span class="line"><span class="ln">31</span><span class="cl">r9             0x30                48
+</span></span><span class="line"><span class="ln">32</span><span class="cl">r10            0x1                 1
+</span></span><span class="line"><span class="ln">33</span><span class="cl">r11            0x0                 0
+</span></span><span class="line"><span class="ln">34</span><span class="cl">r12            0x0                 0
+</span></span><span class="line"><span class="ln">35</span><span class="cl">r13            0x555555439e28      93824991075880
+</span></span><span class="line"><span class="ln">36</span><span class="cl">r14            0x555555649090      93824993235088
+</span></span><span class="line"><span class="ln">37</span><span class="cl">r15            0x55555564fe20      93824993263136
+</span></span><span class="line"><span class="ln">38</span><span class="cl">rip            0x555555405900      0x555555405900 &lt;salsa20::core::Core&lt;R&gt;::new&gt;
+</span></span><span class="line"><span class="ln">39</span><span class="cl">eflags         0x202               [ IF ]
+</span></span><span class="line"><span class="ln">40</span><span class="cl">cs             0x33                51
+</span></span><span class="line"><span class="ln">41</span><span class="cl">ss             0x2b                43
+</span></span><span class="line"><span class="ln">42</span><span class="cl">ds             0x0                 0
+</span></span><span class="line"><span class="ln">43</span><span class="cl">es             0x0                 0
+</span></span><span class="line"><span class="ln">44</span><span class="cl">fs             0x0                 0
+</span></span><span class="line"><span class="ln">45</span><span class="cl">gs             0x0                 0
+</span></span><span class="line"><span class="ln">46</span><span class="cl">fs_base        0x7ffff7f5d800      140737353472000
+</span></span><span class="line"><span class="ln">47</span><span class="cl">gs_base        0x0                 0
+</span></span><span class="line"><span class="ln">48</span><span class="cl">(gdb) x/s $rdi
+</span></span><span class="line"><span class="ln">49</span><span class="cl">0x7fffffffd9e0: &#34; &#34;
+</span></span><span class="line"><span class="ln">50</span><span class="cl">(gdb) x/s $rsi
+</span></span><span class="line"><span class="ln">51</span><span class="cl">0x7fffffffda70: &#34;ef39f4f20e76e33bd25f4db338e81b10\001&#34;
+</span></span><span class="line"><span class="ln">52</span><span class="cl">(gdb) x/s $rdx
+</span></span><span class="line"><span class="ln">53</span><span class="cl">0x7fffffffdaa0: &#34;d4c270a3&#34;</span></span></code></pre></div></div>
 <p>значення в rsi це 32byte ключ, в rdx це nonce
 - key: ef39f4f20e76e33bd25f4db338e81b10<br>
 - nonce: d4c270a3</p>
@@ -1004,23 +1091,23 @@ My implementation of authentication mechanisms in C turned out to be failures. B
     sizes="(min-width: 768px) 50vw, 65vw"
     data-zoom-src="/bubka/writeups/htb-rauth/image-2.png"></figure>
 </p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.rodata:0000000000039CC0 xmmword_39CC0   xmmword 0F331CBA656F5D958D5A829A3B15F0505h
-</span></span><span style="display:flex;"><span>.rodata:0000000000039CD0 xmmword_39CD0   xmmword 0F91BAD626FB63EE372EC9DC9312A4324h</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">.rodata:0000000000039CC0 xmmword_39CC0   xmmword 0F331CBA656F5D958D5A829A3B15F0505h
+</span></span><span class="line"><span class="ln">2</span><span class="cl">.rodata:0000000000039CD0 xmmword_39CD0   xmmword 0F91BAD626FB63EE372EC9DC9312A4324h</span></span></code></pre></div></div>
 <p>Спроба розшифрування</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f85149">$</span> python3                              
-</span></span><span style="display:flex;"><span>Python <span style="color:#a5d6ff">3.13.11</span> (main, Dec  <span style="color:#a5d6ff">8</span> <span style="color:#a5d6ff">2025</span>, <span style="color:#a5d6ff">11</span>:<span style="color:#a5d6ff">43</span>:<span style="color:#a5d6ff">54</span>) [GCC <span style="color:#a5d6ff">15.2.0</span>] on linux
-</span></span><span style="display:flex;"><span>Type <span style="color:#a5d6ff">&#34;help&#34;</span>, <span style="color:#a5d6ff">&#34;copyright&#34;</span>, <span style="color:#a5d6ff">&#34;credits&#34;</span> <span style="color:#ff7b72;font-weight:bold">or</span> <span style="color:#a5d6ff">&#34;license&#34;</span> <span style="color:#ff7b72">for</span> more information<span style="color:#ff7b72;font-weight:bold">.</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#ff7b72">from</span> <span style="color:#ff7b72">Crypto.Cipher</span> <span style="color:#ff7b72">import</span> Salsa20
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;&gt;</span> c <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">&#34;0505 5fb1 a329 a8d5 58d9 f556 a6cb 31f3 2443 2a31 c99d ec72 e33e b66f 62ad 1bf9&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;&gt;</span> Salsa20<span style="color:#ff7b72;font-weight:bold">.</span>new(key<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">b</span><span style="color:#a5d6ff">&#34;ef39f4f20e76e33bd25f4db338e81b10&#34;</span>, nonce<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">b</span><span style="color:#a5d6ff">&#34;d4c270a3&#34;</span>)<span style="color:#ff7b72;font-weight:bold">.</span>decrypt(bytes<span style="color:#ff7b72;font-weight:bold">.</span>fromhex(c))
-</span></span><span style="display:flex;"><span><span style="color:#79c0ff">b</span><span style="color:#a5d6ff">&#39;TheCrucialRustEngineering@2021;)&#39;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="err">$</span> <span class="n">python3</span>                              
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">Python</span> <span class="mf">3.13.11</span> <span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">Dec</span>  <span class="mi">8</span> <span class="mi">2025</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="mi">54</span><span class="p">)</span> <span class="p">[</span><span class="n">GCC</span> <span class="mf">15.2.0</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">Type</span> <span class="s2">&#34;help&#34;</span><span class="p">,</span> <span class="s2">&#34;copyright&#34;</span><span class="p">,</span> <span class="s2">&#34;credits&#34;</span> <span class="ow">or</span> <span class="s2">&#34;license&#34;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">Salsa20</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="s2">&#34;0505 5fb1 a329 a8d5 58d9 f556 a6cb 31f3 2443 2a31 c99d ec72 e33e b66f 62ad 1bf9&#34;</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">Salsa20</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="sa">b</span><span class="s2">&#34;ef39f4f20e76e33bd25f4db338e81b10&#34;</span><span class="p">,</span> <span class="n">nonce</span><span class="o">=</span><span class="sa">b</span><span class="s2">&#34;d4c270a3&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="sa">b</span><span class="s1">&#39;TheCrucialRustEngineering@2021;)&#39;</span></span></span></code></pre></div></div>
 <p>І при спробі автентифікуватися на хості з цим паролем, ми отримуємо прапор</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ nc 94.237.63.176 <span style="color:#a5d6ff">32734</span>
-</span></span><span style="display:flex;"><span>Welcome to secure login portal!
-</span></span><span style="display:flex;"><span>Enter the password to access the system: 
-</span></span><span style="display:flex;"><span>TheCrucialRustEngineering@2021;<span style="color:#ff7b72;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>Successfully Authenticated
-</span></span><span style="display:flex;"><span>Flag: <span style="color:#a5d6ff">&#34;HTB{I_Kn0w_h0w_t0_5al54}&#34;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ nc 94.237.63.176 <span class="m">32734</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Welcome to secure login portal!
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Enter the password to access the system: 
+</span></span><span class="line"><span class="ln">4</span><span class="cl">TheCrucialRustEngineering@2021<span class="p">;</span><span class="o">)</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">Successfully Authenticated
+</span></span><span class="line"><span class="ln">6</span><span class="cl">Flag: <span class="s2">&#34;HTB{I_Kn0w_h0w_t0_5al54}&#34;</span></span></span></code></pre></div></div>
 
           
           
