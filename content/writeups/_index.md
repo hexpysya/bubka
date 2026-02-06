@@ -2,7 +2,7 @@
 draft: false
 layout: "list"
 cascade:
-  showDate: false
+  showDate: true
   showAuthor: false
   showReadingTime: false
   showTaxonomies: true
@@ -14,3 +14,4 @@ cascade:
     font-size: 15px !important;
   }
 </style>
+

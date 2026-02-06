@@ -15,8 +15,8 @@
 
   
   
-    <title>HTB-MongoBleed &middot; bubka hacks stuff</title>
-    <meta name="title" content="HTB-MongoBleed &middot; bubka hacks stuff">
+    <title>HTB-MangoBleed &middot; bubka hacks stuff</title>
+    <meta name="title" content="HTB-MangoBleed &middot; bubka hacks stuff">
   
 
   
@@ -36,15 +36,15 @@
   
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-mongobleed/">
   <meta property="og:site_name" content="bubka hacks stuff">
-  <meta property="og:title" content="HTB-MongoBleed">
+  <meta property="og:title" content="HTB-MangoBleed">
   <meta property="og:description" content="Difficulty: Super Easy OS: Linux Date: 2026-01-30 Description:
 You were contacted early this morning to handle a high‑priority incident involving a suspected compromised server. The host, mongodbsync, is a secondary MongoDB server. According to the administrator, it’s maintained once a month, and they recently became aware of a vulnerability referred to as MongoBleed. As a precaution, the administrator has provided you with root-level access to facilitate your investigation.
 You have already collected a triage acquisition from the server using UAC. Perform a rapid triage analysis of the collected artifacts to determine whether the system has been compromised, identify any attacker activity (initial access, persistence, privilege escalation, lateral movement, or data access/exfiltration), and summarize your findings with an initial incident assessment and recommended next steps.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
-    <meta property="article:published_time" content="2026-01-29T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-01-29T00:00:00+00:00">
+    <meta property="article:published_time" content="2026-01-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-01-30T00:00:00+00:00">
     <meta property="article:tag" content="DFIR">
     <meta property="article:tag" content="CVE-2024-14847">
     <meta property="article:tag" content="Mongodb">
@@ -52,7 +52,7 @@ You have already collected a triage acquisition from the server using UAC. Perfo
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="HTB-MongoBleed">
+  <meta name="twitter:title" content="HTB-MangoBleed">
   <meta name="twitter:description" content="Difficulty: Super Easy OS: Linux Date: 2026-01-30 Description:
 You were contacted early this morning to handle a high‑priority incident involving a suspected compromised server. The host, mongodbsync, is a secondary MongoDB server. According to the administrator, it’s maintained once a month, and they recently became aware of a vulnerability referred to as MongoBleed. As a precaution, the administrator has provided you with root-level access to facilitate your investigation.
 You have already collected a triage acquisition from the server using UAC. Perform a rapid triage analysis of the collected artifacts to determine whether the system has been compromised, identify any attacker activity (initial access, persistence, privilege escalation, lateral movement, or data access/exfiltration), and summarize your findings with an initial incident assessment and recommended next steps.">
@@ -207,8 +207,8 @@ You have already collected a triage acquisition from the server using UAC. Perfo
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "",
-    "name": "HTB-MongoBleed",
-    "headline": "HTB-MongoBleed",
+    "name": "HTB-MangoBleed",
+    "headline": "HTB-MangoBleed",
     
     "inLanguage": "en-us",
     "url" : "http://localhost:1313/bubka/writeups/htb-mongobleed/",
@@ -217,10 +217,10 @@ You have already collected a triage acquisition from the server using UAC. Perfo
       "name": ""
     },
     "copyrightYear": "2026",
-    "dateCreated": "2026-01-29T00:00:00\u002b00:00",
-    "datePublished": "2026-01-29T00:00:00\u002b00:00",
+    "dateCreated": "2026-01-30T00:00:00\u002b00:00",
+    "datePublished": "2026-01-30T00:00:00\u002b00:00",
     
-    "dateModified": "2026-01-29T00:00:00\u002b00:00",
+    "dateModified": "2026-01-30T00:00:00\u002b00:00",
     
     "keywords": ["DFIR","CVE-2024-14847","mongodb","auth.log"],
     
@@ -281,7 +281,10 @@ You have already collected a triage acquisition from the server using UAC. Perfo
     
     
       <div class="min-h-[148px]"></div>
-<div class="fixed inset-x-0 bg-neutral dark:bg-neutral-800 z-100">
+<div class="fixed inset-x-0 z-100">
+  <div
+    id="menu-blur"
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl bg-neutral/25 dark:bg-neutral-800/25"></div>
   <div class="relative m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32">
     <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
   
@@ -486,6 +489,13 @@ You have already collected a triage acquisition from the server using UAC. Perfo
   </div>
 </div>
 
+
+<script
+  type="text/javascript"
+  src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+  integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+  data-blur-id="menu-blur"></script>
+
     
     <div class="relative flex flex-col grow">
       <main id="main-content" class="grow">
@@ -582,7 +592,7 @@ You have already collected a triage acquisition from the server using UAC. Perfo
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        HTB-MongoBleed
+        HTB-MangoBleed
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -607,6 +617,8 @@ You have already collected a triage acquisition from the server using UAC. Perfo
   
 
   
+    
+  
 
   
 
@@ -627,6 +639,8 @@ You have already collected a triage acquisition from the server using UAC. Perfo
 
   <div class="flex flex-row flex-wrap items-center">
     
+    
+      <time datetime="2026-01-30T00:00:00&#43;00:00">January 30, 2026</time>
     
 
     

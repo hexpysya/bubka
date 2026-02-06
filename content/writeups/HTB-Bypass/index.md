@@ -1,5 +1,5 @@
 ---
-title: "HTB-Cyberpsychosis"
+title: "HTB-Bypass"
 date: 2026-01-28
 draft: false
 tags:
@@ -9,7 +9,7 @@ tags:
 platform: reversing
 ---
 
-{{< infobox platform="HackTheBox" difficulty="Easy" os="Windows" date="2026-01-18" >}}
+{{< infobox platform="HackTheBox" difficulty="Easy" os="Windows" date="2026-01-28" >}}
 
 **Description:**  
 The Client is in full control. Bypass the authentication and read the key to get the Flag.

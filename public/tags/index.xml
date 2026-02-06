@@ -7,7 +7,77 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>DFIR</title>
+      <link>http://localhost:1313/bubka/tags/dfir/</link>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/dfir/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ChaCha20</title>
+      <link>http://localhost:1313/bubka/tags/chacha20/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/chacha20/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>IDA</title>
+      <link>http://localhost:1313/bubka/tags/ida/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/ida/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Malware Analysing</title>
+      <link>http://localhost:1313/bubka/tags/malware-analysing/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/malware-analysing/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Network Analysing</title>
+      <link>http://localhost:1313/bubka/tags/network-analysing/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/network-analysing/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PE</title>
+      <link>http://localhost:1313/bubka/tags/pe/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/pe/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Wireshark</title>
+      <link>http://localhost:1313/bubka/tags/wireshark/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/wireshark/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Active Directory</title>
@@ -120,16 +190,6 @@
     </item>
     
     <item>
-      <title>Wireshark</title>
-      <link>http://localhost:1313/bubka/tags/wireshark/</link>
-      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/wireshark/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Cobalt</title>
       <link>http://localhost:1313/bubka/tags/cobalt/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
@@ -140,7 +200,7 @@
     </item>
     
     <item>
-      <title>Malware Analysis</title>
+      <title>Malware-Analysis</title>
       <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
       
@@ -190,16 +250,6 @@
     </item>
     
     <item>
-      <title>DFIR</title>
-      <link>http://localhost:1313/bubka/tags/dfir/</link>
-      <pubDate>Thu, 29 Jan 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/dfir/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Mongodb</title>
       <link>http://localhost:1313/bubka/tags/mongodb/</link>
       <pubDate>Thu, 29 Jan 2026 00:00:00 +0000</pubDate>
@@ -235,16 +285,6 @@
       <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/elf/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Ida</title>
-      <link>http://localhost:1313/bubka/tags/ida/</link>
-      <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/ida/</guid>
       <description></description>
       
     </item>

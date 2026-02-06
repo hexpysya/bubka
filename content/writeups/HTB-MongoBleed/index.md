@@ -1,6 +1,6 @@
 ---
-title: "HTB-MongoBleed"
-date: 2026-01-29
+title: "HTB-MangoBleed"
+date: 2026-01-30
 draft: false
 tags:
   - DFIR

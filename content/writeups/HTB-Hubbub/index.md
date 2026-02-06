@@ -11,7 +11,7 @@ platform:
 ---
 **Description**  
 In the cacophony of noise lies the potential for a clear message. (The flag format is HTB{SOME TEXT HERE}.)
-{{< infobox platform="HackTheBox" difficulty="Easy" os="Linux" date="2026-01-20" >}}
+{{< infobox platform="HackTheBox" difficulty="Easy" os="Linux" date="2026-01-21" >}}
 
 
 

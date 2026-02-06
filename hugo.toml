@@ -37,7 +37,7 @@ highlightCurrentMenuArea = false
 smartTOC = true
 
 [params.header]
-  layout = "fixed-fill" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
+  layout = "fixed" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
 
 [params.footer]
   showMenu = true
@@ -50,7 +50,7 @@ smartTOC = true
   layout = "background" 
 
 [params.article]
-  showDate = false
+  showDate = true
   showViews = false
   showLikes = false
   showDateOnlyInArticle = false
@@ -98,3 +98,13 @@ smartTOC = true
   cardView = true   # ось це зміни
   cardViewScreenWidth = false
   constrainItemsWidth = false
+
+[params.taxonomy]
+  showTermCount = true
+  showHero = true
+  heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  showBreadcrumbs = false
+  showViews = false
+  showLikes = false
+  showTableOfContents = false
+  cardView = false

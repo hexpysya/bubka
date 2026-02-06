@@ -1,6 +1,6 @@
 ---
 title: "HTB-RAuth"
-date: 2026-01-23
+date: 2026-01-22
 draft: false
 tags:
   - Reversing
@@ -11,7 +11,7 @@ tags:
 platform: reversing
 ---
 
-{{< infobox platform="HackTheBox" difficulty="Easy" os="Linux" date="2026-01-18" >}}
+{{< infobox platform="HackTheBox" difficulty="Easy" os="Linux" date="2026-01-22" >}}
 Description:  
 My implementation of authentication mechanisms in C turned out to be failures. But my implementation in Rust is unbreakable. Can you retrieve my password?
 

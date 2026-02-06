@@ -1,6 +1,6 @@
 ---
 title: "HTB-Partial_Encryption"
-date: 2026-01-25
+date: 2026-01-26
 draft: false
 tags:
   - Reversing
@@ -10,7 +10,7 @@ tags:
 platform: reversing
 ---
 
-{{< infobox platform="HackTheBox" difficulty="Easy" os="Windows" date="2026-01-18" >}}
+{{< infobox platform="HackTheBox" difficulty="Easy" os="Windows" date="2026-01-26" >}}
 Description:  
 Static-Analysis on this program didn't reveal much. There must be a better way to approach this...
 

@@ -10,7 +10,7 @@ tags:
 platform: reversing
 ---
 
-{{< infobox platform="HackTheBox" difficulty="Easy" os="Linux" date="2026-01-18" >}}
+{{< infobox platform="HackTheBox" difficulty="Easy" os="Linux" date="2026-01-28" >}}
 
 **Description:**  
 Static analysis on this program didn't reveal much. There must be a better way to approach this...
