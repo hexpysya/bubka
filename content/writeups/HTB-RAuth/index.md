@@ -3,7 +3,9 @@ title: "HTB-RAuth"
 date: 2026-01-22
 draft: false
 tags:
-  - Reversing
+  - Reverse Engineering
+  - Linux
+  - ELF
   - ida
   - rust
   - rust-gdb

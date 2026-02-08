@@ -3,7 +3,8 @@ title: "HTB-Bypass"
 date: 2026-01-28
 draft: false
 tags:
-  - Reversing
+  - Reverse Engineering
+  - Windows
   - .NET
   - dnspy
 platform: reversing

@@ -4,6 +4,13 @@ date: 2026-02-02
 draft: false
 tags:
   - DFIR
+  - Log Analysis
+  - Linux
+  - T1110
+  - T1053.003
+  - T1136.001
+  - T1098.004
+  - T1543.002
 platform: DFIR
 ---
 

@@ -4,6 +4,14 @@ date: 2026-02-05
 draft: false
 tags:
   - DFIR
+  - Log Analysis
+  - Windows
+  - CVE-2024-6473
+  - DLL Hijacking
+  - Event Viewer
+  - MFTExplorer
+  - RegistryExplorer
+  - PECmd
 platform: DFIR
 ---
 {{< infobox platform="HackTheBox" difficulty="Medium" os="Windows" date="2026-02-05" >}}

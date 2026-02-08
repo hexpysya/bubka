@@ -5,12 +5,13 @@ date: 2026-01-19
 draft: false
 tags:
   - web 
-  - nmap
+  - Linux
   - CVE-2024-48990
   - file-upload
   - path-traversal
   - needrestart
   - sqlite
+  - nmap 
 platform: machines
 ---
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PECmd on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/pecmd/</link>
+    <description>Recent content in PECmd on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Thu, 05 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/pecmd/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTB-EasyMoney</title>
+      <link>http://localhost:1313/bubka/writeups/htb-easymoney/</link>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/writeups/htb-easymoney/</guid>
+      <description>&lt;div class=&#34;meta-box&#34;&gt;&#xA;  &lt;div class=&#34;meta-pill difficulty medium&#34;&gt;&#xA;    &lt;span class=&#34;meta-label&#34;&gt;Difficulty:&lt;/span&gt;&#xA;    &lt;span class=&#34;meta-value&#34;&gt;Medium&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;meta-pill&#34;&gt;&#xA;    &lt;span class=&#34;meta-label&#34;&gt;OS:&lt;/span&gt;&#xA;    &lt;span class=&#34;meta-value&#34;&gt;Windows&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;meta-pill&#34;&gt;&#xA;    &lt;span class=&#34;meta-label&#34;&gt;Date:&lt;/span&gt;&#xA;    &lt;span class=&#34;meta-value&#34;&gt;2026-02-05&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;h3 class=&#34;relative group&#34;&gt;&lt;span style=&#34;color:lightblue&#34;&gt;TL;DR&lt;/span&gt;&#xA;    &lt;div id=&#34;tldr&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;&#xA;    &#xA;    &lt;span&#xA;        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;&#xA;        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#tldr&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Administrator executed a malicious shortcut that triggered a hidden PowerShell command, downloading and executing payload and gaining a shell access. The attacker enumerated installed software, identified a vulnerable Yandex Browser (CVE-2024-6473), and exploited DLL hijacking by planting a malicious library that acts as a dropper. This dropper deployed a Sliver C2 implant establishing persistence via a scheduled task and maintaining communication&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -3,13 +3,15 @@ title: "HTB-SneakyKeys"
 date: 2026-02-03
 draft: false
 tags:
-  - Malware Analysing
-  - Network Analysing
+  - Malware Analysis
+  - Network Analysis
+  - Reverse Engineering
+  - Windows
   - PE
   - ChaCha20
   - Wireshark
   - IDA
-platform: Malware Analysing
+platform: Malware Analysis
 ---
 
 

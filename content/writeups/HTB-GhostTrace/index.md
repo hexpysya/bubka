@@ -4,8 +4,12 @@ date: 2026-01-31
 draft: false
 tags:
   - SOC
+  - Log Analysis
+  - Windows
   - Active Directory
-  - Incident Response
+  - Event Viewer
+  - Mimikatz
+  - PowerView
 platform: SOC
 ---
 

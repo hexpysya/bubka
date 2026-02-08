@@ -4,6 +4,8 @@ date: 2026-01-30
 draft: false
 tags:
   - Malware Analysis
+  - Windows
+  - PE
   - winDBG
   - mini dump
   - cobalt

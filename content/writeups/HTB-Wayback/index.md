@@ -3,9 +3,10 @@ title: "HTB-Wayback"
 date: 2026-01-29
 draft: false
 tags:
-  - Reversing
+  - Reverse Engineering
+  - Linux
   - ida
-  - elf
+  - ELF
   - srand
 platform: reversing
 ---

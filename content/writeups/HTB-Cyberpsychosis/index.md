@@ -3,7 +3,9 @@ title: "HTB-Cyberpsychosis"
 date: 2026-01-28
 draft: false
 tags:
-  - Reversing
+  - Reverse Engineering
+  - Linux
+  - ELF
   - ida
   - rootkit
   - LKM

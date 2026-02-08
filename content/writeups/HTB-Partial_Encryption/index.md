@@ -3,7 +3,9 @@ title: "HTB-Partial_Encryption"
 date: 2026-01-26
 draft: false
 tags:
-  - Reversing
+  - Reverse Engineering
+  - Windows
+  - PE
   - packer
   - ida
   - x64dbg

@@ -4,9 +4,10 @@ date: 2026-01-30
 draft: false
 tags:
   - DFIR
+  - Log Analysis
+  - Linux
   - CVE-2024-14847
   - mongodb
-  - auth.log
 platform: DFIR
 ---
 

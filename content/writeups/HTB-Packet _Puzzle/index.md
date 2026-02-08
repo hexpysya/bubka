@@ -4,9 +4,11 @@ date: 2026-01-31
 draft: false
 tags:
   - SOC
+  - Network Analysis
+  - Windows
   - CVE-2024-4577
   - T1190
-  - wireshark
+  - Wireshark
 platform: SOC
 ---
 {{< infobox difficulty="Easy" os="Windows" date="2026-01-31" >}}

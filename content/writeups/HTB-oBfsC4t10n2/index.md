@@ -4,7 +4,8 @@ date: 2026-01-20
 draft: false
 tags:
   - forensics
-  - malware-analysis
+  - Malware Analysis
+  - Linux
   - excel
   - xlm-macros
   - olevba
