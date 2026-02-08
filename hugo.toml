@@ -26,7 +26,9 @@ theme = "blowfish"
 [[menus.main]]
   name = "about"
   pageRef = "/"        
-  weight = 20
+  weight = 30
+
+
 
 [params]
 colorScheme = "github"
@@ -47,7 +49,16 @@ smartTOC = true
   showScrollToTop = true
 
 [params.homepage]
-  layout = "background" 
+  layout = "background" # valid options: page, profile, hero, card, background, custom
+  homepage = "IMAGE.jpg"
+  showRecent = true
+  showRecentItems = 3
+  showMoreLink = false
+  showMoreLinkDest = "/posts/"
+  cardView = false
+  cardViewScreenWidth = false
+  layoutBackgroundBlur = true # only used when layout equals background
+  disableHeroImageFilter = false # only used when layout equals hero
 
 [params.article]
   showDate = true
