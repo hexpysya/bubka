@@ -2,6 +2,7 @@
 title: "HTB-EasyMoney"
 date: 2026-02-05
 draft: false
+summary: "Administrator executed a malicious shortcut that triggered a hidden PowerShell command, downloading and executing payload and gaining a shell access. The attacker enumerated installed software, identified a vulnerable Yandex Browser (CVE-2024-6473), and exploited DLL hijacking by planting a malicious library that acts as a dropper. This dropper deployed a Sliver C2 implant establishing persistence via a scheduled task and maintaining communication"
 tags:
   - DFIR
   - Log Analysis

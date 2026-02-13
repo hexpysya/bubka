@@ -2,6 +2,7 @@
 title: "HTB-Cyberpsychosis"
 date: 2026-01-28
 draft: false
+summary: " "
 tags:
   - Reverse Engineering
   - Linux

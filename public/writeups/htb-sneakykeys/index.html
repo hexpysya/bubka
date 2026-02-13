@@ -3,7 +3,7 @@
   lang="en-us"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="one-light"
+  data-default-appearance="dark"
   data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
@@ -21,6 +21,8 @@
 
   
   
+    <meta name="description" content=" ">
+  
   
     <meta name="keywords" content="Malware Analysis,Network Analysis,Reverse Engineering,Windows,PE,ChaCha20,Wireshark,IDA,">
   
@@ -31,14 +33,14 @@
 
   
   
+    <meta name="author" content="Bubka">
+  
   
 
   
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-sneakykeys/">
   <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-SneakyKeys">
-  <meta property="og:description" content="Difficulty: Medium OS: Windows Date: 2026-02-03 Description:
-TL;DR # This malware is a targeted keylogger written in C&#43;&#43; (MinGW) that monitors specific applications (e.g., Google Chrome). It generates a unique session key from the victim’s MachineGuid, removes dashes to form a 32-byte key, and uses ChaCha20 to encrypt keystrokes. The encrypted data is exfiltrated over a raw TCP connection to a C2 server using an IRC-like protocol, posting into the #key_storrage channel. The malware ensures persistence by copying itself to the %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup folder and employs anti-debugging techniques by decrypting critical strings only when no debugger is detected.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -54,8 +56,6 @@ TL;DR # This malware is a targeted keylogger written in C&#43;&#43; (MinGW) that
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="HTB-SneakyKeys">
-  <meta name="twitter:description" content="Difficulty: Medium OS: Windows Date: 2026-02-03 Description:
-TL;DR # This malware is a targeted keylogger written in C&#43;&#43; (MinGW) that monitors specific applications (e.g., Google Chrome). It generates a unique session key from the victim’s MachineGuid, removes dashes to form a 32-byte key, and uses ChaCha20 to encrypt keystrokes. The encrypted data is exfiltrated over a raw TCP connection to a C2 server using an IRC-like protocol, posting into the #key_storrage channel. The malware ensures persistence by copying itself to the %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup folder and employs anti-debugging techniques by decrypting critical strings only when no debugger is detected.">
 
   
   
@@ -102,8 +102,8 @@ TL;DR # This malware is a targeted keylogger written in C&#43;&#43; (MinGW) that
   <link
     type="text/css"
     rel="stylesheet"
-    href="/bubka/css/main.bundle.min.c021e5819c07d4cc5a59e5328c5dd36a5597b7d868fb04bddc32d0c56e6ee89975ed188ec798a5dbff3583fba73e0d15f723602d4c97d468bc8bbc1fddbc49fb.css"
-    integrity="sha512-wCHlgZwH1MxaWeUyjF3TalWXt9ho&#43;wS93DLQxW5u6Jl17RiOx5il2/81g/unPg0V9yNgLUyX1Gi8i7wf3bxJ&#43;w==">
+    href="/bubka/css/main.bundle.min.dd76a85fcf4902277214ddcb5f905f7be994a1ec42e528ffbd5ce01d3bd5b3421346d000f13535d1ee6b062076edf5e6186f8136a4731cd26cf5592b4b266928.css"
+    integrity="sha512-3XaoX89JAidyFN3LX5Bfe&#43;mUoexC5Sj/vVzgHTvVs0ITRtAA8TU10e5rBiB27fXmGG&#43;BNqRzHNJs9VkrSyZpKA==">
 
   
   
@@ -214,7 +214,7 @@ TL;DR # This malware is a targeted keylogger written in C&#43;&#43; (MinGW) that
     "url" : "http://localhost:1313/bubka/writeups/htb-sneakykeys/",
     "author" : {
       "@type": "Person",
-      "name": ""
+      "name": "Bubka"
     },
     "copyrightYear": "2026",
     "dateCreated": "2026-02-03T00:00:00\u002b00:00",
@@ -323,7 +323,7 @@ TL;DR # This malware is a targeted keylogger written in C&#43;&#43; (MinGW) that
       
       class="flex items-center bf-icon-color-hover"
       aria-label="about"
-      title="bubka hacks stuff">
+      title="Bubka">
       
       
         <span class="text-base font-medium break-normal">
@@ -451,7 +451,7 @@ TL;DR # This malware is a targeted keylogger written in C&#43;&#43; (MinGW) that
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="bubka hacks stuff" class="text-2xl font-bold tracking-tight">
+        <span title="Bubka" class="text-2xl font-bold tracking-tight">
           about
         </span>
         

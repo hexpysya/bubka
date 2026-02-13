@@ -2,8 +2,8 @@
 title: "HTB-oBfsC4t10n2"
 date: 2026-01-20
 draft: false
+summary: " "
 tags:
-  - forensics
   - Malware Analysis
   - Linux
   - excel

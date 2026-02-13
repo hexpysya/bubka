@@ -2,6 +2,7 @@
 title: "HTB-CrashDump"
 date: 2026-01-30
 draft: false
+summary: "Analyzed two process dumps (notepad.exe and update.exe) revealing a Cobalt Strike Beacon infection. The malware used process injection with reflective DLL loading, communicated with C2 server at `101.10.25.4:8023`, and possessed capabilities for privilege escalation, token manipulation, and lateral movement via named pipes."
 tags:
   - Malware Analysis
   - Windows

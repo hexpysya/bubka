@@ -2,6 +2,7 @@
 title: "HTB-Packet_Puzzle"
 date: 2026-01-31
 draft: false
+summary: "Analyzed network traffic showing exploitation of CVE-2024-4577 (PHP-CGI argument injection) against a Windows server running PHP 8.1.25. Attacker achieved RCE, established reverse shell on port 4545, then escalated privileges using GodPotato to spawn a SYSTEM-level shell on port 5555."
 tags:
   - SOC
   - Network Analysis

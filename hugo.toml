@@ -33,7 +33,7 @@ theme = "blowfish"
 [params]
 colorScheme = "github"
 # avocado, fire, ocean, forest, princess, neon, bloody, terminal, marvel, noir, autumn, congo, slate, github, and one-light
-defaultAppearance = "one-light" # valid options: light or dark
+defaultAppearance = "dark" # valid options: light or dark
 defaultBackgroundImage = "mountains1.jpg"
 highlightCurrentMenuArea = false
 smartTOC = true
@@ -55,7 +55,7 @@ smartTOC = true
   showRecentItems = 3
   showMoreLink = false
   showMoreLinkDest = "/posts/"
-  cardView = false
+  cardView = true
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
   disableHeroImageFilter = false # only used when layout equals hero
@@ -99,14 +99,14 @@ smartTOC = true
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
-  showSummary = false
+  showSummary = true
   showViews = false
   showLikes = false
   showTableOfContents = false
   showCards = false
   orderByWeight = false
   groupByYear = true
-  cardView = true   # ось це зміни
+  cardView = false   # ось це зміни
   cardViewScreenWidth = false
   constrainItemsWidth = false
 
@@ -119,3 +119,9 @@ smartTOC = true
   showLikes = false
   showTableOfContents = false
   cardView = false
+
+
+[params.author]
+  name = "Bubka" 
+  image = "avatar.jpg" 
+  headline = "Malware Analysis | Reverse Engineering | Digital Forensics and Incident Response"

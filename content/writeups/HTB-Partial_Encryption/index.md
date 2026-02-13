@@ -2,6 +2,7 @@
 title: "HTB-Partial_Encryption"
 date: 2026-01-26
 draft: false
+summary: " "
 tags:
   - Reverse Engineering
   - Windows

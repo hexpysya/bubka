@@ -2,6 +2,7 @@
 title: "HTB-GhostTrace"
 date: 2026-01-31
 draft: false
+summary: "Analyzed Windows Event Logs revealing a complete AD compromise chain: phishing email with macro-enabled document → credential dumping with Mimikatz → lateral movement via PsExec → DCSync attack → domain admin compromise → persistence via scheduled task, service, and registry run key."
 tags:
   - SOC
   - Log Analysis

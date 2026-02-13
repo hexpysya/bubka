@@ -1,0 +1,11 @@
+<div class="tags-cloud-wrapper">
+  <h3 class="tags-cloud-title">Filter by Topic</h3>
+  <div class="tags-cloud-grid">
+    {{ range .Site.Taxonomies.tags }}
+      <a href="{{ .Page.RelPermalink }}" class="tag-cloud-item">
+        <span class="tag-name">#{{ .Page.Title }}</span>
+        <span class="tag-count">({{ .Count }})</span>
+      </a>
+    {{ end }}
+  </div>
+</div>
