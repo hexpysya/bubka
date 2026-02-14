@@ -2,11 +2,19 @@
 title: "HTB-Lupin"
 date: 2026-02-08
 draft: false
-summary: " "
+summary: "Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques."
 tags:
   - Malware Analysis
   - Windows
   - PE
+  - PHORPIEX
+  - Clipboard Hijacking
+  - Cryptocurrency Stealer
+  - USB Spreading
+  - UPnP Exploitation
+  - NAT Traversal
+  - MotW Bypass
+  - IDA 
 platform: Malware Analysis
 ---
 
@@ -17,7 +25,7 @@ Description:
 After a security incident, unusual activity on Samira’s workstation led to the discovery of a suspicious binary operating stealthily in the background. The executable evades standard detection while maintaining persistence and network communication. Your mission is to reverse the binary and extract the attacker’s TTPs for the endpoint security team.
 
 ### <span style="color:lightblue">TL;DR</span>
-
+Two-stage dropper - `optimize.exe` downloads `syscrondvr.exe` (PHORPIEX) and sets persistence via Run keys. Main payload implements clipboard hijacking for crypto wallets, USB/network spreading, and UPnP NAT traversal for C2 access. Beacons to `185.156.72.39` and `45.141.233.6` every 15 minutes.
 
 ### <span style="color:red">initial analysis</span>
 ```console
@@ -362,15 +370,12 @@ void __stdcall __noreturn sub_406E00(PVOID Parameter)
 ```
 
 #### usb infect
-1. **Creating hidden structure:**  
-\- Creates a hidden directory with the volume name  
-\- Copies malware as `DriveSecManager.exe` with HIDDEN attribute  
-\- Creates an LNK shortcut file with folder icon  
-
-2. **Hiding legitimate files:**  
-\- Deletes some files (`.bat`, `.vbs`, `.cmd`, `.ps1`, etc.)  
-\- Moves all user files to the hidden directory  
-\- Leaves only the malicious LNK file visible  
+Infection worked by:  
+\- Creating hidden directory with volume name  
+\- Copying malware as `DriveSecManager.exe` with HIDDEN attribute  
+\- Creating LNK shortcut with folder icon  
+\- Moving all user files to hidden directory  
+\- Leaving only malicious LNK visible  
 ```c
 if ( !PathFileExistsW(pszPath) )
   {
@@ -388,14 +393,15 @@ if ( !PathFileExistsW(pszPath) )
     SetFileAttributesW(FileName, 1u);           // FILE_ATTRIBUTE_READONLY
   }
 ```
+User saw what looked like normal folder icon, but it was actually LNK file that executed malware.
 
 
-#### infected .LNK
+#### Malicious LNK
 
-Uses COM interface `IShellLink` to create a `.lnk` file that:  
-\- Looks like a regular folder (`shell32.dll` icon)  
-\- Launches `cmd.exe` with command to open the hidden folder **AND** run `DriveSecManager.exe`  
-\- Victim sees their files (because the hidden directory opens), but malware runs simultaneously  
+Used COM interface `IShellLink` to create LNK that:  
+\- Displayed folder icon from `shell32.dll`  
+\- Launched `cmd.exe` with command to open hidden folder **and** run malware  
+\- Victim saw files (hidden directory opened) while malware executed in background 
 ```c
 void __cdecl sub_406680(int a1, int a2, int a3)
 {
@@ -411,13 +417,11 @@ void __cdecl sub_406680(int a1, int a2, int a3)
 ```
 
 
-#### NAT traversal via UPnP
+#### UPnP NAT Traversal
 
-Malware implements NAT traversal to expose infected machine directly to the internet by configuring port forwarding on the router via UPnP protocol.
+Implemented NAT traversal to expose infected machine to internet by configuring router port forwarding via UPnP.
 
-**Finding gateway via SSDP**
-
-Sends SSDP M-SEARCH multicast request to discover UPnP-enabled routers on the local network. Broadcasts M-SEARCH to `239.255.255.250:1900` to discover `InternetGatewayDevice`, then collects all UPnP gateway URLs from SSDP responses  
+Found gateway via SSDP multicast. Sent M-SEARCH request to `239.255.255.250:1900` to discover `InternetGatewayDevice`:
 ```c
 int __cdecl mw_gateway_find_by_SSDP(_DWORD *a1)
 {
@@ -435,9 +439,8 @@ int __cdecl mw_gateway_find_by_SSDP(_DWORD *a1)
                "\r\n";
 // ...[snip]...
 ```
-**Port forwarding setup (`mw_nat_local`):**
-Determines local IP using `getsockname()` by establishing connection to external host `"www.update.microsoft.com"`
-Then configures router to forward external traffic for TCP/UDP port `40500` to infected machine:
+
+Collected UPnP gateway URLs from responses, then configured port forwarding. Determined local IP via `getsockname()` by connecting to `www.update.microsoft.com`, then forwarded port 40500:
 ```c
 unsigned int mw_nat_local()
 {
@@ -453,7 +456,7 @@ unsigned int mw_nat_local()
       if ( lpszUrl )
       {
         v1 = mw_local_ip();
-        sub_40E780(lpszUrl, "TCP", 0x9E34u, v1); // forward TCP port 40500
-        sub_40E780(lpszUrl, "UDP", 0x9E34u, v1); // forward UDP port 40500
+        sub_40E780(lpszUrl, "TCP", 0x9E34u, v1); // TCP port 40500
+        sub_40E780(lpszUrl, "UDP", 0x9E34u, v1); // UDP port 40500
 // ...[snip]...
 ```

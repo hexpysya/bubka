@@ -37,7 +37,7 @@ defaultAppearance = "dark" # valid options: light or dark
 defaultBackgroundImage = "mountains1.jpg"
 highlightCurrentMenuArea = false
 smartTOC = true
-
+favicon = "favicon.ico"
 [params.header]
   layout = "fixed" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
 
@@ -123,5 +123,5 @@ smartTOC = true
 
 [params.author]
   name = "Bubka" 
-  image = "avatar.jpg" 
   headline = "Malware Analysis | Reverse Engineering | Digital Forensics and Incident Response"
+  image = "avatar.jpg" 

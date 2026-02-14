@@ -21,10 +21,10 @@
 
   
   
-    <meta name="description" content=" ">
+    <meta name="description" content="Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.">
   
   
-    <meta name="keywords" content="Malware Analysis,Windows,PE,">
+    <meta name="keywords" content="Malware Analysis,Windows,PE,PHORPIEX,Clipboard Hijacking,Cryptocurrency Stealer,USB Spreading,UPnP Exploitation,NAT Traversal,MotW Bypass,IDA,">
   
   
   
@@ -41,6 +41,7 @@
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-lupin/">
   <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-Lupin">
+  <meta property="og:description" content="Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -49,10 +50,14 @@
     <meta property="article:tag" content="Malware Analysis">
     <meta property="article:tag" content="Windows">
     <meta property="article:tag" content="PE">
+    <meta property="article:tag" content="PHORPIEX">
+    <meta property="article:tag" content="Clipboard Hijacking">
+    <meta property="article:tag" content="Cryptocurrency Stealer">
 
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="HTB-Lupin">
+  <meta name="twitter:description" content="Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.">
 
   
   
@@ -219,10 +224,10 @@
     
     "dateModified": "2026-02-08T00:00:00\u002b00:00",
     
-    "keywords": ["Malware Analysis","Windows","PE"],
+    "keywords": ["Malware Analysis","Windows","PE","PHORPIEX","Clipboard Hijacking","Cryptocurrency Stealer","USB Spreading","UPnP Exploitation","NAT Traversal","MotW Bypass","IDA"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1813"
+    "wordCount": "1806"
   }]
   </script>
 
@@ -695,6 +700,86 @@
 
               </a>
             
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/phorpiex/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PHORPIEX
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/clipboard-hijacking/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Clipboard Hijacking
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cryptocurrency-stealer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Cryptocurrency Stealer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/usb-spreading/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    USB Spreading
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/upnp-exploitation/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    UPnP Exploitation
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/nat-traversal/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    NAT Traversal
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/motw-bypass/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    MotW Bypass
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/ida/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Ida
+  </span>
+</span>
+
+              </a>
+            
           
         
       
@@ -768,8 +853,8 @@
             <li><a href="#replace-a-crypt">Replace a crypt</a></li>
             <li><a href="#spreading-via-usb-and-network-drives">spreading via USB and network drives</a></li>
             <li><a href="#usb-infect">usb infect</a></li>
-            <li><a href="#infected-lnk">infected .LNK</a></li>
-            <li><a href="#nat-traversal-via-upnp">NAT traversal via UPnP</a></li>
+            <li><a href="#malicious-lnk">Malicious LNK</a></li>
+            <li><a href="#upnp-nat-traversal">UPnP NAT Traversal</a></li>
           </ul>
         </li>
       </ul>
@@ -807,8 +892,8 @@
             <li><a href="#replace-a-crypt">Replace a crypt</a></li>
             <li><a href="#spreading-via-usb-and-network-drives">spreading via USB and network drives</a></li>
             <li><a href="#usb-infect">usb infect</a></li>
-            <li><a href="#infected-lnk">infected .LNK</a></li>
-            <li><a href="#nat-traversal-via-upnp">NAT traversal via UPnP</a></li>
+            <li><a href="#malicious-lnk">Malicious LNK</a></li>
+            <li><a href="#upnp-nat-traversal">UPnP NAT Traversal</a></li>
           </ul>
         </li>
       </ul>
@@ -958,6 +1043,7 @@ After a security incident, unusual activity on Samira’s workstation led to the
     </span>
     
 </h3>
+<p>Two-stage dropper - <code>optimize.exe</code> downloads <code>syscrondvr.exe</code> (PHORPIEX) and sets persistence via Run keys. Main payload implements clipboard hijacking for crypto wallets, USB/network spreading, and UPnP NAT traversal for C2 access. Beacons to <code>185.156.72.39</code> and <code>45.141.233.6</code> every 15 minutes.</p>
 
 <h3 class="relative group"><span style="color:red">initial analysis</span>
     <div id="initial-analysis" class="anchor"></div>
@@ -1409,20 +1495,12 @@ It iterates through 2 hardcoded IP addresses <code>(http://185.156.72.39/ and ht
     </span>
     
 </h4>
-<ol>
-<li>
-<p><strong>Creating hidden structure:</strong><br>
-- Creates a hidden directory with the volume name<br>
-- Copies malware as <code>DriveSecManager.exe</code> with HIDDEN attribute<br>
-- Creates an LNK shortcut file with folder icon</p>
-</li>
-<li>
-<p><strong>Hiding legitimate files:</strong><br>
-- Deletes some files (<code>.bat</code>, <code>.vbs</code>, <code>.cmd</code>, <code>.ps1</code>, etc.)<br>
-- Moves all user files to the hidden directory<br>
-- Leaves only the malicious LNK file visible</p>
-</li>
-</ol>
+<p>Infection worked by:<br>
+- Creating hidden directory with volume name<br>
+- Copying malware as <code>DriveSecManager.exe</code> with HIDDEN attribute<br>
+- Creating LNK shortcut with folder icon<br>
+- Moving all user files to hidden directory<br>
+- Leaving only malicious LNK visible</p>
 <div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nf">PathFileExistsW</span><span class="p">(</span><span class="n">pszPath</span><span class="p">)</span> <span class="p">)</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">  <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nf">PathFileExistsW</span><span class="p">(</span><span class="n">PathName</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nf">CreateDirectoryW</span><span class="p">(</span><span class="n">PathName</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
@@ -1438,20 +1516,21 @@ It iterates through 2 hardcoded IP addresses <code>(http://185.156.72.39/ and ht
 </span></span><span class="line"><span class="ln">13</span><span class="cl">      <span class="nf">sub_406680</span><span class="p">(</span><span class="n">FileName</span><span class="p">,</span> <span class="sa">L</span><span class="s">&#34;shell32.dll&#34;</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span> <span class="c1">// USB drive
 </span></span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="nf">SetFileAttributesW</span><span class="p">(</span><span class="n">FileName</span><span class="p">,</span> <span class="mi">1u</span><span class="p">);</span>           <span class="c1">// FILE_ATTRIBUTE_READONLY
 </span></span></span><span class="line"><span class="ln">15</span><span class="cl">  <span class="p">}</span></span></span></code></pre></div></div>
+<p>User saw what looked like normal folder icon, but it was actually LNK file that executed malware.</p>
 
-<h4 class="relative group">infected .LNK
-    <div id="infected-lnk" class="anchor"></div>
+<h4 class="relative group">Malicious LNK
+    <div id="malicious-lnk" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#infected-lnk" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#malicious-lnk" aria-label="Anchor">#</a>
     </span>
     
 </h4>
-<p>Uses COM interface <code>IShellLink</code> to create a <code>.lnk</code> file that:<br>
-- Looks like a regular folder (<code>shell32.dll</code> icon)<br>
-- Launches <code>cmd.exe</code> with command to open the hidden folder <strong>AND</strong> run <code>DriveSecManager.exe</code><br>
-- Victim sees their files (because the hidden directory opens), but malware runs simultaneously</p>
+<p>Used COM interface <code>IShellLink</code> to create LNK that:<br>
+- Displayed folder icon from <code>shell32.dll</code><br>
+- Launched <code>cmd.exe</code> with command to open hidden folder <strong>and</strong> run malware<br>
+- Victim saw files (hidden directory opened) while malware executed in background</p>
 <div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="kr">__cdecl</span> <span class="nf">sub_406680</span><span class="p">(</span><span class="kt">int</span> <span class="n">a1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a3</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="n">v6</span> <span class="o">=</span> <span class="nf">CoInitialize</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
@@ -1465,18 +1544,17 @@ It iterates through 2 hardcoded IP addresses <code>(http://185.156.72.39/ and ht
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1">// ...[snip]...
 </span></span></span></code></pre></div></div>
 
-<h4 class="relative group">NAT traversal via UPnP
-    <div id="nat-traversal-via-upnp" class="anchor"></div>
+<h4 class="relative group">UPnP NAT Traversal
+    <div id="upnp-nat-traversal" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#nat-traversal-via-upnp" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#upnp-nat-traversal" aria-label="Anchor">#</a>
     </span>
     
 </h4>
-<p>Malware implements NAT traversal to expose infected machine directly to the internet by configuring port forwarding on the router via UPnP protocol.</p>
-<p><strong>Finding gateway via SSDP</strong></p>
-<p>Sends SSDP M-SEARCH multicast request to discover UPnP-enabled routers on the local network. Broadcasts M-SEARCH to <code>239.255.255.250:1900</code> to discover <code>InternetGatewayDevice</code>, then collects all UPnP gateway URLs from SSDP responses</p>
+<p>Implemented NAT traversal to expose infected machine to internet by configuring router port forwarding via UPnP.</p>
+<p>Found gateway via SSDP multicast. Sent M-SEARCH request to <code>239.255.255.250:1900</code> to discover <code>InternetGatewayDevice</code>:</p>
 <div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="kr">__cdecl</span> <span class="nf">mw_gateway_find_by_SSDP</span><span class="p">(</span><span class="n">_DWORD</span> <span class="o">*</span><span class="n">a1</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="n">v17</span> <span class="o">=</span> <span class="nf">WS2_32_23</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">);</span>           
@@ -1493,9 +1571,7 @@ It iterates through 2 hardcoded IP addresses <code>(http://185.156.72.39/ and ht
 </span></span><span class="line"><span class="ln">14</span><span class="cl">               <span class="s">&#34;</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1">// ...[snip]...
 </span></span></span></code></pre></div></div>
-<p><strong>Port forwarding setup (<code>mw_nat_local</code>):</strong>
-Determines local IP using <code>getsockname()</code> by establishing connection to external host <code>&quot;www.update.microsoft.com&quot;</code>
-Then configures router to forward external traffic for TCP/UDP port <code>40500</code> to infected machine:</p>
+<p>Collected UPnP gateway URLs from responses, then configured port forwarding. Determined local IP via <code>getsockname()</code> by connecting to <code>www.update.microsoft.com</code>, then forwarded port 40500:</p>
 <div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">mw_nat_local</span><span class="p">()</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="nf">CoInitializeEx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2u</span><span class="p">);</span>
@@ -1510,8 +1586,8 @@ Then configures router to forward external traffic for TCP/UDP port <code>40500<
 </span></span></span><span class="line"><span class="ln">12</span><span class="cl">      <span class="k">if</span> <span class="p">(</span> <span class="n">lpszUrl</span> <span class="p">)</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">      <span class="p">{</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">v1</span> <span class="o">=</span> <span class="nf">mw_local_ip</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="nf">sub_40E780</span><span class="p">(</span><span class="n">lpszUrl</span><span class="p">,</span> <span class="s">&#34;TCP&#34;</span><span class="p">,</span> <span class="mh">0x9E34u</span><span class="p">,</span> <span class="n">v1</span><span class="p">);</span> <span class="c1">// forward TCP port 40500
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="nf">sub_40E780</span><span class="p">(</span><span class="n">lpszUrl</span><span class="p">,</span> <span class="s">&#34;UDP&#34;</span><span class="p">,</span> <span class="mh">0x9E34u</span><span class="p">,</span> <span class="n">v1</span><span class="p">);</span> <span class="c1">// forward UDP port 40500
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="nf">sub_40E780</span><span class="p">(</span><span class="n">lpszUrl</span><span class="p">,</span> <span class="s">&#34;TCP&#34;</span><span class="p">,</span> <span class="mh">0x9E34u</span><span class="p">,</span> <span class="n">v1</span><span class="p">);</span> <span class="c1">// TCP port 40500
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="nf">sub_40E780</span><span class="p">(</span><span class="n">lpszUrl</span><span class="p">,</span> <span class="s">&#34;UDP&#34;</span><span class="p">,</span> <span class="mh">0x9E34u</span><span class="p">,</span> <span class="n">v1</span><span class="p">);</span> <span class="c1">// UDP port 40500
 </span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1">// ...[snip]...
 </span></span></span></code></pre></div></div>
 

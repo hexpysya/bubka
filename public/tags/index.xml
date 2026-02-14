@@ -10,11 +10,61 @@
     <lastBuildDate>Wed, 11 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>CVE</title>
+      <link>http://localhost:1313/bubka/tags/cve/</link>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/cve/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/bubka/tags/linux/</link>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/linux/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>Web</title>
       <link>http://localhost:1313/bubka/tags/web/</link>
       <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/web/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Clipboard Hijacking</title>
+      <link>http://localhost:1313/bubka/tags/clipboard-hijacking/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/clipboard-hijacking/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Cryptocurrency Stealer</title>
+      <link>http://localhost:1313/bubka/tags/cryptocurrency-stealer/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/cryptocurrency-stealer/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Ida</title>
+      <link>http://localhost:1313/bubka/tags/ida/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/ida/</guid>
       <description></description>
       
     </item>
@@ -30,11 +80,61 @@
     </item>
     
     <item>
+      <title>MotW Bypass</title>
+      <link>http://localhost:1313/bubka/tags/motw-bypass/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/motw-bypass/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>NAT Traversal</title>
+      <link>http://localhost:1313/bubka/tags/nat-traversal/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/nat-traversal/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>PE</title>
       <link>http://localhost:1313/bubka/tags/pe/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/pe/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PHORPIEX</title>
+      <link>http://localhost:1313/bubka/tags/phorpiex/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/phorpiex/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>UPnP Exploitation</title>
+      <link>http://localhost:1313/bubka/tags/upnp-exploitation/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/upnp-exploitation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>USB Spreading</title>
+      <link>http://localhost:1313/bubka/tags/usb-spreading/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/usb-spreading/</guid>
       <description></description>
       
     </item>
@@ -140,16 +240,6 @@
     </item>
     
     <item>
-      <title>Ida</title>
-      <link>http://localhost:1313/bubka/tags/ida/</link>
-      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/ida/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Network Analysis</title>
       <link>http://localhost:1313/bubka/tags/network-analysis/</link>
       <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
@@ -175,16 +265,6 @@
       <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/wireshark/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>http://localhost:1313/bubka/tags/linux/</link>
-      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/linux/</guid>
       <description></description>
       
     </item>
@@ -645,6 +725,16 @@
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/sqlite/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Registry Run Keys</title>
+      <link>http://localhost:1313/bubka/tags/registry-run-keys/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/registry-run-keys/</guid>
       <description></description>
       
     </item>
