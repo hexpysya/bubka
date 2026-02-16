@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ida on bubka hacks stuff</title>
+    <title>IDA on bubka hacks stuff</title>
     <link>http://localhost:1313/bubka/tags/ida/</link>
-    <description>Recent content in Ida on bubka hacks stuff</description>
+    <description>Recent content in IDA on bubka hacks stuff</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Tue, 03 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/ida/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/ida/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTB-Lupin</title>
+      <link>http://localhost:1313/bubka/writeups/htb-lupin/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/writeups/htb-lupin/</guid>
+      <description>Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.</description>
+      
+    </item>
     
     <item>
       <title>HTB-SneakyKeys</title>

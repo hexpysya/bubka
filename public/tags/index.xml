@@ -60,7 +60,7 @@
     </item>
     
     <item>
-      <title>Ida</title>
+      <title>IDA</title>
       <link>http://localhost:1313/bubka/tags/ida/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
@@ -725,16 +725,6 @@
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/sqlite/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Registry Run Keys</title>
-      <link>http://localhost:1313/bubka/tags/registry-run-keys/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/registry-run-keys/</guid>
       <description></description>
       
     </item>

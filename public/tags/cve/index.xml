@@ -15,7 +15,7 @@
       <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/writeups/htb-pterodactyl/</guid>
-      <description>Exploiting Pterodactyl Panel CVE-2025-49132 for unauthenticated RCE, database credential extraction, and privilege escalation through custom Wazuh agent analysis.</description>
+      <description>Exploiting Pterodactyl Panel CVE-2025-49132 for unauthenticated RCE, database credential extraction, and privilege escalation through Wazuh agent vulnerabilities.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/bubka/writeups/htb-pterodactyl/featured.png" />
     </item>
     

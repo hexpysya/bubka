@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Wed, 11 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTB-WorkFromHome</title>
+      <link>http://localhost:1313/bubka/writeups/htb-workfromhome/</link>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/writeups/htb-workfromhome/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>HTB-Pterodactyl</title>
