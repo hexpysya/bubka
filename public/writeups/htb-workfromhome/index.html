@@ -24,7 +24,7 @@
     <meta name="description" content=" ">
   
   
-    <meta name="keywords" content="DFIR,Log Analysis,Windows,">
+    <meta name="keywords" content="DFIR,Log Analysis,Windows,EventViewer,">
   
   
   
@@ -49,6 +49,7 @@
     <meta property="article:tag" content="DFIR">
     <meta property="article:tag" content="Log Analysis">
     <meta property="article:tag" content="Windows">
+    <meta property="article:tag" content="EventViewer">
 
   
   <meta name="twitter:card" content="summary">
@@ -219,10 +220,10 @@
     
     "dateModified": "2026-02-16T00:00:00\u002b00:00",
     
-    "keywords": ["DFIR","Log Analysis","Windows"],
+    "keywords": ["DFIR","Log Analysis","Windows","EventViewer"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "58"
+    "wordCount": "452"
   }]
   </script>
 
@@ -555,7 +556,7 @@
     
     <img
       id="background-image"
-      src="/bubka/mountains1_hu_a249bad53d232748.jpg"
+      src="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"
       role="presentation"
       loading="eager"
       decoding="async"
@@ -580,7 +581,7 @@
       integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
       data-blur-id="background-blur"
       data-image-id="background-image"
-      data-image-url="/bubka/mountains1_hu_a249bad53d232748.jpg"></script>
+      data-image-url="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"></script>
   
       
     
@@ -695,6 +696,16 @@
 
               </a>
             
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/eventviewer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EventViewer
+  </span>
+</span>
+
+              </a>
+            
           
         
       
@@ -753,6 +764,9 @@
         <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#what-weve-got"><span>What we’ve got</span></a></li>
         <li><a href="#phishing-url"><span>Phishing URL</span></a></li>
+        <li><a href="#first-access-via-rdp"><span>first access via RDP</span></a></li>
+        <li><a href="#malicious-site">malicious site</a></li>
+        <li><a href="#semanagevolumeprivilege">SeManageVolumePrivilege</a></li>
       </ul>
     </li>
   </ul>
@@ -773,6 +787,9 @@
         <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#what-weve-got"><span>What we’ve got</span></a></li>
         <li><a href="#phishing-url"><span>Phishing URL</span></a></li>
+        <li><a href="#first-access-via-rdp"><span>first access via RDP</span></a></li>
+        <li><a href="#malicious-site">malicious site</a></li>
+        <li><a href="#semanagevolumeprivilege">SeManageVolumePrivilege</a></li>
       </ul>
     </li>
   </ul>
@@ -938,10 +955,109 @@
     </span>
     
 </h3>
-<p>Analysing a victim&rsquo;s Chrome History using ChromeHistoryView i identified that victim at <code>5/25/2025 1:36:42 PM</code> clicked on phising url <code>https://login.wowzalnc.co.th/logon.php</code>. in phishing url changed letter &ldquo;i&rdquo; to &ldquo;l&rdquo;: &ldquo;wowzainc&rdquo; -&gt; &ldquo;wowzalnc&rdquo;.</p>
+<p>Analysing a victim&rsquo;s Chrome History using ChromeHistoryView i identified that victim at <code>5/25/2025 1:36:42 PM</code> clicked on phising url <code>https://login.wowzalnc.co.th/logon.php</code> and resulting in credential harvesting. in phishing url changed letter &ldquo;i&rdquo; to &ldquo;l&rdquo;: &ldquo;wowzainc&rdquo; -&gt; &ldquo;wowzalnc&rdquo;.</p>
 <div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">http://intranet.wowzainc.co.th/landing.php	5/23/2025 2:20:07 PM
 </span></span><span class="line"><span class="ln">2</span><span class="cl">https://login.wowzalnc.co.th/logon.php	    5/25/2025 1:36:42 PM
 </span></span><span class="line"><span class="ln">3</span><span class="cl">https://mail.wowzainc.co.th/inbox.php	    5/23/2025 2:21:17 PM</span></span></code></pre></div></div>
+
+<h3 class="relative group"><span style="color:red">first access via RDP</span>
+    <div id="first-access-via-rdp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#first-access-via-rdp" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>at <code>2025-05-27 11:59:57</code> the attacker gained access to user otello.j via RDP(Logon type: 10).</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl"># Security.evtx/4624
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Logon Information:
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">	Logon Type:		10
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">	Restricted Admin Mode:	No
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">	Virtual Account:		No
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">	Elevated Token:		No
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">New Logon:
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">	Security ID:		S-1-5-21-888844466-1397619329-4015378808-1001
+</span></span><span class="line"><span class="ln">10</span><span class="cl">	Account Name:		otello.j
+</span></span><span class="line"><span class="ln">11</span><span class="cl">	Account Domain:		WORKSTATION6
+</span></span><span class="line"><span class="ln">12</span><span class="cl">	Logon ID:		0x2A017F
+</span></span><span class="line"><span class="ln">13</span><span class="cl">	Linked Logon ID:		0x0
+</span></span><span class="line"><span class="ln">14</span><span class="cl">	Network Account Name:	-
+</span></span><span class="line"><span class="ln">15</span><span class="cl">	Network Account Domain:	-
+</span></span><span class="line"><span class="ln">16</span><span class="cl">	Logon GUID:		{00000000-0000-0000-0000-000000000000}</span></span></code></pre></div></div>
+
+<h3 class="relative group">malicious site
+    <div id="malicious-site" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#malicious-site" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>then at <code>5/28/2025 3:36:59 PM</code> user visited a web-site <code>freehackingtool.com</code>.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">http://freehackingtool.com/		5/28/2025 3:55:02 PM	
+</span></span><span class="line"><span class="ln">2</span><span class="cl">http://freehackingtool.com/tools/		5/28/2025 3:53:36 PM	
+</span></span><span class="line"><span class="ln">3</span><span class="cl">http://freehackingtool.com/tools/		5/28/2025 3:37:09 PM	
+</span></span><span class="line"><span class="ln">4</span><span class="cl">http://freehackingtool.com/		5/28/2025 3:36:59 PM	</span></span></code></pre></div></div>
+<p>from theres was attempt to download some files: <code>SeManageVolumeEXploit.exe</code>, <code>a.vbs</code>, <code>PrintConfig.dll</code>
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="858"
+    height="178"
+    src="/bubka/writeups/htb-workfromhome/image_hu_cea6a58847283862.png"
+    srcset="/bubka/writeups/htb-workfromhome/image_hu_cea6a58847283862.png 800w, /bubka/writeups/htb-workfromhome/image.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/htb-workfromhome/image.png"></figure>
+
+<code>SeManageVolumeEXploit.exe</code> indicates an attempt to exploit the SeManageVolumePrivilege to escalate privileges and gain full control over the C: drive.
+at <code>5/28/2025 3:43:33</code> <code>SeManageVolumeEXploit.exe</code> was succesefully downloaded.</p>
+
+<h3 class="relative group">SeManageVolumePrivilege
+    <div id="semanagevolumeprivilege" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#semanagevolumeprivilege" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The <code>SeManageVolumePrivilege</code> privilege in Windows allows a user to perform volume-related operations, such as defragmenting, mounting, or dismounting a volume. This privilege is normally restricted to highly privileged accounts, like Administrators.</p>
+<p>Privilege Escalation via SeManageVolumePrivilege occurs when an attacker with this privilege gains access to the system and can exploit it to escalate their privileges further. Specifically, the attacker might use this privilege to:</p>
+<ul>
+<li>Mount/Dismount Volumes: Attackers can mount volumes containing sensitive data, potentially bypassing access control mechanisms.</li>
+<li>Corrupt or Manipulate File Systems: By interacting with file systems at the volume level, attackers could introduce malicious changes or corrupt files to create backdoors or disrupt system functionality.</li>
+<li>Potential Code Execution: Depending on the volume operations allowed, attackers may trigger scenarios that lead to arbitrary code execution.</li>
+</ul>
+<p>at <code>5/28/2025 3:44:01 PM</code> was attempted to download a <code>PrintConfig.dll</code>, but it was interrupted with code 41, which means <code>The user shut down the browser</code>.
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="504"
+    height="154"
+    src="/bubka/writeups/htb-workfromhome/image1.png"
+    srcset="/bubka/writeups/htb-workfromhome/image1.png 800w, /bubka/writeups/htb-workfromhome/image1.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/htb-workfromhome/image1.png"></figure>
+</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">// The user shut down the browser.
+</span></span><span class="line"><span class="ln">2</span><span class="cl">// Internal use only:  resume pending downloads if possible.
+</span></span><span class="line"><span class="ln">3</span><span class="cl">INTERRUPT_REASON(USER_SHUTDOWN, 41)</span></span></code></pre></div></div>
+<p>so the attacker at <code>2025-05-28 3:45:37</code> using LOLBIN <code>certutil.exe</code> succesefully downloaded a <code>PrintConfig.dll</code>. I identified that by analysing <code>CryptnetUrlCache/Metadata</code>. the legitimate dll located in <code>C:\Windows\system32\spool\drivers\x64\3\PrintConfig.dll</code> was removed and replaced by a malicious.</p>
+<p>In Powershell console history i found that the attacker initializated an object {854A20FB-2D44-457D-992F-EF13785D2B51} that triggered a winspool service to execute a malicious dll.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">dir
+</span></span><span class="line"><span class="ln">2</span><span class="cl">$type = [Type]::GetTypeFromCLSID(&#34;{854A20FB-2D44-457D-992F-EF13785D2B51}&#34;)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">$object = [Activator]::CreateInstance($type)
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dir
+</span></span><span class="line"><span class="ln">5</span><span class="cl">reg add &#34;HKCU\control panel\desktop&#34; /v wallpaper /t REG_SZ /d &#34;C:/Users/Public/Pictures/gg.bmp&#34; /f</span></span></code></pre></div></div>
 
           
           

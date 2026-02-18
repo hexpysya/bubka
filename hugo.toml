@@ -125,3 +125,8 @@ favicon = "favicon.ico"
   name = "Bubka" 
   headline = "Malware Analysis | Reverse Engineering | Digital Forensics and Incident Response"
   image = "avatar.jpg" 
+
+[imaging]
+  resampleFilter = "Lanczos"
+  quality = 100              
+  hint = "photo"
