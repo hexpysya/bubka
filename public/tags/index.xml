@@ -40,6 +40,16 @@
     </item>
     
     <item>
+      <title>DLL Hijacking</title>
+      <link>http://localhost:1313/bubka/tags/dll-hijacking/</link>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/dll-hijacking/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>Event Viewer</title>
       <link>http://localhost:1313/bubka/tags/event-viewer/</link>
       <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
@@ -55,6 +65,36 @@
       <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/log-analysis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>MFTExplorer</title>
+      <link>http://localhost:1313/bubka/tags/mftexplorer/</link>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/mftexplorer/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PECmd</title>
+      <link>http://localhost:1313/bubka/tags/pecmd/</link>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/pecmd/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>RegistryExplorer</title>
+      <link>http://localhost:1313/bubka/tags/registryexplorer/</link>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/registryexplorer/</guid>
       <description></description>
       
     </item>
@@ -120,7 +160,7 @@
     </item>
     
     <item>
-      <title>IDA</title>
+      <title>Ida</title>
       <link>http://localhost:1313/bubka/tags/ida/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
@@ -205,46 +245,6 @@
       <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/cve-2024-6473/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>DLL Hijacking</title>
-      <link>http://localhost:1313/bubka/tags/dll-hijacking/</link>
-      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/dll-hijacking/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>MFTExplorer</title>
-      <link>http://localhost:1313/bubka/tags/mftexplorer/</link>
-      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/mftexplorer/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>PECmd</title>
-      <link>http://localhost:1313/bubka/tags/pecmd/</link>
-      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/pecmd/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>RegistryExplorer</title>
-      <link>http://localhost:1313/bubka/tags/registryexplorer/</link>
-      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/registryexplorer/</guid>
       <description></description>
       
     </item>
@@ -745,16 +745,6 @@
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/sqlite/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>EventViewer</title>
-      <link>http://localhost:1313/bubka/tags/eventviewer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/eventviewer/</guid>
       <description></description>
       
     </item>

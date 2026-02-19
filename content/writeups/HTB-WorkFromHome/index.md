@@ -7,9 +7,13 @@ tags:
   - DFIR
   - Log Analysis
   - Windows
+  - DLL Hijacking
+  - CryptnetUrlCache
   - Event Viewer
   - ChromeHistoryView
-  - CryptnetUrlCache
+  - MFTExplorer
+  - RegistryExplorer
+  - PECmd
 platform: DFIR
 ---
 {{< infobox platform="HackTheBox" difficulty="Medium" os="Windows" date="2026-02-16" >}}
@@ -17,17 +21,6 @@ platform: DFIR
 
 ### <span style="color:lightblue">TL;DR</span>
 A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.
-
-### <span style="color:red">What we've got</span>
-```
-.
-├── Chrome History
-├── Security.evtx
-├── PowerShell ConsoleHost_history.txt
-├── CryptnetUrlCache/
-│   └── MetaData
-└── UsnJrnl / CopyLog artifacts
-```
 
 ### <span style="color:red">Initial Access</span>
 #### Phishing URL

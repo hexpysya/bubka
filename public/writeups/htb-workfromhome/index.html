@@ -24,7 +24,7 @@
     <meta name="description" content="A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.">
   
   
-    <meta name="keywords" content="DFIR,Log Analysis,Windows,Event Viewer,ChromeHistoryView,CryptnetUrlCache,">
+    <meta name="keywords" content="DFIR,Log Analysis,Windows,DLL Hijacking,CryptnetUrlCache,Event Viewer,ChromeHistoryView,MFTExplorer,RegistryExplorer,PECmd,">
   
   
   
@@ -50,9 +50,9 @@
     <meta property="article:tag" content="DFIR">
     <meta property="article:tag" content="Log Analysis">
     <meta property="article:tag" content="Windows">
-    <meta property="article:tag" content="Event Viewer">
-    <meta property="article:tag" content="ChromeHistoryView">
+    <meta property="article:tag" content="DLL Hijacking">
     <meta property="article:tag" content="CryptnetUrlCache">
+    <meta property="article:tag" content="Event Viewer">
 
   
   <meta name="twitter:card" content="summary">
@@ -224,10 +224,10 @@
     
     "dateModified": "2026-02-16T00:00:00\u002b00:00",
     
-    "keywords": ["DFIR","Log Analysis","Windows","Event Viewer","ChromeHistoryView","CryptnetUrlCache"],
+    "keywords": ["DFIR","Log Analysis","Windows","DLL Hijacking","CryptnetUrlCache","Event Viewer","ChromeHistoryView","MFTExplorer","RegistryExplorer","PECmd"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "871"
+    "wordCount": "848"
   }]
   </script>
 
@@ -700,6 +700,26 @@
 
               </a>
             
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/dll-hijacking/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    DLL Hijacking
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cryptneturlcache/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CryptnetUrlCache
+  </span>
+</span>
+
+              </a>
+            
               <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/event-viewer/">
                 <span class="flex cursor-pointer">
   <span
@@ -720,11 +740,31 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cryptneturlcache/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/mftexplorer/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CryptnetUrlCache
+    MFTExplorer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/registryexplorer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    RegistryExplorer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/pecmd/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PECmd
   </span>
 </span>
 
@@ -786,7 +826,6 @@
     <li>
       <ul>
         <li><a href="#tldr"><span>TL;DR</span></a></li>
-        <li><a href="#what-weve-got"><span>What we’ve got</span></a></li>
         <li><a href="#initial-access"><span>Initial Access</span></a>
           <ul>
             <li><a href="#phishing-url">Phishing URL</a></li>
@@ -831,7 +870,6 @@
     <li>
       <ul>
         <li><a href="#tldr"><span>TL;DR</span></a></li>
-        <li><a href="#what-weve-got"><span>What we’ve got</span></a></li>
         <li><a href="#initial-access"><span>Initial Access</span></a>
           <ul>
             <li><a href="#phishing-url">Phishing URL</a></li>
@@ -1004,23 +1042,6 @@
     
 </h3>
 <p>A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.</p>
-
-<h3 class="relative group"><span style="color:red">What we&rsquo;ve got</span>
-    <div id="what-weve-got" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#what-weve-got" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">.
-</span></span><span class="line"><span class="ln">2</span><span class="cl">├── Chrome History
-</span></span><span class="line"><span class="ln">3</span><span class="cl">├── Security.evtx
-</span></span><span class="line"><span class="ln">4</span><span class="cl">├── PowerShell ConsoleHost_history.txt
-</span></span><span class="line"><span class="ln">5</span><span class="cl">├── CryptnetUrlCache/
-</span></span><span class="line"><span class="ln">6</span><span class="cl">│   └── MetaData
-</span></span><span class="line"><span class="ln">7</span><span class="cl">└── UsnJrnl / CopyLog artifacts</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Initial Access</span>
     <div id="initial-access" class="anchor"></div>
