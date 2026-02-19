@@ -21,10 +21,10 @@
 
   
   
-    <meta name="description" content=" ">
+    <meta name="description" content="A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.">
   
   
-    <meta name="keywords" content="DFIR,Log Analysis,Windows,EventViewer,">
+    <meta name="keywords" content="DFIR,Log Analysis,Windows,Event Viewer,ChromeHistoryView,CryptnetUrlCache,">
   
   
   
@@ -41,6 +41,7 @@
   <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-workfromhome/">
   <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-WorkFromHome">
+  <meta property="og:description" content="A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -49,11 +50,14 @@
     <meta property="article:tag" content="DFIR">
     <meta property="article:tag" content="Log Analysis">
     <meta property="article:tag" content="Windows">
-    <meta property="article:tag" content="EventViewer">
+    <meta property="article:tag" content="Event Viewer">
+    <meta property="article:tag" content="ChromeHistoryView">
+    <meta property="article:tag" content="CryptnetUrlCache">
 
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="HTB-WorkFromHome">
+  <meta name="twitter:description" content="A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.">
 
   
   
@@ -220,10 +224,10 @@
     
     "dateModified": "2026-02-16T00:00:00\u002b00:00",
     
-    "keywords": ["DFIR","Log Analysis","Windows","EventViewer"],
+    "keywords": ["DFIR","Log Analysis","Windows","Event Viewer","ChromeHistoryView","CryptnetUrlCache"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "452"
+    "wordCount": "871"
   }]
   </script>
 
@@ -696,11 +700,31 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/eventviewer/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/event-viewer/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    EventViewer
+    Event Viewer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/chromehistoryview/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ChromeHistoryView
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cryptneturlcache/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CryptnetUrlCache
   </span>
 </span>
 
@@ -763,10 +787,32 @@
       <ul>
         <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#what-weve-got"><span>What we’ve got</span></a></li>
-        <li><a href="#phishing-url"><span>Phishing URL</span></a></li>
-        <li><a href="#first-access-via-rdp"><span>first access via RDP</span></a></li>
-        <li><a href="#malicious-site">malicious site</a></li>
-        <li><a href="#semanagevolumeprivilege">SeManageVolumePrivilege</a></li>
+        <li><a href="#initial-access"><span>Initial Access</span></a>
+          <ul>
+            <li><a href="#phishing-url">Phishing URL</a></li>
+            <li><a href="#rdp-access">RDP Access</a></li>
+          </ul>
+        </li>
+        <li><a href="#privilege-escalation"><span>Privilege Escalation</span></a>
+          <ul>
+            <li><a href="#semanagevolumeexploit">SeManageVolumeExploit</a></li>
+          </ul>
+        </li>
+        <li><a href="#malware-deployment"><span>Malware Deployment</span></a>
+          <ul>
+            <li><a href="#printconfigdll--malicious-dll-via-certutil">PrintConfig.dll — Malicious DLL via certutil</a></li>
+            <li><a href="#tzresdll--secondary-malicious-dll">tzres.dll — Secondary Malicious DLL</a></li>
+            <li><a href="#printconfigdll-execution">PrintConfig.dll Execution</a></li>
+          </ul>
+        </li>
+        <li><a href="#persistence"><span>Persistence</span></a>
+          <ul>
+            <li><a href="#avbs--startup-script">a.vbs — Startup Script</a></li>
+          </ul>
+        </li>
+        <li><a href="#attack-timeline"><span>Attack Timeline</span></a></li>
+        <li><a href="#iocs"><span>IOCs</span></a></li>
+        <li><a href="#recommendations"><span>Recommendations</span></a></li>
       </ul>
     </li>
   </ul>
@@ -786,10 +832,32 @@
       <ul>
         <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#what-weve-got"><span>What we’ve got</span></a></li>
-        <li><a href="#phishing-url"><span>Phishing URL</span></a></li>
-        <li><a href="#first-access-via-rdp"><span>first access via RDP</span></a></li>
-        <li><a href="#malicious-site">malicious site</a></li>
-        <li><a href="#semanagevolumeprivilege">SeManageVolumePrivilege</a></li>
+        <li><a href="#initial-access"><span>Initial Access</span></a>
+          <ul>
+            <li><a href="#phishing-url">Phishing URL</a></li>
+            <li><a href="#rdp-access">RDP Access</a></li>
+          </ul>
+        </li>
+        <li><a href="#privilege-escalation"><span>Privilege Escalation</span></a>
+          <ul>
+            <li><a href="#semanagevolumeexploit">SeManageVolumeExploit</a></li>
+          </ul>
+        </li>
+        <li><a href="#malware-deployment"><span>Malware Deployment</span></a>
+          <ul>
+            <li><a href="#printconfigdll--malicious-dll-via-certutil">PrintConfig.dll — Malicious DLL via certutil</a></li>
+            <li><a href="#tzresdll--secondary-malicious-dll">tzres.dll — Secondary Malicious DLL</a></li>
+            <li><a href="#printconfigdll-execution">PrintConfig.dll Execution</a></li>
+          </ul>
+        </li>
+        <li><a href="#persistence"><span>Persistence</span></a>
+          <ul>
+            <li><a href="#avbs--startup-script">a.vbs — Startup Script</a></li>
+          </ul>
+        </li>
+        <li><a href="#attack-timeline"><span>Attack Timeline</span></a></li>
+        <li><a href="#iocs"><span>IOCs</span></a></li>
+        <li><a href="#recommendations"><span>Recommendations</span></a></li>
       </ul>
     </li>
   </ul>
@@ -935,6 +1003,7 @@
     </span>
     
 </h3>
+<p>A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.</p>
 
 <h3 class="relative group"><span style="color:red">What we&rsquo;ve got</span>
     <div id="what-weve-got" class="anchor"></div>
@@ -945,8 +1014,25 @@
     </span>
     
 </h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">.
+</span></span><span class="line"><span class="ln">2</span><span class="cl">├── Chrome History
+</span></span><span class="line"><span class="ln">3</span><span class="cl">├── Security.evtx
+</span></span><span class="line"><span class="ln">4</span><span class="cl">├── PowerShell ConsoleHost_history.txt
+</span></span><span class="line"><span class="ln">5</span><span class="cl">├── CryptnetUrlCache/
+</span></span><span class="line"><span class="ln">6</span><span class="cl">│   └── MetaData
+</span></span><span class="line"><span class="ln">7</span><span class="cl">└── UsnJrnl / CopyLog artifacts</span></span></code></pre></div></div>
 
-<h3 class="relative group"><span style="color:red">Phishing URL</span>
+<h3 class="relative group"><span style="color:red">Initial Access</span>
+    <div id="initial-access" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#initial-access" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">Phishing URL
     <div id="phishing-url" class="anchor"></div>
     
     <span
@@ -954,93 +1040,96 @@
         <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#phishing-url" aria-label="Anchor">#</a>
     </span>
     
-</h3>
-<p>Analysing a victim&rsquo;s Chrome History using ChromeHistoryView i identified that victim at <code>5/25/2025 1:36:42 PM</code> clicked on phising url <code>https://login.wowzalnc.co.th/logon.php</code> and resulting in credential harvesting. in phishing url changed letter &ldquo;i&rdquo; to &ldquo;l&rdquo;: &ldquo;wowzainc&rdquo; -&gt; &ldquo;wowzalnc&rdquo;.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">http://intranet.wowzainc.co.th/landing.php	5/23/2025 2:20:07 PM
-</span></span><span class="line"><span class="ln">2</span><span class="cl">https://login.wowzalnc.co.th/logon.php	    5/25/2025 1:36:42 PM
-</span></span><span class="line"><span class="ln">3</span><span class="cl">https://mail.wowzainc.co.th/inbox.php	    5/23/2025 2:21:17 PM</span></span></code></pre></div></div>
+</h4>
+<p>By analyzing the victim&rsquo;s Chrome history using ChromeHistoryView, I identified that on <strong>2025-05-23 14:20:07</strong> the victim visited the legitimate company intranet. Two days later, on <strong>2025-05-25 13:36:42</strong>, they clicked a phishing URL that harvested their credentials:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">http://intranet.wowzainc.co.th/landing.php     2025-05-23 14:20:07
+</span></span><span class="line"><span class="ln">2</span><span class="cl">https://login.wowzalnc.co.th/logon.php         2025-05-25 13:36:42  &lt;- phishing
+</span></span><span class="line"><span class="ln">3</span><span class="cl">https://mail.wowzainc.co.th/inbox.php          2025-05-23 14:21:17</span></span></code></pre></div></div>
+<p>The phishing domain <code>wowzalnc.co.th</code> impersonates the legitimate <code>wowzainc.co.th</code> by replacing the letter <code>i</code> with <code>l</code>.</p>
 
-<h3 class="relative group"><span style="color:red">first access via RDP</span>
-    <div id="first-access-via-rdp" class="anchor"></div>
+<h4 class="relative group">RDP Access
+    <div id="rdp-access" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#first-access-via-rdp" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#rdp-access" aria-label="Anchor">#</a>
     </span>
     
-</h3>
-<p>at <code>2025-05-27 11:59:57</code> the attacker gained access to user otello.j via RDP(Logon type: 10).</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl"># Security.evtx/4624
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Logon Information:
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">	Logon Type:		10
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">	Restricted Admin Mode:	No
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">	Virtual Account:		No
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">	Elevated Token:		No
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">New Logon:
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">	Security ID:		S-1-5-21-888844466-1397619329-4015378808-1001
-</span></span><span class="line"><span class="ln">10</span><span class="cl">	Account Name:		otello.j
-</span></span><span class="line"><span class="ln">11</span><span class="cl">	Account Domain:		WORKSTATION6
-</span></span><span class="line"><span class="ln">12</span><span class="cl">	Logon ID:		0x2A017F
-</span></span><span class="line"><span class="ln">13</span><span class="cl">	Linked Logon ID:		0x0
-</span></span><span class="line"><span class="ln">14</span><span class="cl">	Network Account Name:	-
-</span></span><span class="line"><span class="ln">15</span><span class="cl">	Network Account Domain:	-
-</span></span><span class="line"><span class="ln">16</span><span class="cl">	Logon GUID:		{00000000-0000-0000-0000-000000000000}</span></span></code></pre></div></div>
+</h4>
+<p>Using the harvested credentials, the attacker gained remote access via RDP on <strong>2025-05-27 11:59:57</strong>. This was confirmed by Event ID 4624 in <code>Security.evtx</code> with Logon Type 10 (RemoteInteractive):</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl"># Security.evtx / Event ID 4624
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Logon Type:       10
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Account Name:     otello.j
+</span></span><span class="line"><span class="ln">4</span><span class="cl">Account Domain:   WORKSTATION6
+</span></span><span class="line"><span class="ln">5</span><span class="cl">Logon ID:         0x2A017F
+</span></span><span class="line"><span class="ln">6</span><span class="cl">Security ID:      S-1-5-21-888844466-1397619329-4015378808-1001</span></span></code></pre></div></div>
 
-<h3 class="relative group">malicious site
-    <div id="malicious-site" class="anchor"></div>
+<h3 class="relative group"><span style="color:red">Privilege Escalation</span>
+    <div id="privilege-escalation" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#malicious-site" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#privilege-escalation" aria-label="Anchor">#</a>
     </span>
     
 </h3>
-<p>then at <code>5/28/2025 3:36:59 PM</code> user visited a web-site <code>freehackingtool.com</code>.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">http://freehackingtool.com/		5/28/2025 3:55:02 PM	
-</span></span><span class="line"><span class="ln">2</span><span class="cl">http://freehackingtool.com/tools/		5/28/2025 3:53:36 PM	
-</span></span><span class="line"><span class="ln">3</span><span class="cl">http://freehackingtool.com/tools/		5/28/2025 3:37:09 PM	
-</span></span><span class="line"><span class="ln">4</span><span class="cl">http://freehackingtool.com/		5/28/2025 3:36:59 PM	</span></span></code></pre></div></div>
-<p>from theres was attempt to download some files: <code>SeManageVolumeEXploit.exe</code>, <code>a.vbs</code>, <code>PrintConfig.dll</code>
-<figure><img
+
+<h4 class="relative group">SeManageVolumeExploit
+    <div id="semanagevolumeexploit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#semanagevolumeexploit" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>On <strong>2025-05-28 12:36:59</strong>, the attacker visited <code>freehackingtool.com</code> and browsed its tools section:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">http://freehackingtool.com/              2025-05-28 12:36:59
+</span></span><span class="line"><span class="ln">2</span><span class="cl">http://freehackingtool.com/tools/        2025-05-28 12:37:09
+</span></span><span class="line"><span class="ln">3</span><span class="cl">http://freehackingtool.com/tools/        2025-05-28 12:53:36
+</span></span><span class="line"><span class="ln">4</span><span class="cl">http://freehackingtool.com/              2025-05-28 12:55:02</span></span></code></pre></div></div>
+<p>From this site, download attempts were made for three files: <code>SeManageVolumeExploit.exe</code>, <code>a.vbs</code>, and <code>PrintConfig.dll</code>.</p>
+<p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
     decoding="async"
     fetchpriority="auto"
-    alt="alt text"
+    alt="Download attempts from freehackingtool.com"
     width="858"
     height="178"
     src="/bubka/writeups/htb-workfromhome/image_hu_cea6a58847283862.png"
     srcset="/bubka/writeups/htb-workfromhome/image_hu_cea6a58847283862.png 800w, /bubka/writeups/htb-workfromhome/image.png 1280w"
     sizes="(min-width: 768px) 50vw, 65vw"
     data-zoom-src="/bubka/writeups/htb-workfromhome/image.png"></figure>
+</p>
+<p>At <strong>2025-05-28 12:43:33</strong>, <code>SeManageVolumeExploit.exe</code> was successfully downloaded. This tool exploits the <code>SeManageVolumePrivilege</code> — a Windows privilege that allows volume-level operations such as mounting, dismounting, and defragmenting volumes. When abused, it can grant an attacker full control over the C: drive, enabling them to bypass access controls, manipulate the file system, and potentially execute arbitrary code.</p>
 
-<code>SeManageVolumeEXploit.exe</code> indicates an attempt to exploit the SeManageVolumePrivilege to escalate privileges and gain full control over the C: drive.
-at <code>5/28/2025 3:43:33</code> <code>SeManageVolumeEXploit.exe</code> was succesefully downloaded.</p>
-
-<h3 class="relative group">SeManageVolumePrivilege
-    <div id="semanagevolumeprivilege" class="anchor"></div>
+<h3 class="relative group"><span style="color:red">Malware Deployment</span>
+    <div id="malware-deployment" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#semanagevolumeprivilege" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#malware-deployment" aria-label="Anchor">#</a>
     </span>
     
 </h3>
-<p>The <code>SeManageVolumePrivilege</code> privilege in Windows allows a user to perform volume-related operations, such as defragmenting, mounting, or dismounting a volume. This privilege is normally restricted to highly privileged accounts, like Administrators.</p>
-<p>Privilege Escalation via SeManageVolumePrivilege occurs when an attacker with this privilege gains access to the system and can exploit it to escalate their privileges further. Specifically, the attacker might use this privilege to:</p>
-<ul>
-<li>Mount/Dismount Volumes: Attackers can mount volumes containing sensitive data, potentially bypassing access control mechanisms.</li>
-<li>Corrupt or Manipulate File Systems: By interacting with file systems at the volume level, attackers could introduce malicious changes or corrupt files to create backdoors or disrupt system functionality.</li>
-<li>Potential Code Execution: Depending on the volume operations allowed, attackers may trigger scenarios that lead to arbitrary code execution.</li>
-</ul>
-<p>at <code>5/28/2025 3:44:01 PM</code> was attempted to download a <code>PrintConfig.dll</code>, but it was interrupted with code 41, which means <code>The user shut down the browser</code>.
-<figure><img
+
+<h4 class="relative group">PrintConfig.dll — Malicious DLL via certutil
+    <div id="printconfigdll--malicious-dll-via-certutil" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#printconfigdll--malicious-dll-via-certutil" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>At <strong>2025-05-28 12:44:01</strong>, the browser download of <code>PrintConfig.dll</code> was interrupted with interrupt code 41 (<code>USER_SHUTDOWN</code> — the browser was closed before the download completed).</p>
+<p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
     decoding="async"
     fetchpriority="auto"
-    alt="alt text"
+    alt="Download interrupted with code 41"
     width="504"
     height="154"
     src="/bubka/writeups/htb-workfromhome/image1.png"
@@ -1048,16 +1137,155 @@ at <code>5/28/2025 3:43:33</code> <code>SeManageVolumeEXploit.exe</code> was suc
     sizes="(min-width: 768px) 50vw, 65vw"
     data-zoom-src="/bubka/writeups/htb-workfromhome/image1.png"></figure>
 </p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">// The user shut down the browser.
-</span></span><span class="line"><span class="ln">2</span><span class="cl">// Internal use only:  resume pending downloads if possible.
-</span></span><span class="line"><span class="ln">3</span><span class="cl">INTERRUPT_REASON(USER_SHUTDOWN, 41)</span></span></code></pre></div></div>
-<p>so the attacker at <code>2025-05-28 3:45:37</code> using LOLBIN <code>certutil.exe</code> succesefully downloaded a <code>PrintConfig.dll</code>. I identified that by analysing <code>CryptnetUrlCache/Metadata</code>. the legitimate dll located in <code>C:\Windows\system32\spool\drivers\x64\3\PrintConfig.dll</code> was removed and replaced by a malicious.</p>
-<p>In Powershell console history i found that the attacker initializated an object {854A20FB-2D44-457D-992F-EF13785D2B51} that triggered a winspool service to execute a malicious dll.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">dir
-</span></span><span class="line"><span class="ln">2</span><span class="cl">$type = [Type]::GetTypeFromCLSID(&#34;{854A20FB-2D44-457D-992F-EF13785D2B51}&#34;)
-</span></span><span class="line"><span class="ln">3</span><span class="cl">$object = [Activator]::CreateInstance($type)
-</span></span><span class="line"><span class="ln">4</span><span class="cl">dir
-</span></span><span class="line"><span class="ln">5</span><span class="cl">reg add &#34;HKCU\control panel\desktop&#34; /v wallpaper /t REG_SZ /d &#34;C:/Users/Public/Pictures/gg.bmp&#34; /f</span></span></code></pre></div></div>
+<p>To work around this, the attacker used the LOLBIN <code>certutil.exe</code> to download the file at <strong>2025-05-28 12:45:37</strong>. This was confirmed by analyzing the <code>CryptnetUrlCache/Metadata</code> artifacts. The legitimate DLL at <code>C:\Windows\system32\spool\drivers\x64\12\PrintConfig.dll</code> was then removed and replaced with the malicious version.</p>
+<p>At <strong>2025-05-28 15:19:35</strong>, Windows Defender detected and flagged the replaced DLL:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Name:      Trojan:Win64/Meterpreter.E
+</span></span><span class="line"><span class="ln">2</span><span class="cl">ID:        2147721833
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Severity:  Severe
+</span></span><span class="line"><span class="ln">4</span><span class="cl">Path:      C:\Windows\system32\spool\drivers\x64\3\PrintConfig.dll
+</span></span><span class="line"><span class="ln">5</span><span class="cl">           service: PrintNotify
+</span></span><span class="line"><span class="ln">6</span><span class="cl">Detection Origin:  Local machine
+</span></span><span class="line"><span class="ln">7</span><span class="cl">User:              NT AUTHORITY\SYSTEM
+</span></span><span class="line"><span class="ln">8</span><span class="cl">Engine Version:    AM: 1.1.25050.2</span></span></code></pre></div></div>
+
+<h4 class="relative group">tzres.dll — Secondary Malicious DLL
+    <div id="tzresdll--secondary-malicious-dll" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tzresdll--secondary-malicious-dll" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>At <strong>2025-05-28 12:54:23</strong>, a second malicious DLL <code>tzres.dll</code> was downloaded via <code>certutil.exe</code> and placed at <code>C:\Windows\system32\wbem\tzres.dll</code>.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="certutil download of tzres.dll"
+    width="990"
+    height="90"
+    src="/bubka/writeups/htb-workfromhome/image3_hu_4e3dff3350fae2e3.png"
+    srcset="/bubka/writeups/htb-workfromhome/image3_hu_4e3dff3350fae2e3.png 800w, /bubka/writeups/htb-workfromhome/image3.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/htb-workfromhome/image3.png"></figure>
+</p>
+
+<h4 class="relative group">PrintConfig.dll Execution
+    <div id="printconfigdll-execution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#printconfigdll-execution" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>From the PowerShell console history, I found that the attacker triggered execution of the malicious <code>PrintConfig.dll</code> by instantiating a COM object associated with the Windows spooler service:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">dir
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nv">$type</span> <span class="p">=</span> <span class="p">[</span><span class="no">Type</span><span class="p">]::</span><span class="n">GetTypeFromCLSID</span><span class="p">(</span><span class="s2">&#34;{854A20FB-2D44-457D-992F-EF13785D2B51}&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nv">$object</span> <span class="p">=</span> <span class="p">[</span><span class="no">Activator</span><span class="p">]::</span><span class="n">CreateInstance</span><span class="p">(</span><span class="nv">$type</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">dir
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="n">reg</span> <span class="n">add</span> <span class="s2">&#34;HKCU\control panel\desktop&#34;</span> <span class="p">/</span><span class="n">v</span> <span class="n">wallpaper</span> <span class="p">/</span><span class="n">t</span> <span class="n">REG_SZ</span> <span class="p">/</span><span class="n">d</span> <span class="s2">&#34;C:/Users/Public/Pictures/gg.bmp&#34;</span> <span class="p">/</span><span class="n">f</span></span></span></code></pre></div></div>
+<p>The CLSID <code>{854A20FB-2D44-457D-992F-EF13785D2B51}</code> is associated with the <code>PrintNotify</code> service. Instantiating it caused <code>spoolsv.exe</code> to load and execute the malicious <code>PrintConfig.dll</code>. Additionally, the attacker downloaded an image <code>gg.bmp</code> and set it as the desktop wallpaper — likely to signal successful compromise.</p>
+
+<h3 class="relative group"><span style="color:red">Persistence</span>
+    <div id="persistence" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#persistence" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">a.vbs — Startup Script
+    <div id="avbs--startup-script" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#avbs--startup-script" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>At <strong>2025-05-28 12:55:05</strong>, <code>a.vbs</code> was downloaded and moved to the Windows Startup folder to ensure execution on every boot:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\a.vbs</span></span></code></pre></div></div>
+<p>The script creates a <code>WScript.Shell</code> object and silently runs <code>systeminfo</code>:</p>
+<div class="highlight-wrapper"><pre tabindex="0"><code class="language-vbscript" data-lang="vbscript">Set WshShell = CreateObject(&#34;WScript.Shell&#34;)
+WshShell.Run &#34;cmd.exe /c systeminfo&#34;, 0, False</code></pre></div>
+<p><code>systeminfo</code> collects data via WMI, which triggers the WMI Provider Host (<code>wmiprvse.exe</code>). Since <code>wmiprvse.exe</code> executes all providers from the <code>\wbem\</code> directory, this causes the malicious <code>tzres.dll</code> to be loaded automatically.</p>
+<p>At <strong>2025-05-28 12:56:11</strong>, the <code>Hidden</code> attribute was set on <code>a.vbs</code> to conceal it from the victim:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">a.vbs  12:56:11  BasicInfoChange  Hidden|Archive</span></span></code></pre></div></div>
+
+<h3 class="relative group"><span style="color:lightblue">Attack Timeline</span>
+    <div id="attack-timeline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#attack-timeline" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">2025-05-23 14:20:07 - Victim visits legitimate intranet site
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">2025-05-25 13:36:42 - Victim clicks phishing URL, credentials harvested
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">2025-05-27 11:59:57 - Attacker gains RDP access as otello.j (Logon Type 10)
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">2025-05-28 12:36:59 - Attacker visits freehackingtool.com
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">2025-05-28 12:43:33 - SeManageVolumeExploit.exe successfully downloaded
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">2025-05-28 12:44:01 - Browser download of PrintConfig.dll interrupted (code 41)
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">2025-05-28 12:45:37 - PrintConfig.dll downloaded via certutil, replaces legitimate DLL
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">2025-05-28 12:54:23 - tzres.dll downloaded via certutil, placed in wbem\
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">2025-05-28 12:55:05 - a.vbs downloaded and placed in Startup folder
+</span></span><span class="line"><span class="ln">10</span><span class="cl">2025-05-28 12:56:11 - Hidden attribute set on a.vbs
+</span></span><span class="line"><span class="ln">11</span><span class="cl">2025-05-28 15:19:35 - Windows Defender detects PrintConfig.dll as Trojan:Win64/Meterpreter.E</span></span></code></pre></div></div>
+
+<h3 class="relative group"><span style="color:lightblue">IOCs</span>
+    <div id="iocs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#iocs" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><strong>Domains</strong><br>
+- <code>login.wowzalnc.co.th</code> — phishing domain (typosquat of wowzainc.co.th)<br>
+- <code>freehackingtool.com</code> — malware hosting</p>
+<p><strong>Files</strong><br>
+- <code>C:\Windows\system32\spool\drivers\x64\3\PrintConfig.dll</code> — Trojan:Win64/Meterpreter.E<br>
+- <code>C:\Windows\system32\wbem\tzres.dll</code> — malicious secondary DLL<br>
+- <code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\a.vbs</code> — persistence script<br>
+- <code>SeManageVolumeExploit.exe</code> — privilege escalation tool</p>
+<p><strong>Registry</strong><br>
+- <code>HKCU\control panel\desktop\wallpaper</code> — set to <code>C:/Users/Public/Pictures/gg.bmp</code></p>
+<p><strong>Accounts</strong><br>
+- <code>otello.j</code> — compromised via phishing</p>
+
+<h3 class="relative group"><span style="color:lightblue">Recommendations</span>
+    <div id="recommendations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#recommendations" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><strong>Immediate Actions</strong></p>
+<ol>
+<li>Isolate the compromised workstation from the network</li>
+<li>Block domains <code>wowzalnc.co.th</code> and <code>freehackingtool.com</code> at the perimeter</li>
+<li>Remove <code>a.vbs</code> from the Startup folder</li>
+<li>Restore legitimate <code>PrintConfig.dll</code> and <code>tzres.dll</code> from a clean source</li>
+<li>Reset credentials for <code>otello.j</code> and audit for lateral movement</li>
+<li>Review all RDP logon events (Event ID 4624, Logon Type 10) across the environment</li>
+</ol>
+<p><strong>Preventive Measures</strong></p>
+<ol>
+<li>Enable MFA on all remote access solutions to mitigate phishing-based credential theft</li>
+<li>Restrict <code>certutil.exe</code> usage via AppLocker or WDAC to prevent LOLBIN abuse</li>
+<li>Enable and monitor Windows Defender alerts centrally via SIEM</li>
+<li>Audit and restrict <code>SeManageVolumePrivilege</code> assignments</li>
+<li>Deploy DNS filtering to block known phishing and malware-hosting domains</li>
+</ol>
 
           
           
