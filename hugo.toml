@@ -123,7 +123,7 @@ favicon = "favicon.ico"
 [params.author]
   name = "Bubka" 
   headline = "Malware Analysis | Reverse Engineering | Digital Forensics and Incident Response"
-  image = "avatar.jpg" 
+  image = "avatar.JPG" 
 
 [imaging]
   resampleFilter = "Lanczos"
