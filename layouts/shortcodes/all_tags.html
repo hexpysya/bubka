@@ -1,0 +1,32 @@
+{{ $featured := slice "DFIR" "Malware Analysis" "SOC" "Reverse Engineering" }}
+
+<div class="my-6 w-full">
+  <div class="flex flex-wrap gap-2 mb-4 w-full">
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      {{ with site.GetPage (printf "/tags/%s" $name) }}
+        {{ if in $featured .Title }}
+          <a href="{{ .RelPermalink }}"
+             class="featured-tag rounded-md border px-3 py-1 text-sm font-semibold">
+            {{ .Title }}
+            <span class="opacity-70 text-xs ml-1">({{ len $taxonomy }})</span>
+          </a>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+
+  <div class="flex flex-wrap gap-2 w-full">
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      {{ with site.GetPage (printf "/tags/%s" $name) }}
+        {{ if not (in $featured .Title) }}
+          <a href="{{ .RelPermalink }}"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            {{ .Title }}
+            <span class="opacity-50 text-xs ml-1">({{ len $taxonomy }})</span>
+          </a>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+</div>

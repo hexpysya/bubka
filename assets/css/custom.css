@@ -246,51 +246,32 @@ article.flex.flex-col h2 {
 article.flex.flex-col:hover h2 {
     color: #10b981 !important;
 }
-/* ВИПРАВЛЕНИЙ БЛОК */
-.tags-cloud-wrapper {
-  width: 100vw !important;
-  position: relative !important;
-  left: 50% !important;
-  
-  /* Головна магія центрування */
-  margin-left: -50vw !important;
-  
-  /* 1. Компенсація смуги прокрутки (додаємо відступ зліва, щоб штовхнути в центр) */
-  padding-left: 17px !important; 
-  box-sizing: border-box !important;
 
-  /* 2. Центрування вмісту */
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  
-  margin-bottom: 3rem !important;
+
+/* Звичайні теги */
+.tag-item {
+  display: inline-block;
+  transition: text-decoration 0.15s ease;
 }
 
-/* Якщо все одно криво — розкоментуйте цей рядок і підбирайте пікселі вручну */
-/* .tags-cloud-grid {
-  transform: translateX(10px) !important; 
-} 
-*/
-
-.tags-cloud-title {
-  text-align: center !important;
-  width: 100% !important;
-  margin-bottom: 1.5rem !important;
-  color: #737373 !important;
-  font-size: 0.9rem !important;
-  letter-spacing: 0.1em !important;
-  text-transform: uppercase !important;
+.tag-item:hover {
+  text-decoration: underline;
+  border-radius: 6px !important;
 }
 
-.tags-cloud-grid {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 0.6rem !important;
-  width: 100% !important;
-  
-  /* Обмеження ширини контенту, щоб не розлазилось */
-  max-width: 1200px !important; 
-  padding: 0 1rem !important;
+/* Featured теги — зелений glow */
+.featured-tag {
+  background-color: #059668c9;
+  border-color: #059668c9;
+  color: white !important;
+  display: inline-block;
+  transition: box-shadow 0.15s ease;
+}
+
+.featured-tag:hover {
+  background-color: #059669;
+  border-color: #059669;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.7);
+  text-decoration: underline;
+  border-radius: 6px !important;
 }

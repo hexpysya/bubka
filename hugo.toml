@@ -19,15 +19,14 @@ theme = "blowfish"
     endLevel = 4
     ordered = false
 [[menus.main]]
-  name = "writeups"
+  name = "investigations "
   pageRef = "writeups"  
   weight = 10
 
 [[menus.main]]
-  name = "about"
-  pageRef = "/"        
-  weight = 30
-
+  name = "blue team"
+  pageRef = "blue_team"        
+  weight = 20
 
 
 [params]
@@ -130,3 +129,7 @@ favicon = "favicon.ico"
   resampleFilter = "Lanczos"
   quality = 100              
   hint = "photo"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"

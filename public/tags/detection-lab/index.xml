@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Detection Lab on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/detection-lab/</link>
+    <description>Recent content in Detection Lab on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/detection-lab/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Wazuh: SSH Brute Force</title>
+      <link>http://localhost:1313/bubka/blue_team_lab/wazuh_ssh-brute-force/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/blue_team_lab/wazuh_ssh-brute-force/</guid>
+      <description>Simulated an SSH brute force attack using Hydra, observed Wazuh detection across 7 rule IDs, identified a gap in default alerting (max level 10), wrote a custom rule to escalate severity to level 12, and configured automated IP blocking via active response.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
