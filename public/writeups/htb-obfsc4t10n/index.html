@@ -4,8 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="true"><head>
-	<meta name="generator" content="Hugo 0.155.1"><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en-us">
@@ -16,19 +15,20 @@
 
   
   
-    <title>bubka hacks stuff</title>
-    <meta name="title" content="bubka hacks stuff">
+    <title>HTB-oBfsC4t10n &middot; bubka hacks stuff</title>
+    <meta name="title" content="HTB-oBfsC4t10n &middot; bubka hacks stuff">
   
 
   
   
+    <meta name="description" content=" ">
+  
+  
+    <meta name="keywords" content="Malware Analysis,">
   
   
   
-  <link rel="canonical" href="http://localhost:1313/bubka/">
-  
-    
-      <link rel="alternate" type="application/rss+xml" href="/bubka/index.xml" title="bubka hacks stuff" />
+  <link rel="canonical" href="http://localhost:1313/bubka/writeups/htb-obfsc4t10n/">
   
 
   
@@ -38,19 +38,19 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/bubka/">
+  <meta property="og:url" content="http://localhost:1313/bubka/writeups/htb-obfsc4t10n/">
   <meta property="og:site_name" content="bubka hacks stuff">
-  <meta property="og:title" content="Bubka">
-  <meta property="og:description" content="Current focus: Wazuh SIEM · Executable analysis
-GitHub · LinkedIn">
+  <meta property="og:title" content="HTB-oBfsC4t10n">
   <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2026-02-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-20T00:00:00+00:00">
+    <meta property="article:tag" content="Malware Analysis">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Bubka">
-  <meta name="twitter:description" content="Current focus: Wazuh SIEM · Executable analysis
-GitHub · LinkedIn">
+  <meta name="twitter:title" content="HTB-oBfsC4t10n">
 
   
   
@@ -198,20 +198,30 @@ GitHub · LinkedIn">
 
   
   <script type="application/ld+json">
-  {
+  [{
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "http://localhost:1313/bubka/",
-    "name": "bubka hacks stuff",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "HTB-oBfsC4t10n",
+    "headline": "HTB-oBfsC4t10n",
     
     "inLanguage": "en-us",
-    "url": "http://localhost:1313/bubka/",
-    
-    "publisher" : {
+    "url" : "http://localhost:1313/bubka/writeups/htb-obfsc4t10n/",
+    "author" : {
       "@type": "Person",
       "name": "Bubka"
-    }
-  }
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-02-20T00:00:00\u002b00:00",
+    "datePublished": "2026-02-20T00:00:00\u002b00:00",
+    
+    "dateModified": "2026-02-20T00:00:00\u002b00:00",
+    
+    "keywords": ["Malware Analysis"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "266"
+  }]
   </script>
 
 
@@ -486,156 +496,108 @@ GitHub · LinkedIn">
       <main id="main-content" class="grow">
         
   
+  <article>
+    
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
   
     
-<article class="prose dark:prose-invert max-w-full">
-  <div class="relative">
-    <div class="absolute inset-x-0 bottom-0 h-1/2"></div>
-    <div class="mx-auto max-w-7xl p-0">
-      <div class="relative sm:overflow-hidden">
-        <div class="fixed inset-x-0 top-0 -z-10">
-          
-          
-          
-            
-              
-            
-          
-          
-          
-            
-            
-            
-            <img
-              id="background-image"
-              class="nozoom mt-0 mr-0 mb-0 ml-0 h-[1000px] w-full object-cover"
-              src="/bubka/mountains1.jpg"
-              role="presentation"
-              >
-            <div
-              class="from-neutral absolute inset-0 h-[1000px] bg-gradient-to-t to-transparent mix-blend-normal dark:from-neutral-800"></div>
-            <div
-              class="from-neutral absolute inset-0 h-[1000px] bg-gradient-to-t to-neutral-100 opacity-60 mix-blend-normal dark:from-neutral-800 dark:to-neutral-800"></div>
-          
-        </div>
-        <div class="relative flex flex-col items-center justify-center px-1 py-1 text-center">
-          
-            
-            
-              
-            
-            
-              
-              
-              
-                
-                
-                
-              
-              <img
-                class="mb-2 h-36 w-36 rounded-full"
-                width="144"
-                height="144"
-                alt="Bubka"
-                src="/bubka/avatar_hu_e6b55406e3ad06f9.JPG"
-                data-zoom-src="/bubka/avatar_hu_8381bf95f2697f88.JPG">
-            
-          
-          <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
-            Bubka
-          </h1>
-          
-            <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
-              Malware Analysis | Reverse Engineering | Digital Forensics and Incident Response
-            </h2>
-          
-          <div class="mt-3 mb-10 text-2xl">
-            
-          </div>
-          <section class="prose dark:prose-invert w-full"><p><strong>Current focus:</strong> Wazuh SIEM · Executable analysis</p>
-<p><span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span> <a href="https://github.com/hexpysya"  target="_blank" rel="noreferrer">GitHub</a> · <span class="relative inline-block align-text-bottom icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></span> <a href="https://www.linkedin.com/in/dmytro-budnikov-67bb77373/"  target="_blank" rel="noreferrer">LinkedIn</a></p>
-</section>
-        </div>
-      </div>
-    </div>
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+    
+    
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
   </div>
-</article>
-<section>
-  
-
 
   
-    
-  
-  <h2 class="mt-8 text-2xl font-extrabold mb-10">Recent</h2>
-
-  
-    
-
-
-
-<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-  
-    
-
-
-
-
-
-
-  
-  
-    
-
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
     
     
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"></script>
+  
       
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
       
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        HTB-oBfsC4t10n
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
 
 
 
-<article
-  class="article-link--card relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600">
+
+
   
   
-  <div class="p-4">
-    <header>
-      <a
-        
-          href="/bubka/writeups/htb-obfsc4t10n/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          HTB-oBfsC4t10n
-          
-        </h2>
-      </a>
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
 
 
 
@@ -722,476 +684,324 @@ GitHub · LinkedIn">
 
 
 
-    </div>
-    
-      <div class="article-link__summary prose dark:prose-invert mt-1 line-clamp-5">
-        
       </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-  
-    
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
       
         
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article
-  class="article-link--card relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600">
   
   
-  <div class="p-4">
-    <header>
-      <a
-        
-          href="/bubka/writeups/htb-workfromhome/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          HTB-WorkFromHome
-          
-        </h2>
-      </a>
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      
     </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2026-02-16T00:00:00&#43;00:00">February 16, 2026</time>
-    
 
     
-    
-  </div>
-
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-      
-        
-      
-    </div>
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/dfir/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    DFIR
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/log-analysis/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Log Analysis
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Windows
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/dll-hijacking/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    DLL Hijacking
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cryptneturlcache/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CryptnetUrlCache
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/event-viewer/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Event Viewer
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/chromehistoryview/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    ChromeHistoryView
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/mftexplorer/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    MFTExplorer
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/registryexplorer/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    RegistryExplorer
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/pecmd/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    PECmd
-  </span>
-</span>
-
-              </a>
-            
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-      <div class="article-link__summary prose dark:prose-invert mt-1 line-clamp-5">
-        A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.
-      </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-  
-    
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
       
       
-        
       
-        
       
-        
       
-    
-
-    
-    
-
-    
-    
-      
-        
-        
-          
-        
-      
-    
-  
-
-
-
-<article
-  class="article-link--card relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600">
-  
-    <div class="flex-none relative overflow-hidden thumbnail_card">
-      <img
-        src="/bubka/writeups/htb-pterodactyl/featured_hu_190e09a451c48b87.png"
-        role="presentation"
-        loading="lazy"
-        decoding="async"
-        class="not-prose absolute inset-0 w-full h-full object-cover">
-    </div>
-  
-  
-  <div class="p-4">
-    <header>
-      <a
-        
-          href="/bubka/writeups/htb-pterodactyl/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          HTB-Pterodactyl
-          
-        </h2>
-      </a>
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2026-02-11T00:00:00&#43;00:00">February 11, 2026</time>
-    
-
-    
-    
-  </div>
-
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-      
-        
-      
-    </div>
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/web/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Web
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/linux/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Linux
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cve/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CVE
-  </span>
-</span>
-
-              </a>
-            
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-      <div class="article-link__summary prose dark:prose-invert mt-1 line-clamp-5">
-        Exploiting Pterodactyl Panel CVE-2025-49132 for unauthenticated RCE, database credential extraction, and privilege escalation through Wazuh agent vulnerabilities.
-      </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-  
-</section>
-
-  
-
-  
-
-
-</section>
-
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-[140px]">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
   <div
-    id="background-blur"
-    class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
-  
-  
-  <script
-    type="text/javascript"
-    src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
-    integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
-    data-blur-id="background-blur"
-    data-image-id="background-image"
-    data-image-url="/bubka/mountains1.jpg"></script>
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600 text-sm">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
+        <li><a href="#initial-analysis"><span>initial analysis</span></a></li>
+        <li><a href="#excel-analysis"><span>Excel analysis</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
+        <li><a href="#initial-analysis"><span>initial analysis</span></a></li>
+        <li><a href="#excel-analysis"><span>Excel analysis</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
 
 
-  
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+    let isJumpingToAnchor = false
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      if (isJumpingToAnchor) {
+        for (let i = 0; i < anchors.length; i++) {
+          const anchor = anchors[i]
+          if (!tocIds.has(anchor.id)) continue
+          const top = anchor.getBoundingClientRect().top + window.scrollY
+          if (Math.abs(window.scrollY - top) < 100) {
+            return anchor.id
+          }
+        }
+      }
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          isJumpingToAnchor = true
+        })
+      })
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          <div class="meta-box">
+  <div class="meta-pill difficulty hard">
+    <span class="meta-label">Difficulty:</span>
+    <span class="meta-value">Hard</span>
+  </div>
+
+  <div class="meta-pill">
+    <span class="meta-label">OS:</span>
+    <span class="meta-value">Windows</span>
+  </div>
+
+  <div class="meta-pill">
+    <span class="meta-label">Date:</span>
+    <span class="meta-value">2026-02-20</span>
+  </div>
+</div>
+
+
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h3 class="relative group"><span style="color:red">initial analysis</span>
+    <div id="initial-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#initial-analysis" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>It is a .html file with one vety long line. I used a tool called <code>Code Beautify</code> to &hellip;</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> file *             
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">invoice-42369643.html: ASCII text, with very long lines (48949)
+</span></span></span></code></pre></div></div>
+<p>file contains a very long base64 string. I identified that this .html file downnload a <code>.xlsm</code> file.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">h2&gt;This file cannot be previewed. Please &lt;a id=&#34;94dff0cf657696&#34; href=&#34;data:&amp;#97;pplic&amp;#97;tion&amp;sol;vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,UEsDBBQABgAIAAAAIQAVrOhRs...AAAAA==&#34; download=&#34;invoice-42369643.xlsm&#34; target=&#34;_blank&#34;&gt;&amp;#100;ownloa&amp;#100;&lt;/a&gt; the file.&lt;/h2&gt;</span></span></code></pre></div></div>
+<p>I extracted excel file:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span>  <span class="nb">echo</span> <span class="s2">&#34;UEsDBBQABgAIAAAAIQAVrOhRs...&#34;</span> <span class="p">|</span> base64 -d &gt; mw.bin
+</span></span></code></pre></div></div>
+<p>Confirmed a file type: <code>Microsoft Excel 2007+</code>.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> file *
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">invoice-42369643.html: ASCII text, with very long lines (48949)
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">mw.bin:                Microsoft Excel 2007+
+</span></span></span></code></pre></div></div>
+
+<h3 class="relative group"><span style="color:red">Excel analysis</span>
+    <div id="excel-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#excel-analysis" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The file contained a <code>VBA macros</code>.</p>
+<div class="highlight-wrapper"><pre tabindex="0"><code class="language-cosnole" data-lang="cosnole">$ oleid mw.bin                                                     
+XLMMacroDeobfuscator: pywin32 is not installed (only is required if you want to use MS Excel)
+oleid 0.60.1 - http://decalage.info/oletools
+THIS IS WORK IN PROGRESS - Check updates regularly!
+Please report any issue at https://github.com/decalage2/oletools/issues
+
+Filename: mw.bin
+WARNING  For now, VBA stomping cannot be detected for files in memory
+--------------------+--------------------+----------+--------------------------
+Indicator           |Value               |Risk      |Description               
+--------------------+--------------------+----------+--------------------------
+File format         |MS Excel 2007+      |info      |                          
+                    |Macro-Enabled       |          |                          
+                    |Workbook (.xlsm)    |          |                          
+--------------------+--------------------+----------+--------------------------
+Container format    |OpenXML             |info      |Container type            
+--------------------+--------------------+----------+--------------------------
+Encrypted           |False               |none      |The file is not encrypted 
+--------------------+--------------------+----------+--------------------------
+VBA Macros          |Yes, suspicious     |HIGH      |This file contains VBA    
+                    |                    |          |macros. Suspicious        
+                    |                    |          |keywords were found. Use  
+                    |                    |          |olevba and mraptor for    
+                    |                    |          |more info.                
+--------------------+--------------------+----------+--------------------------
+XLM Macros          |No                  |none      |This file does not contain
+                    |                    |          |Excel 4/XLM macros.       
+--------------------+--------------------+----------+--------------------------
+External            |0                   |none      |External relationships    
+Relationships       |                    |          |such as remote templates, 
+                    |                    |          |remote OLE objects, etc   
+--------------------+--------------------+----------+--------------------------</code></pre></div>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/bubka/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_writeups\HTB-oBfsC4t10n\index.md"
+          data-oid-likes="likes_writeups\HTB-oBfsC4t10n\index.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+
+      
+    </footer>
+  </article>
 
         
 

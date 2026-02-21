@@ -5,6 +5,7 @@ draft: false
 summary: "Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques."
 tags:
   - Malware Analysis
+  - Reverse Engineering
   - Windows
   - PE
   - PHORPIEX
