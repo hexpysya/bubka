@@ -141,5 +141,4 @@ by running a `vmonkey` i determine this:
 ```
 
 
-i ran a malicious excel file in sandbox and extracted a `LwTHLrGh.hta` file.
-`
+i ran a malicious excel file in sandbox and extracted a `LwTHLrGh.hta` file...[on going]...
