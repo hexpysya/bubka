@@ -7,16 +7,20 @@
     <lastmod>2026-02-20T00:00:00+00:00</lastmod>
   </url>
   <url>
+    <loc>http://localhost:1313/bubka/writeups/</loc>
+    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>http://localhost:1313/bubka/</loc>
+    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/bubka/writeups/htb-obfsc4t10n/</loc>
     <lastmod>2026-02-20T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/bubka/blue_team/wazuh_ssh-brute-force/</loc>
     <lastmod>2026-02-20T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/bubka/writeups/</loc>
-    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/bubka/writeups/htb-workfromhome/</loc>
@@ -93,5 +97,9 @@
   <url>
     <loc>http://localhost:1313/bubka/writeups/htb-conversor/</loc>
     <lastmod>2026-01-19T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/bubka/writeups/dropper-cs.exe-analysis/</loc>
+    <lastmod>2025-11-23T00:00:00+00:00</lastmod>
   </url>
 </urlset>
