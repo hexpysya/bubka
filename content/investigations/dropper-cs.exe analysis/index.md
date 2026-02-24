@@ -1,26 +1,22 @@
 ---
-title: "Dropper-cs.exe analysis"
+title: "PoshC2: Dropper-cs.exe"
 date: 2025-11-23
 draft: false
-summary: "`dropper_cs.exe` — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to `192.168.248.128`, fileless in-memory execution, anti-debug via divide-by-zero."
+summary: "C2 .NET implant. AES-encrypted config, HTTPS beacon to `192.168.248.128`, fileless in-memory execution, anti-debug via divide-by-zero."
 tags:
   - Malware Analysis
   - Reverse Engineering
   - Windows
   - PE
   - .NET
+  - PoshC2
   - dnspy
 platform: Malware Analysis
 ---
 
 
 ### <span style="color:lightblue">TL;DR</span>
-
-`dropper_cs.exe` is a **PoshC2 C# implant (stager)** that establishes a persistent encrypted C2 channel over HTTPS.
-
-On execution the sample immediately hides its console window and uses a deliberate divide-by-zero exception as an anti-debug technique — real execution flow lives inside the catch block, invisible to a debugger. An AES-encrypted C2 configuration is embedded directly in the binary as a reversed base64 string, decrypted at runtime to reveal the C2 address, beacon interval, session key, and URI pattern.
-
-The implant contacts `192.168.248.128:443` within 1.3 seconds of startup, sending an AES-encrypted system fingerprint (username, domain, PID, architecture) disguised as a `SessionID` cookie. Outbound data is padded with real image bytes to evade network inspection. All communication is encrypted with AES-CBC and SSL validation is disabled to allow self-signed certificates.
+`dropper_cs.exe` is a PoshC2 C# implant. An AES-encrypted C2 configuration is embedded directly in the binary, decrypted at runtime to reveal the C2 address, beacon interval, session key, and URI pattern. The implant contacts `192.168.248.128:443`, sending an AES-encrypted system fingerprint disguised as a `SessionID` cookie. Outbound data is padded with real image bytes to evade network inspection. All communication is encrypted with AES-CBC and SSL validation is disabled to allow self-signed certificates.
 
 Once staging completes, the implant enters an indefinite beacon loop (`KillDate: 2999-01-01`), polling the C2 every 5 seconds ±20% jitter for commands. It supports 13+ commands including in-memory assembly execution, live reconfiguration, modular payload loading via `Stage2-Core.exe`, and named pipe communication for lateral movement. All operations are fileless — nothing is written to disk.
 ```
@@ -289,9 +285,7 @@ text = dec.decode('utf-8')
 raw = base64.b64decode(text)
 config = raw.decode('utf-8')
 
-print("\n+-------------------------+")
 print(config)
-print("+--------------------------------+")
 ```
 
 #### config decryption result
@@ -426,5 +420,4 @@ private static string RandomString(int length)
     select s[Program.RANDOM.Next(s.Length)]).ToArray<char>());
 }
 ```
-
 The fixed charset `"...................@..........................Tyscf"` was visible as a raw string in the strings analysis at offset `0x04B25D81`.
