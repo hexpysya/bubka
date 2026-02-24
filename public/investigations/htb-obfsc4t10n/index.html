@@ -21,7 +21,7 @@
 
   
   
-    <meta name="description" content=" ">
+    <meta name="description" content="A phishing HTML file masquerading as an invoice delivers a macro-enabled Excel workbook that drops and executes a multi-stage obfuscated HTA payload, ultimately injecting a reverse shell shellcode into rundll32.exe and establishing a C2 connection.">
   
   
     <meta name="keywords" content="Malware Analysis,Shellcode Analysis,Sandbox,Windows,VBA,HTA,Process Injection,olevba,vmonkey,scdbg,">
@@ -41,7 +41,7 @@
   <meta property="og:url" content="http://localhost:1313/bubka/investigations/htb-obfsc4t10n/">
   <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="HTB-oBfsC4t10n">
-  <meta property="og:description" content="Writeups on malware analysis, reverse engineering and DFIR.">
+  <meta property="og:description" content="A phishing HTML file masquerading as an invoice delivers a macro-enabled Excel workbook that drops and executes a multi-stage obfuscated HTA payload, ultimately injecting a reverse shell shellcode into rundll32.exe and establishing a C2 connection.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="investigations">
@@ -57,7 +57,7 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="HTB-oBfsC4t10n">
-  <meta name="twitter:description" content="Writeups on malware analysis, reverse engineering and DFIR.">
+  <meta name="twitter:description" content="A phishing HTML file masquerading as an invoice delivers a macro-enabled Excel workbook that drops and executes a multi-stage obfuscated HTA payload, ultimately injecting a reverse shell shellcode into rundll32.exe and establishing a C2 connection.">
 
   
   
@@ -227,7 +227,7 @@
     "keywords": ["Malware Analysis","Shellcode Analysis","Sandbox","Windows","VBA","HTA","Process Injection","olevba","vmonkey","scdbg"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1186"
+    "wordCount": "1264"
   }]
   </script>
 
@@ -1029,6 +1029,7 @@
     </span>
     
 </h3>
+<p>A phishing HTML file poses as an invoice and delivers a macro-enabled Excel workbook (<code>invoice-42369643.xlsm</code>). Upon opening, the <code>Auto_Open</code> macro assembles an HTA payload from three hidden sources — shape metadata, an OLE stream, and the active cell selection — and executes it via <code>mshta.exe</code>. The HTA lowers macro security via registry modification, then drops obfuscated VBA code that injects shellcode into a spawned <code>rundll32.exe</code> process. The shellcode establishes a reverse shell connection to <code>evil-domain.no</code> over port 443.</p>
 
 <h3 class="relative group"><span style="color:red">initial analysis</span>
     <div id="initial-analysis" class="anchor"></div>

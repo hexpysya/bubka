@@ -2,7 +2,7 @@
 title: "HTB-oBfsC4t10n"
 date: 2026-02-20
 draft: false
-summary: " "
+summary: "A phishing HTML file masquerading as an invoice delivers a macro-enabled Excel workbook that drops and executes a multi-stage obfuscated HTA payload, ultimately injecting a reverse shell shellcode into rundll32.exe and establishing a C2 connection."
 tags:
   - Malware Analysis
   - Shellcode Analysis
@@ -20,6 +20,7 @@ platform: Malware Analysis
 
 
 ### <span style="color:lightblue">TL;DR</span>
+A phishing HTML file poses as an invoice and delivers a macro-enabled Excel workbook (`invoice-42369643.xlsm`). Upon opening, the `Auto_Open` macro assembles an HTA payload from three hidden sources — shape metadata, an OLE stream, and the active cell selection — and executes it via `mshta.exe`. The HTA lowers macro security via registry modification, then drops obfuscated VBA code that injects shellcode into a spawned `rundll32.exe` process. The shellcode establishes a reverse shell connection to `evil-domain.no` over port 443.
 
 ### <span style="color:red">initial analysis</span>
 The sample is an HTML file containing a single long line. 
