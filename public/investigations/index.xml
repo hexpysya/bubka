@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/investigations/</link>
+    <description>Recent content on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/investigations/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTB-oBfsC4t10n</title>
+      <link>http://localhost:1313/bubka/investigations/htb-obfsc4t10n/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-obfsc4t10n/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-WorkFromHome</title>
+      <link>http://localhost:1313/bubka/investigations/htb-workfromhome/</link>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-workfromhome/</guid>
+      <description>A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Pterodactyl</title>
+      <link>http://localhost:1313/bubka/investigations/htb-pterodactyl/</link>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-pterodactyl/</guid>
+      <description>Exploiting Pterodactyl Panel CVE-2025-49132 for unauthenticated RCE, database credential extraction, and privilege escalation through Wazuh agent vulnerabilities.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/bubka/investigations/htb-pterodactyl/featured.png" />
+    </item>
+    
+    <item>
+      <title>HTB-Lupin</title>
+      <link>http://localhost:1313/bubka/investigations/htb-lupin/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-lupin/</guid>
+      <description>Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-EasyMoney</title>
+      <link>http://localhost:1313/bubka/investigations/htb-easymoney/</link>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-easymoney/</guid>
+      <description>Administrator executed a malicious shortcut that triggered a hidden PowerShell command, downloading and executing payload and gaining a shell access. The attacker enumerated installed software, identified a vulnerable Yandex Browser (CVE-2024-6473), and exploited DLL hijacking by planting a malicious library that acts as a dropper. This dropper deployed a Sliver C2 implant establishing persistence via a scheduled task and maintaining communication</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-SneakyKeys</title>
+      <link>http://localhost:1313/bubka/investigations/htb-sneakykeys/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-sneakykeys/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-LuckyShot</title>
+      <link>http://localhost:1313/bubka/investigations/htb-luckyshot/</link>
+      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-luckyshot/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Facts</title>
+      <link>http://localhost:1313/bubka/investigations/htb-facts/</link>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-facts/</guid>
+      <description>Discovered Camaleon CMS 2.9.0 with two critical vulnerabilities: CVE-2025-2304 (mass assignment privilege escalation) and CVE-2024-46987 (path traversal). Escalated to admin, extracted S3 credentials, downloaded SSH private key from MinIO bucket, cracked passphrase, and achieved root via sudo facter exploitation.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-GhostTrace</title>
+      <link>http://localhost:1313/bubka/investigations/htb-ghosttrace/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-ghosttrace/</guid>
+      <description>Analyzed Windows Event Logs revealing a complete AD compromise chain: phishing email with macro-enabled document → credential dumping with Mimikatz → lateral movement via PsExec → DCSync attack → domain admin compromise → persistence via scheduled task, service, and registry run key.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Packet_Puzzle</title>
+      <link>http://localhost:1313/bubka/investigations/htb-packet-_puzzle/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-packet-_puzzle/</guid>
+      <description>Analyzed network traffic showing exploitation of CVE-2024-4577 (PHP-CGI argument injection) against a Windows server running PHP 8.1.25. Attacker achieved RCE, established reverse shell on port 4545, then escalated privileges using GodPotato to spawn a SYSTEM-level shell on port 5555.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-CrashDump</title>
+      <link>http://localhost:1313/bubka/investigations/htb-crashdump/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-crashdump/</guid>
+      <description>Analyzed two process dumps (notepad.exe and update.exe) revealing a Cobalt Strike Beacon infection. The malware used process injection with reflective DLL loading, communicated with C2 server at &lt;code&gt;101.10.25.4:8023&lt;/code&gt;, and possessed capabilities for privilege escalation, token manipulation, and lateral movement via named pipes.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-MangoBleed</title>
+      <link>http://localhost:1313/bubka/investigations/htb-mongobleed/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-mongobleed/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Wayback</title>
+      <link>http://localhost:1313/bubka/investigations/htb-wayback/</link>
+      <pubDate>Thu, 29 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-wayback/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Bypass</title>
+      <link>http://localhost:1313/bubka/investigations/htb-bypass/</link>
+      <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-bypass/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Cyberpsychosis</title>
+      <link>http://localhost:1313/bubka/investigations/htb-cyberpsychosis/</link>
+      <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-cyberpsychosis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Partial_Encryption</title>
+      <link>http://localhost:1313/bubka/investigations/htb-partial_encryption/</link>
+      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-partial_encryption/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-RAuth</title>
+      <link>http://localhost:1313/bubka/investigations/htb-rauth/</link>
+      <pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-rauth/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Hubbub</title>
+      <link>http://localhost:1313/bubka/investigations/htb-hubbub/</link>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-hubbub/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-oBfsC4t10n2</title>
+      <link>http://localhost:1313/bubka/investigations/htb-obfsc4t10n2/</link>
+      <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-obfsc4t10n2/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Conversor</title>
+      <link>http://localhost:1313/bubka/investigations/htb-conversor/</link>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-conversor/</guid>
+      <description>Flask web application vulnerable to path traversal during file uploads. Exploited by uploading Python reverse shell to cron-executed directory → gained www-data shell → extracted MD5 hashes from SQLite database → cracked password for user fismathack → leveraged CVE-2024-48990 in needrestart 3.7 for privilege escalation to root.</description>
+      
+    </item>
+    
+    <item>
+      <title>Dropper-cs.exe analysis</title>
+      <link>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</guid>
+      <description>&lt;code&gt;dropper_cs.exe&lt;/code&gt; — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to &lt;code&gt;192.168.248.128&lt;/code&gt;, fileless in-memory execution, anti-debug via divide-by-zero.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

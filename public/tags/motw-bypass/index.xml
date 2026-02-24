@@ -11,10 +11,10 @@
     
     <item>
       <title>HTB-Lupin</title>
-      <link>http://localhost:1313/bubka/writeups/htb-lupin/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-lupin/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-lupin/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-lupin/</guid>
       <description>Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.</description>
       
     </item>

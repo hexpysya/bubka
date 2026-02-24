@@ -11,30 +11,30 @@
     
     <item>
       <title>HTB-Pterodactyl</title>
-      <link>http://localhost:1313/bubka/writeups/htb-pterodactyl/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-pterodactyl/</link>
       <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-pterodactyl/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-pterodactyl/</guid>
       <description>Exploiting Pterodactyl Panel CVE-2025-49132 for unauthenticated RCE, database credential extraction, and privilege escalation through Wazuh agent vulnerabilities.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/bubka/writeups/htb-pterodactyl/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/bubka/investigations/htb-pterodactyl/featured.png" />
     </item>
     
     <item>
       <title>HTB-Facts</title>
-      <link>http://localhost:1313/bubka/writeups/htb-facts/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-facts/</link>
       <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-facts/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-facts/</guid>
       <description>Discovered Camaleon CMS 2.9.0 with two critical vulnerabilities: CVE-2025-2304 (mass assignment privilege escalation) and CVE-2024-46987 (path traversal). Escalated to admin, extracted S3 credentials, downloaded SSH private key from MinIO bucket, cracked passphrase, and achieved root via sudo facter exploitation.</description>
       
     </item>
     
     <item>
       <title>HTB-Conversor</title>
-      <link>http://localhost:1313/bubka/writeups/htb-conversor/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-conversor/</link>
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-conversor/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-conversor/</guid>
       <description>Flask web application vulnerable to path traversal during file uploads. Exploited by uploading Python reverse shell to cron-executed directory → gained www-data shell → extracted MD5 hashes from SQLite database → cracked password for user fismathack → leveraged CVE-2024-48990 in needrestart 3.7 for privilege escalation to root.</description>
       
     </item>

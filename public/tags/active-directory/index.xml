@@ -11,10 +11,10 @@
     
     <item>
       <title>HTB-GhostTrace</title>
-      <link>http://localhost:1313/bubka/writeups/htb-ghosttrace/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-ghosttrace/</link>
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-ghosttrace/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-ghosttrace/</guid>
       <description>Analyzed Windows Event Logs revealing a complete AD compromise chain: phishing email with macro-enabled document → credential dumping with Mimikatz → lateral movement via PsExec → DCSync attack → domain admin compromise → persistence via scheduled task, service, and registry run key.</description>
       
     </item>

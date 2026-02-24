@@ -11,81 +11,91 @@
     
     <item>
       <title>HTB-Lupin</title>
-      <link>http://localhost:1313/bubka/writeups/htb-lupin/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-lupin/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-lupin/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-lupin/</guid>
       <description>Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.</description>
       
     </item>
     
     <item>
       <title>HTB-SneakyKeys</title>
-      <link>http://localhost:1313/bubka/writeups/htb-sneakykeys/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-sneakykeys/</link>
       <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-sneakykeys/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-sneakykeys/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Wayback</title>
-      <link>http://localhost:1313/bubka/writeups/htb-wayback/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-wayback/</link>
       <pubDate>Thu, 29 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-wayback/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-wayback/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Bypass</title>
-      <link>http://localhost:1313/bubka/writeups/htb-bypass/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-bypass/</link>
       <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-bypass/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-bypass/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Cyberpsychosis</title>
-      <link>http://localhost:1313/bubka/writeups/htb-cyberpsychosis/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-cyberpsychosis/</link>
       <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-cyberpsychosis/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-cyberpsychosis/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Partial_Encryption</title>
-      <link>http://localhost:1313/bubka/writeups/htb-partial_encryption/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-partial_encryption/</link>
       <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-partial_encryption/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-partial_encryption/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-RAuth</title>
-      <link>http://localhost:1313/bubka/writeups/htb-rauth/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-rauth/</link>
       <pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-rauth/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-rauth/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Hubbub</title>
-      <link>http://localhost:1313/bubka/writeups/htb-hubbub/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-hubbub/</link>
       <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-hubbub/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-hubbub/</guid>
       <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Dropper-cs.exe analysis</title>
+      <link>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</guid>
+      <description>&lt;code&gt;dropper_cs.exe&lt;/code&gt; — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to &lt;code&gt;192.168.248.128&lt;/code&gt;, fileless in-memory execution, anti-debug via divide-by-zero.</description>
       
     </item>
     

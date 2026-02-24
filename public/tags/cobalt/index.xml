@@ -11,10 +11,10 @@
     
     <item>
       <title>HTB-CrashDump</title>
-      <link>http://localhost:1313/bubka/writeups/htb-crashdump/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-crashdump/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-crashdump/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-crashdump/</guid>
       <description>Analyzed two process dumps (notepad.exe and update.exe) revealing a Cobalt Strike Beacon infection. The malware used process injection with reflective DLL loading, communicated with C2 server at &lt;code&gt;101.10.25.4:8023&lt;/code&gt;, and possessed capabilities for privilege escalation, token manipulation, and lateral movement via named pipes.</description>
       
     </item>

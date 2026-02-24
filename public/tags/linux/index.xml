@@ -11,90 +11,90 @@
     
     <item>
       <title>HTB-Pterodactyl</title>
-      <link>http://localhost:1313/bubka/writeups/htb-pterodactyl/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-pterodactyl/</link>
       <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-pterodactyl/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-pterodactyl/</guid>
       <description>Exploiting Pterodactyl Panel CVE-2025-49132 for unauthenticated RCE, database credential extraction, and privilege escalation through Wazuh agent vulnerabilities.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/bubka/writeups/htb-pterodactyl/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/bubka/investigations/htb-pterodactyl/featured.png" />
     </item>
     
     <item>
       <title>HTB-LuckyShot</title>
-      <link>http://localhost:1313/bubka/writeups/htb-luckyshot/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-luckyshot/</link>
       <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-luckyshot/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-luckyshot/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-MangoBleed</title>
-      <link>http://localhost:1313/bubka/writeups/htb-mongobleed/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-mongobleed/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-mongobleed/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-mongobleed/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Wayback</title>
-      <link>http://localhost:1313/bubka/writeups/htb-wayback/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-wayback/</link>
       <pubDate>Thu, 29 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-wayback/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-wayback/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Cyberpsychosis</title>
-      <link>http://localhost:1313/bubka/writeups/htb-cyberpsychosis/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-cyberpsychosis/</link>
       <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-cyberpsychosis/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-cyberpsychosis/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-RAuth</title>
-      <link>http://localhost:1313/bubka/writeups/htb-rauth/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-rauth/</link>
       <pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-rauth/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-rauth/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Hubbub</title>
-      <link>http://localhost:1313/bubka/writeups/htb-hubbub/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-hubbub/</link>
       <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-hubbub/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-hubbub/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-oBfsC4t10n2</title>
-      <link>http://localhost:1313/bubka/writeups/htb-obfsc4t10n2/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-obfsc4t10n2/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-obfsc4t10n2/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-obfsc4t10n2/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Conversor</title>
-      <link>http://localhost:1313/bubka/writeups/htb-conversor/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-conversor/</link>
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-conversor/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-conversor/</guid>
       <description>Flask web application vulnerable to path traversal during file uploads. Exploited by uploading Python reverse shell to cron-executed directory → gained www-data shell → extracted MD5 hashes from SQLite database → cracked password for user fismathack → leveraged CVE-2024-48990 in needrestart 3.7 for privilege escalation to root.</description>
       
     </item>

@@ -10,11 +10,71 @@
     <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Hta</title>
+      <link>http://localhost:1313/bubka/tags/hta/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/hta/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>IDA</title>
+      <link>http://localhost:1313/bubka/tags/ida/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/ida/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>Malware Analysis</title>
       <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/malware-analysis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Olevba</title>
+      <link>http://localhost:1313/bubka/tags/olevba/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/olevba/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Process Injection</title>
+      <link>http://localhost:1313/bubka/tags/process-injection/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/process-injection/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Scdbg</title>
+      <link>http://localhost:1313/bubka/tags/scdbg/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/scdbg/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Shellcode Analysis</title>
+      <link>http://localhost:1313/bubka/tags/shellcode-analysis/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/shellcode-analysis/</guid>
       <description></description>
       
     </item>
@@ -30,11 +90,41 @@
     </item>
     
     <item>
+      <title>VBA</title>
+      <link>http://localhost:1313/bubka/tags/vba/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/vba/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Vmonkey</title>
+      <link>http://localhost:1313/bubka/tags/vmonkey/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/vmonkey/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>Wazuh</title>
       <link>http://localhost:1313/bubka/tags/wazuh/</link>
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/wazuh/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>http://localhost:1313/bubka/tags/windows/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/windows/</guid>
       <description></description>
       
     </item>
@@ -130,16 +220,6 @@
     </item>
     
     <item>
-      <title>Windows</title>
-      <link>http://localhost:1313/bubka/tags/windows/</link>
-      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/windows/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>CVE</title>
       <link>http://localhost:1313/bubka/tags/cve/</link>
       <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
@@ -185,16 +265,6 @@
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/cryptocurrency-stealer/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Ida</title>
-      <link>http://localhost:1313/bubka/tags/ida/</link>
-      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/ida/</guid>
       <description></description>
       
     </item>
@@ -680,16 +750,6 @@
     </item>
     
     <item>
-      <title>Olevba</title>
-      <link>http://localhost:1313/bubka/tags/olevba/</link>
-      <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/olevba/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Xlm-Macros</title>
       <link>http://localhost:1313/bubka/tags/xlm-macros/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
@@ -755,6 +815,26 @@
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/sqlite/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Shellcode</title>
+      <link>http://localhost:1313/bubka/tags/shellcode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/shellcode/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Vba Macros</title>
+      <link>http://localhost:1313/bubka/tags/vba-macros/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/vba-macros/</guid>
       <description></description>
       
     </item>

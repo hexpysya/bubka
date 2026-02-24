@@ -11,41 +11,51 @@
     
     <item>
       <title>HTB-Lupin</title>
-      <link>http://localhost:1313/bubka/writeups/htb-lupin/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-lupin/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-lupin/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-lupin/</guid>
       <description>Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.</description>
       
     </item>
     
     <item>
       <title>HTB-SneakyKeys</title>
-      <link>http://localhost:1313/bubka/writeups/htb-sneakykeys/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-sneakykeys/</link>
       <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-sneakykeys/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-sneakykeys/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-CrashDump</title>
-      <link>http://localhost:1313/bubka/writeups/htb-crashdump/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-crashdump/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-crashdump/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-crashdump/</guid>
       <description>Analyzed two process dumps (notepad.exe and update.exe) revealing a Cobalt Strike Beacon infection. The malware used process injection with reflective DLL loading, communicated with C2 server at &lt;code&gt;101.10.25.4:8023&lt;/code&gt;, and possessed capabilities for privilege escalation, token manipulation, and lateral movement via named pipes.</description>
       
     </item>
     
     <item>
       <title>HTB-Partial_Encryption</title>
-      <link>http://localhost:1313/bubka/writeups/htb-partial_encryption/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-partial_encryption/</link>
       <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-partial_encryption/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-partial_encryption/</guid>
       <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Dropper-cs.exe analysis</title>
+      <link>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</guid>
+      <description>&lt;code&gt;dropper_cs.exe&lt;/code&gt; — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to &lt;code&gt;192.168.248.128&lt;/code&gt;, fileless in-memory execution, anti-debug via divide-by-zero.</description>
       
     </item>
     

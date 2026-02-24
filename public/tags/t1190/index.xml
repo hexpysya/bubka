@@ -11,10 +11,10 @@
     
     <item>
       <title>HTB-Packet_Puzzle</title>
-      <link>http://localhost:1313/bubka/writeups/htb-packet-_puzzle/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-packet-_puzzle/</link>
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-packet-_puzzle/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-packet-_puzzle/</guid>
       <description>Analyzed network traffic showing exploitation of CVE-2024-4577 (PHP-CGI argument injection) against a Windows server running PHP 8.1.25. Attacker achieved RCE, established reverse shell on port 4545, then escalated privileges using GodPotato to spawn a SYSTEM-level shell on port 5555.</description>
       
     </item>

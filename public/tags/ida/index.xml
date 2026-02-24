@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ida on bubka hacks stuff</title>
+    <title>IDA on bubka hacks stuff</title>
     <link>http://localhost:1313/bubka/tags/ida/</link>
-    <description>Recent content in Ida on bubka hacks stuff</description>
+    <description>Recent content in IDA on bubka hacks stuff</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -11,60 +11,60 @@
     
     <item>
       <title>HTB-Lupin</title>
-      <link>http://localhost:1313/bubka/writeups/htb-lupin/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-lupin/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-lupin/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-lupin/</guid>
       <description>Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.</description>
       
     </item>
     
     <item>
       <title>HTB-SneakyKeys</title>
-      <link>http://localhost:1313/bubka/writeups/htb-sneakykeys/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-sneakykeys/</link>
       <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-sneakykeys/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-sneakykeys/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Wayback</title>
-      <link>http://localhost:1313/bubka/writeups/htb-wayback/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-wayback/</link>
       <pubDate>Thu, 29 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-wayback/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-wayback/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Cyberpsychosis</title>
-      <link>http://localhost:1313/bubka/writeups/htb-cyberpsychosis/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-cyberpsychosis/</link>
       <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-cyberpsychosis/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-cyberpsychosis/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-Partial_Encryption</title>
-      <link>http://localhost:1313/bubka/writeups/htb-partial_encryption/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-partial_encryption/</link>
       <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-partial_encryption/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-partial_encryption/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB-RAuth</title>
-      <link>http://localhost:1313/bubka/writeups/htb-rauth/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-rauth/</link>
       <pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-rauth/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-rauth/</guid>
       <description></description>
       
     </item>

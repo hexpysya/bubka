@@ -19,8 +19,8 @@ theme = "blowfish"
     endLevel = 4
     ordered = false
 [[menus.main]]
-  name = "investigations "
-  pageRef = "writeups"  
+  name = "investigations"
+  pageRef = "investigations"  
   weight = 10
 
 [[menus.main]]
@@ -37,6 +37,7 @@ defaultBackgroundImage = "mountains1.jpg"
 highlightCurrentMenuArea = false
 smartTOC = true
 favicon = "favicon.ico"
+description = "Writeups on malware analysis, reverse engineering and DFIR."
 [params.header]
   layout = "fixed" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
 
@@ -124,6 +125,7 @@ favicon = "favicon.ico"
   name = "Bubka" 
   headline = "Malware Analysis | Reverse Engineering | Digital Forensics and Incident Response"
   image = "avatar.JPG" 
+  bio = "Writeups on malware analysis, reverse engineering and DFIR."
 
 [imaging]
   resampleFilter = "Lanczos"

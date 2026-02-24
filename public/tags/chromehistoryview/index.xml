@@ -11,10 +11,10 @@
     
     <item>
       <title>HTB-WorkFromHome</title>
-      <link>http://localhost:1313/bubka/writeups/htb-workfromhome/</link>
+      <link>http://localhost:1313/bubka/investigations/htb-workfromhome/</link>
       <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/writeups/htb-workfromhome/</guid>
+      <guid>http://localhost:1313/bubka/investigations/htb-workfromhome/</guid>
       <description>A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.</description>
       
     </item>

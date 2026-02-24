@@ -1,0 +1,4461 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en-us">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title> &middot; bubka hacks stuff</title>
+    <meta name="title" content=" &middot; bubka hacks stuff">
+  
+
+  
+  
+    <meta name="description" content="Writeups on malware analysis, reverse engineering and DFIR.">
+  
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/bubka/investigations/">
+  
+    
+      <link rel="alternate" type="application/rss+xml" href="/bubka/investigations/index.xml" title="bubka hacks stuff" />
+  
+
+  
+  
+    <meta name="author" content="Bubka">
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/bubka/investigations/">
+  <meta property="og:site_name" content="bubka hacks stuff">
+  <meta property="og:title" content="bubka hacks stuff">
+  <meta property="og:description" content="DFIR(4)Malware Analysis(6)Reverse Engineering(9)SOC(3).NET(2)Active Directory(1)Avr(1)CamaleonCMS(1)ChaCha20(1)ChromeHistoryView(1)Clipboard Hijacking(1)Cobalt(1)CryptnetUrlCache(1)Cryptocurrency Stealer(1)CVE(1)CVE-2024-14847(1)CVE-2024-4577(1)CVE-2024-46987(1)CVE-2024-48990(1)CVE-2024-6473(1)CVE-2025-2304(1)DLL Hijacking(2)Dnspy(2)ELF(4)Event Viewer(3)Excel(1)Facter(1)File-Upload(1)Ghidra(1)Gobuster(1)Hta(1)IDA(6)Linux(9)LKM(1)Log Analysis(5)MFTExplorer(2)Mimikatz(1)Mini Dump(1)Mongodb(1)MotW Bypass(1)NAT Traversal(1)Needrestart(1)Network Analysis(2)Nmap(2)Oleid(1)Olevba(2)Packer(1)Path-Traversal(1)PE(5)PECmd(2)PHORPIEX(1)PowerView(1)Process Injection(1)RegistryExplorer(2)Rootkit(1)Rust(1)Rust-Gdb(1)S3(1)Salsa20(1)Sandbox(1)Scdbg(1)Shellcode Analysis(1)Sqlite(1)Srand(1)T1053.003(1)T1098.004(1)T1110(1)T1136.001(1)T1190(1)T1543.002(1)UPnP Exploitation(1)USB Spreading(1)VBA(1)Vmonkey(1)Wazuh(1)Web(3)WinDBG(1)Windows(11)Wireshark(2)X64dbg(1)Xlm-Macros(1)Xlmdeobfuscator(1)">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="bubka hacks stuff">
+  <meta name="twitter:description" content="DFIR(4)Malware Analysis(6)Reverse Engineering(9)SOC(3).NET(2)Active Directory(1)Avr(1)CamaleonCMS(1)ChaCha20(1)ChromeHistoryView(1)Clipboard Hijacking(1)Cobalt(1)CryptnetUrlCache(1)Cryptocurrency Stealer(1)CVE(1)CVE-2024-14847(1)CVE-2024-4577(1)CVE-2024-46987(1)CVE-2024-48990(1)CVE-2024-6473(1)CVE-2025-2304(1)DLL Hijacking(2)Dnspy(2)ELF(4)Event Viewer(3)Excel(1)Facter(1)File-Upload(1)Ghidra(1)Gobuster(1)Hta(1)IDA(6)Linux(9)LKM(1)Log Analysis(5)MFTExplorer(2)Mimikatz(1)Mini Dump(1)Mongodb(1)MotW Bypass(1)NAT Traversal(1)Needrestart(1)Network Analysis(2)Nmap(2)Oleid(1)Olevba(2)Packer(1)Path-Traversal(1)PE(5)PECmd(2)PHORPIEX(1)PowerView(1)Process Injection(1)RegistryExplorer(2)Rootkit(1)Rust(1)Rust-Gdb(1)S3(1)Salsa20(1)Sandbox(1)Scdbg(1)Shellcode Analysis(1)Sqlite(1)Srand(1)T1053.003(1)T1098.004(1)T1110(1)T1136.001(1)T1190(1)T1543.002(1)UPnP Exploitation(1)USB Spreading(1)VBA(1)Vmonkey(1)Wazuh(1)Web(3)WinDBG(1)Windows(11)Wireshark(2)X64dbg(1)Xlm-Macros(1)Xlmdeobfuscator(1)">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/bubka/css/main.bundle.min.5c15dc62a6c195e7ffd42b3182115b94052ac03dfca8349699a116dccaf99d81d5082b4a48c8a951c816376427b708c81ae5e003429a615a8f12ea9c48bec489.css"
+    integrity="sha512-XBXcYqbBlef/1CsxghFblAUqwD38qDSWmaEW3Mr5nYHVCCtKSMipUcgWN2QntwjIGuXgA0KaYVqPEuqcSL7EiQ==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/bubka/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/bubka/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/bubka/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
+      integrity="sha512-Z2JKNXySjSm5/hm6AaHjLAWtEynKKnEr8QRG3wxocpA9DBSyH3aJa1eloHEJQIBUFs7jiFHZBn22VViBGI41pQ=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+<script src="/bubka/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/bubka/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bubka/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/bubka/favicon-16x16.png">
+    <link rel="manifest" href="/bubka/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "",
+    "headline": "",
+    
+    "inLanguage": "en-us",
+    "url" : "http://localhost:1313/bubka/investigations/",
+    "author" : {
+      "@type": "Person",
+      "name": "Bubka"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-02-20T00:00:00\u002b00:00",
+    "datePublished": "2026-02-20T00:00:00\u002b00:00",
+    
+    "dateModified": "2026-02-20T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "180"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 z-100">
+  <div
+    id="menu-blur"
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl bg-neutral/25 dark:bg-neutral-800/25"></div>
+  <div class="relative m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32">
+    <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
+      bubka hacks stuff
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/bubka/investigations/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="investigations"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          investigations
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/bubka/blue_team/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="blue team"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          blue team
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/bubka/investigations/"
+        aria-label="investigations"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          investigations
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/bubka/blue_team/"
+        aria-label="blue team"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          blue team
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<script
+  type="text/javascript"
+  src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+  integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+  data-blur-id="menu-blur"></script>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  
+  
+
+  
+  
+    
+    
+      
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+    
+    
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"></script>
+  
+    
+  
+
+  
+  <header>
+    
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral"></h1>
+    <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+  </div>
+
+
+    </div>
+    
+    
+      
+      
+        
+        
+      
+      
+      
+      <script
+        type="text/javascript"
+        src="/bubka/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+        integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+        data-oid="views_investigations\_index.md"
+        data-oid-likes="likes_investigations\_index.md"></script>
+    
+  </header>
+
+  
+  
+  
+  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row mb-10">
+    
+    <div class="min-w-0 min-h-0 max-w-prose w-full">
+      <style>
+  h2 {
+    font-size: 15px !important;
+  }
+  .max-w-prose {
+    max-width: none !important;
+  }
+</style>
+
+
+<div class="my-6 w-full">
+  <div class="flex flex-wrap gap-2 mb-4 w-full">
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/dfir/"
+             class="featured-tag rounded-md border px-3 py-1 text-sm font-semibold">
+            DFIR
+            <span class="opacity-70 text-xs ml-1">(4)</span>
+          </a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/malware-analysis/"
+             class="featured-tag rounded-md border px-3 py-1 text-sm font-semibold">
+            Malware Analysis
+            <span class="opacity-70 text-xs ml-1">(6)</span>
+          </a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/reverse-engineering/"
+             class="featured-tag rounded-md border px-3 py-1 text-sm font-semibold">
+            Reverse Engineering
+            <span class="opacity-70 text-xs ml-1">(9)</span>
+          </a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/soc/"
+             class="featured-tag rounded-md border px-3 py-1 text-sm font-semibold">
+            SOC
+            <span class="opacity-70 text-xs ml-1">(3)</span>
+          </a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </div>
+
+  <div class="flex flex-wrap gap-2 w-full">
+    
+      
+        
+          <a href="/bubka/tags/.net/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            .NET
+            <span class="opacity-50 text-xs ml-1">(2)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/active-directory/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Active Directory
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/avr/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Avr
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/camaleoncms/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            CamaleonCMS
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/chacha20/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            ChaCha20
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/chromehistoryview/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            ChromeHistoryView
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/clipboard-hijacking/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Clipboard Hijacking
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/cobalt/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Cobalt
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/cryptneturlcache/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            CryptnetUrlCache
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/cryptocurrency-stealer/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Cryptocurrency Stealer
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/cve/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            CVE
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/cve-2024-14847/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            CVE-2024-14847
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/cve-2024-4577/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            CVE-2024-4577
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/cve-2024-46987/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            CVE-2024-46987
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/cve-2024-48990/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            CVE-2024-48990
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/cve-2024-6473/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            CVE-2024-6473
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/cve-2025-2304/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            CVE-2025-2304
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/dll-hijacking/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            DLL Hijacking
+            <span class="opacity-50 text-xs ml-1">(2)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/dnspy/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Dnspy
+            <span class="opacity-50 text-xs ml-1">(2)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/elf/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            ELF
+            <span class="opacity-50 text-xs ml-1">(4)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/event-viewer/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Event Viewer
+            <span class="opacity-50 text-xs ml-1">(3)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/excel/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Excel
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/facter/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Facter
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/file-upload/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            File-Upload
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/ghidra/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Ghidra
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/gobuster/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Gobuster
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/hta/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Hta
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/ida/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            IDA
+            <span class="opacity-50 text-xs ml-1">(6)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/linux/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Linux
+            <span class="opacity-50 text-xs ml-1">(9)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/lkm/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            LKM
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/log-analysis/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Log Analysis
+            <span class="opacity-50 text-xs ml-1">(5)</span>
+          </a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/mftexplorer/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            MFTExplorer
+            <span class="opacity-50 text-xs ml-1">(2)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/mimikatz/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Mimikatz
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/mini-dump/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Mini Dump
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/mongodb/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Mongodb
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/motw-bypass/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            MotW Bypass
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/nat-traversal/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            NAT Traversal
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/needrestart/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Needrestart
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/network-analysis/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Network Analysis
+            <span class="opacity-50 text-xs ml-1">(2)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/nmap/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Nmap
+            <span class="opacity-50 text-xs ml-1">(2)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/oleid/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Oleid
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/olevba/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Olevba
+            <span class="opacity-50 text-xs ml-1">(2)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/packer/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Packer
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/path-traversal/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Path-Traversal
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/pe/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            PE
+            <span class="opacity-50 text-xs ml-1">(5)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/pecmd/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            PECmd
+            <span class="opacity-50 text-xs ml-1">(2)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/phorpiex/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            PHORPIEX
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/powerview/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            PowerView
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/process-injection/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Process Injection
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/registryexplorer/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            RegistryExplorer
+            <span class="opacity-50 text-xs ml-1">(2)</span>
+          </a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/rootkit/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Rootkit
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/rust/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Rust
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/rust-gdb/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Rust-Gdb
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/s3/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            S3
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/salsa20/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Salsa20
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/sandbox/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Sandbox
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/scdbg/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Scdbg
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/shellcode-analysis/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Shellcode Analysis
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/sqlite/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Sqlite
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/srand/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Srand
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/t1053.003/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            T1053.003
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/t1098.004/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            T1098.004
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/t1110/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            T1110
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/t1136.001/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            T1136.001
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/t1190/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            T1190
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/t1543.002/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            T1543.002
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/upnp-exploitation/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            UPnP Exploitation
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/usb-spreading/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            USB Spreading
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/vba/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            VBA
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/vmonkey/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Vmonkey
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/wazuh/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Wazuh
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/web/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Web
+            <span class="opacity-50 text-xs ml-1">(3)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/windbg/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            WinDBG
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/windows/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Windows
+            <span class="opacity-50 text-xs ml-1">(11)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/wireshark/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Wireshark
+            <span class="opacity-50 text-xs ml-1">(2)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/x64dbg/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            X64dbg
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/xlm-macros/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Xlm-Macros
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+      
+        
+          <a href="/bubka/tags/xlmdeobfuscator/"
+             class="tag-item rounded-md border border-primary-600 px-3 py-1 text-sm
+                    text-neutral-700 dark:text-neutral-300">
+            Xlmdeobfuscator
+            <span class="opacity-50 text-xs ml-1">(1)</span>
+          </a>
+        
+      
+    
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+    
+    
+    
+    
+    
+
+    
+      <section class="space-y-10 w-full">
+        
+          
+            
+              <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
+                2026
+              </h2>
+            
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="article-link--simple flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/bubka/investigations/htb-obfsc4t10n/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          HTB-oBfsC4t10n
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-02-20T00:00:00&#43;00:00">February 20, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/malware-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Malware Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/shellcode-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Shellcode Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/sandbox/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Sandbox
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/vba/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    VBA
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/hta/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hta
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/process-injection/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Process Injection
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/olevba/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Olevba
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/vmonkey/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Vmonkey
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/scdbg/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Scdbg
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="article-link--simple flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/bubka/investigations/htb-workfromhome/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          HTB-WorkFromHome
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-02-16T00:00:00&#43;00:00">February 16, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/dfir/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    DFIR
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/log-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Log Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/dll-hijacking/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    DLL Hijacking
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cryptneturlcache/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CryptnetUrlCache
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/event-viewer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Event Viewer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/chromehistoryview/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ChromeHistoryView
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/mftexplorer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    MFTExplorer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/registryexplorer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    RegistryExplorer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/pecmd/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PECmd
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+
+    
+    
+      
+        
+        
+          
+        
+      
+    
+  
+
+
+
+<article class="article-link--simple flex flex-col md:flex-row relative">
+  
+    <div class="flex-none relative overflow-hidden  thumbnail-shadow md:mr-7 thumbnail">
+      <img
+        src="/bubka/investigations/htb-pterodactyl/featured_hu_190e09a451c48b87.png"
+        role="presentation"
+        loading="lazy"
+        decoding="async"
+        class="not-prose absolute inset-0 w-full h-full object-cover">
+    </div>
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/bubka/investigations/htb-pterodactyl/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          HTB-Pterodactyl
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-02-11T00:00:00&#43;00:00">February 11, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/web/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/linux/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cve/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CVE
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        Exploiting Pterodactyl Panel CVE-2025-49132 for unauthenticated RCE, database credential extraction, and privilege escalation through Wazuh agent vulnerabilities.
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="article-link--simple flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/bubka/investigations/htb-lupin/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          HTB-Lupin
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-02-08T00:00:00&#43;00:00">February 8, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/malware-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Malware Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/reverse-engineering/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Reverse Engineering
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/pe/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PE
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/phorpiex/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PHORPIEX
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/clipboard-hijacking/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Clipboard Hijacking
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cryptocurrency-stealer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Cryptocurrency Stealer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/usb-spreading/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    USB Spreading
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/upnp-exploitation/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    UPnP Exploitation
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/nat-traversal/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    NAT Traversal
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/motw-bypass/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    MotW Bypass
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/ida/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    IDA
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="article-link--simple flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/bubka/investigations/htb-easymoney/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          HTB-EasyMoney
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-02-05T00:00:00&#43;00:00">February 5, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/dfir/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    DFIR
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/log-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Log Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cve-2024-6473/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CVE-2024-6473
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/dll-hijacking/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    DLL Hijacking
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/event-viewer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Event Viewer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/mftexplorer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    MFTExplorer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/registryexplorer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    RegistryExplorer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/pecmd/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PECmd
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        Administrator executed a malicious shortcut that triggered a hidden PowerShell command, downloading and executing payload and gaining a shell access. The attacker enumerated installed software, identified a vulnerable Yandex Browser (CVE-2024-6473), and exploited DLL hijacking by planting a malicious library that acts as a dropper. This dropper deployed a Sliver C2 implant establishing persistence via a scheduled task and maintaining communication
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="article-link--simple flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/bubka/investigations/htb-sneakykeys/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          HTB-SneakyKeys
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-02-03T00:00:00&#43;00:00">February 3, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/malware-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Malware Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/network-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Network Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/reverse-engineering/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Reverse Engineering
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/pe/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PE
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/chacha20/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ChaCha20
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/wireshark/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Wireshark
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/ida/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    IDA
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="article-link--simple flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/bubka/investigations/htb-luckyshot/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          HTB-LuckyShot
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-02-02T00:00:00&#43;00:00">February 2, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/dfir/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    DFIR
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/log-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Log Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/linux/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/t1110/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    T1110
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/t1053.003/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    T1053.003
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/t1136.001/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    T1136.001
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/t1098.004/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    T1098.004
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/t1543.002/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    T1543.002
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="article-link--simple flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/bubka/investigations/htb-facts/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          HTB-Facts
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-02-01T00:00:00&#43;00:00">February 1, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/web/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cve-2025-2304/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CVE-2025-2304
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cve-2024-46987/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CVE-2024-46987
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/s3/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    S3
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/camaleoncms/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CamaleonCMS
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/facter/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Facter
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/nmap/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Nmap
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/gobuster/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Gobuster
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        Discovered Camaleon CMS 2.9.0 with two critical vulnerabilities: CVE-2025-2304 (mass assignment privilege escalation) and CVE-2024-46987 (path traversal). Escalated to admin, extracted S3 credentials, downloaded SSH private key from MinIO bucket, cracked passphrase, and achieved root via sudo facter exploitation.
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="article-link--simple flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/bubka/investigations/htb-packet-_puzzle/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          HTB-Packet_Puzzle
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-01-31T00:00:00&#43;00:00">January 31, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/soc/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SOC
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/network-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Network Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cve-2024-4577/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CVE-2024-4577
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/t1190/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    T1190
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/wireshark/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Wireshark
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        Analyzed network traffic showing exploitation of CVE-2024-4577 (PHP-CGI argument injection) against a Windows server running PHP 8.1.25. Attacker achieved RCE, established reverse shell on port 4545, then escalated privileges using GodPotato to spawn a SYSTEM-level shell on port 5555.
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article class="article-link--simple flex flex-col md:flex-row relative">
+  
+  <div class=" mt-3 md:mt-0">
+    <header class="items-center text-start text-xl font-semibold">
+      <a
+        
+          href="/bubka/investigations/htb-ghosttrace/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          HTB-GhostTrace
+          
+        </h2>
+      </a>
+      
+      
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-01-31T00:00:00&#43;00:00">January 31, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/soc/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SOC
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/log-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Log Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/active-directory/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Active Directory
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/event-viewer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Event Viewer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/mimikatz/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Mimikatz
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/powerview/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PowerView
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        Analyzed Windows Event Logs revealing a complete AD compromise chain: phishing email with macro-enabled document → credential dumping with Mimikatz → lateral movement via PsExec → DCSync attack → domain admin compromise → persistence via scheduled task, service, and registry run key.
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+            
+          
+        
+      </section>
+    
+    
+  
+  
+  <ul class="flex flex-row mt-8 justify-center"><li>
+          <a
+            href="/bubka/investigations/"
+            class="
+              bg-primary-200 dark:bg-primary-400 dark:text-neutral-800
+             mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
+            >1</a
+          >
+        </li><li>
+          <a
+            href="/bubka/investigations/page/2/"
+            class=" mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
+            >2</a
+          >
+        </li><li>
+          <a
+            href="/bubka/investigations/page/3/"
+            class=" mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
+            >3</a
+          >
+        </li>
+      <li>
+        <a
+          href="/bubka/investigations/page/2/"
+          class="mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
+          rel="next"
+          >&rarr;</a
+        >
+      </li>
+    
+  </ul>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+
+    
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/bubka/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/bubka/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
