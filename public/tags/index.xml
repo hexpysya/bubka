@@ -10,21 +10,11 @@
     <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Hta</title>
+      <title>HTA</title>
       <link>http://localhost:1313/bubka/tags/hta/</link>
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/hta/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>IDA</title>
-      <link>http://localhost:1313/bubka/tags/ida/</link>
-      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/ida/</guid>
       <description></description>
       
     </item>
@@ -55,6 +45,16 @@
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/process-injection/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Sandbox</title>
+      <link>http://localhost:1313/bubka/tags/sandbox/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/sandbox/</guid>
       <description></description>
       
     </item>
@@ -265,6 +265,16 @@
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/cryptocurrency-stealer/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Ida</title>
+      <link>http://localhost:1313/bubka/tags/ida/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/ida/</guid>
       <description></description>
       
     </item>
@@ -820,21 +830,81 @@
     </item>
     
     <item>
-      <title>Shellcode</title>
-      <link>http://localhost:1313/bubka/tags/shellcode/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>PoshC2</title>
+      <link>http://localhost:1313/bubka/tags/poshc2/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/tags/shellcode/</guid>
+      <guid>http://localhost:1313/bubka/tags/poshc2/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Vba Macros</title>
-      <link>http://localhost:1313/bubka/tags/vba-macros/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>CVE-2017-0199</title>
+      <link>http://localhost:1313/bubka/tags/cve-2017-0199/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/tags/vba-macros/</guid>
+      <guid>http://localhost:1313/bubka/tags/cve-2017-0199/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/bubka/tags/javascript/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/javascript/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PDF</title>
+      <link>http://localhost:1313/bubka/tags/pdf/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/pdf/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Pdf-Parser</title>
+      <link>http://localhost:1313/bubka/tags/pdf-parser/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/pdf-parser/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Pdfid</title>
+      <link>http://localhost:1313/bubka/tags/pdfid/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/pdfid/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>RTF</title>
+      <link>http://localhost:1313/bubka/tags/rtf/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/rtf/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Rtfobj</title>
+      <link>http://localhost:1313/bubka/tags/rtfobj/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/rtfobj/</guid>
       <description></description>
       
     </item>

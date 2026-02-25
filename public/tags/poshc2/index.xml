@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PoshC2 on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/poshc2/</link>
+    <description>Recent content in PoshC2 on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Sun, 23 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/poshc2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PoshC2: Dropper-cs.exe</title>
+      <link>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</guid>
+      <description>C2 .NET implant. AES-encrypted config, HTTPS beacon to &lt;code&gt;192.168.248.128&lt;/code&gt;, fileless in-memory execution, anti-debug via divide-by-zero.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

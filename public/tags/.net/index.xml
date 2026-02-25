@@ -20,12 +20,12 @@
     </item>
     
     <item>
-      <title>Dropper-cs.exe analysis</title>
+      <title>PoshC2: Dropper-cs.exe</title>
       <link>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</link>
       <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</guid>
-      <description>&lt;code&gt;dropper_cs.exe&lt;/code&gt; — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to &lt;code&gt;192.168.248.128&lt;/code&gt;, fileless in-memory execution, anti-debug via divide-by-zero.</description>
+      <description>C2 .NET implant. AES-encrypted config, HTTPS beacon to &lt;code&gt;192.168.248.128&lt;/code&gt;, fileless in-memory execution, anti-debug via divide-by-zero.</description>
       
     </item>
     

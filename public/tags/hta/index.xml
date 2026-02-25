@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hta on bubka hacks stuff</title>
+    <title>HTA on bubka hacks stuff</title>
     <link>http://localhost:1313/bubka/tags/hta/</link>
-    <description>Recent content in Hta on bubka hacks stuff</description>
+    <description>Recent content in HTA on bubka hacks stuff</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -15,7 +15,17 @@
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/investigations/htb-obfsc4t10n/</guid>
-      <description></description>
+      <description>A phishing HTML file masquerading as an invoice delivers a macro-enabled Excel workbook that drops and executes a multi-stage obfuscated HTA payload, ultimately injecting a reverse shell shellcode into rundll32.exe and establishing a C2 connection.</description>
+      
+    </item>
+    
+    <item>
+      <title>Metasploit: office_word_hta</title>
+      <link>http://localhost:1313/bubka/investigations/metasploit-office_word_hta/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/metasploit-office_word_hta/</guid>
+      <description>A malicious RTF document exploits CVE-2017-0199 via an embedded OLE2Link object to fetch and execute a remote HTA payload from an attacker-controlled server.</description>
       
     </item>
     

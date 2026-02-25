@@ -102,4 +102,12 @@
     <loc>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</loc>
     <lastmod>2025-11-23T00:00:00+00:00</lastmod>
   </url>
+  <url>
+    <loc>http://localhost:1313/bubka/investigations/metasploit-adobe-pdf-embedded-file/</loc>
+    <lastmod>2025-11-21T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/bubka/investigations/metasploit-office_word_hta/</loc>
+    <lastmod>2025-11-21T00:00:00+00:00</lastmod>
+  </url>
 </urlset>

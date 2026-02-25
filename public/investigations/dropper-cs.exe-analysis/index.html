@@ -15,16 +15,16 @@
 
   
   
-    <title>Dropper-cs.exe analysis &middot; bubka hacks stuff</title>
-    <meta name="title" content="Dropper-cs.exe analysis &middot; bubka hacks stuff">
+    <title>PoshC2: Dropper-cs.exe &middot; bubka hacks stuff</title>
+    <meta name="title" content="PoshC2: Dropper-cs.exe &middot; bubka hacks stuff">
   
 
   
   
-    <meta name="description" content="`dropper_cs.exe` — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to `192.168.248.128`, fileless in-memory execution, anti-debug via divide-by-zero.">
+    <meta name="description" content="C2 .NET implant. AES-encrypted config, HTTPS beacon to `192.168.248.128`, fileless in-memory execution, anti-debug via divide-by-zero.">
   
   
-    <meta name="keywords" content="Malware Analysis,Reverse Engineering,Windows,PE,.NET,dnspy,">
+    <meta name="keywords" content="Malware Analysis,Reverse Engineering,Windows,PE,.NET,PoshC2,dnspy,">
   
   
   
@@ -40,8 +40,8 @@
   
   <meta property="og:url" content="http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/">
   <meta property="og:site_name" content="bubka hacks stuff">
-  <meta property="og:title" content="Dropper-cs.exe analysis">
-  <meta property="og:description" content="dropper_cs.exe — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to 192.168.248.128, fileless in-memory execution, anti-debug via divide-by-zero.">
+  <meta property="og:title" content="PoshC2: Dropper-cs.exe">
+  <meta property="og:description" content="C2 .NET implant. AES-encrypted config, HTTPS beacon to 192.168.248.128, fileless in-memory execution, anti-debug via divide-by-zero.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="investigations">
@@ -52,12 +52,12 @@
     <meta property="article:tag" content="Windows">
     <meta property="article:tag" content="PE">
     <meta property="article:tag" content=".NET">
-    <meta property="article:tag" content="Dnspy">
+    <meta property="article:tag" content="PoshC2">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Dropper-cs.exe analysis">
-  <meta name="twitter:description" content="dropper_cs.exe — PoshC2 C# implant. AES-encrypted config, HTTPS beacon to 192.168.248.128, fileless in-memory execution, anti-debug via divide-by-zero.">
+  <meta name="twitter:title" content="PoshC2: Dropper-cs.exe">
+  <meta name="twitter:description" content="C2 .NET implant. AES-encrypted config, HTTPS beacon to 192.168.248.128, fileless in-memory execution, anti-debug via divide-by-zero.">
 
   
   
@@ -209,8 +209,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "",
-    "name": "Dropper-cs.exe analysis",
-    "headline": "Dropper-cs.exe analysis",
+    "name": "PoshC2: Dropper-cs.exe",
+    "headline": "PoshC2: Dropper-cs.exe",
     
     "inLanguage": "en-us",
     "url" : "http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/",
@@ -224,10 +224,10 @@
     
     "dateModified": "2025-11-23T00:00:00\u002b00:00",
     
-    "keywords": ["Malware Analysis","Reverse Engineering","Windows","PE",".NET","dnspy"],
+    "keywords": ["Malware Analysis","Reverse Engineering","Windows","PE",".NET","PoshC2","dnspy"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1874"
+    "wordCount": "1816"
   }]
   </script>
 
@@ -594,7 +594,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Dropper-cs.exe analysis
+        PoshC2: Dropper-cs.exe
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -715,6 +715,16 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     .NET
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/poshc2/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PoshC2
   </span>
 </span>
 
@@ -966,9 +976,7 @@
     </span>
     
 </h3>
-<p><code>dropper_cs.exe</code> is a <strong>PoshC2 C# implant (stager)</strong> that establishes a persistent encrypted C2 channel over HTTPS.</p>
-<p>On execution the sample immediately hides its console window and uses a deliberate divide-by-zero exception as an anti-debug technique — real execution flow lives inside the catch block, invisible to a debugger. An AES-encrypted C2 configuration is embedded directly in the binary as a reversed base64 string, decrypted at runtime to reveal the C2 address, beacon interval, session key, and URI pattern.</p>
-<p>The implant contacts <code>192.168.248.128:443</code> within 1.3 seconds of startup, sending an AES-encrypted system fingerprint (username, domain, PID, architecture) disguised as a <code>SessionID</code> cookie. Outbound data is padded with real image bytes to evade network inspection. All communication is encrypted with AES-CBC and SSL validation is disabled to allow self-signed certificates.</p>
+<p><code>dropper_cs.exe</code> is a PoshC2 C# implant. An AES-encrypted C2 configuration is embedded directly in the binary, decrypted at runtime to reveal the C2 address, beacon interval, session key, and URI pattern. The implant contacts <code>192.168.248.128:443</code>, sending an AES-encrypted system fingerprint disguised as a <code>SessionID</code> cookie. Outbound data is padded with real image bytes to evade network inspection. All communication is encrypted with AES-CBC and SSL validation is disabled to allow self-signed certificates.</p>
 <p>Once staging completes, the implant enters an indefinite beacon loop (<code>KillDate: 2999-01-01</code>), polling the C2 every 5 seconds ±20% jitter for commands. It supports 13+ commands including in-memory assembly execution, live reconfiguration, modular payload loading via <code>Stage2-Core.exe</code>, and named pipe communication for lateral movement. All operations are fileless — nothing is written to disk.</p>
 <div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">SHA256      8E5EEB667A962DBEE803572F951D08A65C67A42ECB6D6EAF8EBAAF3681E26154
 </span></span><span class="line"><span class="ln">2</span><span class="cl">Family      PoshC2 — C# implant
@@ -1301,9 +1309,7 @@ Sample sends 2 HTTP requests over ~40 seconds (beacon interval).
 </span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="n">raw</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="n">config</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">
-</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">+-------------------------+&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;+--------------------------------+&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span></span></span></code></pre></div></div>
 
 <h4 class="relative group">config decryption result
     <div id="config-decryption-result" class="anchor"></div>

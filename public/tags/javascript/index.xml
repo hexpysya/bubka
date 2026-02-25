@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/javascript/</link>
+    <description>Recent content in JavaScript on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Metasploit: office_word_hta</title>
+      <link>http://localhost:1313/bubka/investigations/metasploit-adobe-pdf-embedded-file/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/metasploit-adobe-pdf-embedded-file/</guid>
+      <description>A malicious PDF exploits JavaScript and Launch actions to extract and execute an embedded PE payload, establishing a reverse shell connection to an attacker-controlled server.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
