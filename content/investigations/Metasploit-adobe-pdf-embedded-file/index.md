@@ -7,9 +7,11 @@ tags:
   - Malware Analysis
   - Windows
   - PDF
+  - PE
   - JavaScript
   - pdfid
   - pdf-parser
+  - Sandbox
 platform: Malware Analysis
 ---
 

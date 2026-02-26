@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VBScript on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/vbscript/</link>
+    <description>Recent content in VBScript on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Sat, 22 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/vbscript/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Metasploit: adobe_pdf_embedded_exe_nojs</title>
+      <link>http://localhost:1313/bubka/investigations/metaploit-adobe_pdf_embedded_exe_nojs/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/metaploit-adobe_pdf_embedded_exe_nojs/</guid>
+      <description>A malicious PDF uses a Launch action to execute cmd.exe, which runs an inline VBScript that reads hex-encoded shellcode directly from the PDF body, writes it to disk as an executable, and launches a Metasploit reverse shell.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

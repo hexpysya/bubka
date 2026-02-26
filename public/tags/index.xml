@@ -270,7 +270,7 @@
     </item>
     
     <item>
-      <title>Ida</title>
+      <title>IDA</title>
       <link>http://localhost:1313/bubka/tags/ida/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
@@ -840,6 +840,46 @@
     </item>
     
     <item>
+      <title>PDF</title>
+      <link>http://localhost:1313/bubka/tags/pdf/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/pdf/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Pdf-Parser</title>
+      <link>http://localhost:1313/bubka/tags/pdf-parser/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/pdf-parser/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Pdfid</title>
+      <link>http://localhost:1313/bubka/tags/pdfid/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/pdfid/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>VBScript</title>
+      <link>http://localhost:1313/bubka/tags/vbscript/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/vbscript/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>CVE-2017-0199</title>
       <link>http://localhost:1313/bubka/tags/cve-2017-0199/</link>
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
@@ -855,36 +895,6 @@
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/javascript/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>PDF</title>
-      <link>http://localhost:1313/bubka/tags/pdf/</link>
-      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/pdf/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Pdf-Parser</title>
-      <link>http://localhost:1313/bubka/tags/pdf-parser/</link>
-      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/pdf-parser/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Pdfid</title>
-      <link>http://localhost:1313/bubka/tags/pdfid/</link>
-      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/pdfid/</guid>
       <description></description>
       
     </item>
