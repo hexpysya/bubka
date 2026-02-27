@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DLL on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/dll/</link>
+    <description>Recent content in DLL on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Tue, 25 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/dll/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PoshC2: Sharp_v4_x64.dll</title>
+      <link>http://localhost:1313/bubka/investigations/poschc2-sharp_v4_x64.dll/</link>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/poschc2-sharp_v4_x64.dll/</guid>
+      <description>A .NET DLL decodes architecture-specific shellcode from an embedded base64 string, allocates executable memory, and spawns a thread to execute it. The shellcode performs NTDLL unhooking, AMSI and ETW patching before executing an embedded PE payload identified as a PoshC2 dropper.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

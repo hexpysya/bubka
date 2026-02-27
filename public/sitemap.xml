@@ -99,11 +99,15 @@
     <lastmod>2026-01-19T00:00:00+00:00</lastmod>
   </url>
   <url>
+    <loc>http://localhost:1313/bubka/investigations/poschc2-sharp_v4_x64.dll/</loc>
+    <lastmod>2025-11-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</loc>
     <lastmod>2025-11-23T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/bubka/investigations/metaploit-adobe_pdf_embedded_exe_nojs/</loc>
+    <loc>http://localhost:1313/bubka/investigations/metasploit-adobe_pdf_embedded_exe_nojs/</loc>
     <lastmod>2025-11-22T00:00:00+00:00</lastmod>
   </url>
   <url>

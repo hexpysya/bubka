@@ -270,7 +270,7 @@
     </item>
     
     <item>
-      <title>IDA</title>
+      <title>Ida</title>
       <link>http://localhost:1313/bubka/tags/ida/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
@@ -915,6 +915,16 @@
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/rtfobj/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Reverse Engeeniring</title>
+      <link>http://localhost:1313/bubka/tags/reverse-engeeniring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/reverse-engeeniring/</guid>
       <description></description>
       
     </item>

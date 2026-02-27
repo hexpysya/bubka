@@ -220,6 +220,16 @@
     </item>
     
     <item>
+      <title>PoshC2: Sharp_v4_x64.dll</title>
+      <link>http://localhost:1313/bubka/investigations/poschc2-sharp_v4_x64.dll/</link>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/poschc2-sharp_v4_x64.dll/</guid>
+      <description>A .NET DLL decodes architecture-specific shellcode from an embedded base64 string, allocates executable memory, and spawns a thread to execute it. The shellcode performs NTDLL unhooking, AMSI and ETW patching before executing an embedded PE payload identified as a PoshC2 dropper.</description>
+      
+    </item>
+    
+    <item>
       <title>PoshC2: Dropper-cs.exe</title>
       <link>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</link>
       <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
@@ -231,10 +241,10 @@
     
     <item>
       <title>Metasploit: adobe_pdf_embedded_exe_nojs</title>
-      <link>http://localhost:1313/bubka/investigations/metaploit-adobe_pdf_embedded_exe_nojs/</link>
+      <link>http://localhost:1313/bubka/investigations/metasploit-adobe_pdf_embedded_exe_nojs/</link>
       <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/investigations/metaploit-adobe_pdf_embedded_exe_nojs/</guid>
+      <guid>http://localhost:1313/bubka/investigations/metasploit-adobe_pdf_embedded_exe_nojs/</guid>
       <description>A malicious PDF uses a Launch action to execute cmd.exe, which runs an inline VBScript that reads hex-encoded shellcode directly from the PDF body, writes it to disk as an executable, and launches a Metasploit reverse shell.</description>
       
     </item>
