@@ -10,6 +10,16 @@
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>HTB-SecretPictures</title>
+      <link>http://localhost:1313/bubka/investigations/htb-secretpictures/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-secretpictures/</guid>
+      <description>A Go-based backdoor that copies itself to a system directory, establishes persistence via a registry Run key, enumerates connected drives, and attempts to connect to a hardcoded C2 domain.</description>
+      
+    </item>
+    
+    <item>
       <title>HTB-Subatomic</title>
       <link>http://localhost:1313/bubka/investigations/htb-subatomic/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/golang/</link>
+    <description>Recent content in Golang on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Fri, 28 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTB-SecretPictures</title>
+      <link>http://localhost:1313/bubka/investigations/htb-secretpictures/</link>
+      <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-secretpictures/</guid>
+      <description>A Go-based backdoor that copies itself to a system directory, establishes persistence via a registry Run key, enumerates connected drives, and attempts to connect to a hardcoded C2 domain.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -14,6 +14,7 @@ tags:
   - NSIS
 platform: Malware Analysis
 ---
+{{< infobox platform="HackTheBox" difficulty="Medium" os="Windows" date="2026-02-08" >}}
 
 ### <span style="color:lightblue">TL;DR</span>
 A fake therapy installer distributed as an NSIS self-extracting archive

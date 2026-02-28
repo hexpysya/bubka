@@ -15,21 +15,20 @@
 
   
   
-    <title>Malware Analysis &middot; bubka hacks stuff</title>
-    <meta name="title" content="Malware Analysis &middot; bubka hacks stuff">
+    <title>HTB-SecretPictures &middot; bubka hacks stuff</title>
+    <meta name="title" content="HTB-SecretPictures &middot; bubka hacks stuff">
   
 
   
   
-    <meta name="description" content="Writeups on malware analysis, reverse engineering and DFIR.">
+    <meta name="description" content="A Go-based backdoor that copies itself to a system directory, establishes persistence via a registry Run key, enumerates connected drives, and attempts to connect to a hardcoded C2 domain.">
+  
+  
+    <meta name="keywords" content="Malware Analysis,PE,Windows,Sandbox,Golang,">
   
   
   
-  
-  <link rel="canonical" href="http://localhost:1313/bubka/tags/malware-analysis/">
-  
-    
-      <link rel="alternate" type="application/rss+xml" href="/bubka/tags/malware-analysis/index.xml" title="bubka hacks stuff" />
+  <link rel="canonical" href="http://localhost:1313/bubka/investigations/htb-secretpictures/">
   
 
   
@@ -39,17 +38,25 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/bubka/tags/malware-analysis/">
+  <meta property="og:url" content="http://localhost:1313/bubka/investigations/htb-secretpictures/">
   <meta property="og:site_name" content="bubka hacks stuff">
-  <meta property="og:title" content="Malware Analysis">
-  <meta property="og:description" content="Writeups on malware analysis, reverse engineering and DFIR.">
+  <meta property="og:title" content="HTB-SecretPictures">
+  <meta property="og:description" content="A Go-based backdoor that copies itself to a system directory, establishes persistence via a registry Run key, enumerates connected drives, and attempts to connect to a hardcoded C2 domain.">
   <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="investigations">
+    <meta property="article:published_time" content="2026-02-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-28T00:00:00+00:00">
+    <meta property="article:tag" content="Malware Analysis">
+    <meta property="article:tag" content="PE">
+    <meta property="article:tag" content="Windows">
+    <meta property="article:tag" content="Sandbox">
+    <meta property="article:tag" content="Golang">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Malware Analysis">
-  <meta name="twitter:description" content="Writeups on malware analysis, reverse engineering and DFIR.">
+  <meta name="twitter:title" content="HTB-SecretPictures">
+  <meta name="twitter:description" content="A Go-based backdoor that copies itself to a system directory, establishes persistence via a registry Run key, enumerates connected drives, and attempts to connect to a hardcoded C2 domain.">
 
   
   
@@ -200,12 +207,12 @@
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "Tags",
-    "name": "Malware Analysis",
-    "headline": "Malware Analysis",
+    "articleSection": "",
+    "name": "HTB-SecretPictures",
+    "headline": "HTB-SecretPictures",
     
     "inLanguage": "en-us",
-    "url" : "http://localhost:1313/bubka/tags/malware-analysis/",
+    "url" : "http://localhost:1313/bubka/investigations/htb-secretpictures/",
     "author" : {
       "@type": "Person",
       "name": "Bubka"
@@ -216,10 +223,10 @@
     
     "dateModified": "2026-02-28T00:00:00\u002b00:00",
     
-    
+    "keywords": ["Malware Analysis","PE","Windows","Sandbox","Golang"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "0"
+    "wordCount": "149"
   }]
   </script>
 
@@ -495,12 +502,16 @@
       <main id="main-content" class="grow">
         
   
-  
-  <header class="mt-5">
+  <article>
     
-    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Malware Analysis</h1>
-    <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+    
       
+      
+      
+      
+        
+
+
 
 
 
@@ -508,48 +519,84 @@
 
   
   
+    
+  
+    
+  
+    
+  
+    
+  
 
 
 
   
-
   
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
     
     
+  
+
+
+
+
+  
+    
+    
+      
+      
+    
+  
+
+
+
+
+
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
   </div>
 
-
-    </div>
-  </header>
-
-  <section class="flex flex-col max-w-full mt-0 mb-5 prose dark:prose-invert lg:flex-row">
-    
-  </section>
-
   
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
     
     
+    <script
+      type="text/javascript"
+      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"></script>
+  
+      
     
 
     
-
-      <section class="space-y-10 w-full">
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        HTB-SecretPictures
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
-          
-          
-            
-
-
-
 
 
 
@@ -557,68 +604,6 @@
 
   
   
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/bubka/investigations/metasploit-office_word_hta/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          Metasploit: office_word_hta
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
 
 
 
@@ -656,7 +641,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-11-21T00:00:00&#43;00:00">November 21, 2025</time>
+      <time datetime="2026-02-28T00:00:00&#43;00:00">February 28, 2026</time>
     
 
     
@@ -689,246 +674,6 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Malware Analysis
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Windows
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/rtf/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    RTF
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/cve-2017-0199/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CVE-2017-0199
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/hta/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    HTA
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/rtfobj/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Rtfobj
-  </span>
-</span>
-
-              </a>
-            
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
-        A malicious RTF document exploits CVE-2017-0199 via an embedded OLE2Link object to fetch and execute a remote HTA payload from an attacker-controlled server.
-      </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-          
-            
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article class="article-link--simple flex flex-col md:flex-row relative">
-  
-  <div class=" mt-3 md:mt-0">
-    <header class="items-center text-start text-xl font-semibold">
-      <a
-        
-          href="/bubka/investigations/metasploit-adobe-pdf-embedded-file/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          Metasploit: adobe-pdf-embedded-file
-          
-        </h2>
-      </a>
-      
-      
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2025-11-21T00:00:00&#43;00:00">November 21, 2025</time>
-    
-
-    
-    
-  </div>
-
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-      
-        
-      
-    </div>
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/malware-analysis/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Malware Analysis
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Windows
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/pdf/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    PDF
   </span>
 </span>
 
@@ -944,31 +689,11 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/javascript/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/windows/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    JavaScript
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/pdfid/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Pdfid
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/pdf-parser/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Pdf-Parser
+    Windows
   </span>
 </span>
 
@@ -979,6 +704,16 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Sandbox
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/golang/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Golang
   </span>
 </span>
 
@@ -995,48 +730,419 @@
 
 
 
-    </div>
-    
-      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
-        A malicious PDF exploits JavaScript and Launch actions to extract and execute an embedded PE payload, establishing a reverse shell connection to an attacker-controlled server.
       </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-          
+      
         
-      </section>
-    
+  
+  
+  
+  
+  
+  
 
   
 
-  <ul class="flex flex-row mt-8 justify-center">
-      <li>
-        <a
-          href="/bubka/tags/malware-analysis/"
-          class="mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-          rel="prev"
-          >&larr;</a
-        >
-      </li>
+  
+
+  
+
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-[140px]">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600 text-sm">
+    <nav id="TableOfContents">
+  <ul>
     <li>
-          <a
-            href="/bubka/tags/malware-analysis/"
-            class=" mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-            >1</a
-          >
-        </li><li>
-          <a
-            href="/bubka/tags/malware-analysis/page/2/"
-            class="
-              bg-primary-200 dark:bg-primary-400 dark:text-neutral-800
-             mx-1 block min-w-[1.8rem] rounded text-center hover:bg-primary-600 hover:text-neutral"
-            >2</a
-          >
+      <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
+        <li><a href="#initial-analysis"><span>Initial Analysis</span></a></li>
+        <li><a href="#sandbox-analysis"><span>Sandbox Analysis</span></a>
+          <ul>
+            <li><a href="#persistence"><span>Persistence</span></a></li>
+            <li><a href="#c2-communication"><span>C2 Communication</span></a></li>
+            <li><a href="#drive-enumeration"><span>Drive Enumeration</span></a></li>
+          </ul>
         </li>
+        <li><a href="#iocs"><span>IOCs</span></a></li>
+      </ul>
+    </li>
   </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
+        <li><a href="#initial-analysis"><span>Initial Analysis</span></a></li>
+        <li><a href="#sandbox-analysis"><span>Sandbox Analysis</span></a>
+          <ul>
+            <li><a href="#persistence"><span>Persistence</span></a></li>
+            <li><a href="#c2-communication"><span>C2 Communication</span></a></li>
+            <li><a href="#drive-enumeration"><span>Drive Enumeration</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#iocs"><span>IOCs</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+    let isJumpingToAnchor = false
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      if (isJumpingToAnchor) {
+        for (let i = 0; i < anchors.length; i++) {
+          const anchor = anchors[i]
+          if (!tocIds.has(anchor.id)) continue
+          const top = anchor.getBoundingClientRect().top + window.scrollY
+          if (Math.abs(window.scrollY - top) < 100) {
+            return anchor.id
+          }
+        }
+      }
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          isJumpingToAnchor = true
+        })
+      })
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          <div class="meta-box">
+  <div class="meta-pill difficulty easy">
+    <span class="meta-label">Difficulty:</span>
+    <span class="meta-value">Easy</span>
+  </div>
+
+  <div class="meta-pill">
+    <span class="meta-label">OS:</span>
+    <span class="meta-value">Windows</span>
+  </div>
+
+  <div class="meta-pill">
+    <span class="meta-label">Date:</span>
+    <span class="meta-value">2026-02-08</span>
+  </div>
+</div>
+
+
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>A Go-based backdoor that copies itself to <code>C:\Systemlogs\logscheck.exe</code>,
+establishes persistence via <code>HKCU\...\Run\HealthCheck</code>, enumerates
+connected drives via <code>GetDriveType</code>, and attempts to connect to
+<code>malware.invalid.com</code>.</p>
+
+<h3 class="relative group"><span style="color:red">Initial Analysis</span>
+    <div id="initial-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#initial-analysis" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">secretPictures.exe: PE32+ executable (console) x86-64, 8 sections
+</span></span><span class="line"><span class="ln">2</span><span class="cl">SHA256: 80e82415a26ac7c0124bbaa2133192dadd51cbc5ed22b202ebb24f6fddf8c8ab</span></span></code></pre></div></div>
+<p>Static analysis confirmed the binary was written in Go.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="DIE — Golang detection"
+    width="721"
+    height="523"
+    src="/bubka/investigations/htb-secretpictures/image1.png"
+    srcset="/bubka/investigations/htb-secretpictures/image1.png 800w, /bubka/investigations/htb-secretpictures/image1.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/investigations/htb-secretpictures/image1.png"></figure>
+</p>
+
+<h3 class="relative group"><span style="color:red">Sandbox Analysis</span>
+    <div id="sandbox-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#sandbox-analysis" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Seconds after execution the sample copied itself to <code>C:\Systemlogs\</code>
+and renamed itself to <code>logscheck.exe</code>.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Self-copy to C:\Systemlogs"
+    width="822"
+    height="244"
+    src="/bubka/investigations/htb-secretpictures/image_hu_447e0ea1dec4dcd2.png"
+    srcset="/bubka/investigations/htb-secretpictures/image_hu_447e0ea1dec4dcd2.png 800w, /bubka/investigations/htb-secretpictures/image.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/investigations/htb-secretpictures/image.png"></figure>
+</p>
+
+<h4 class="relative group"><span style="color:red">Persistence</span>
+    <div id="persistence" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#persistence" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>A registry Run key was set to execute <code>logscheck.exe</code> on every user login:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\HealthCheck</span></span></code></pre></div></div>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Registry persistence key"
+    width="1163"
+    height="292"
+    src="/bubka/investigations/htb-secretpictures/image2_hu_1dcb167bef01e78c.png"
+    srcset="/bubka/investigations/htb-secretpictures/image2_hu_1dcb167bef01e78c.png 800w, /bubka/investigations/htb-secretpictures/image2.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/investigations/htb-secretpictures/image2.png"></figure>
+</p>
+
+<h4 class="relative group"><span style="color:red">C2 Communication</span>
+    <div id="c2-communication" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#c2-communication" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The sample attempted to connect to the hardcoded domain <code>malware.invalid.com</code>.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="C2 connection attempt"
+    width="877"
+    height="127"
+    src="/bubka/investigations/htb-secretpictures/image4_hu_3633427b41c9c462.png"
+    srcset="/bubka/investigations/htb-secretpictures/image4_hu_3633427b41c9c462.png 800w, /bubka/investigations/htb-secretpictures/image4.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/investigations/htb-secretpictures/image4.png"></figure>
+</p>
+
+<h4 class="relative group"><span style="color:red">Drive Enumeration</span>
+    <div id="drive-enumeration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#drive-enumeration" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The sample called the <code>GetDriveType</code> WinAPI function to enumerate all
+connected drives — likely to identify removable media or network shares
+for lateral movement or data staging.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="GetDriveType call in sandbox"
+    width="1188"
+    height="195"
+    src="/bubka/investigations/htb-secretpictures/drive_hu_92a9f31577f68f45.png"
+    srcset="/bubka/investigations/htb-secretpictures/drive_hu_92a9f31577f68f45.png 800w, /bubka/investigations/htb-secretpictures/drive.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/bubka/investigations/htb-secretpictures/drive.png"></figure>
+</p>
+
+<h3 class="relative group"><span style="color:lightblue">IOCs</span>
+    <div id="iocs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#iocs" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><strong>Files</strong><br>
+- <code>secretPictures.exe</code><br>
+- SHA256: <code>80e82415a26ac7c0124bbaa2133192dadd51cbc5ed22b202ebb24f6fddf8c8ab</code><br>
+- <code>C:\Systemlogs\logscheck.exe</code> — persistence copy</p>
+<p><strong>Registry</strong><br>
+- <code>HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\HealthCheck</code></p>
+<p><strong>Network</strong><br>
+- C2 Domain: <code>malware.invalid.com</code></p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/bubka/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_investigations\HTB-SecretPictures\index.md"
+          data-oid-likes="likes_investigations\HTB-SecretPictures\index.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+
+      
+    </footer>
+  </article>
 
         
 
