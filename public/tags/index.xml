@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Malware Analysis</title>
+      <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/malware-analysis/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>HTA</title>
@@ -15,16 +25,6 @@
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/hta/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Malware Analysis</title>
-      <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
-      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/malware-analysis/</guid>
       <description></description>
       
     </item>
@@ -270,7 +270,7 @@
     </item>
     
     <item>
-      <title>Ida</title>
+      <title>IDA</title>
       <link>http://localhost:1313/bubka/tags/ida/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
@@ -830,6 +830,16 @@
     </item>
     
     <item>
+      <title>DLL</title>
+      <link>http://localhost:1313/bubka/tags/dll/</link>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/dll/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>PoshC2</title>
       <link>http://localhost:1313/bubka/tags/poshc2/</link>
       <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
@@ -915,16 +925,6 @@
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/rtfobj/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Reverse Engeeniring</title>
-      <link>http://localhost:1313/bubka/tags/reverse-engeeniring/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/reverse-engeeniring/</guid>
       <description></description>
       
     </item>

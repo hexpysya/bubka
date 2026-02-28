@@ -90,6 +90,16 @@
     </item>
     
     <item>
+      <title>PoshC2: Sharp_v4_x64.dll</title>
+      <link>http://localhost:1313/bubka/investigations/poschc2-sharp_v4_x64.dll/</link>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/poschc2-sharp_v4_x64.dll/</guid>
+      <description>A .NET DLL decodes architecture-specific shellcode from an embedded base64 string, allocates executable memory, and spawns a thread to execute it. The shellcode performs NTDLL unhooking, AMSI and ETW patching before executing an embedded PE payload identified as a PoshC2 dropper.</description>
+      
+    </item>
+    
+    <item>
       <title>PoshC2: Dropper-cs.exe</title>
       <link>http://localhost:1313/bubka/investigations/dropper-cs.exe-analysis/</link>
       <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>

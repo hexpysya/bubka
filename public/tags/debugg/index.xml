@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debugg on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/debugg/</link>
+    <description>Recent content in Debugg on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/debugg/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTB-Subatomic</title>
+      <link>http://localhost:1313/bubka/investigations/htb-subatomic/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-subatomic/</guid>
+      <description>A fake therapy installer distributed as an NSIS self-extracting archive delivers an Electron-based Node.js infostealer that performs anti-VM checks, injects malicious code into Discord clients, and exfiltrates browser credentials, cookies, autofill data, and Discord tokens to a hardcoded C2.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
