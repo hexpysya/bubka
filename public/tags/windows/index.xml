@@ -7,7 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CDEF-XWorm</title>
+      <link>http://localhost:1313/bubka/investigations/cdef-xworm/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/cdef-xworm/</guid>
+      <description>A .NET XWorm RAT that establishes triple persistence via scheduled task, startup shortcut, and registry Run key, implements keylogging, clipboard hijacking for crypto wallets, and communicates with multiple C2 servers over TCP using AES-ECB encrypted payloads.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-SecretPictures</title>
+      <link>http://localhost:1313/bubka/investigations/htb-secretpictures/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-secretpictures/</guid>
+      <description>A Go-based backdoor that copies itself to a system directory, establishes persistence via a registry Run key, enumerates connected drives, and attempts to connect to a hardcoded C2 domain.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Subatomic</title>
+      <link>http://localhost:1313/bubka/investigations/htb-subatomic/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-subatomic/</guid>
+      <description>A fake therapy installer distributed as an NSIS self-extracting archive delivers an Electron-based Node.js infostealer that performs anti-VM checks, injects malicious code into Discord clients, and exfiltrates browser credentials, cookies, autofill data, and Discord tokens to a hardcoded C2.</description>
+      
+    </item>
     
     <item>
       <title>HTB-oBfsC4t10n</title>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>XWorm on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/xworm/</link>
+    <description>Recent content in XWorm on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/xworm/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CDEF-XWorm</title>
+      <link>http://localhost:1313/bubka/investigations/cdef-xworm/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/cdef-xworm/</guid>
+      <description>A .NET XWorm RAT that establishes triple persistence via scheduled task, startup shortcut, and registry Run key, implements keylogging, clipboard hijacking for crypto wallets, and communicates with multiple C2 servers over TCP using AES-ECB encrypted payloads.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

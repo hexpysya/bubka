@@ -10,11 +10,141 @@
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>.NET</title>
+      <link>http://localhost:1313/bubka/tags/.net/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/.net/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Debugg</title>
+      <link>http://localhost:1313/bubka/tags/debugg/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/debugg/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Dnspy</title>
+      <link>http://localhost:1313/bubka/tags/dnspy/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/dnspy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>http://localhost:1313/bubka/tags/golang/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/golang/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Installer</title>
+      <link>http://localhost:1313/bubka/tags/installer/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/installer/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/bubka/tags/javascript/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/javascript/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>Malware Analysis</title>
       <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/malware-analysis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>NSIS</title>
+      <link>http://localhost:1313/bubka/tags/nsis/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/nsis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PE</title>
+      <link>http://localhost:1313/bubka/tags/pe/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/pe/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>RAT</title>
+      <link>http://localhost:1313/bubka/tags/rat/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/rat/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Sandbox</title>
+      <link>http://localhost:1313/bubka/tags/sandbox/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/sandbox/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Self-Extracting Archive</title>
+      <link>http://localhost:1313/bubka/tags/self-extracting-archive/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/self-extracting-archive/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>http://localhost:1313/bubka/tags/windows/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/windows/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>XWorm</title>
+      <link>http://localhost:1313/bubka/tags/xworm/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/xworm/</guid>
       <description></description>
       
     </item>
@@ -45,16 +175,6 @@
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/process-injection/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Sandbox</title>
-      <link>http://localhost:1313/bubka/tags/sandbox/</link>
-      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/sandbox/</guid>
       <description></description>
       
     </item>
@@ -115,16 +235,6 @@
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/wazuh/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Windows</title>
-      <link>http://localhost:1313/bubka/tags/windows/</link>
-      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/windows/</guid>
       <description></description>
       
     </item>
@@ -270,7 +380,7 @@
     </item>
     
     <item>
-      <title>IDA</title>
+      <title>Ida</title>
       <link>http://localhost:1313/bubka/tags/ida/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
@@ -295,16 +405,6 @@
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/nat-traversal/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>PE</title>
-      <link>http://localhost:1313/bubka/tags/pe/</link>
-      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/pe/</guid>
       <description></description>
       
     </item>
@@ -630,26 +730,6 @@
     </item>
     
     <item>
-      <title>.NET</title>
-      <link>http://localhost:1313/bubka/tags/.net/</link>
-      <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/.net/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Dnspy</title>
-      <link>http://localhost:1313/bubka/tags/dnspy/</link>
-      <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/dnspy/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>LKM</title>
       <link>http://localhost:1313/bubka/tags/lkm/</link>
       <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
@@ -895,16 +975,6 @@
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/cve-2017-0199/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>JavaScript</title>
-      <link>http://localhost:1313/bubka/tags/javascript/</link>
-      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/javascript/</guid>
       <description></description>
       
     </item>

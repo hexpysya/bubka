@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CDEF-XWorm</title>
+      <link>http://localhost:1313/bubka/investigations/cdef-xworm/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/cdef-xworm/</guid>
+      <description>A .NET XWorm RAT that establishes triple persistence via scheduled task, startup shortcut, and registry Run key, implements keylogging, clipboard hijacking for crypto wallets, and communicates with multiple C2 servers over TCP using AES-ECB encrypted payloads.</description>
+      
+    </item>
     
     <item>
       <title>HTB-SecretPictures</title>
