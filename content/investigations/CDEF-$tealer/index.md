@@ -1,6 +1,6 @@
 ---
 title: "CDEF-$tealer"
-date: 2026-03-01
+date: 2026-03-03
 draft: false
 summary: "A Dridex loader DLL that dynamically resolves APIs via CRC32 hashing, uses int3/retn as an indirect call mechanism to evade analysis, decrypts embedded strings with RC4, and connects to four hardcoded C2 servers over HTTPS to download additional modules."
 tags:
@@ -10,7 +10,19 @@ tags:
   - DLL
   - Windows
   - Dridex
+  - Loader
+  - Heaven's Gate
+  - Dynamic API Resolution
+  - Indirect Calls
+  - Vectored Exception Handling
+  - Anti-Debugging
+  - Anti-VM
+  - RC4
+  - CRC32
   - IDA
+  - Capa
+  - HashDB
+  - CAPEv2
 platform: Malware Analysis
 ---
 {{< infobox platform="CyberDefenders" difficulty="Insane" os="Windows" date="2026-02-28" >}}

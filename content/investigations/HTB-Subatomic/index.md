@@ -10,7 +10,7 @@ tags:
   - Installer
   - Self-extracting archive
   - JavaScript
-  - Debugg
+  - Debug
   - NSIS
 platform: Malware Analysis
 ---
