@@ -8,7 +8,8 @@ cascade:
   showTaxonomies: true
   invertPagination: true
 ---
-
+<link rel="preload" href="/bubka/fonts/JetBrainsMono-Bold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/bubka/font/sitka-small-599.ttf" as="font" type="font/ttf" crossorigin>
 <style>
   h2 {
     font-size: 15px !important;

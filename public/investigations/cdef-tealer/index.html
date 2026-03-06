@@ -24,7 +24,7 @@
     <meta name="description" content="A Dridex loader DLL that dynamically resolves APIs via CRC32 hashing, uses int3/retn as an indirect call mechanism to evade analysis, decrypts embedded strings with RC4, and connects to four hardcoded C2 servers over HTTPS to download additional modules.">
   
   
-    <meta name="keywords" content="Malware Analysis,Reverse Engineering,PE,DLL,Windows,Dridex,IDA,">
+    <meta name="keywords" content="Malware Analysis,Reverse Engineering,PE,DLL,Windows,Dridex,Loader,Heaven&#39;s Gate,Dynamic API Resolution,Indirect Calls,Vectored Exception Handling,Anti-Debugging,Anti-VM,RC4,CRC32,IDA,Capa,HashDB,CAPEv2,">
   
   
   
@@ -45,8 +45,8 @@
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="investigations">
-    <meta property="article:published_time" content="2026-03-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-03-01T00:00:00+00:00">
+    <meta property="article:published_time" content="2026-03-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-03T00:00:00+00:00">
     <meta property="article:tag" content="Malware Analysis">
     <meta property="article:tag" content="Reverse Engineering">
     <meta property="article:tag" content="PE">
@@ -104,8 +104,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/bubka/css/main.bundle.min.5c15dc62a6c195e7ffd42b3182115b94052ac03dfca8349699a116dccaf99d81d5082b4a48c8a951c816376427b708c81ae5e003429a615a8f12ea9c48bec489.css"
-    integrity="sha512-XBXcYqbBlef/1CsxghFblAUqwD38qDSWmaEW3Mr5nYHVCCtKSMipUcgWN2QntwjIGuXgA0KaYVqPEuqcSL7EiQ==">
+    href="/bubka/css/main.bundle.min.ff7167ac38736b6e7f77fff4d1655400b6eaf3b1c50cd5d7fbdf36ddac01fe9909c9c59442071b618cf816d62797eba5b6c496c1e82f0a1b37f46baa1f265a00.css"
+    integrity="sha512-/3FnrDhza25/d//00WVUALbq87HFDNXX&#43;9823awB/pkJycWUQgcbYYz4FtYnl&#43;ultsSWwegvChs39GuqHyZaAA==">
 
   
   
@@ -229,12 +229,12 @@
       "name": "Bubka"
     },
     "copyrightYear": "2026",
-    "dateCreated": "2026-03-01T00:00:00\u002b00:00",
-    "datePublished": "2026-03-01T00:00:00\u002b00:00",
+    "dateCreated": "2026-03-03T00:00:00\u002b00:00",
+    "datePublished": "2026-03-03T00:00:00\u002b00:00",
     
-    "dateModified": "2026-03-01T00:00:00\u002b00:00",
+    "dateModified": "2026-03-03T00:00:00\u002b00:00",
     
-    "keywords": ["Malware Analysis","Reverse Engineering","PE","DLL","Windows","Dridex","IDA"],
+    "keywords": ["Malware Analysis","Reverse Engineering","PE","DLL","Windows","Dridex","Loader","Heaven's Gate","Dynamic API Resolution","Indirect Calls","Vectored Exception Handling","Anti-Debugging","Anti-VM","RC4","CRC32","IDA","Capa","HashDB","CAPEv2"],
     
     "mainEntityOfPage": "true",
     "wordCount": "2059"
@@ -543,60 +543,16 @@
 
   
   
-    
-    
-  
 
 
 
 
   
-    
-    
-      
-      
-    
-  
 
 
 
 
 
-    <div id="hero" class="h-[150px] md:h-[200px]"></div>
-  
-  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
-    
-    
-    
-    <img
-      id="background-image"
-      src="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"
-      role="presentation"
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-      class="absolute inset-0 w-full h-full object-cover"
-      >
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
-    <div
-      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
-  </div>
-
-  
-    <div
-      id="background-blur"
-      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
-    
-    
-    <script
-      type="text/javascript"
-      src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
-      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
-      data-blur-id="background-blur"
-      data-image-id="background-image"
-      data-image-url="/bubka/mountains1_hu_a2994e7dd6907ddb.jpg"></script>
-  
       
     
 
@@ -652,7 +608,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-03-01T00:00:00&#43;00:00">March 1, 2026</time>
+      <time datetime="2026-03-03T00:00:00&#43;00:00">March 3, 2026</time>
     
 
     
@@ -740,11 +696,131 @@
 
               </a>
             
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/loader/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Loader
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/heavens-gate/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Heaven&#39;s Gate
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/dynamic-api-resolution/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Dynamic API Resolution
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/indirect-calls/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Indirect Calls
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/vectored-exception-handling/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Vectored Exception Handling
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/anti-debugging/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Anti-Debugging
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/anti-vm/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Anti-VM
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/rc4/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    RC4
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/crc32/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CRC32
+  </span>
+</span>
+
+              </a>
+            
               <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/ida/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Ida
+    IDA
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/capa/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Capa
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/hashdb/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    HashDB
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/capev2/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CAPEv2
   </span>
 </span>
 

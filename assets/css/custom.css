@@ -1,16 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
-
 @font-face {
-    font-family: 'MyMonoFont';
-    src: url('/bubka/fonts/JetBrainsMono-Bold.ttf') format('truetype');
+  font-family: 'MyMonoFont';
+  src: url('/bubka/fonts/JetBrainsMono-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Sitka Small';
-  src: url('/font/sitka-small-599.ttf') format('truetype');
+  src: url('/bubka/font/sitka-small-599.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 body {

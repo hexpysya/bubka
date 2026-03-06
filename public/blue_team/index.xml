@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/blue_team/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/blue_team/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Suricata &#43; Wazuh: Malware Traffic</title>
+      <link>http://localhost:1313/bubka/blue_team/wazuh&#43;suricata-malware-traffic/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/blue_team/wazuh&#43;suricata-malware-traffic/</guid>
+      <description>Replayed a malicious PCAP file containing Hancitor dropper traffic that deployed Cobalt Strike, Dridex, and Ficker Stealer. Analyzed 423 Suricata alerts in Wazuh, reconstructed the full infection chain, and mapped findings to MITRE ATT&amp;amp;CK.</description>
+      
+    </item>
     
     <item>
       <title>Wazuh: SSH Brute Force</title>
