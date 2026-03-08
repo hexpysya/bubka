@@ -3,8 +3,8 @@
   lang="en-us"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/bubka/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bubka/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en-us">
@@ -15,35 +15,41 @@
 
   
   
-    <title>Phishing &middot; Lextra hack stuff</title>
-    <meta name="title" content="Phishing &middot; Lextra hack stuff">
+    <title>Phishing &middot; bubka hacks stuff</title>
+    <meta name="title" content="Phishing &middot; bubka hacks stuff">
   
 
   
   
+    <meta name="description" content="Writeups on malware analysis, reverse engineering and DFIR.">
   
   
   
-  <link rel="canonical" href="http://localhost:1313/tags/phishing/">
+  
+  <link rel="canonical" href="http://localhost:1313/bubka/tags/phishing/">
   
     
-      <link rel="alternate" type="application/rss+xml" href="/tags/phishing/index.xml" title="Lextra hack stuff" />
+      <link rel="alternate" type="application/rss+xml" href="/bubka/tags/phishing/index.xml" title="bubka hacks stuff" />
   
 
   
   
+    <meta name="author" content="Bubka">
+  
   
 
   
-  <meta property="og:url" content="http://localhost:1313/tags/phishing/">
-  <meta property="og:site_name" content="Lextra hack stuff">
+  <meta property="og:url" content="http://localhost:1313/bubka/tags/phishing/">
+  <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="Phishing">
+  <meta property="og:description" content="Writeups on malware analysis, reverse engineering and DFIR.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Phishing">
+  <meta name="twitter:description" content="Writeups on malware analysis, reverse engineering and DFIR.">
 
   
   
@@ -90,14 +96,14 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.8ad740197ef46b1416dd3a153a04d21c183f85e82bd5aecb553acf46f0ec6a8d32df5f099e02a516cbd750ff6fbcf4744f305950d65b0034d6c3253142de5a46.css"
-    integrity="sha512-itdAGX70axQW3ToVOgTSHBg/hegr1a7LVTrPRvDsao0y318JngKlFsvXUP9vvPR0TzBZUNZbADTWwyUxQt5aRg==">
+    href="/bubka/css/main.bundle.min.ff7167ac38736b6e7f77fff4d1655400b6eaf3b1c50cd5d7fbdf36ddac01fe9909c9c59442071b618cf816d62797eba5b6c496c1e82f0a1b37f46baa1f265a00.css"
+    integrity="sha512-/3FnrDhza25/d//00WVUALbq87HFDNXX&#43;9823awB/pkJycWUQgcbYYz4FtYnl&#43;ultsSWwegvChs39GuqHyZaAA==">
 
   
   
   <script
     type="text/javascript"
-    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    src="/bubka/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
     integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
   
   
@@ -106,7 +112,7 @@
   
   
     
-    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+    <script src="/bubka/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
   
 
   
@@ -128,7 +134,7 @@
       defer
       type="text/javascript"
       id="script-bundle"
-      src="/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
+      src="/bubka/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
       integrity="sha512-Z2JKNXySjSm5/hm6AaHjLAWtEynKKnEr8QRG3wxocpA9DBSyH3aJa1eloHEJQIBUFs7jiFHZBn22VViBGI41pQ=="
       data-copy="Copy"
       data-copied="Copied"></script>
@@ -137,7 +143,7 @@
   
   
 
-<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+<script src="/bubka/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
 
 
@@ -183,10 +189,10 @@
 
   
   
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/bubka/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bubka/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/bubka/favicon-16x16.png">
+    <link rel="manifest" href="/bubka/site.webmanifest">
   
 
   
@@ -194,21 +200,21 @@
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "",
+    "articleSection": "Tags",
     "name": "Phishing",
     "headline": "Phishing",
     
     "inLanguage": "en-us",
-    "url" : "http://localhost:1313/tags/phishing/",
+    "url" : "http://localhost:1313/bubka/tags/phishing/",
     "author" : {
       "@type": "Person",
-      "name": ""
+      "name": "Bubka"
     },
     "copyrightYear": "2026",
-    "dateCreated": "2026-01-20T00:00:00\u002b00:00",
-    "datePublished": "2026-01-20T00:00:00\u002b00:00",
+    "dateCreated": "2026-03-03T00:00:00\u002b00:00",
+    "datePublished": "2026-03-03T00:00:00\u002b00:00",
     
-    "dateModified": "2026-01-20T00:00:00\u002b00:00",
+    "dateModified": "2026-03-03T00:00:00\u002b00:00",
     
     
     
@@ -247,6 +253,10 @@
 
 
 
+  
+    
+  
+
 
 
 
@@ -265,18 +275,16 @@
     
     
       <div class="min-h-[148px]"></div>
-<div
-  class="fixed inset-x-0 min-h-[130px] opacity-65 bg-gradient-to-b from-neutral from-60% dark:from-neutral-800 to-transparent mix-blend-normal z-80"></div>
 <div class="fixed inset-x-0 z-100">
   <div
     id="menu-blur"
-    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl bg-neutral/25 dark:bg-neutral-800/25"></div>
   <div class="relative m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32">
     <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
   
   
-    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
-      Lextra hack stuff
+    <a href="/bubka/" class="text-base font-medium truncate min-w-0 shrink">
+      bubka hacks stuff
     </a>
   
   <div class="flex items-center ms-auto">
@@ -287,15 +295,15 @@
       
   
     <a
-      href="/writeups/"
+      href="/bubka/investigations/"
       
       class="flex items-center bf-icon-color-hover"
-      aria-label="writeups"
+      aria-label="investigations"
       title="">
       
       
         <span class="text-base font-medium break-normal">
-          writeups
+          investigations
         </span>
       
     </a>
@@ -305,15 +313,15 @@
       
   
     <a
-      href="/"
+      href="/bubka/blue_team/"
       
       class="flex items-center bf-icon-color-hover"
-      aria-label="about"
-      title="Lextra hack stuff">
+      aria-label="blue team"
+      title="">
       
       
         <span class="text-base font-medium break-normal">
-          about
+          blue team
         </span>
       
     </a>
@@ -415,13 +423,13 @@
     
     <div class="px-2">
       <a
-        href="/writeups/"
-        aria-label="writeups"
+        href="/bubka/investigations/"
+        aria-label="investigations"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
         <span title="" class="text-2xl font-bold tracking-tight">
-          writeups
+          investigations
         </span>
         
       </a>
@@ -432,13 +440,13 @@
     
     <div class="px-2">
       <a
-        href="/"
-        aria-label="about"
+        href="/bubka/blue_team/"
+        aria-label="blue team"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="Lextra hack stuff" class="text-2xl font-bold tracking-tight">
-          about
+        <span title="" class="text-2xl font-bold tracking-tight">
+          blue team
         </span>
         
       </a>
@@ -478,7 +486,7 @@
 
 <script
   type="text/javascript"
-  src="/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+  src="/bubka/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
   integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
   data-blur-id="menu-blur"></script>
 
@@ -594,11 +602,11 @@
     <header class="items-center text-start text-xl font-semibold">
       <a
         
-          href="/writeups/htb-obfsc4t10n2/"
+          href="/bubka/investigations/htb-a-call-from-the-museum/"
         
         class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
         <h2>
-          HTB-oBfsC4t10n2
+          HTB-A Call from the Museum
           
         </h2>
       </a>
@@ -625,6 +633,8 @@
   
 
   
+    
+  
 
   
 
@@ -645,6 +655,8 @@
 
   <div class="flex flex-row flex-wrap items-center">
     
+    
+      <time datetime="2026-03-03T00:00:00&#43;00:00">March 3, 2026</time>
     
 
     
@@ -672,91 +684,41 @@
         
           
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/reversing/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/malware-analysis/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Reversing
+    Malware Analysis
   </span>
 </span>
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/malware-analysis/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Malware-Analysis
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/excel-macros/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Excel-Macros
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/xlm-macros/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Xlm-Macros
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/obfuscation/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Obfuscation
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/deobfuscation/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Deobfuscation
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/oletools/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Oletools
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/static-analysis/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Static-Analysis
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/phishing/">
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/phishing/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Phishing
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/lnk/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LNK
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/bubka/tags/powershell/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PowerShell
   </span>
 </span>
 
@@ -774,6 +736,10 @@
 
 
     </div>
+    
+      <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
+        A phishing email with a password-protected ZIP delivered an LNK file that executed an obfuscated PowerShell stager — collecting system fingerprint data, checking in to a C2, and fetching a next-stage implant using hardcoded credentials. A decoy PDF was opened simultaneously to distract the victim.
+      </div>
     
   </div>
   <div class="px-6 pt-4 pb-2"></div>
@@ -835,7 +801,7 @@
   
   <script
     type="text/javascript"
-    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    src="/bubka/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
     integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
@@ -843,7 +809,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:1313/">
+  data-url="http://localhost:1313/bubka/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
