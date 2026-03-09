@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Injection on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/injection/</link>
+    <description>Recent content in Injection on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/injection/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Wazuh: SQL Injection Detection</title>
+      <link>http://localhost:1313/bubka/blue_team/wazuh-injection/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/blue_team/wazuh-injection/</guid>
+      <description>SOC L1 investigation of a SQL Injection attack detected by Wazuh SIEM and Suricata IDS against DVWA</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh: SQL Injection Detection</title>
+      <link>http://localhost:1313/bubka/blue_team/wazuh_ssh-brute-force/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/blue_team/wazuh_ssh-brute-force/</guid>
+      <description>Detected a SQL Injection attack from Kali Linux against DVWA using sqlmap, observed 85 alerts across 6 rule IDs, and configured automated IP blocking via active response.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

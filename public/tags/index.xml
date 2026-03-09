@@ -7,7 +7,87 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Fri, 06 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SOC</title>
+      <link>http://localhost:1313/bubka/tags/soc/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/soc/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SQL Injection</title>
+      <link>http://localhost:1313/bubka/tags/sql-injection/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/sql-injection/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh</title>
+      <link>http://localhost:1313/bubka/tags/wazuh/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/wazuh/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>LNK</title>
+      <link>http://localhost:1313/bubka/tags/lnk/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/lnk/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Malware Analysis</title>
+      <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/malware-analysis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PDF</title>
+      <link>http://localhost:1313/bubka/tags/pdf/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/pdf/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Phishing</title>
+      <link>http://localhost:1313/bubka/tags/phishing/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/phishing/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PowerShell</title>
+      <link>http://localhost:1313/bubka/tags/powershell/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/powershell/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>CVE-2026-24061</title>
@@ -25,16 +105,6 @@
       <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/network-analysis/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>SOC</title>
-      <link>http://localhost:1313/bubka/tags/soc/</link>
-      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/soc/</guid>
       <description></description>
       
     </item>
@@ -190,16 +260,6 @@
     </item>
     
     <item>
-      <title>Malware Analysis</title>
-      <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
-      <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/malware-analysis/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>PE</title>
       <link>http://localhost:1313/bubka/tags/pe/</link>
       <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
@@ -275,16 +335,6 @@
       <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/suricata/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Wazuh</title>
-      <link>http://localhost:1313/bubka/tags/wazuh/</link>
-      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/wazuh/</guid>
       <description></description>
       
     </item>
@@ -1110,16 +1160,6 @@
     </item>
     
     <item>
-      <title>PDF</title>
-      <link>http://localhost:1313/bubka/tags/pdf/</link>
-      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/pdf/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Pdf-Parser</title>
       <link>http://localhost:1313/bubka/tags/pdf-parser/</link>
       <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
@@ -1175,6 +1215,26 @@
       <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/rtfobj/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Injection</title>
+      <link>http://localhost:1313/bubka/tags/injection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/injection/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>OWASP</title>
+      <link>http://localhost:1313/bubka/tags/owasp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/owasp/</guid>
       <description></description>
       
     </item>
