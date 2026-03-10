@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MSSQL on bubka hacks stuff</title>
+    <link>http://localhost:1313/bubka/tags/mssql/</link>
+    <description>Recent content in MSSQL on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/mssql/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CDEF-BlueSky Ransomware</title>
+      <link>http://localhost:1313/bubka/investigations/cdef-bluesky-ransomware/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/cdef-bluesky-ransomware/</guid>
+      <description>An attacker performed a port scan, exploited a Microsoft SQL Server via the sa account, enabled xp_cmdshell to drop and execute a base64-encoded payload, then deployed a multi-stage PowerShell toolkit to disable AV, dump NTLM hashes, perform lateral movement via SMB, and stage the BlueSky ransomware payload.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
