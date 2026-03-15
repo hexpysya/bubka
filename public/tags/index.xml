@@ -7,7 +7,77 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Sat, 14 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ELF64</title>
+      <link>http://localhost:1313/bubka/tags/elf64/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/elf64/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>IDA</title>
+      <link>http://localhost:1313/bubka/tags/ida/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/ida/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/bubka/tags/linux/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/linux/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Malware Analysis</title>
+      <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/malware-analysis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Ransomware</title>
+      <link>http://localhost:1313/bubka/tags/ransomware/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/ransomware/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Reverse Engineering</title>
+      <link>http://localhost:1313/bubka/tags/reverse-engineering/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/reverse-engineering/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Volatility Framework</title>
+      <link>http://localhost:1313/bubka/tags/volatility-framework/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/volatility-framework/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>LetsDefend</title>
@@ -50,16 +120,6 @@
     </item>
     
     <item>
-      <title>Malware Analysis</title>
-      <link>http://localhost:1313/bubka/tags/malware-analysis/</link>
-      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/malware-analysis/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>MSSQL</title>
       <link>http://localhost:1313/bubka/tags/mssql/</link>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
@@ -85,16 +145,6 @@
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/phishing/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Ransomware</title>
-      <link>http://localhost:1313/bubka/tags/ransomware/</link>
-      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/ransomware/</guid>
       <description></description>
       
     </item>
@@ -280,16 +330,6 @@
     </item>
     
     <item>
-      <title>IDA</title>
-      <link>http://localhost:1313/bubka/tags/ida/</link>
-      <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/ida/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Indirect Calls</title>
       <link>http://localhost:1313/bubka/tags/indirect-calls/</link>
       <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
@@ -325,16 +365,6 @@
       <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/rc4/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Reverse Engineering</title>
-      <link>http://localhost:1313/bubka/tags/reverse-engineering/</link>
-      <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/reverse-engineering/</guid>
       <description></description>
       
     </item>
@@ -685,16 +715,6 @@
       <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/cve/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>http://localhost:1313/bubka/tags/linux/</link>
-      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/linux/</guid>
       <description></description>
       
     </item>
