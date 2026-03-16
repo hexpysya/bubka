@@ -9,7 +9,7 @@ tags:
   - LetsDefend
 platform: LetsDefend
 ---
-{{< infobox platform="LetsDefend" difficulty="Medium" os="Windows" date="2026-03-14" >}}
+
 
 ### <span style="color:lightblue">Objective</span>
 Investigate alert SOC153 triggered by the execution of a suspicious PowerShell script on host `Tony` (`172.16.17.206`), determine whether the activity is malicious, reconstruct the attack chain, and classify the alert.

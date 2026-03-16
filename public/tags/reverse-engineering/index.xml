@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Tue, 03 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/reverse-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/reverse-engineering/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTB-Lockpick3.0</title>
+      <link>http://localhost:1313/bubka/investigations/htb-lockpick3.0/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-lockpick3.0/</guid>
+      <description>A ELF64 ransomware binary uses XOR string obfuscation keyed on a CLI passphrase, contacts a DigitalOcean C2 to register and retrieve an AES-256-CBC key and IV, recursively encrypts target files in /share/ renaming them to .24bes, exfiltrates the originals via HTTP PUT, zeroes and removes the source files, and installs a systemd service for persistence.</description>
+      
+    </item>
     
     <item>
       <title>CDEF-$tealer</title>
@@ -16,16 +26,6 @@
       
       <guid>http://localhost:1313/bubka/investigations/cdef-tealer/</guid>
       <description>A Dridex loader DLL that dynamically resolves APIs via CRC32 hashing, uses int3/retn as an indirect call mechanism to evade analysis, decrypts embedded strings with RC4, and connects to four hardcoded C2 servers over HTTPS to download additional modules.</description>
-      
-    </item>
-    
-    <item>
-      <title>HTB-Lockpick3.0</title>
-      <link>http://localhost:1313/bubka/investigations/htb-lockpick3.0/</link>
-      <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/investigations/htb-lockpick3.0/</guid>
-      <description></description>
       
     </item>
     
