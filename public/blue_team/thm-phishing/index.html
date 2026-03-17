@@ -21,7 +21,7 @@
 
   
   
-    <meta name="description" content="Three phishing campaigns were identified across four alerts: a legitimate HR onboarding email (false positive), a fake Amazon delivery notification whose bit.ly link was blocked by the firewall, and a Microsoft account spoofing email from m1crosoftsupport.co whose link was allowed through the firewall — indicating a likely credential harvesting visit by the recipient.">
+    <meta name="description" content="Three phishing campaigns were identified across four alerts: a legitimate HR onboarding email (false positive), a fake Amazon delivery notification whose bit.ly link was blocked by the firewall, and a Microsoft account spoofing email from m1crosoftsupport.co whose link was allowed through the firewall">
   
   
     <meta name="keywords" content="SOC,Splunk,Phishing,Firewall,">
@@ -41,7 +41,7 @@
   <meta property="og:url" content="http://localhost:1313/bubka/blue_team/thm-phishing/">
   <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="THM-Phishing">
-  <meta property="og:description" content="Three phishing campaigns were identified across four alerts: a legitimate HR onboarding email (false positive), a fake Amazon delivery notification whose bit.ly link was blocked by the firewall, and a Microsoft account spoofing email from m1crosoftsupport.co whose link was allowed through the firewall — indicating a likely credential harvesting visit by the recipient.">
+  <meta property="og:description" content="Three phishing campaigns were identified across four alerts: a legitimate HR onboarding email (false positive), a fake Amazon delivery notification whose bit.ly link was blocked by the firewall, and a Microsoft account spoofing email from m1crosoftsupport.co whose link was allowed through the firewall">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blue_team">
@@ -55,7 +55,7 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="THM-Phishing">
-  <meta name="twitter:description" content="Three phishing campaigns were identified across four alerts: a legitimate HR onboarding email (false positive), a fake Amazon delivery notification whose bit.ly link was blocked by the firewall, and a Microsoft account spoofing email from m1crosoftsupport.co whose link was allowed through the firewall — indicating a likely credential harvesting visit by the recipient.">
+  <meta name="twitter:description" content="Three phishing campaigns were identified across four alerts: a legitimate HR onboarding email (false positive), a fake Amazon delivery notification whose bit.ly link was blocked by the firewall, and a Microsoft account spoofing email from m1crosoftsupport.co whose link was allowed through the firewall">
 
   
   
@@ -225,7 +225,7 @@
     "keywords": ["SOC","Splunk","Phishing","Firewall"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "639"
+    "wordCount": "433"
   }]
   </script>
 
@@ -719,12 +719,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#objective"><span>Objective</span></a></li>
-        <li><a href="#8814--inbound-email-containing-suspicious-external-link"><span>8814 — Inbound Email Containing Suspicious External Link</span></a></li>
-        <li><a href="#8815--inbound-email-containing-suspicious-external-link"><span>8815 — Inbound Email Containing Suspicious External Link</span></a></li>
-        <li><a href="#8816--access-to-blacklisted-external-url-blocked-by-firewall"><span>8816 — Access to Blacklisted External URL Blocked by Firewall</span></a></li>
-        <li><a href="#8817--inbound-email-containing-suspicious-external-link"><span>8817 — Inbound Email Containing Suspicious External Link</span></a></li>
-        <li><a href="#summary"><span>Summary</span></a></li>
+        <li><a href="#email-containing-suspicious-external-link"><span>Email Containing Suspicious External Link</span></a></li>
+        <li><a href="#access-to-blacklisted-external-url-blocked-by-firewall"><span>Access to Blacklisted External URL Blocked by Firewall</span></a></li>
+        <li><a href="#inbound-email-containing-suspicious-external-link"><span>Inbound Email Containing Suspicious External Link</span></a></li>
       </ul>
     </li>
   </ul>
@@ -742,12 +739,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#objective"><span>Objective</span></a></li>
-        <li><a href="#8814--inbound-email-containing-suspicious-external-link"><span>8814 — Inbound Email Containing Suspicious External Link</span></a></li>
-        <li><a href="#8815--inbound-email-containing-suspicious-external-link"><span>8815 — Inbound Email Containing Suspicious External Link</span></a></li>
-        <li><a href="#8816--access-to-blacklisted-external-url-blocked-by-firewall"><span>8816 — Access to Blacklisted External URL Blocked by Firewall</span></a></li>
-        <li><a href="#8817--inbound-email-containing-suspicious-external-link"><span>8817 — Inbound Email Containing Suspicious External Link</span></a></li>
-        <li><a href="#summary"><span>Summary</span></a></li>
+        <li><a href="#email-containing-suspicious-external-link"><span>Email Containing Suspicious External Link</span></a></li>
+        <li><a href="#access-to-blacklisted-external-url-blocked-by-firewall"><span>Access to Blacklisted External URL Blocked by Firewall</span></a></li>
+        <li><a href="#inbound-email-containing-suspicious-external-link"><span>Inbound Email Containing Suspicious External Link</span></a></li>
       </ul>
     </li>
   </ul>
@@ -866,79 +860,13 @@
         
 
         <div class="article-content max-w-prose mb-20">
-          <div class="meta-box">
-  <div class="meta-pill difficulty medium">
-    <span class="meta-label">Difficulty:</span>
-    <span class="meta-value">Medium</span>
-  </div>
-
-  <div class="meta-pill">
-    <span class="meta-label">OS:</span>
-    <span class="meta-value">Windows</span>
-  </div>
-
-  <div class="meta-pill">
-    <span class="meta-label">Date:</span>
-    <span class="meta-value">2026-03-10</span>
-  </div>
-</div>
-
-
-<h3 class="relative group"><span style="color:lightblue">Objective</span>
-    <div id="objective" class="anchor"></div>
+          
+<h3 class="relative group"><span style="color:lightblue">Email Containing Suspicious External Link</span>
+    <div id="email-containing-suspicious-external-link" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#objective" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>Investigate four triggered alerts within the SOC simulator — three phishing-category email alerts and one firewall block alert — classify each as true or false positive, correlate related events, and document the findings.</p>
-
-<h3 class="relative group"><span style="color:lightblue">8814 — Inbound Email Containing Suspicious External Link</span>
-    <div id="8814--inbound-email-containing-suspicious-external-link" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#8814--inbound-email-containing-suspicious-external-link" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p><figure><img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    alt="Alert 8814"
-    width="1528"
-    height="521"
-    src="/bubka/blue_team/thm-phishing/8814_1_hu_86a0f1887015a8c9.png"
-    srcset="/bubka/blue_team/thm-phishing/8814_1_hu_86a0f1887015a8c9.png 800w, /bubka/blue_team/thm-phishing/8814_1_hu_4c371f9f7b3113f5.png 1280w"
-    sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/bubka/blue_team/thm-phishing/8814_1.png"></figure>
-</p>
-<p>The alert was triggered by an inbound email from <code>onboarding@hrconnex.thm</code> to <code>j.garcia@thetrydaily.thm</code> at <code>08:27:29</code>, containing a link to <code>https://hrconnex.thm/onboarding/15400654060/j.garcia</code>. A corroborating internal email was sent two minutes later at <code>08:29:02</code> from <code>h.harris@thetrydaily.thm</code> to IT, explicitly stating that <code>hrconnex.thm</code> is the company&rsquo;s legitimate third-party HR onboarding partner and that J. Garcia was expected to receive this email as part of the standard onboarding process.</p>
-<p><figure><img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    alt="Splunk event log 8814"
-    width="1624"
-    height="611"
-    src="/bubka/blue_team/thm-phishing/8814_hu_9ab10931afdfca26.png"
-    srcset="/bubka/blue_team/thm-phishing/8814_hu_9ab10931afdfca26.png 800w, /bubka/blue_team/thm-phishing/8814_hu_b2da8148bf8e7fb0.png 1280w"
-    sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/bubka/blue_team/thm-phishing/8814.png"></figure>
-</p>
-<p>The sender domain, subject line, link structure, and timing are all consistent with a legitimate HR onboarding workflow. No attachments were present and no indicators of spoofing were identified. <strong>The alert is classified as a False Positive</strong> — benign activity from a known, expected third-party vendor.</p>
-
-<h3 class="relative group"><span style="color:lightblue">8815 — Inbound Email Containing Suspicious External Link</span>
-    <div id="8815--inbound-email-containing-suspicious-external-link" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#8815--inbound-email-containing-suspicious-external-link" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#email-containing-suspicious-external-link" aria-label="Anchor">#</a>
     </span>
     
 </h3>
@@ -958,12 +886,12 @@
 <p>An inbound email was received by <code>h.harris@thetrydaily.thm</code> at <code>08:30:42</code> with the subject <strong>&ldquo;Your Amazon Package Couldn&rsquo;t Be Delivered – Action Required&rdquo;</strong>. The sender address was <code>urgents@amazon.biz</code> — a domain that spoofs Amazon by substituting <code>.com</code> with <code>.biz</code>. The email body applied urgency pressure, threatening that the package would be returned within 48 hours, and included a shortened redirect link <code>http://bit.ly/3sHkX3da12340</code> rather than any legitimate Amazon domain. No attachment was present.</p>
 <p>Several indicators confirm this is a phishing attempt: the sender domain is not <code>amazon.com</code>, the link is obfuscated via a URL shortener, and the message uses a classic urgency-based social engineering lure. <strong>The alert is classified as a True Positive</strong> — phishing email impersonating Amazon Delivery.</p>
 
-<h3 class="relative group"><span style="color:lightblue">8816 — Access to Blacklisted External URL Blocked by Firewall</span>
-    <div id="8816--access-to-blacklisted-external-url-blocked-by-firewall" class="anchor"></div>
+<h3 class="relative group"><span style="color:lightblue">Access to Blacklisted External URL Blocked by Firewall</span>
+    <div id="access-to-blacklisted-external-url-blocked-by-firewall" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#8816--access-to-blacklisted-external-url-blocked-by-firewall" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#access-to-blacklisted-external-url-blocked-by-firewall" aria-label="Anchor">#</a>
     </span>
     
 </h3>
@@ -996,12 +924,12 @@
 <p>At <code>08:31:56</code> — approximately 70 seconds after the phishing email in alert 8815 arrived — the firewall triggered a block event originating from internal host <code>10.20.2.17:34257</code> attempting to reach <code>67.199.248.11:80</code> via <code>http://bit.ly/3sHkX3da12340</code>. The rule <strong>Blocked Websites</strong> matched and the connection was denied.</p>
 <p>This event correlates directly with alert 8815: <code>h.harris</code> clicked the malicious bit.ly link from the fake Amazon email, and the firewall successfully blocked the outbound request before the destination was reached. <strong>The alert is classified as a True Positive</strong> — the firewall prevented the user from accessing the phishing payload. No compromise occurred, but the user interacted with the phishing email and requires awareness training.</p>
 
-<h3 class="relative group"><span style="color:lightblue">8817 — Inbound Email Containing Suspicious External Link</span>
-    <div id="8817--inbound-email-containing-suspicious-external-link" class="anchor"></div>
+<h3 class="relative group"><span style="color:lightblue">Inbound Email Containing Suspicious External Link</span>
+    <div id="inbound-email-containing-suspicious-external-link" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#8817--inbound-email-containing-suspicious-external-link" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#inbound-email-containing-suspicious-external-link" aria-label="Anchor">#</a>
     </span>
     
 </h3>
@@ -1034,52 +962,6 @@
 <p>At <code>08:33:00</code>, <code>c.allen@thetrydaily.thm</code> received an email purportedly from <code>no-reply@m1crosoftsupport.co</code> with the subject <strong>&ldquo;Unusual Sign-In Activity on Your Microsoft Account&rdquo;</strong>. The sender domain <code>m1crosoftsupport.co</code> is a typosquat of Microsoft, replacing the letter <code>i</code> with <code>1</code>. The email body claimed an unusual sign-in had been detected from Lagos, Nigeria (<code>102.89.222.143</code>, <code>2025-01-24 06:42</code>) and directed the user to click <code>https://m1crosoftsupport.co/login</code> to review their account — a classic credential harvesting page disguised as a Microsoft security alert.</p>
 <p>Critically, the correlated firewall log at <code>08:34:09</code> shows that internal host <code>10.20.2.25:32653</code> successfully connected to <code>45.148.10.131:443</code> via <code>https://m1crosoftsupport.co/login</code> — the connection was <strong>allowed</strong> by the <code>Allow-Internet</code> rule. This confirms that <code>c.allen</code> clicked the link and reached the credential harvesting site approximately one minute after receiving the email. The domain was not present on the firewall blacklist at the time of access.</p>
 <p><strong>The alert is classified as a True Positive</strong> — an active phishing compromise is suspected. The user likely visited a credential harvesting page and may have submitted Microsoft account credentials. Immediate password reset for <code>c.allen</code> is recommended, along with escalation to Tier 2 for account activity review and retroactive blacklisting of <code>m1crosoftsupport.co</code> / <code>45.148.10.131</code>.</p>
-
-<h3 class="relative group"><span style="color:lightblue">Summary</span>
-    <div id="summary" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#summary" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<table>
-  <thead>
-      <tr>
-          <th>Alert</th>
-          <th>Type</th>
-          <th>Classification</th>
-          <th>Action</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>8814</td>
-          <td>Phishing</td>
-          <td>False Positive</td>
-          <td>No action required</td>
-      </tr>
-      <tr>
-          <td>8815</td>
-          <td>Phishing</td>
-          <td>True Positive</td>
-          <td>User awareness training</td>
-      </tr>
-      <tr>
-          <td>8816</td>
-          <td>Firewall Block</td>
-          <td>True Positive</td>
-          <td>Corroborates 8815, no compromise</td>
-      </tr>
-      <tr>
-          <td>8817</td>
-          <td>Phishing</td>
-          <td>True Positive — Active</td>
-          <td>Password reset, escalate, blacklist domain</td>
-      </tr>
-  </tbody>
-</table>
 
           
           

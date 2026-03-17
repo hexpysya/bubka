@@ -9,20 +9,10 @@ tags:
   - Phishing
   - Firewall
 ---
-{{< infobox platform="TryHackMe" difficulty="Medium" os="Windows" date="2026-03-10" >}}
 
 
-### <span style="color:lightblue">8814 — Inbound Email Containing Suspicious External Link</span>
-![Alert 8814](8814_1.png)
 
-The alert was triggered by an inbound email from `onboarding@hrconnex.thm` to `j.garcia@thetrydaily.thm` at `08:27:29`, containing a link to `https://hrconnex.thm/onboarding/15400654060/j.garcia`. A corroborating internal email was sent two minutes later at `08:29:02` from `h.harris@thetrydaily.thm` to IT, explicitly stating that `hrconnex.thm` is the company's legitimate third-party HR onboarding partner and that J. Garcia was expected to receive this email as part of the standard onboarding process.
-
-![Splunk event log 8814](8814.png)
-
-The sender domain, subject line, link structure, and timing are all consistent with a legitimate HR onboarding workflow. No attachments were present and no indicators of spoofing were identified. **The alert is classified as a False Positive** — benign activity from a known, expected third-party vendor.
-
-
-### <span style="color:lightblue">8815 — Inbound Email Containing Suspicious External Link</span>
+### <span style="color:lightblue">Email Containing Suspicious External Link</span>
 ![Alert 8815](8815.png)
 
 An inbound email was received by `h.harris@thetrydaily.thm` at `08:30:42` with the subject **"Your Amazon Package Couldn't Be Delivered – Action Required"**. The sender address was `urgents@amazon.biz` — a domain that spoofs Amazon by substituting `.com` with `.biz`. The email body applied urgency pressure, threatening that the package would be returned within 48 hours, and included a shortened redirect link `http://bit.ly/3sHkX3da12340` rather than any legitimate Amazon domain. No attachment was present.
@@ -30,7 +20,7 @@ An inbound email was received by `h.harris@thetrydaily.thm` at `08:30:42` with t
 Several indicators confirm this is a phishing attempt: the sender domain is not `amazon.com`, the link is obfuscated via a URL shortener, and the message uses a classic urgency-based social engineering lure. **The alert is classified as a True Positive** — phishing email impersonating Amazon Delivery.
 
 
-### <span style="color:lightblue">8816 — Access to Blacklisted External URL Blocked by Firewall</span>
+### <span style="color:lightblue">Access to Blacklisted External URL Blocked by Firewall</span>
 ![Alert 8816](8816.png)
 ![Splunk event log 8816](8816_1.png)
 
@@ -39,7 +29,7 @@ At `08:31:56` — approximately 70 seconds after the phishing email in alert 881
 This event correlates directly with alert 8815: `h.harris` clicked the malicious bit.ly link from the fake Amazon email, and the firewall successfully blocked the outbound request before the destination was reached. **The alert is classified as a True Positive** — the firewall prevented the user from accessing the phishing payload. No compromise occurred, but the user interacted with the phishing email and requires awareness training.
 
 
-### <span style="color:lightblue">8817 — Inbound Email Containing Suspicious External Link</span>
+### <span style="color:lightblue">Inbound Email Containing Suspicious External Link</span>
 ![Alert 8817](8817.png)
 ![Firewall log 8817](8817_1.png)
 
@@ -49,12 +39,3 @@ Critically, the correlated firewall log at `08:34:09` shows that internal host `
 
 **The alert is classified as a True Positive** — an active phishing compromise is suspected. The user likely visited a credential harvesting page and may have submitted Microsoft account credentials. Immediate password reset for `c.allen` is recommended, along with escalation to Tier 2 for account activity review and retroactive blacklisting of `m1crosoftsupport.co` / `45.148.10.131`.
 
-
-### <span style="color:lightblue">Summary</span>
-
-| Alert | Type | Classification | Action |
-|---|---|---|---|
-| 8814 | Phishing | False Positive | No action required |
-| 8815 | Phishing | True Positive | User awareness training |
-| 8816 | Firewall Block | True Positive | Corroborates 8815, no compromise |
-| 8817 | Phishing | True Positive — Active | Password reset, escalate, blacklist domain |
