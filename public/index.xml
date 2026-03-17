@@ -15,7 +15,17 @@
       <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/blue_team/ld-malicious-attachment-detected---phishing-alert/</guid>
-      <description>Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato on a LetsDefend SOC platform.</description>
+      <description>Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato</description>
+      
+    </item>
+    
+    <item>
+      <title>THM-Phishing Unfolding</title>
+      <link>http://localhost:1313/bubka/blue_team/thm-phishing-unfolding/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/blue_team/thm-phishing-unfolding/</guid>
+      <description></description>
       
     </item>
     
@@ -26,16 +36,6 @@
       
       <guid>http://localhost:1313/bubka/investigations/htb-lockpick3.0/</guid>
       <description>A ELF64 ransomware binary uses XOR string obfuscation keyed on a CLI passphrase, contacts a DigitalOcean C2 to register and retrieve an AES-256-CBC key and IV, recursively encrypts target files in /share/ renaming them to .24bes, exfiltrates the originals via HTTP PUT, zeroes and removes the source files, and installs a systemd service for persistence.</description>
-      
-    </item>
-    
-    <item>
-      <title>LD-Suspicious PowerShell Script Executed</title>
-      <link>http://localhost:1313/bubka/blue_team/ld-soc153---suspicious-powershell-script-executed/</link>
-      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/blue_team/ld-soc153---suspicious-powershell-script-executed/</guid>
-      <description>User Tony downloaded and executed a malicious PowerShell script (payload_1.ps1 / agent3.ps1) classified as trojan.powershell/boxter (Azorult family). The script bypassed execution policy, then fetched and invoked a second-stage payload from kionagranada.com (161.22.46.148), establishing a two-stage C2 chain with a final pivot to 91.236.116.163.</description>
       
     </item>
     

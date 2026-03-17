@@ -21,7 +21,7 @@
 
   
   
-    <meta name="description" content="Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato on a LetsDefend SOC platform.">
+    <meta name="description" content="Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato">
   
   
     <meta name="keywords" content="SOC,LetsDefend,Phishing,CVE-2017-11882,xlsx,">
@@ -41,7 +41,7 @@
   <meta property="og:url" content="http://localhost:1313/bubka/blue_team/ld-malicious-attachment-detected---phishing-alert/">
   <meta property="og:site_name" content="bubka hacks stuff">
   <meta property="og:title" content="LD-Malicious Attachment Detected">
-  <meta property="og:description" content="Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato on a LetsDefend SOC platform.">
+  <meta property="og:description" content="Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blue_team">
@@ -56,7 +56,7 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="LD-Malicious Attachment Detected">
-  <meta name="twitter:description" content="Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato on a LetsDefend SOC platform.">
+  <meta name="twitter:description" content="Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato">
 
   
   
@@ -226,7 +226,7 @@
     "keywords": ["SOC","LetsDefend","Phishing","CVE-2017-11882","xlsx"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "509"
+    "wordCount": "469"
   }]
   </script>
 
@@ -730,10 +730,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#objective"><span>Objective</span></a></li>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert-overview"><span>Alert Overview</span></a></li>
         <li><a href="#investigation"><span>Investigation</span></a></li>
-        <li><a href="#summary"><span>Summary</span></a></li>
         <li><a href="#iocs"><span>IOCs</span></a></li>
         <li><a href="#mitre-attck"><span>MITRE ATT&amp;CK</span></a></li>
       </ul>
@@ -753,10 +752,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#objective"><span>Objective</span></a></li>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert-overview"><span>Alert Overview</span></a></li>
         <li><a href="#investigation"><span>Investigation</span></a></li>
-        <li><a href="#summary"><span>Summary</span></a></li>
         <li><a href="#iocs"><span>IOCs</span></a></li>
         <li><a href="#mitre-attck"><span>MITRE ATT&amp;CK</span></a></li>
       </ul>
@@ -878,16 +876,16 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h3 class="relative group"><span style="color:lightblue">Objective</span>
-    <div id="objective" class="anchor"></div>
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#objective" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
     </span>
     
 </h3>
-<p>Investigate a SOC114 phishing alert triggered by an inbound email with a malicious attachment delivered to an internal mailbox. Determine whether the attachment was malicious, assess the impact on the affected endpoint, and document the full attack chain.</p>
+<p>A phishing email impersonating an invoice notification was delivered to <code>richard@letsdefend.io</code> from the spoofed address <code>accounting@cmail.carleton.ca</code>. The password-protected attachment contained a malicious Office file exploiting CVE-2017-11882 (Microsoft Equation Editor RCE). Upon opening, <code>EQNEDT32.EXE</code> was spawned by <code>excel.exe</code> and performed an outbound GET request to <code>http://andaluciabeach.net/image/network.exe</code>, successfully downloading a payload (<code>network.exe</code>) from <code>5.135.143.133</code>. The attacker subsequently dropped and executed <code>JuicyPotato.exe</code> from <code>C:/User/Public/</code> under <code>NT Authority/System</code>, achieving full local privilege escalation on the compromised host. The alert is classified as a True Positive with confirmed endpoint compromise.</p>
 
 <h3 class="relative group"><span style="color:lightblue">Alert Overview</span>
     <div id="alert-overview" class="anchor"></div>
@@ -1065,17 +1063,6 @@
 </span></span><span class="line"><span class="ln">3</span><span class="cl">Size   340 KB
 </span></span><span class="line"><span class="ln">4</span><span class="cl">User   NT Authority/System
 </span></span><span class="line"><span class="ln">5</span><span class="cl">Time   2021-01-31 16:20</span></span></code></pre></div></div>
-
-<h3 class="relative group"><span style="color:lightblue">Summary</span>
-    <div id="summary" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#summary" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>A phishing email impersonating an invoice notification was delivered to <code>richard@letsdefend.io</code> from the spoofed address <code>accounting@cmail.carleton.ca</code>. The password-protected attachment contained a malicious Office file exploiting CVE-2017-11882 (Microsoft Equation Editor RCE). Upon opening, <code>EQNEDT32.EXE</code> was spawned by <code>excel.exe</code> and performed an outbound GET request to <code>http://andaluciabeach.net/image/network.exe</code>, successfully downloading a payload (<code>network.exe</code>) from <code>5.135.143.133</code>. The attacker subsequently dropped and executed <code>JuicyPotato.exe</code> from <code>C:/User/Public/</code> under <code>NT Authority/System</code>, achieving full local privilege escalation on the compromised host. The alert is classified as a True Positive with confirmed endpoint compromise.</p>
 
 <h3 class="relative group"><span style="color:lightblue">IOCs</span>
     <div id="iocs" class="anchor"></div>

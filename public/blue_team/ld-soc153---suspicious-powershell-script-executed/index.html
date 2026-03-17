@@ -224,7 +224,7 @@
     "keywords": ["SOC","PowerShell","LetsDefend"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "652"
+    "wordCount": "593"
   }]
   </script>
 
@@ -708,13 +708,12 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#objective"><span>Objective</span></a></li>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert-overview"><span>Alert Overview</span></a></li>
         <li><a href="#initial-download"><span>Initial Download</span></a></li>
         <li><a href="#payload_1ps1"><span>payload_1.ps1</span></a></li>
         <li><a href="#c2-stage-1"><span>C2 Stage 1</span></a></li>
         <li><a href="#c2-stage-2"><span>C2 Stage 2</span></a></li>
-        <li><a href="#summary"><span>Summary</span></a></li>
         <li><a href="#iocs"><span>IOCs</span></a></li>
         <li><a href="#mitre-attck"><span>MITRE ATT&amp;CK</span></a></li>
       </ul>
@@ -734,13 +733,12 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#objective"><span>Objective</span></a></li>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert-overview"><span>Alert Overview</span></a></li>
         <li><a href="#initial-download"><span>Initial Download</span></a></li>
         <li><a href="#payload_1ps1"><span>payload_1.ps1</span></a></li>
         <li><a href="#c2-stage-1"><span>C2 Stage 1</span></a></li>
         <li><a href="#c2-stage-2"><span>C2 Stage 2</span></a></li>
-        <li><a href="#summary"><span>Summary</span></a></li>
         <li><a href="#iocs"><span>IOCs</span></a></li>
         <li><a href="#mitre-attck"><span>MITRE ATT&amp;CK</span></a></li>
       </ul>
@@ -862,16 +860,16 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h3 class="relative group"><span style="color:lightblue">Objective</span>
-    <div id="objective" class="anchor"></div>
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#objective" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
     </span>
     
 </h3>
-<p>Investigate alert SOC153 triggered by the execution of a suspicious PowerShell script on host <code>Tony</code> (<code>172.16.17.206</code>), determine whether the activity is malicious, reconstruct the attack chain, and classify the alert.</p>
+<p>The alert is a <strong>True Positive</strong>. User Tony downloaded <code>payload_1.ps1</code> (Azorult/Boxter trojan) from an attacker-controlled S3 URL via Chrome, bypassed PowerShell execution policy, and executed the script. The script fetched and ran a second-stage payload (<code>sd2.ps1</code>) in memory from <code>kionagranada.com</code> (<code>161.22.46.148</code>). A second C2 server at <code>91.236.116.163</code> was associated with the broader campaign infrastructure. The attack involved two-stage C2, fileless execution, and sandbox evasion.</p>
 
 <h3 class="relative group"><span style="color:lightblue">Alert Overview</span>
     <div id="alert-overview" class="anchor"></div>
@@ -1057,18 +1055,6 @@
     data-zoom-src="/bubka/blue_team/ld-soc153---suspicious-powershell-script-executed/image2.png"></figure>
 </p>
 <p>The file <code>2024-04-03-https___kionaonline.com_modules_bonslick_agent3.ps1.txt</code> (29/63) corroborates the <code>agent3.ps1</code> internal name identified in the VirusTotal sample, linking both C2 IPs to the same campaign infrastructure.</p>
-
-<h3 class="relative group"><span style="color:lightblue">Summary</span>
-    <div id="summary" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#summary" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>The alert is a <strong>True Positive</strong>. User Tony downloaded <code>payload_1.ps1</code> (Azorult/Boxter trojan) from an attacker-controlled S3 URL via Chrome, bypassed PowerShell execution policy, and executed the script. The script fetched and ran a second-stage payload (<code>sd2.ps1</code>) in memory from <code>kionagranada.com</code> (<code>161.22.46.148</code>). A second C2 server at <code>91.236.116.163</code> was associated with the broader campaign infrastructure. The attack involved two-stage C2, fileless execution, and sandbox evasion.</p>
-<p><strong>Recommended actions:</strong> isolate host <code>172.16.17.206</code>, reset credentials for user <code>LetsDefend</code>/<code>Tony</code>, block <code>161.22.46.148</code>, <code>91.236.116.163</code>, and <code>kionagranada.com</code> at the firewall, and submit to Tier 2 for full memory forensics.</p>
 
 <h3 class="relative group"><span style="color:lightblue">IOCs</span>
     <div id="iocs" class="anchor"></div>

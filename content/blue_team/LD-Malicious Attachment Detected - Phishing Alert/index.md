@@ -2,7 +2,7 @@
 title: "LD-Malicious Attachment Detected"
 date: 2026-03-16
 draft: false
-summary: "Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato on a LetsDefend SOC platform."
+summary: "Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato"
 tags:
   - SOC
   - LetsDefend
@@ -12,9 +12,9 @@ tags:
 platform: LetsDefend
 ---
 
-### <span style="color:lightblue">Objective</span>
+### <span style="color:lightblue">TL;DR</span>
 
-Investigate a SOC114 phishing alert triggered by an inbound email with a malicious attachment delivered to an internal mailbox. Determine whether the attachment was malicious, assess the impact on the affected endpoint, and document the full attack chain.
+A phishing email impersonating an invoice notification was delivered to `richard@letsdefend.io` from the spoofed address `accounting@cmail.carleton.ca`. The password-protected attachment contained a malicious Office file exploiting CVE-2017-11882 (Microsoft Equation Editor RCE). Upon opening, `EQNEDT32.EXE` was spawned by `excel.exe` and performed an outbound GET request to `http://andaluciabeach.net/image/network.exe`, successfully downloading a payload (`network.exe`) from `5.135.143.133`. The attacker subsequently dropped and executed `JuicyPotato.exe` from `C:/User/Public/` under `NT Authority/System`, achieving full local privilege escalation on the compromised host. The alert is classified as a True Positive with confirmed endpoint compromise.
 
 ### <span style="color:lightblue">Alert Overview</span>
 
@@ -75,10 +75,6 @@ Size   340 KB
 User   NT Authority/System
 Time   2021-01-31 16:20
 ```
-
-### <span style="color:lightblue">Summary</span>
-
-A phishing email impersonating an invoice notification was delivered to `richard@letsdefend.io` from the spoofed address `accounting@cmail.carleton.ca`. The password-protected attachment contained a malicious Office file exploiting CVE-2017-11882 (Microsoft Equation Editor RCE). Upon opening, `EQNEDT32.EXE` was spawned by `excel.exe` and performed an outbound GET request to `http://andaluciabeach.net/image/network.exe`, successfully downloading a payload (`network.exe`) from `5.135.143.133`. The attacker subsequently dropped and executed `JuicyPotato.exe` from `C:/User/Public/` under `NT Authority/System`, achieving full local privilege escalation on the compromised host. The alert is classified as a True Positive with confirmed endpoint compromise.
 
 ### <span style="color:lightblue">IOCs</span>
 

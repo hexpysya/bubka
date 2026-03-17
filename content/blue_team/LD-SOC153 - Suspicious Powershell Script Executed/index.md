@@ -10,9 +10,9 @@ tags:
 platform: LetsDefend
 ---
 
+### <span style="color:lightblue">TL;DR</span>
 
-### <span style="color:lightblue">Objective</span>
-Investigate alert SOC153 triggered by the execution of a suspicious PowerShell script on host `Tony` (`172.16.17.206`), determine whether the activity is malicious, reconstruct the attack chain, and classify the alert.
+The alert is a **True Positive**. User Tony downloaded `payload_1.ps1` (Azorult/Boxter trojan) from an attacker-controlled S3 URL via Chrome, bypassed PowerShell execution policy, and executed the script. The script fetched and ran a second-stage payload (`sd2.ps1`) in memory from `kionagranada.com` (`161.22.46.148`). A second C2 server at `91.236.116.163` was associated with the broader campaign infrastructure. The attack involved two-stage C2, fileless execution, and sandbox evasion.
 
 
 ### <span style="color:lightblue">Alert Overview</span>
@@ -110,12 +110,6 @@ VirusTotal relations for the second C2 IP `91.236.116.163` revealed a broad thre
 
 The file `2024-04-03-https___kionaonline.com_modules_bonslick_agent3.ps1.txt` (29/63) corroborates the `agent3.ps1` internal name identified in the VirusTotal sample, linking both C2 IPs to the same campaign infrastructure.
 
-
-### <span style="color:lightblue">Summary</span>
-
-The alert is a **True Positive**. User Tony downloaded `payload_1.ps1` (Azorult/Boxter trojan) from an attacker-controlled S3 URL via Chrome, bypassed PowerShell execution policy, and executed the script. The script fetched and ran a second-stage payload (`sd2.ps1`) in memory from `kionagranada.com` (`161.22.46.148`). A second C2 server at `91.236.116.163` was associated with the broader campaign infrastructure. The attack involved two-stage C2, fileless execution, and sandbox evasion.
-
-**Recommended actions:** isolate host `172.16.17.206`, reset credentials for user `LetsDefend`/`Tony`, block `161.22.46.148`, `91.236.116.163`, and `kionagranada.com` at the firewall, and submit to Tier 2 for full memory forensics.
 
 
 ### <span style="color:lightblue">IOCs</span>

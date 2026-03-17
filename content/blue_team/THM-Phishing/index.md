@@ -2,7 +2,7 @@
 title: "THM-Phishing"
 date: 2026-03-10
 draft: false
-summary: "Three phishing campaigns were identified across four alerts: a legitimate HR onboarding email (false positive), a fake Amazon delivery notification whose bit.ly link was blocked by the firewall, and a Microsoft account spoofing email from m1crosoftsupport.co whose link was allowed through the firewall — indicating a likely credential harvesting visit by the recipient."
+summary: "Three phishing campaigns were identified across four alerts: a legitimate HR onboarding email (false positive), a fake Amazon delivery notification whose bit.ly link was blocked by the firewall, and a Microsoft account spoofing email from m1crosoftsupport.co whose link was allowed through the firewall"
 tags:
   - SOC
   - Splunk
@@ -10,9 +10,6 @@ tags:
   - Firewall
 ---
 {{< infobox platform="TryHackMe" difficulty="Medium" os="Windows" date="2026-03-10" >}}
-
-### <span style="color:lightblue">Objective</span>
-Investigate four triggered alerts within the SOC simulator — three phishing-category email alerts and one firewall block alert — classify each as true or false positive, correlate related events, and document the findings.
 
 
 ### <span style="color:lightblue">8814 — Inbound Email Containing Suspicious External Link</span>

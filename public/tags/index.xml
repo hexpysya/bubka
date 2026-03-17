@@ -20,6 +20,26 @@
     </item>
     
     <item>
+      <title>DFIR</title>
+      <link>http://localhost:1313/bubka/tags/dfir/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/dfir/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>DNS Tunneling</title>
+      <link>http://localhost:1313/bubka/tags/dns-tunneling/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/dns-tunneling/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>LetsDefend</title>
       <link>http://localhost:1313/bubka/tags/letsdefend/</link>
       <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
@@ -40,11 +60,31 @@
     </item>
     
     <item>
+      <title>PowerShell</title>
+      <link>http://localhost:1313/bubka/tags/powershell/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/powershell/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>SOC</title>
       <link>http://localhost:1313/bubka/tags/soc/</link>
       <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/soc/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Splunk</title>
+      <link>http://localhost:1313/bubka/tags/splunk/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/tags/splunk/</guid>
       <description></description>
       
     </item>
@@ -80,7 +120,7 @@
     </item>
     
     <item>
-      <title>IDA</title>
+      <title>Ida</title>
       <link>http://localhost:1313/bubka/tags/ida/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       
@@ -140,16 +180,6 @@
     </item>
     
     <item>
-      <title>PowerShell</title>
-      <link>http://localhost:1313/bubka/tags/powershell/</link>
-      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/powershell/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Firewall</title>
       <link>http://localhost:1313/bubka/tags/firewall/</link>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
@@ -175,16 +205,6 @@
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/network-analysis/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Splunk</title>
-      <link>http://localhost:1313/bubka/tags/splunk/</link>
-      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/splunk/</guid>
       <description></description>
       
     </item>
@@ -665,16 +685,6 @@
       <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/tags/cryptneturlcache/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>DFIR</title>
-      <link>http://localhost:1313/bubka/tags/dfir/</link>
-      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/bubka/tags/dfir/</guid>
       <description></description>
       
     </item>
@@ -1320,11 +1330,11 @@
     </item>
     
     <item>
-      <title>Malware</title>
-      <link>http://localhost:1313/bubka/tags/malware/</link>
+      <title>TryHackMe</title>
+      <link>http://localhost:1313/bubka/tags/tryhackme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/bubka/tags/malware/</guid>
+      <guid>http://localhost:1313/bubka/tags/tryhackme/</guid>
       <description></description>
       
     </item>
