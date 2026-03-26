@@ -7,7 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CDEF-HawkEye</title>
+      <link>http://localhost:1313/bubka/investigations/cdef-hawkeye/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/cdef-hawkeye/</guid>
+      <description>A victim host downloaded a HawkEye Keylogger dropper via HTTP, which established persistence, periodically checked the external IP via bot.whatismyipaddress.com, and exfiltrated harvested credentials every 10 minutes over SMTP.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-NukeTheBrowser</title>
+      <link>http://localhost:1313/bubka/investigations/cdef-nukethebrowser/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/cdef-nukethebrowser/</guid>
+      <description>&lt;div class=&#34;meta-box&#34;&gt;&#xA;  &lt;div class=&#34;meta-pill difficulty high&#34;&gt;&#xA;    &lt;span class=&#34;meta-label&#34;&gt;Difficulty:&lt;/span&gt;&#xA;    &lt;span class=&#34;meta-value&#34;&gt;High&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;meta-pill&#34;&gt;&#xA;    &lt;span class=&#34;meta-label&#34;&gt;OS:&lt;/span&gt;&#xA;    &lt;span class=&#34;meta-value&#34;&gt;Windows&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;meta-pill&#34;&gt;&#xA;    &lt;span class=&#34;meta-label&#34;&gt;Date:&lt;/span&gt;&#xA;    &lt;span class=&#34;meta-value&#34;&gt;2026-03-18&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;&lt;figure&gt;&lt;img&#xA;    class=&#34;my-0 rounded-md&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;    fetchpriority=&#34;auto&#34;&#xA;    alt=&#34;Protocol Hierarchy&#34;&#xA;    width=&#34;810&#34;&#xA;    height=&#34;393&#34;&#xA;    src=&#34;http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image_hu_4c67a4a246835141.png&#34;&#xA;    srcset=&#34;http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image_hu_4c67a4a246835141.png 800w, http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image.png 1280w&#34;&#xA;    sizes=&#34;(min-width: 768px) 50vw, 65vw&#34;&#xA;    data-zoom-src=&#34;http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image.png&#34;&gt;&lt;/figure&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Several hosts 10.0.2.15, 10.0.3.15, 10.0.4.15, 10.0.5.15 clicked on link &lt;code&gt;http://rapidshare.com.eyu32.ru/login.php&lt;/code&gt; that redirect them to &lt;code&gt;sploitme.com.cn&lt;/code&gt; domain.&#xA;&lt;figure&gt;&lt;img&#xA;    class=&#34;my-0 rounded-md&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;    fetchpriority=&#34;auto&#34;&#xA;    alt=&#34;http from rapidshare to sploitme&#34;&#xA;    width=&#34;833&#34;&#xA;    height=&#34;462&#34;&#xA;    src=&#34;http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image1_hu_2e1b3593087a5d0e.png&#34;&#xA;    srcset=&#34;http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image1_hu_2e1b3593087a5d0e.png 800w, http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image1.png 1280w&#34;&#xA;    sizes=&#34;(min-width: 768px) 50vw, 65vw&#34;&#xA;    data-zoom-src=&#34;http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image1.png&#34;&gt;&lt;/figure&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;both hosts connected to &lt;strong&gt;GET /fg/show.php?s=3feb5a6b2f&lt;/strong&gt; and retrieve diferrent js codes.&#xA;&lt;figure&gt;&lt;img&#xA;    class=&#34;my-0 rounded-md&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    decoding=&#34;async&#34;&#xA;    fetchpriority=&#34;auto&#34;&#xA;    alt=&#34;http from rapidshare to sploitme&#34;&#xA;    width=&#34;660&#34;&#xA;    height=&#34;550&#34;&#xA;    src=&#34;http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image2.png&#34;&#xA;    srcset=&#34;http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image2.png 800w, http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image2.png 1280w&#34;&#xA;    sizes=&#34;(min-width: 768px) 50vw, 65vw&#34;&#xA;    data-zoom-src=&#34;http://localhost:1313/bubka/investigations/cdef-nukethebrowser/image2.png&#34;&gt;&lt;/figure&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;10.0.2.15:&#xA;Code deobfuscated and wrote in one long line, so I used beautifier and it revealed a some deobfuscator stub and call a eval function, which is as an argument retrieve a long hex value at the end.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Liberty</title>
+      <link>http://localhost:1313/bubka/investigations/htb-liberty/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-liberty/</guid>
+      <description>Password spraying led to domain account compromise, followed by NetNTLM hash theft via a malicious .url file, RDP access, data exfiltration to a C2 server, and PSWA backdoor installation for persistence.</description>
+      
+    </item>
     
     <item>
       <title>CDEF-Obfuscated</title>
@@ -16,6 +46,16 @@
       
       <guid>http://localhost:1313/bubka/investigations/cdef-obfuscated/</guid>
       <description>A malicious Word document uses a password-protected AutoOpen macro to drop and execute js script, which decrypts an embedded blob into stage2.js. It is a implant that establishes persistence via a hidden scheduled task, collects system reconnaissance, and beacons to two compromised WordPress C2 servers, downloading and executing a next-stage .pif payload</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-Ransomed</title>
+      <link>http://localhost:1313/bubka/investigations/cdef-ransomed/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/cdef-ransomed/</guid>
+      <description></description>
       
     </item>
     

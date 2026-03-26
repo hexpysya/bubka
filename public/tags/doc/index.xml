@@ -15,7 +15,7 @@
       <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/bubka/investigations/cdef-obfuscated/</guid>
-      <description></description>
+      <description>A malicious Word document uses a password-protected AutoOpen macro to drop and execute js script, which decrypts an embedded blob into stage2.js. It is a implant that establishes persistence via a hidden scheduled task, collects system reconnaissance, and beacons to two compromised WordPress C2 servers, downloading and executing a next-stage .pif payload</description>
       
     </item>
     

@@ -4,14 +4,26 @@
 
   <url>
     <loc>http://localhost:1313/bubka/investigations/</loc>
-    <lastmod>2026-03-18T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/bubka/</loc>
-    <lastmod>2026-03-18T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/bubka/investigations/cdef-hawkeye/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/bubka/investigations/htb-liberty/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>http://localhost:1313/bubka/investigations/cdef-obfuscated/</loc>
+    <lastmod>2026-03-18T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/bubka/investigations/cdef-ransomed/</loc>
     <lastmod>2026-03-18T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -177,5 +189,8 @@
   <url>
     <loc>http://localhost:1313/bubka/investigations/metasploit-office_word_hta/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/bubka/investigations/cdef-nukethebrowser/</loc>
   </url>
 </urlset>

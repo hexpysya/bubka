@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Tue, 03 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/bubka/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTB-Liberty</title>
+      <link>http://localhost:1313/bubka/investigations/htb-liberty/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/htb-liberty/</guid>
+      <description>Password spraying led to domain account compromise, followed by NetNTLM hash theft via a malicious .url file, RDP access, data exfiltration to a C2 server, and PSWA backdoor installation for persistence.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-Obfuscated</title>
+      <link>http://localhost:1313/bubka/investigations/cdef-obfuscated/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bubka/investigations/cdef-obfuscated/</guid>
+      <description>A malicious Word document uses a password-protected AutoOpen macro to drop and execute js script, which decrypts an embedded blob into stage2.js. It is a implant that establishes persistence via a hidden scheduled task, collects system reconnaissance, and beacons to two compromised WordPress C2 servers, downloading and executing a next-stage .pif payload</description>
+      
+    </item>
     
     <item>
       <title>CDEF-$tealer</title>
