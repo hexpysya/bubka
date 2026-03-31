@@ -5,7 +5,6 @@ draft: false
 summary: "Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato"
 tags:
   - SOC
-  - LetsDefend
   - Phishing
   - CVE-2017-11882
   - xlsx

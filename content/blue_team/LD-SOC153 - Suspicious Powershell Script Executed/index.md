@@ -6,7 +6,6 @@ summary: "User Tony downloaded and executed a malicious PowerShell script (paylo
 tags:
   - SOC
   - PowerShell
-  - LetsDefend
 platform: LetsDefend
 ---
 

@@ -6,7 +6,6 @@ summary: "An external IP hosted on DigitalOcean performed a manual SQL injection
 tags:
   - SOC
   - Log Analysis
-  - Network Analysis
   - Web Attack
   - SQL Injection
 platform: LetsDefend

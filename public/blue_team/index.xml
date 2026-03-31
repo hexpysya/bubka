@@ -10,6 +10,16 @@
     <lastBuildDate>Sun, 22 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/blue_team/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LD-Arbitrary File Read on Checkpoint Security Gateway (CVE-2024-24919)</title>
+      <link>http://localhost:1313/blue_team/ld-arbitrary-file-read-on-checkpoint-security-gateway-cve-2024-24919/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-arbitrary-file-read-on-checkpoint-security-gateway-cve-2024-24919/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>LD-CVE-2025-53770 SharePoint ToolShell Auth Bypass and RCE</title>
       <link>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</link>
       <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>

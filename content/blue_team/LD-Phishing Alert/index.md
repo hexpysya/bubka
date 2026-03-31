@@ -6,7 +6,6 @@ summary: "A phishing email with a password-protected ZIP delivered AsyncRAT via 
 tags:
   - SOC
   - Log Analysis
-  - Network Analysis
   - Phishing
   - AsyncRAT
 platform: LetsDefend

@@ -6,7 +6,6 @@ summary: "An attacker exploited CVE-2025-53770 against a SharePoint server, achi
 tags:
   - SOC
   - Log Analysis
-  - Network Analysis
   - Web Attack
   - CVE-2025-53770
 platform: LetsDefend
