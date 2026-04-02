@@ -15,7 +15,7 @@
       <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</guid>
-      <description></description>
+      <description>An attacker exploited CVE-2025-53770 against a SharePoint server, achieving unauthenticated RCE via .NET deserialization. The attacker extracted the MachineKey, compiled and dropped a payload, planted a webshell in the SharePoint layouts directory, and established a reverse connection to the attacker-controlled server.</description>
       
     </item>
     

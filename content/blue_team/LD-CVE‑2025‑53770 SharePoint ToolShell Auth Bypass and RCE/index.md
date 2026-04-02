@@ -7,7 +7,10 @@ tags:
   - SOC
   - Log Analysis
   - Web Attack
+  - RCE
   - CVE-2025-53770
+  - Escalation to L2
+  - True Positive
 platform: LetsDefend
 ---
 

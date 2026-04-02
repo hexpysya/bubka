@@ -2,12 +2,14 @@
 title: "LD-Possible IDOR Attack Detected"
 date: 2026-04-02
 draft: false
-summary: "External DigitalOcean IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts."
+summary: "External IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts."
 tags:
   - SOC
   - Log Analysis
   - Web Attack
   - IDOR
+  - Escalation to L2
+  - True Positive
 platform: LetsDefend
 ---
 

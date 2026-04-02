@@ -1,0 +1,52 @@
+---
+title: "LD-Passwd Found in Requested URL - Possible LFI Attack"
+date: 2026-04-02
+draft: false
+summary: " "
+tags:
+  - SOC
+  - Log Analysis
+
+platform: LetsDefend
+---
+
+### <span class="hl">Alert</span>
+```
+EventID :                       120
+Event Time :                    Mar, 01, 2022, 10:10 AM
+Rule :                          SOC170 - Passwd Found in Requested URL - Possible LFI Attack
+Level :                         Security Analyst
+Hostname :                      WebServer1006
+Destination IP Address :        172.16.17.13
+Source IP Address :             106.55.45.162
+HTTP Request Method :           GET
+Requested URL :                 https://172.16.17.13/?file=../../../../etc/passwd
+User-Agent :                    Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)
+Alert Trigger Reason :          URL Contains passwd
+Device Action :                 Allowed
+```
+### <span style="color:red">Identification</span>
+
+#### <span class="hl">Is the traffic coming from outside?</span>
+
+#### <span class="hl">Is the source malicious?</span>
+
+#### <span class="hl">What type of attack was attempted?</span>
+
+#### <span class="hl">Did anyone else get targeted?</span>
+
+#### <span class="hl">Did the attack succeed?</span>
+
+### <span style="color:red">Triage Decision</span>
+
+#### <span class="hl">What is the impact level?</span>
+
+### <span style="color:red">Containment</span>
+
+#### <span class="hl">Is the attacker still active?</span>
+
+#### <span class="hl">Is the vulnerable endpoint still exposed?</span>
+
+#### <span class="hl">Actions taken</span>
+
+### <span class="hl">IOCs</span>

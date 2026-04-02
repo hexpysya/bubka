@@ -102,8 +102,8 @@ GitHub · LinkedIn">
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.a43bd96402d64f3ae581b62e60d008ff4e811a8cc306f092cefcfb417f14379577a43c78af32df9377887787cdc15c45543b465ba537c4f4e428f6ba33e0e8ea.css"
-    integrity="sha512-pDvZZALWTzrlgbYuYNAI/06BGozDBvCSzvz7QX8UN5V3pDx4rzLfk3eId4fNwVxFVDtGW6U3xPTkKPa6M&#43;Do6g==">
+    href="/css/main.bundle.min.d06df2e245feea7637bdd5686a930feabbf2e5249dd8448f2c72a8bc2a301701f778181c92cf08e97fbc7b2528032a6b55b124d53526a8007fdb6231f93716d6.css"
+    integrity="sha512-0G3y4kX&#43;6nY3vdVoapMP6rvy5SSd2ESPLHKovCowFwH3eBgcks8I6X&#43;8eyUoAyprVbEk1TUmqAB/22Ix&#43;TcW1g==">
 
   
   
@@ -732,6 +732,26 @@ GitHub · LinkedIn">
 
               </a>
             
+              <a class="relative mt-[0.5rem] me-2" href="/tags/no-escalation/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    No Escalation
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    True Positive
+  </span>
+</span>
+
+              </a>
+            
           
         
       
@@ -747,6 +767,193 @@ GitHub · LinkedIn">
     
       <div class="article-link__summary prose dark:prose-invert mt-1 line-clamp-5">
         An external IP performed XSS reconnaissance against the /search/ endpoint, cycling through multiple injection payloads. All requests except the first returned HTTP 302, indicating server-side sanitization blocked execution. The attack did not succeed.
+      </div>
+    
+  </div>
+  <div class="px-6 pt-4 pb-2"></div>
+</article>
+
+  
+    
+
+
+
+
+
+
+  
+  
+    
+
+    
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+    
+      
+      
+    
+
+    
+    
+      
+    
+  
+
+
+
+<article
+  class="article-link--card relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600">
+  
+  
+  <div class="p-4">
+    <header>
+      <a
+        
+          href="/blue_team/ld-ls-command-detected-in-requested-url/"
+        
+        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
+        <h2>
+          LD-LS Command Detected in Requested URL
+          
+        </h2>
+      </a>
+    </header>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-04-02T00:00:00&#43;00:00">April 2, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/soc/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SOC
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Log Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/no-escalation/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    No Escalation
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/false-positive/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    False Positive
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+    </div>
+    
+      <div class="article-link__summary prose dark:prose-invert mt-1 line-clamp-5">
+        Alert triggered on the string &rsquo;ls&rsquo; found in a legitimate search query parameter. The traffic originated from an internal IP to letsdefend.io and contains no malicious payload. False positive - rule lacks context awareness for partial string matches.
       </div>
     
   </div>
@@ -919,6 +1126,26 @@ GitHub · LinkedIn">
 
               </a>
             
+              <a class="relative mt-[0.5rem] me-2" href="/tags/no-escalation/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    No Escalation
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    True Positive
+  </span>
+</span>
+
+              </a>
+            
           
         
       
@@ -934,193 +1161,6 @@ GitHub · LinkedIn">
     
       <div class="article-link__summary prose dark:prose-invert mt-1 line-clamp-5">
         An external Tencent Cloud IP sent a single LFI request targeting /etc/passwd via path traversal. The server returned HTTP 500 with an empty response body, confirming the attack did not succeed.
-      </div>
-    
-  </div>
-  <div class="px-6 pt-4 pb-2"></div>
-</article>
-
-  
-    
-
-
-
-
-
-
-  
-  
-    
-
-    
-    
-      
-      
-        
-      
-        
-      
-        
-      
-    
-
-    
-    
-      
-      
-    
-
-    
-    
-      
-    
-  
-
-
-
-<article
-  class="article-link--card relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600">
-  
-  
-  <div class="p-4">
-    <header>
-      <a
-        
-          href="/blue_team/ld-idor/"
-        
-        class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-        <h2>
-          LD-Possible IDOR Attack Detected
-          
-        </h2>
-      </a>
-    </header>
-    <div class="text-sm text-neutral-500 dark:text-neutral-400">
-      
-
-
-
-
-
-
-
-  
-
-  
-  
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  <div class="flex flex-row flex-wrap items-center">
-    
-    
-      <time datetime="2026-04-02T00:00:00&#43;00:00">April 2, 2026</time>
-    
-
-    
-    
-  </div>
-
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-      
-        
-      
-    </div>
-  
-
-  
-  
-    <div class="flex flex-row flex-wrap items-center">
-      
-        
-          
-        
-      
-        
-          
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/soc/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    SOC
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Log Analysis
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/web-attack/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Web Attack
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/idor/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    IDOR
-  </span>
-</span>
-
-              </a>
-            
-          
-        
-      
-    </div>
-  
-
-  
-  
-
-
-
-    </div>
-    
-      <div class="article-link__summary prose dark:prose-invert mt-1 line-clamp-5">
-        External DigitalOcean IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts.
       </div>
     
   </div>

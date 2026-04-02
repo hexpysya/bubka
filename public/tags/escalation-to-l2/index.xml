@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Escalation to L2 on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/escalation-to-l2/</link>
+    <description>Recent content in Escalation to L2 on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Tue, 17 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/escalation-to-l2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LD-Deceptive Mail Detected</title>
+      <link>http://localhost:1313/blue_team/ld-phishing-alert/</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-phishing-alert/</guid>
+      <description>A phishing email with a password-protected ZIP delivered AsyncRAT via a SILENTBUILDER dropper. The victim executed the payload, establishing an active C2 channel and triggering full host reconnaissance before containment.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>No Escalation on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/no-escalation/</link>
+    <description>Recent content in No Escalation on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Sun, 22 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/no-escalation/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LD-Possible SQL Injection Payload Detected</title>
+      <link>http://localhost:1313/blue_team/ld-possible-sql-injection-payload-detected/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-possible-sql-injection-payload-detected/</guid>
+      <description>An external IP hosted on DigitalOcean performed a manual SQL injection reconnaissance against an internal web server, cycling through classic SQLi payloads. All requests returned HTTP 500, confirming the attack did not succeed.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

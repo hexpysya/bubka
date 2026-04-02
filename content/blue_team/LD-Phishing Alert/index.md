@@ -8,6 +8,8 @@ tags:
   - Log Analysis
   - Phishing
   - AsyncRAT
+  - Escalation to L2
+  - True Positive
 platform: LetsDefend
 ---
 

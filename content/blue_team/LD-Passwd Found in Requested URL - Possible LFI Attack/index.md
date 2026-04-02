@@ -8,6 +8,8 @@ tags:
   - Log Analysis
   - Web Attack
   - LFI
+  - No Escalation
+  - True Positive
 platform: LetsDefend
 ---
 

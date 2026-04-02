@@ -8,6 +8,8 @@ tags:
   - Log Analysis
   - Web Attack
   - XSS
+  - No Escalation
+  - True Positive
 platform: LetsDefend
 ---
 
