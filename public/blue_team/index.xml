@@ -10,6 +10,16 @@
     <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/blue_team/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LD-Javascript Code Detected in Requested URL</title>
+      <link>http://localhost:1313/blue_team/ld-javascript-code-detected-in-requested-url/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-javascript-code-detected-in-requested-url/</guid>
+      <description>An external IP performed XSS reconnaissance against the /search/ endpoint, cycling through multiple injection payloads. All requests except the first returned HTTP 302, indicating server-side sanitization blocked execution. The attack did not succeed.</description>
+      
+    </item>
+    
+    <item>
       <title>LD-Possible IDOR Attack Detected</title>
       <link>http://localhost:1313/blue_team/ld-idor/</link>
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
