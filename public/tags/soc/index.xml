@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Tue, 31 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/soc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/soc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LD-Possible IDOR Attack Detected</title>
+      <link>http://localhost:1313/blue_team/ld-idor/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-idor/</guid>
+      <description>An external attacker operating from a DigitalOcean-hosted IP (134.209.118.137) exploited an IDOR vulnerability at /get_user_info/ on WebServer1005, sending five sequential POST requests with incrementing user_id values that each returned HTTP 200 with distinct payloads, confirming successful exfiltration of data for five user accounts.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-Qradar101</title>
+      <link>http://localhost:1313/blue_team/cdef-qradar101/</link>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/cdef-qradar101/</guid>
+      <description>A user opened a malicious Word document that dropped FSETPBEUsIek.exe, which spawned a VBS script, injected into notepad.exe, established persistence via registry Run key, exfiltrated sami.xlsx to an attacker-controlled server, and triggered a Metasploit reverse shell detected by Suricata.</description>
+      
+    </item>
     
     <item>
       <title>LD-Arbitrary File Read on Checkpoint Security Gateway (CVE-2024-24919)</title>

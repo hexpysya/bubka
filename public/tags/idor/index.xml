@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IDOR on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/idor/</link>
+    <description>Recent content in IDOR on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/idor/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LD-Possible IDOR Attack Detected</title>
+      <link>http://localhost:1313/blue_team/ld-idor/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-idor/</guid>
+      <description>An external DigitalOcean IP sent multiple consecutive POST requests to the /get_user_info/ endpoint on WebServer1005, consistent with an IDOR enumeration attempt. The firewall allowed all connections. VirusTotal and AbuseIPDB returned clean results, but the repetitive pattern and external origin confirm a true positive requiring containment.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
