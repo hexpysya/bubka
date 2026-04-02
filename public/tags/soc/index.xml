@@ -10,12 +10,32 @@
     <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/soc/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LD-Javascript Code Detected in Requested URL</title>
+      <link>http://localhost:1313/blue_team/ld-javascript-code-detected-in-requested-url/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-javascript-code-detected-in-requested-url/</guid>
+      <description>An external IP performed XSS reconnaissance against the /search/ endpoint, cycling through multiple injection payloads. All requests except the first returned HTTP 302, indicating server-side sanitization blocked execution. The attack did not succeed.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Passwd Found in Requested URL - Possible LFI Attack</title>
+      <link>http://localhost:1313/blue_team/ld-passwd-found-in-requested-url---possible-lfi-attack/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-passwd-found-in-requested-url---possible-lfi-attack/</guid>
+      <description>An external Tencent Cloud IP sent a single LFI request targeting /etc/passwd via path traversal. The server returned HTTP 500 with an empty response body, confirming the attack did not succeed.</description>
+      
+    </item>
+    
+    <item>
       <title>LD-Possible IDOR Attack Detected</title>
       <link>http://localhost:1313/blue_team/ld-idor/</link>
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blue_team/ld-idor/</guid>
-      <description>An external attacker operating from a DigitalOcean-hosted IP (134.209.118.137) exploited an IDOR vulnerability at /get_user_info/ on WebServer1005, sending five sequential POST requests with incrementing user_id values that each returned HTTP 200 with distinct payloads, confirming successful exfiltration of data for five user accounts.</description>
+      <description>External DigitalOcean IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts.</description>
       
     </item>
     

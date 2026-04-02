@@ -738,7 +738,7 @@
     </div>
     
       <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
-        An external DigitalOcean IP sent multiple consecutive POST requests to the /get_user_info/ endpoint on WebServer1005, consistent with an IDOR enumeration attempt. The firewall allowed all connections. VirusTotal and AbuseIPDB returned clean results, but the repetitive pattern and external origin confirm a true positive requiring containment.
+        External DigitalOcean IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts.
       </div>
     
   </div>

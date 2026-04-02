@@ -10,11 +10,61 @@
     <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>IDOR</title>
+      <link>http://localhost:1313/tags/idor/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/idor/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>LFI</title>
+      <link>http://localhost:1313/tags/lfi/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/lfi/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Log Analysis</title>
+      <link>http://localhost:1313/tags/log-analysis/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/log-analysis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>SOC</title>
       <link>http://localhost:1313/tags/soc/</link>
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/soc/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Web Attack</title>
+      <link>http://localhost:1313/tags/web-attack/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/web-attack/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>XSS</title>
+      <link>http://localhost:1313/tags/xss/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/xss/</guid>
       <description></description>
       
     </item>
@@ -55,26 +105,6 @@
       <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/cve-2024-24919/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Log Analysis</title>
-      <link>http://localhost:1313/tags/log-analysis/</link>
-      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/log-analysis/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Web Attack</title>
-      <link>http://localhost:1313/tags/web-attack/</link>
-      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/web-attack/</guid>
       <description></description>
       
     </item>
@@ -370,7 +400,7 @@
     </item>
     
     <item>
-      <title>IDA</title>
+      <title>Ida</title>
       <link>http://localhost:1313/tags/ida/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       

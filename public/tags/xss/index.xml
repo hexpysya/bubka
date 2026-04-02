@@ -15,7 +15,7 @@
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blue_team/ld-javascript-code-detected-in-requested-url/</guid>
-      <description>An external China Unicom IP performed XSS reconnaissance against the /search/ endpoint, cycling through multiple injection payloads. All requests except the first returned HTTP 302, indicating server-side sanitization blocked execution. The attack did not succeed.</description>
+      <description>An external IP performed XSS reconnaissance against the /search/ endpoint, cycling through multiple injection payloads. All requests except the first returned HTTP 302, indicating server-side sanitization blocked execution. The attack did not succeed.</description>
       
     </item>
     
