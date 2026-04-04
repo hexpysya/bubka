@@ -20,6 +20,16 @@
     </item>
     
     <item>
+      <title>LD-LS Command Detected in Requested URL</title>
+      <link>http://localhost:1313/blue_team/ld-ls-command-detected-in-requested-url/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-ls-command-detected-in-requested-url/</guid>
+      <description>Alert triggered on the string &amp;rsquo;ls&amp;rsquo; found in a legitimate search query parameter. The traffic originated from an internal IP to letsdefend.io and contains no malicious payload. False positive - rule lacks context awareness for partial string matches.</description>
+      
+    </item>
+    
+    <item>
       <title>LD-Passwd Found in Requested URL - Possible LFI Attack</title>
       <link>http://localhost:1313/blue_team/ld-passwd-found-in-requested-url---possible-lfi-attack/</link>
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
@@ -35,7 +45,17 @@
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blue_team/ld-idor/</guid>
-      <description>External DigitalOcean IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts.</description>
+      <description>External IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Whoami Command Detected in Request Body</title>
+      <link>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</guid>
+      <description>An external attacker from a CHINANET-hosted IP (61.177.172.87) exploited a command injection vulnerability on WebServer1004, executing five OS commands via the ?c= parameter against /video/ - including cat /etc/passwd and cat /etc/shadow - all of which returned HTTP 200 with distinct response sizes, confirming successful remote code execution. The case was escalated to Tier 2.</description>
       
     </item>
     

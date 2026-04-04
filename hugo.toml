@@ -30,7 +30,7 @@ theme = "blowfish"
   weight = 10
 
 [[menus.main]]
-  name = "blue team"
+  name = "alert analysis"
   pageRef = "blue_team"        
   weight = 20
 
@@ -43,7 +43,7 @@ defaultBackgroundImage = ".jpg"
 highlightCurrentMenuArea = false
 smartTOC = true
 favicon = "favicon.ico"
-description = "Writeups on malware analysis, reverse engineering and DFIR."
+description = " "
 enableA11y = false
 enableSearch = true
 enableCodeCopy = false
@@ -67,7 +67,7 @@ mainSections = ["investigations", "blue_team"]
   showRecent = true
   showRecentItems = 3
   showMoreLink = true
-  showMoreLinkDest = "investigations"
+  showMoreLinkDest = "investigations" 
   cardView = true
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background

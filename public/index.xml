@@ -50,6 +50,16 @@
     </item>
     
     <item>
+      <title>LD-Whoami Command Detected in Request Body</title>
+      <link>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</guid>
+      <description>An external attacker from a CHINANET-hosted IP (61.177.172.87) exploited a command injection vulnerability on WebServer1004, executing five OS commands via the ?c= parameter against /video/ - including cat /etc/passwd and cat /etc/shadow - all of which returned HTTP 200 with distinct response sizes, confirming successful remote code execution. The case was escalated to Tier 2.</description>
+      
+    </item>
+    
+    <item>
       <title>CDEF-Qradar101</title>
       <link>http://localhost:1313/blue_team/cdef-qradar101/</link>
       <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
