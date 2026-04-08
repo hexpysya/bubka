@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BruteForce on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/bruteforce/</link>
+    <description>Recent content in BruteForce on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Tue, 07 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/bruteforce/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Splunk-T1110-003</title>
+      <link>http://localhost:1313/blue_team/splunk-t1110-003/</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-t1110-003/</guid>
+      <description>An attacker performed an RDP password spraying attack from a Kali Linux machine resulting in over four thousand failed logons before successfully compromising multiple user accounts and establishing an administrative session.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

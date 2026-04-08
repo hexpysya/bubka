@@ -1,5 +1,5 @@
 ---
-title: "CDEF-NerisBot"
+title: "Splunk-NerisBot"
 date: 2026-04-07
 draft: false
 summary: "A victim host downloaded multiple malicious executables via HTTP, including Emotet, ransomware, and trojan payloads, detected through Suricata IDS alerts and confirmed malicious via VirusTotal."

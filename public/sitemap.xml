@@ -11,7 +11,15 @@
     <lastmod>2026-04-07T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>http://localhost:1313/blue_team/cdef-nerisbot/</loc>
+    <loc>http://localhost:1313/blue_team/elk-revil/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/blue_team/splunk-nerisbot/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/blue_team/splunk-t1110-003/</loc>
     <lastmod>2026-04-07T00:00:00+00:00</lastmod>
   </url>
   <url>
