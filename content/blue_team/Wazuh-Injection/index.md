@@ -6,9 +6,11 @@ summary: "Detected a SQL Injection attack, observed 85 alerts across 6 rule IDs,
 tags:
   - Wazuh
   - SOC
-  - SQL injection
+  - EDR
+  - SIEM
+  - SQL Injection
 ---
-{{< infobox platform="Wazuh Lab" difficulty="Medium" os="Linux" date="2026-03-09" >}}
+
 
 ### <span style="color:lightblue">Objective</span>
 Investigate a SQL Injection attack detected by Wazuh and Suricata targeting

@@ -4,13 +4,17 @@ date: 2026-04-02
 draft: false
 summary: "An external attacker from a CHINANET-hosted IP (61.177.172.87) exploited a command injection vulnerability on WebServer1004, executing five OS commands via the ?c= parameter against /video/ - including cat /etc/passwd and cat /etc/shadow - all of which returned HTTP 200 with distinct response sizes, confirming successful remote code execution. The case was escalated to Tier 2."
 tags:
-  - SOC
-  - Log Analysis
-  - Web Attack
-  - Command Injection
-  - Escalation to L2
-  - True Positive
-platform: LetsDefend
+ - SOC
+ - SIEM
+ - EDR
+ - Log Analysis
+ - Web Attack
+ - Command Injection
+ - RCE
+ - Escalation to L2
+ - True Positive
+ - AbuseIPDB
+ - VirusTotal
 ---
 
 ### <span class="hl">Alert</span>

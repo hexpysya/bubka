@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Sun, 22 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/rce/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/rce/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LD-Whoami Command Detected in Request Body</title>
+      <link>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</guid>
+      <description>An external attacker from a CHINANET-hosted IP (61.177.172.87) exploited a command injection vulnerability on WebServer1004, executing five OS commands via the ?c= parameter against /video/ - including cat /etc/passwd and cat /etc/shadow - all of which returned HTTP 200 with distinct response sizes, confirming successful remote code execution. The case was escalated to Tier 2.</description>
+      
+    </item>
     
     <item>
       <title>LD-CVE-2025-53770 SharePoint ToolShell Auth Bypass and RCE</title>
@@ -16,6 +26,16 @@
       
       <guid>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</guid>
       <description>An attacker exploited CVE-2025-53770 against a SharePoint server, achieving unauthenticated RCE via .NET deserialization. The attacker extracted the MachineKey, compiled and dropped a payload, planted a webshell in the SharePoint layouts directory, and established a reverse connection to the attacker-controlled server.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Malicious Attachment Detected</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</guid>
+      <description>Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato</description>
       
     </item>
     

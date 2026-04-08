@@ -4,13 +4,17 @@ date: 2026-04-02
 draft: false
 summary: "An external IP performed XSS reconnaissance against the /search/ endpoint, cycling through multiple injection payloads. All requests except the first returned HTTP 302, indicating server-side sanitization blocked execution. The attack did not succeed."
 tags:
-  - SOC
-  - Log Analysis
-  - Web Attack
-  - XSS
-  - No Escalation
-  - True Positive
-platform: LetsDefend
+ - SOC
+ - SIEM
+ - EDR
+ - Log Analysis
+ - Web Attack
+ - XSS
+ - Injection
+ - No Escalation
+ - True Positive
+ - AbuseIPDB
+ - VirusTotal
 ---
 
 ### <span class="hl">Alert</span>

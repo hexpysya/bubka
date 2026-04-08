@@ -4,13 +4,17 @@ date: 2026-03-16
 draft: false
 summary: " "
 tags:
-  - SOC
-  - Splunk
-  - Phishing
-  - DFIR
-  - PowerShell
-  - DNS Tunneling
-platform: TryHackMe
+ - SOC
+ - Splunk
+ - Phishing
+ - DFIR
+ - PowerShell
+ - PowerView
+ - Powercat
+ - DNS Tunneling
+ - LNK
+ - LOLbins
+ - True Positive
 ---
 
 ### <span style="color:lightblue">TL;DR</span>

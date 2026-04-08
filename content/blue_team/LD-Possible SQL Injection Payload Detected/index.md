@@ -4,13 +4,16 @@ date: 2026-03-22
 draft: false
 summary: "An external IP hosted on DigitalOcean performed a manual SQL injection reconnaissance against an internal web server, cycling through classic SQLi payloads. All requests returned HTTP 500, confirming the attack did not succeed."
 tags:
-  - SOC
-  - Log Analysis
-  - Web Attack
-  - SQL Injection
-  - No Escalation
-  - True Positive
-platform: LetsDefend
+ - SOC
+ - SIEM
+ - EDR
+ - Log Analysis
+ - Web Attack
+ - SQL Injection
+ - No Escalation
+ - True Positive
+ - AbuseIPDB
+ - VirusTotal
 ---
 
 ### <span class="hl">Alert</span>

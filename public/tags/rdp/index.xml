@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RDP on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/rdp/</link>
+    <description>Recent content in RDP on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Tue, 07 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/rdp/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Splunk-T1110-003</title>
+      <link>http://localhost:1313/blue_team/splunk-t1110-003/</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-t1110-003/</guid>
+      <description>An attacker from 192.168.1.60 (Kali) conducted a 5-minute RDP password spraying attack against dev.cyberdefenders.org, generating 4302 failed logon attempts across multiple usernames, and successfully authenticated as administrator and five other accounts via RDP.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -7,8 +7,9 @@ tags:
  - SOC
  - SIEM
  - Qradar
+ - Log Analysis
  - Active Directory
-platform: CyberDefenders
+
 ---
 
 ### <span class="hl">TL;DR</span>

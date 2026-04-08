@@ -298,12 +298,12 @@
       href="/investigations/"
       
       class="flex items-center bf-icon-color-hover"
-      aria-label="investigations"
+      aria-label="[investigations]"
       title="">
       
       
         <span class="text-base font-medium break-normal">
-          investigations
+          [investigations]
         </span>
       
     </a>
@@ -316,12 +316,12 @@
       href="/blue_team/"
       
       class="flex items-center bf-icon-color-hover"
-      aria-label="alert analysis"
+      aria-label="[alert analysis]"
       title="">
       
       
         <span class="text-base font-medium break-normal">
-          alert analysis
+          [alert analysis]
         </span>
       
     </a>
@@ -424,12 +424,12 @@
     <div class="px-2">
       <a
         href="/investigations/"
-        aria-label="investigations"
+        aria-label="[investigations]"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
         <span title="" class="text-2xl font-bold tracking-tight">
-          investigations
+          [investigations]
         </span>
         
       </a>
@@ -441,12 +441,12 @@
     <div class="px-2">
       <a
         href="/blue_team/"
-        aria-label="alert analysis"
+        aria-label="[alert analysis]"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
         <span title="" class="text-2xl font-bold tracking-tight">
-          alert analysis
+          [alert analysis]
         </span>
         
       </a>
@@ -684,6 +684,16 @@
         
           
             
+              <a class="relative mt-[0.5rem] me-2" href="/tags/splunk/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Splunk
+  </span>
+</span>
+
+              </a>
+            
               <a class="relative mt-[0.5rem] me-2" href="/tags/soc/">
                 <span class="flex cursor-pointer">
   <span
@@ -704,11 +714,11 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/splunk/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Splunk
+    Log Analysis
   </span>
 </span>
 
@@ -724,21 +734,21 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Log Analysis
-  </span>
-</span>
-
-              </a>
-            
               <a class="relative mt-[0.5rem] me-2" href="/tags/bruteforce/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     BruteForce
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/rdp/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    RDP
   </span>
 </span>
 
@@ -758,7 +768,7 @@
     </div>
     
       <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
-        An attacker performed an RDP password spraying attack from a Kali Linux machine resulting in over four thousand failed logons before successfully compromising multiple user accounts and establishing an administrative session.
+        An attacker from 192.168.1.60 (Kali) conducted a 5-minute RDP password spraying attack against dev.cyberdefenders.org, generating 4302 failed logon attempts across multiple usernames, and successfully authenticated as administrator and five other accounts via RDP.
       </div>
     
   </div>

@@ -24,7 +24,7 @@
     <meta name="description" content="Simulated an SSH brute force attack using Hydra, observed Wazuh detection across 7 rule IDs, identified a gap in default alerting (max level 10), wrote a custom rule to escalate severity to level 12, and configured automated IP blocking via active response.">
   
   
-    <meta name="keywords" content="Wazuh,SOC,">
+    <meta name="keywords" content="Wazuh,SOC,SIEM,EDR,BruteForce,">
   
   
   
@@ -49,6 +49,9 @@
     <meta property="article:modified_time" content="2026-02-20T00:00:00+00:00">
     <meta property="article:tag" content="Wazuh">
     <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="SIEM">
+    <meta property="article:tag" content="EDR">
+    <meta property="article:tag" content="BruteForce">
 
   
   <meta name="twitter:card" content="summary">
@@ -220,10 +223,10 @@
     
     "dateModified": "2026-02-20T00:00:00\u002b00:00",
     
-    "keywords": ["Wazuh","SOC"],
+    "keywords": ["Wazuh","SOC","SIEM","EDR","BruteForce"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "804"
+    "wordCount": "798"
   }]
   </script>
 
@@ -302,12 +305,12 @@
       href="/investigations/"
       
       class="flex items-center bf-icon-color-hover"
-      aria-label="investigations"
+      aria-label="[investigations]"
       title="">
       
       
         <span class="text-base font-medium break-normal">
-          investigations
+          [investigations]
         </span>
       
     </a>
@@ -320,12 +323,12 @@
       href="/blue_team/"
       
       class="flex items-center bf-icon-color-hover"
-      aria-label="alert analysis"
+      aria-label="[alert analysis]"
       title="">
       
       
         <span class="text-base font-medium break-normal">
-          alert analysis
+          [alert analysis]
         </span>
       
     </a>
@@ -428,12 +431,12 @@
     <div class="px-2">
       <a
         href="/investigations/"
-        aria-label="investigations"
+        aria-label="[investigations]"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
         <span title="" class="text-2xl font-bold tracking-tight">
-          investigations
+          [investigations]
         </span>
         
       </a>
@@ -445,12 +448,12 @@
     <div class="px-2">
       <a
         href="/blue_team/"
-        aria-label="alert analysis"
+        aria-label="[alert analysis]"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
         <span title="" class="text-2xl font-bold tracking-tight">
-          alert analysis
+          [alert analysis]
         </span>
         
       </a>
@@ -637,6 +640,36 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     SOC
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/siem/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SIEM
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/edr/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EDR
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/bruteforce/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    BruteForce
   </span>
 </span>
 
@@ -848,24 +881,7 @@
         
 
         <div class="article-content max-w-prose mb-20">
-          <div class="meta-box">
-  <div class="meta-pill difficulty ">
-    <span class="meta-label">Difficulty:</span>
-    <span class="meta-value">Medium</span>
-  </div>
-
-  <div class="meta-pill">
-    <span class="meta-label">OS:</span>
-    <span class="meta-value">Linux</span>
-  </div>
-
-  <div class="meta-pill">
-    <span class="meta-label">Date:</span>
-    <span class="meta-value">2026-02-20</span>
-  </div>
-</div>
-
-
+          
 <h3 class="relative group"><span style="color:lightblue">Objective</span>
     <div id="objective" class="anchor"></div>
     

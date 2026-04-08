@@ -4,10 +4,13 @@ date: 2026-02-20
 draft: false
 summary: "Simulated an SSH brute force attack using Hydra, observed Wazuh detection across 7 rule IDs, identified a gap in default alerting (max level 10), wrote a custom rule to escalate severity to level 12, and configured automated IP blocking via active response."
 tags:
-  - Wazuh
-  - SOC
+ - Wazuh
+ - SOC
+ - SIEM
+ - EDR
+ - BruteForce
 ---
-{{< infobox platform="Wazuh Lab" difficulty="" os="Linux" date="2026-02-20" >}}
+
 
 
 ### <span style="color:lightblue">Objective</span>

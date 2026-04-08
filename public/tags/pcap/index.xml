@@ -19,15 +19,5 @@
       
     </item>
     
-    <item>
-      <title>Wazuh &#43; Suricata: Malware traffic</title>
-      <link>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</link>
-      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</guid>
-      <description>Replayed a malicious PCAP file containing Hancitor dropper traffic that deployed Cobalt Strike, Dridex, and Ficker Stealer. Analyzed 423 Suricata alerts in Wazuh, reconstructed the full infection chain, and mapped findings to MITRE ATT&amp;amp;CK.</description>
-      
-    </item>
-    
   </channel>
 </rss>

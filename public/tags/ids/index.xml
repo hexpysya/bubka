@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IDS on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/ids/</link>
+    <description>Recent content in IDS on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Tue, 07 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/ids/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Splunk-NerisBot</title>
+      <link>http://localhost:1313/blue_team/splunk-nerisbot/</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-nerisbot/</guid>
+      <description>A victim host downloaded multiple malicious executables via HTTP, including Emotet, ransomware, and trojan payloads, detected through Suricata IDS alerts and confirmed malicious via VirusTotal.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh &#43; Suricata: Malware traffic</title>
+      <link>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</guid>
+      <description>Replayed a malicious PCAP file containing Hancitor dropper traffic that deployed Cobalt Strike, Dridex, and Ficker Stealer. Analyzed 423 Suricata alerts in Wazuh, reconstructed the full infection chain, and mapped findings to MITRE ATT&amp;amp;CK.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -4,11 +4,12 @@ date: 2026-04-02
 draft: false
 summary: "Alert triggered on the string 'ls' found in a legitimate search query parameter. The traffic originated from an internal IP to letsdefend.io and contains no malicious payload. False positive - rule lacks context awareness for partial string matches."
 tags:
-  - SOC
-  - Log Analysis
-  - No Escalation
-  - False Positive
-platform: LetsDefend
+ - SOC
+ - SIEM
+ - EDR
+ - Log Analysis
+ - False Positive
+ - No Escalation
 ---
 
 ### <span class="hl">Alert</span>

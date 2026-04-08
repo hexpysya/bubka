@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EDR on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/edr/</link>
+    <description>Recent content in EDR on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/edr/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LD-Javascript Code Detected in Requested URL</title>
+      <link>http://localhost:1313/blue_team/ld-javascript-code-detected-in-requested-url/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-javascript-code-detected-in-requested-url/</guid>
+      <description>An external IP performed XSS reconnaissance against the /search/ endpoint, cycling through multiple injection payloads. All requests except the first returned HTTP 302, indicating server-side sanitization blocked execution. The attack did not succeed.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-LS Command Detected in Requested URL</title>
+      <link>http://localhost:1313/blue_team/ld-ls-command-detected-in-requested-url/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-ls-command-detected-in-requested-url/</guid>
+      <description>Alert triggered on the string &amp;rsquo;ls&amp;rsquo; found in a legitimate search query parameter. The traffic originated from an internal IP to letsdefend.io and contains no malicious payload. False positive - rule lacks context awareness for partial string matches.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Passwd Found in Requested URL - Possible LFI Attack</title>
+      <link>http://localhost:1313/blue_team/ld-passwd-found-in-requested-url---possible-lfi-attack/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-passwd-found-in-requested-url---possible-lfi-attack/</guid>
+      <description>An external Tencent Cloud IP sent a single LFI request targeting /etc/passwd via path traversal. The server returned HTTP 500 with an empty response body, confirming the attack did not succeed.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Possible IDOR Attack Detected</title>
+      <link>http://localhost:1313/blue_team/ld-idor/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-idor/</guid>
+      <description>External IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Whoami Command Detected in Request Body</title>
+      <link>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</guid>
+      <description>An external attacker from a CHINANET-hosted IP (61.177.172.87) exploited a command injection vulnerability on WebServer1004, executing five OS commands via the ?c= parameter against /video/ - including cat /etc/passwd and cat /etc/shadow - all of which returned HTTP 200 with distinct response sizes, confirming successful remote code execution. The case was escalated to Tier 2.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Arbitrary File Read on Checkpoint Security Gateway (CVE-2024-24919)</title>
+      <link>http://localhost:1313/blue_team/ld-arbitrary-file-read-on-checkpoint-security-gateway-cve-2024-24919/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-arbitrary-file-read-on-checkpoint-security-gateway-cve-2024-24919/</guid>
+      <description>An attacker exploited CVE-2024-24919 against a Check Point Security Gateway, successfully reading /etc/passwd via a path traversal payload. A second request targeting /etc/shadow from a related IP was blocked. The attack succeeded and the endpoint was escalated to Tier 2.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-CVE-2025-53770 SharePoint ToolShell Auth Bypass and RCE</title>
+      <link>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</guid>
+      <description>An attacker exploited CVE-2025-53770 against a SharePoint server, achieving unauthenticated RCE via .NET deserialization. The attacker extracted the MachineKey, compiled and dropped a payload, planted a webshell in the SharePoint layouts directory, and established a reverse connection to the attacker-controlled server.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Possible SQL Injection Payload Detected</title>
+      <link>http://localhost:1313/blue_team/ld-possible-sql-injection-payload-detected/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-possible-sql-injection-payload-detected/</guid>
+      <description>An external IP hosted on DigitalOcean performed a manual SQL injection reconnaissance against an internal web server, cycling through classic SQLi payloads. All requests returned HTTP 500, confirming the attack did not succeed.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Deceptive Mail Detected</title>
+      <link>http://localhost:1313/blue_team/ld-phishing-alert/</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-phishing-alert/</guid>
+      <description>A phishing email with a password-protected ZIP delivered AsyncRAT via a SILENTBUILDER dropper. The victim executed the payload, establishing an active C2 channel and triggering full host reconnaissance before containment.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Malicious Attachment Detected</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</guid>
+      <description>Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Suspicious PowerShell Script Executed</title>
+      <link>http://localhost:1313/blue_team/ld-soc153---suspicious-powershell-script-executed/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-soc153---suspicious-powershell-script-executed/</guid>
+      <description>User Tony downloaded and executed a malicious PowerShell script (payload_1.ps1 / agent3.ps1) classified as trojan.powershell/boxter (Azorult family). The script bypassed execution policy, then fetched and invoked a second-stage payload from kionagranada.com (161.22.46.148), establishing a two-stage C2 chain with a final pivot to 91.236.116.163.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh &#43; Suricata: injection detection</title>
+      <link>http://localhost:1313/blue_team/wazuh-injection/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh-injection/</guid>
+      <description>Detected a SQL Injection attack, observed 85 alerts across 6 rule IDs, and configured automated IP blocking via active response.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh &#43; Suricata: Malware traffic</title>
+      <link>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</guid>
+      <description>Replayed a malicious PCAP file containing Hancitor dropper traffic that deployed Cobalt Strike, Dridex, and Ficker Stealer. Analyzed 423 Suricata alerts in Wazuh, reconstructed the full infection chain, and mapped findings to MITRE ATT&amp;amp;CK.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh: SSH Brute Force</title>
+      <link>http://localhost:1313/blue_team/wazuh_ssh-brute-force/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh_ssh-brute-force/</guid>
+      <description>Simulated an SSH brute force attack using Hydra, observed Wazuh detection across 7 rule IDs, identified a gap in default alerting (max level 10), wrote a custom rule to escalate severity to level 12, and configured automated IP blocking via active response.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

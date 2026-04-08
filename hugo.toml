@@ -25,12 +25,12 @@ theme = "blowfish"
     endLevel = 4
     ordered = false
 [[menus.main]]
-  name = "investigations"
+  name = "[investigations]"
   pageRef = "investigations"  
   weight = 10
 
 [[menus.main]]
-  name = "alert analysis"
+  name = "[alert analysis]"
   pageRef = "blue_team"        
   weight = 20
 

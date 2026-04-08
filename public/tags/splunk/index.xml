@@ -25,7 +25,7 @@
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blue_team/splunk-t1110-003/</guid>
-      <description>An attacker performed an RDP password spraying attack from a Kali Linux machine resulting in over four thousand failed logons before successfully compromising multiple user accounts and establishing an administrative session.</description>
+      <description>An attacker from 192.168.1.60 (Kali) conducted a 5-minute RDP password spraying attack against dev.cyberdefenders.org, generating 4302 failed logon attempts across multiple usernames, and successfully authenticated as administrator and five other accounts via RDP.</description>
       
     </item>
     

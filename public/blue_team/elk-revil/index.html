@@ -24,7 +24,7 @@
     <meta name="description" content="An administrator executed facebook assistant.exe on a Windows Server 2019 host, which dropped REvil ransomware (Sodinokibi), spawned a PowerShell process that deleted Volume Shadow Copies, and dropped ransom notes across multiple user profile directories.">
   
   
-    <meta name="keywords" content="SOC,SIEM,ELK,Log Analysis,Ransomware,">
+    <meta name="keywords" content="ELK,SOC,SIEM,Log Analysis,Ransomware,REvil,Sysmon,LOLBins,WMI,VirusTotal,ANY.RUN,Tor,">
   
   
   
@@ -47,11 +47,12 @@
     <meta property="article:section" content="blue_team">
     <meta property="article:published_time" content="2026-04-07T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-04-07T00:00:00+00:00">
+    <meta property="article:tag" content="ELK">
     <meta property="article:tag" content="SOC">
     <meta property="article:tag" content="SIEM">
-    <meta property="article:tag" content="ELK">
     <meta property="article:tag" content="Log Analysis">
     <meta property="article:tag" content="Ransomware">
+    <meta property="article:tag" content="REvil">
 
   
   <meta name="twitter:card" content="summary">
@@ -233,7 +234,7 @@
     
     "dateModified": "2026-04-07T00:00:00\u002b00:00",
     
-    "keywords": ["SOC","SIEM","ELK","Log Analysis","Ransomware"],
+    "keywords": ["ELK","SOC","SIEM","Log Analysis","Ransomware","REvil","Sysmon","LOLBins","WMI","VirusTotal","ANY.RUN","Tor"],
     
     "mainEntityOfPage": "true",
     "wordCount": "656"
@@ -315,12 +316,12 @@
       href="/investigations/"
       
       class="flex items-center bf-icon-color-hover"
-      aria-label="investigations"
+      aria-label="[investigations]"
       title="">
       
       
         <span class="text-base font-medium break-normal">
-          investigations
+          [investigations]
         </span>
       
     </a>
@@ -333,12 +334,12 @@
       href="/blue_team/"
       
       class="flex items-center bf-icon-color-hover"
-      aria-label="alert analysis"
+      aria-label="[alert analysis]"
       title="">
       
       
         <span class="text-base font-medium break-normal">
-          alert analysis
+          [alert analysis]
         </span>
       
     </a>
@@ -441,12 +442,12 @@
     <div class="px-2">
       <a
         href="/investigations/"
-        aria-label="investigations"
+        aria-label="[investigations]"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
         <span title="" class="text-2xl font-bold tracking-tight">
-          investigations
+          [investigations]
         </span>
         
       </a>
@@ -458,12 +459,12 @@
     <div class="px-2">
       <a
         href="/blue_team/"
-        aria-label="alert analysis"
+        aria-label="[alert analysis]"
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
         <span title="" class="text-2xl font-bold tracking-tight">
-          alert analysis
+          [alert analysis]
         </span>
         
       </a>
@@ -635,6 +636,16 @@
         
           
             
+              <a class="relative mt-[0.5rem] me-2" href="/tags/elk/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ELK
+  </span>
+</span>
+
+              </a>
+            
               <a class="relative mt-[0.5rem] me-2" href="/tags/soc/">
                 <span class="flex cursor-pointer">
   <span
@@ -655,16 +666,6 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/elk/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    ELK
-  </span>
-</span>
-
-              </a>
-            
               <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
                 <span class="flex cursor-pointer">
   <span
@@ -680,6 +681,76 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Ransomware
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/revil/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    REvil
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/sysmon/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Sysmon
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/lolbins/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LOLbins
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/wmi/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    WMI
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/virustotal/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    VirusTotal
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/any.run/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ANY.RUN
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/tor/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Tor
   </span>
 </span>
 

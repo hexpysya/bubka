@@ -4,12 +4,18 @@ date: 2026-04-07
 draft: false
 summary: "An administrator executed facebook assistant.exe on a Windows Server 2019 host, which dropped REvil ransomware (Sodinokibi), spawned a PowerShell process that deleted Volume Shadow Copies, and dropped ransom notes across multiple user profile directories."
 tags:
+  - ELK
   - SOC
   - SIEM
-  - ELK
   - Log Analysis
   - Ransomware
-platform: Cyberdefenders
+  - REvil
+  - Sysmon
+  - LOLBins
+  - WMI
+  - VirusTotal
+  - ANY.RUN
+  - Tor
 ---
 
 ### <span class="hl">TL;DR</span>

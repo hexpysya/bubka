@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sodinokibi on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/sodinokibi/</link>
+    <description>Recent content in Sodinokibi on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Tue, 07 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/sodinokibi/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ELK-REvil - GOLD SOUTHFIELD</title>
+      <link>http://localhost:1313/blue_team/elk-revil/</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-revil/</guid>
+      <description>An administrator executed facebook assistant.exe on a Windows Server 2019 host, which dropped REvil ransomware (Sodinokibi), spawned a PowerShell process that deleted Volume Shadow Copies, and dropped ransom notes across multiple user profile directories.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

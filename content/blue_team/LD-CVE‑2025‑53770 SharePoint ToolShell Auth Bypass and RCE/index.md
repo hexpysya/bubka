@@ -4,14 +4,18 @@ date: 2026-03-22
 draft: false
 summary: "An attacker exploited CVE-2025-53770 against a SharePoint server, achieving unauthenticated RCE via .NET deserialization. The attacker extracted the MachineKey, compiled and dropped a payload, planted a webshell in the SharePoint layouts directory, and established a reverse connection to the attacker-controlled server."
 tags:
-  - SOC
-  - Log Analysis
-  - Web Attack
-  - RCE
-  - CVE-2025-53770
-  - Escalation to L2
-  - True Positive
-platform: LetsDefend
+ - SOC
+ - SIEM
+ - EDR
+ - Log Analysis
+ - Web Attack
+ - RCE
+ - CVE-2025-53770
+ - SharePoint
+ - Escalation to L2
+ - True Positive
+ - AbuseIPDB
+ - VirusTotal
 ---
 
 ### <span class="hl">Alert</span>

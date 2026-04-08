@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sandbox Evasion on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/sandbox-evasion/</link>
+    <description>Recent content in Sandbox Evasion on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Sat, 14 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/sandbox-evasion/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LD-Suspicious PowerShell Script Executed</title>
+      <link>http://localhost:1313/blue_team/ld-soc153---suspicious-powershell-script-executed/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-soc153---suspicious-powershell-script-executed/</guid>
+      <description>User Tony downloaded and executed a malicious PowerShell script (payload_1.ps1 / agent3.ps1) classified as trojan.powershell/boxter (Azorult family). The script bypassed execution policy, then fetched and invoked a second-stage payload from kionagranada.com (161.22.46.148), establishing a two-stage C2 chain with a final pivot to 91.236.116.163.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

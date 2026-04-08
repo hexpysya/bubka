@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Tue, 07 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/log-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/log-analysis/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>CDEF-REvil - GOLD SOUTHFIELD</title>
+      <title>ELK-Perfect Survey</title>
+      <link>http://localhost:1313/blue_team/elk-perfect-survey/</link>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-perfect-survey/</guid>
+      <description>An attacker conducted reconnaissance with Nmap and WPScan against a WordPress site, exploited CVE-2021-24762 in the Perfect Survey plugin via SQLi to extract wp_users password hashes, then pivoted into Active Directory by Kerberoasting alonso.x, creating a rogue computer account, abusing RBCD, and escalating to domain administrator via AD CS certificate abuse.</description>
+      
+    </item>
+    
+    <item>
+      <title>ELK-REvil - GOLD SOUTHFIELD</title>
       <link>http://localhost:1313/blue_team/elk-revil/</link>
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
       
@@ -35,7 +45,7 @@
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blue_team/splunk-t1110-003/</guid>
-      <description>An attacker performed an RDP password spraying attack from a Kali Linux machine resulting in over four thousand failed logons before successfully compromising multiple user accounts and establishing an administrative session.</description>
+      <description>An attacker from 192.168.1.60 (Kali) conducted a 5-minute RDP password spraying attack against dev.cyberdefenders.org, generating 4302 failed logon attempts across multiple usernames, and successfully authenticated as administrator and five other accounts via RDP.</description>
       
     </item>
     
@@ -86,6 +96,16 @@
       
       <guid>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</guid>
       <description>An external attacker from a CHINANET-hosted IP (61.177.172.87) exploited a command injection vulnerability on WebServer1004, executing five OS commands via the ?c= parameter against /video/ - including cat /etc/passwd and cat /etc/shadow - all of which returned HTTP 200 with distinct response sizes, confirming successful remote code execution. The case was escalated to Tier 2.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-Qradar101</title>
+      <link>http://localhost:1313/blue_team/cdef-qradar101/</link>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/cdef-qradar101/</guid>
+      <description>A user opened a malicious Word document that dropped FSETPBEUsIek.exe, which spawned a VBS script, injected into notepad.exe, established persistence via registry Run key, exfiltrated sami.xlsx to an attacker-controlled server, and triggered a Metasploit reverse shell detected by Suricata.</description>
       
     </item>
     

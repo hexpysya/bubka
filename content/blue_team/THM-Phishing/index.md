@@ -4,10 +4,10 @@ date: 2026-03-10
 draft: false
 summary: "Three phishing campaigns were identified across four alerts: a legitimate HR onboarding email (false positive), a fake Amazon delivery notification whose bit.ly link was blocked by the firewall, and a Microsoft account spoofing email from m1crosoftsupport.co whose link was allowed through the firewall"
 tags:
-  - SOC
-  - Splunk
-  - Phishing
-  - Firewall
+ - Splunk
+ - SOC
+ - SIEM
+ - Phishing
 ---
 
 

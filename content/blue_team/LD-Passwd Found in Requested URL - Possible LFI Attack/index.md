@@ -4,13 +4,17 @@ date: 2026-04-02
 draft: false
 summary: "An external Tencent Cloud IP sent a single LFI request targeting /etc/passwd via path traversal. The server returned HTTP 500 with an empty response body, confirming the attack did not succeed."
 tags:
-  - SOC
-  - Log Analysis
-  - Web Attack
-  - LFI
-  - No Escalation
-  - True Positive
-platform: LetsDefend
+ - SOC
+ - SIEM
+ - EDR
+ - Log Analysis
+ - Web Attack
+ - LFI
+ - Path Traversal
+ - No Escalation
+ - True Positive
+ - AbuseIPDB
+ - VirusTotal
 ---
 
 ### <span class="hl">Alert</span>

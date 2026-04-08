@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Mon, 19 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/path-traversal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/path-traversal/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LD-Passwd Found in Requested URL - Possible LFI Attack</title>
+      <link>http://localhost:1313/blue_team/ld-passwd-found-in-requested-url---possible-lfi-attack/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-passwd-found-in-requested-url---possible-lfi-attack/</guid>
+      <description>An external Tencent Cloud IP sent a single LFI request targeting /etc/passwd via path traversal. The server returned HTTP 500 with an empty response body, confirming the attack did not succeed.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Arbitrary File Read on Checkpoint Security Gateway (CVE-2024-24919)</title>
+      <link>http://localhost:1313/blue_team/ld-arbitrary-file-read-on-checkpoint-security-gateway-cve-2024-24919/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-arbitrary-file-read-on-checkpoint-security-gateway-cve-2024-24919/</guid>
+      <description>An attacker exploited CVE-2024-24919 against a Check Point Security Gateway, successfully reading /etc/passwd via a path traversal payload. A second request targeting /etc/shadow from a related IP was blocked. The attack succeeded and the endpoint was escalated to Tier 2.</description>
+      
+    </item>
     
     <item>
       <title>HTB-Conversor</title>

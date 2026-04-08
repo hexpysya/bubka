@@ -4,9 +4,14 @@ date: 2026-03-14
 draft: false
 summary: "User Tony downloaded and executed a malicious PowerShell script (payload_1.ps1 / agent3.ps1) classified as trojan.powershell/boxter (Azorult family). The script bypassed execution policy, then fetched and invoked a second-stage payload from kionagranada.com (161.22.46.148), establishing a two-stage C2 chain with a final pivot to 91.236.116.163."
 tags:
-  - SOC
-  - PowerShell
-platform: LetsDefend
+ - SOC
+ - SIEM
+ - EDR
+ - PowerShell
+ - Fileless Malware
+ - Sandbox Evasion
+ - True Positive
+ - VirusTotal
 ---
 
 ### <span style="color:lightblue">TL;DR</span>

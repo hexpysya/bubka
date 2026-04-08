@@ -1,0 +1,1548 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en-us">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>ELK-Perfect Survey &middot; bubka hacks stuff</title>
+    <meta name="title" content="ELK-Perfect Survey &middot; bubka hacks stuff">
+  
+
+  
+  
+    <meta name="description" content="An attacker conducted reconnaissance with Nmap and WPScan against a WordPress site, exploited CVE-2021-24762 in the Perfect Survey plugin via SQLi to extract wp_users password hashes, then pivoted into Active Directory by Kerberoasting alonso.x, creating a rogue computer account, abusing RBCD, and escalating to domain administrator via AD CS certificate abuse.">
+  
+  
+    <meta name="keywords" content="ELK,SOC,SIEM,Log Analysis,Active Directory,Kerberoasting,SQL Injection,CVE-2021-24762,WordPress,RBCD,AD CS,Privilege Escalation,sqlmap,WPScan,">
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/blue_team/elk-perfect-survey/">
+  
+
+  
+  
+    <meta name="author" content="Bubka">
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/blue_team/elk-perfect-survey/">
+  <meta property="og:site_name" content="bubka hacks stuff">
+  <meta property="og:title" content="ELK-Perfect Survey">
+  <meta property="og:description" content="An attacker conducted reconnaissance with Nmap and WPScan against a WordPress site, exploited CVE-2021-24762 in the Perfect Survey plugin via SQLi to extract wp_users password hashes, then pivoted into Active Directory by Kerberoasting alonso.x, creating a rogue computer account, abusing RBCD, and escalating to domain administrator via AD CS certificate abuse.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blue_team">
+    <meta property="article:published_time" content="2026-04-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-08T00:00:00+00:00">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="SIEM">
+    <meta property="article:tag" content="Log Analysis">
+    <meta property="article:tag" content="Active Directory">
+    <meta property="article:tag" content="Kerberoasting">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ELK-Perfect Survey">
+  <meta name="twitter:description" content="An attacker conducted reconnaissance with Nmap and WPScan against a WordPress site, exploited CVE-2021-24762 in the Perfect Survey plugin via SQLi to extract wp_users password hashes, then pivoted into Active Directory by Kerberoasting alonso.x, creating a rogue computer account, abusing RBCD, and escalating to domain administrator via AD CS certificate abuse.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.d06df2e245feea7637bdd5686a930feabbf2e5249dd8448f2c72a8bc2a301701f778181c92cf08e97fbc7b2528032a6b55b124d53526a8007fdb6231f93716d6.css"
+    integrity="sha512-0G3y4kX&#43;6nY3vdVoapMP6rvy5SSd2ESPLHKovCowFwH3eBgcks8I6X&#43;8eyUoAyprVbEk1TUmqAB/22Ix&#43;TcW1g==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
+      integrity="sha512-Z2JKNXySjSm5/hm6AaHjLAWtEynKKnEr8QRG3wxocpA9DBSyH3aJa1eloHEJQIBUFs7jiFHZBn22VViBGI41pQ=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+  
+  
+  
+  
+  <script
+    defer
+    type="text/javascript"
+    src="/js/mermaid.bundle.123b31b3c46015cee384d15cf0ef614f7ed885722a7e6f496f9b83d7b8400aef5dc2f3b9fc778649d5ba948bf957b3c67bbdf4de0033db316bbe394e2f7da794.js"
+    integrity="sha512-Ejsxs8RgFc7jhNFc8O9hT37YhXIqfm9Jb5uD17hACu9dwvO5/HeGSdW6lIv5V7PGe7303gAz2zFrvjlOL32nlA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "ELK-Perfect Survey",
+    "headline": "ELK-Perfect Survey",
+    
+    "inLanguage": "en-us",
+    "url" : "http://localhost:1313/blue_team/elk-perfect-survey/",
+    "author" : {
+      "@type": "Person",
+      "name": "Bubka"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-04-08T00:00:00\u002b00:00",
+    "datePublished": "2026-04-08T00:00:00\u002b00:00",
+    
+    "dateModified": "2026-04-08T00:00:00\u002b00:00",
+    
+    "keywords": ["ELK","SOC","SIEM","Log Analysis","Active Directory","Kerberoasting","SQL Injection","CVE-2021-24762","WordPress","RBCD","AD CS","Privilege Escalation","sqlmap","WPScan"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1296"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 z-100">
+  <div
+    id="menu-blur"
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl bg-neutral/25 dark:bg-neutral-800/25"></div>
+  <div class="relative m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32">
+    <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      bubka hacks stuff
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/investigations/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="[investigations]"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          [investigations]
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/blue_team/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="[alert analysis]"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          [alert analysis]
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/investigations/"
+        aria-label="[investigations]"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          [investigations]
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/blue_team/"
+        aria-label="[alert analysis]"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          [alert analysis]
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<script
+  type="text/javascript"
+  src="/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+  integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+  data-blur-id="menu-blur"></script>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+      
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        ELK-Perfect Survey
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-04-08T00:00:00&#43;00:00">April 8, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/elk/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ELK
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/soc/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SOC
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/siem/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SIEM
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Log Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/active-directory/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Active Directory
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/kerberoasting/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Kerberoasting
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/sql-injection/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SQL Injection
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/cve-2021-24762/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CVE-2021-24762
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/wordpress/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    WordPress
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/rbcd/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    RBCD
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/ad-cs/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AD CS
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/privilege-escalation/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Privilege Escalation
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/sqlmap/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Sqlmap
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/wpscan/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    WPScan
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-[140px]">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600 text-sm">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span class="hl">TL;DR</span></a></li>
+        <li><a href="#initial-triage"><span>Initial Triage</span></a></li>
+        <li><a href="#reconnaissance"><span>Reconnaissance</span></a>
+          <ul>
+            <li><a href="#nmap-nse"><span>Nmap NSE</span></a></li>
+            <li><a href="#wpscan"><span>WPScan</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#initial-access"><span>Initial access</span></a>
+          <ul>
+            <li><a href="#sql-injection---cve-2021-24762"><span>SQL Injection - CVE-2021-24762</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#post-exploitation-and-lateral-movement"><span>Post-Exploitation and Lateral Movement</span></a></li>
+        <li><a href="#iocs"><span class="hl">IOCs</span></a></li>
+        <li><a href="#attack-timeline"><span class="hl">Attack Timeline</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span class="hl">TL;DR</span></a></li>
+        <li><a href="#initial-triage"><span>Initial Triage</span></a></li>
+        <li><a href="#reconnaissance"><span>Reconnaissance</span></a>
+          <ul>
+            <li><a href="#nmap-nse"><span>Nmap NSE</span></a></li>
+            <li><a href="#wpscan"><span>WPScan</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#initial-access"><span>Initial access</span></a>
+          <ul>
+            <li><a href="#sql-injection---cve-2021-24762"><span>SQL Injection - CVE-2021-24762</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#post-exploitation-and-lateral-movement"><span>Post-Exploitation and Lateral Movement</span></a></li>
+        <li><a href="#iocs"><span class="hl">IOCs</span></a></li>
+        <li><a href="#attack-timeline"><span class="hl">Attack Timeline</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+    let isJumpingToAnchor = false
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      if (isJumpingToAnchor) {
+        for (let i = 0; i < anchors.length; i++) {
+          const anchor = anchors[i]
+          if (!tocIds.has(anchor.id)) continue
+          const top = anchor.getBoundingClientRect().top + window.scrollY
+          if (Math.abs(window.scrollY - top) < 100) {
+            return anchor.id
+          }
+        }
+      }
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          isJumpingToAnchor = true
+        })
+      })
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h3 class="relative group"><span class="hl">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>An attacker operating from <strong>47.128.63.0</strong> targeted a WordPress installation at <code>feefaworldcup.co.th</code>. After scanning with Nmap Scripting Engine and WPScan v3.8.28, the attacker identified the <strong>Perfect Survey</strong> plugin and exploited <strong>CVE-2021-24762</strong> - an unauthenticated SQL injection in the <code>get_question</code> AJAX action - using sqlmap 1.9.3. A multi-vector UNION+XSS+RCE probe confirmed the injection at <strong>02:25:31</strong>, and systematic blind SQLi extraction of <code>user_pass</code> from <code>wordpress.wp_users</code> ran until <strong>03:11:50</strong>. Using cracked credentials, the attacker accessed <code>mourinho.j</code> at <strong>02:35</strong>, Kerberoasted <code>alonso.x</code> with RC4-HMAC encryption at <strong>02:40</strong>, then at <strong>02:50</strong> created a rogue computer account <code>MADRID$</code>, abused Resource-Based Constrained Delegation against <code>APP-BKUP01$</code>, and at <strong>02:54</strong> exploited Active Directory Certificate Services with a forged SAN for <code>administrator@worldcup.ball</code> to achieve full domain compromise on <code>PACIFIC-DC.worldcup.ball</code>.</p>
+
+<h3 class="relative group"><span style="color:red">Initial Triage</span>
+    <div id="initial-triage" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#initial-triage" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Knowing a web attack had occurred, I started the investigation in <strong>Kibana</strong> by analyzing <code>access.log</code> - the HTTP access log ingested from the target web server. I examined the <code>source.address</code> field distribution to identify the dominant traffic source.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="source IP distribution"
+    width="583"
+    height="485"
+    src="/blue_team/elk-perfect-survey/all_ips.png"
+    srcset="/blue_team/elk-perfect-survey/all_ips.png 800w, /blue_team/elk-perfect-survey/all_ips.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/all_ips.png"></figure>
+</p>
+<p><strong>47.128.63.0</strong> accounted for 99.6% of all 2,524 records, with the remaining 0.4% from <code>192.168.18.29</code> - almost certainly internal traffic. I filtered all subsequent queries to <code>source.address: 47.128.63.0</code> and examined the <code>http.response.status_code</code> field to understand the nature of the requests.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="status code distribution"
+    width="611"
+    height="555"
+    src="/blue_team/elk-perfect-survey/status_code.png"
+    srcset="/blue_team/elk-perfect-survey/status_code.png 800w, /blue_team/elk-perfect-survey/status_code.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/status_code.png"></figure>
+</p>
+<p>The distribution showed <strong>200</strong> at 49.8% and <strong>404</strong> at 44.3%, a pattern typical of automated scanning tools that probe many paths and receive 404 for non-existent resources while successfully hitting valid endpoints. This confirmed the traffic was tool-generated rather than manual browsing.</p>
+
+<h3 class="relative group"><span style="color:red">Reconnaissance</span>
+    <div id="reconnaissance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#reconnaissance" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group"><span style="color:red">Nmap NSE</span>
+    <div id="nmap-nse" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#nmap-nse" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>I sorted the filtered events chronologically to trace the attacker&rsquo;s activity from the beginning. The first significant hit at <strong>Sep 18, 2025 02:12:30</strong> showed a GET request to <code>/wordpress/</code> with a response of 200 from User-Agent <code>Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)</code> - <strong>Nmap NSE</strong> is the scripting engine component of the Nmap network scanner, used here to fingerprint the web application.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Nmap scan"
+    width="836"
+    height="602"
+    src="/blue_team/elk-perfect-survey/nmap_hu_cb30193403daa02f.png"
+    srcset="/blue_team/elk-perfect-survey/nmap_hu_cb30193403daa02f.png 800w, /blue_team/elk-perfect-survey/nmap.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/nmap.png"></figure>
+</p>
+
+<h4 class="relative group"><span style="color:red">WPScan</span>
+    <div id="wpscan" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#wpscan" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>At <strong>02:19:21</strong> the User-Agent switched to <code>WPScan v3.8.28</code> - a dedicated <strong>WordPress vulnerability scanner</strong> - with the same <code>/wordpress/</code> target, indicating the attacker confirmed a WordPress installation from the Nmap results and escalated to targeted CMS scanning.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="WPScan scan"
+    width="832"
+    height="713"
+    src="/blue_team/elk-perfect-survey/wpscan_hu_8e5ec93348a14724.png"
+    srcset="/blue_team/elk-perfect-survey/wpscan_hu_8e5ec93348a14724.png 800w, /blue_team/elk-perfect-survey/wpscan.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/wpscan.png"></figure>
+</p>
+<p>WPScan enumerated plugin paths, returning 200 responses for <code>/wordpress/wp-content/plugins/elementor/readme.txt</code>, <code>/wordpress/wp-content/plugins/perfect-survey/readme.txt</code>, <code>/wordpress/wp-content/plugins/solace-extra/readme.txt</code>, and <code>/wordpress/wp-content/plugins/user-registration/readme.txt</code>. At <strong>02:20:04</strong> it successfully retrieved <code>/wordpress/wp-includes/version.php</code> - a file that discloses the exact WordPress core version and installed component versions.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="version.php access"
+    width="817"
+    height="549"
+    src="/blue_team/elk-perfect-survey/version_php_hu_648b21cef54585d3.png"
+    srcset="/blue_team/elk-perfect-survey/version_php_hu_648b21cef54585d3.png 800w, /blue_team/elk-perfect-survey/version_php.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/version_php.png"></figure>
+</p>
+<p>WPScan also accessed <code>/wordpress/wp-cron.php</code> - WordPress&rsquo;s built-in task scheduler endpoint, commonly probed to identify scheduling attack surfaces.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="wp-cron.php access"
+    width="825"
+    height="549"
+    src="/blue_team/elk-perfect-survey/cron_hu_5e6bc25419bd2d4f.png"
+    srcset="/blue_team/elk-perfect-survey/cron_hu_5e6bc25419bd2d4f.png 800w, /blue_team/elk-perfect-survey/cron.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/cron.png"></figure>
+</p>
+
+<h3 class="relative group"><span style="color:red">Initial access</span>
+    <div id="initial-access" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#initial-access" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>At <strong>02:23:39</strong> the attacker issued a single clean GET request to <code>/wordpress/wp-admin/admin-ajax.php?action=get_question&amp;question_id=1</code> with User-Agent <code>sqlmap/1.9.3</code>. This was the initial endpoint probe against the <strong>Perfect Survey</strong> plugin&rsquo;s <code>get_question</code> AJAX action.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="sqlmap initial probe"
+    width="1312"
+    height="660"
+    src="/blue_team/elk-perfect-survey/sqlmap_hu_3997f2aec5dab357.png"
+    srcset="/blue_team/elk-perfect-survey/sqlmap_hu_3997f2aec5dab357.png 800w, /blue_team/elk-perfect-survey/sqlmap_hu_77af00118217ae4a.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/sqlmap.png"></figure>
+</p>
+
+<h4 class="relative group"><span style="color:red">SQL Injection - CVE-2021-24762</span>
+    <div id="sql-injection---cve-2021-24762" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#sql-injection---cve-2021-24762" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>CVE-2021-24762 (CVSS 9.8 Critical) affects Perfect Survey versions before 1.5.2 - the plugin passes the <code>question_id</code> GET parameter directly into a SQL query without validation or sanitization. Because WordPress AJAX endpoints can be configured to accept unauthenticated requests, no credentials are required to reach this attack surface.</p>
+<p>At <strong>02:25:31</strong>, 2 minutes after the initial probe, sqlmap sent the following exploitation payload (URL-decoded):</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">GET /wordpress/wp-admin/admin-ajax.php?action=get_question&amp;question_id=1&amp;KpuO=5677 AND 1=1 UNION ALL SELECT 1,NULL,&#39;&lt;script&gt;alert(&#34;XSS&#34;)&lt;/script&gt;&#39;,table_name FROM information_schema.tables WHERE 2&gt;1--/**/; EXEC xp_cmdshell(&#39;cat ../../../etc/passwd&#39;)#</span></span></code></pre></div></div>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="exploitation payload"
+    width="1314"
+    height="765"
+    src="/blue_team/elk-perfect-survey/rce_hu_543cce8b425156fe.png"
+    srcset="/blue_team/elk-perfect-survey/rce_hu_543cce8b425156fe.png 800w, /blue_team/elk-perfect-survey/rce_hu_622c750d114c419a.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/rce.png"></figure>
+</p>
+<p>This is a multi-vector injection probe. The <code>UNION ALL SELECT ... FROM information_schema.tables</code> attempts to enumerate the database schema by appending an additional result set to the original query. The <code>&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;</code> string embedded in the UNION output tests whether SQL results are reflected unsanitized into the HTTP response. Finally, <code>EXEC xp_cmdshell('cat ../../../etc/passwd')</code> attempts OS command execution through SQL Server&rsquo;s shell procedure with a path traversal to read the system password file. The server responded with <strong>HTTP 200</strong> and <strong>10,301 bytes</strong>, confirming the injection was processed and the payload reached the database layer.</p>
+<p>With injection confirmed, sqlmap shifted to systematic <strong>blind boolean-based</strong> extraction of the <code>user_pass</code> column from <code>wordpress.wp_users</code>. At <strong>02:52:47</strong> requests of the following pattern were observed:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">GET /wordpress/wp-admin/admin-ajax.php?action=get_question&amp;question_id=1 AND ORD(MID((SELECT IFNULL(CAST(user_pass AS NCHAR),0x20) FROM wordpress.wp_users ORDER BY ID LIMIT 0,1),59,1))&gt;96</span></span></code></pre></div></div>
+<p>This query extracts one character at a time from the password hash. The extraction campaign ran until <strong>03:11:50</strong>, at which point the last sqlmap request was recorded.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="last sqlmap request"
+    width="1310"
+    height="790"
+    src="/blue_team/elk-perfect-survey/log_detailed_hu_f731d8566f81e475.png"
+    srcset="/blue_team/elk-perfect-survey/log_detailed_hu_f731d8566f81e475.png 800w, /blue_team/elk-perfect-survey/log_detailed_hu_1807e903cf0546a7.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/log_detailed.png"></figure>
+</p>
+
+<h3 class="relative group"><span style="color:red">Post-Exploitation and Lateral Movement</span>
+    <div id="post-exploitation-and-lateral-movement" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#post-exploitation-and-lateral-movement" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>With cracked WordPress credentials, the attacker pivoted into Active Directory. I correlated the timeline by examining Windows Security event logs alongside the web logs. The table of authentication events grouped by <code>target_user</code> and <code>ip_address</code> revealed the full lateral movement sequence.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="AD activity table"
+    width="904"
+    height="344"
+    src="/blue_team/elk-perfect-survey/table_hu_b7612ff953a1183d.png"
+    srcset="/blue_team/elk-perfect-survey/table_hu_b7612ff953a1183d.png 800w, /blue_team/elk-perfect-survey/table.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/table.png"></figure>
+</p>
+<p>At <strong>02:35</strong> the attacker first accessed <code>mourinho.j</code> from <strong>47.128.63.0</strong>, with an <code>ANONYMOUS LOGON</code> event co-occurring in the same window - consistent with an initial unauthenticated LDAP or SMB reconnaissance step before authenticating. At <strong>02:40</strong> I found a cluster of <strong>Event ID 4769</strong> (Kerberos Service Ticket Request) events targeting <code>mourinho.j@worldcup.ball</code>.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alonso.x Kerberoasting ticket"
+    width="1320"
+    height="821"
+    src="/blue_team/elk-perfect-survey/alonso_ticket_hu_58bc471c6d1f7910.png"
+    srcset="/blue_team/elk-perfect-survey/alonso_ticket_hu_58bc471c6d1f7910.png 800w, /blue_team/elk-perfect-survey/alonso_ticket_hu_39b638838a979585.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/alonso_ticket.png"></figure>
+</p>
+<p>The expanded Event 4769 showed <code>target_user_name: mourinho.j@worldcup.ball</code>, <code>service_name: alonso.x</code>, and critically <code>ticket_encryption_type: 0x17</code> - <strong>0x17 is RC4-HMAC</strong>, the weak encryption type specifically requested during <strong>Kerberoasting</strong>, an attack where the attacker requests a TGS ticket for a service account, receives it encrypted with the account&rsquo;s NTLM hash, and cracks it offline. This confirmed the attacker used <code>mourinho.j</code>&rsquo;s session to Kerberoast <code>alonso.x</code> and subsequently cracked its password offline, gaining access as <code>alonso.x</code> at <strong>02:50</strong>.</p>
+<p>At <strong>02:50:30</strong>, acting as <code>alonso.x</code>, the attacker created a new computer account - <strong>Event ID 4741</strong> (Computer Account Created) - with <code>sam_account_name: MADRID$</code> on <code>PACIFIC-DC.worldcup.ball</code>.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="MADRID$ computer account creation"
+    width="1315"
+    height="823"
+    src="/blue_team/elk-perfect-survey/4741_hu_20040071e25510ce.png"
+    srcset="/blue_team/elk-perfect-survey/4741_hu_20040071e25510ce.png 800w, /blue_team/elk-perfect-survey/4741_hu_313eeda6543d4a.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/4741.png"></figure>
+</p>
+<p>Creating a rogue computer account is a prerequisite for a <strong>Resource-Based Constrained Delegation (RBCD)</strong> attack - by controlling a computer account, the attacker can configure delegation rights to impersonate any user against a target service. One second later at <strong>02:50:31</strong>, <strong>Event ID 4742</strong> (Computer Account Changed) was logged with <code>target_user_name: APP-BKUP01$</code>, reflecting <code>alonso.x</code> writing RBCD attributes onto the backup server account to allow <code>MADRID$</code> to impersonate users against it.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="APP-BKUP01$ RBCD modification"
+    width="1057"
+    height="590"
+    src="/blue_team/elk-perfect-survey/4742_hu_ae2d990e487dbb61.png"
+    srcset="/blue_team/elk-perfect-survey/4742_hu_ae2d990e487dbb61.png 800w, /blue_team/elk-perfect-survey/4742.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/4742.png"></figure>
+</p>
+<p>At <strong>02:50:45</strong> the attacker requested a service ticket to <code>APP-BKUP01$</code> via RBCD and successfully logged into it at <strong>02:54:23</strong>.</p>
+<p>At <strong>02:54:24</strong>, <strong>Event ID 4886</strong> (Certificate Services received a certificate request) was logged with <code>attributes: CertificateTemplate:WorkstationAuth_Internal</code> and <code>SAN:upn=administrator@worldcup.ball</code>.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="AD CS certificate request"
+    width="803"
+    height="119"
+    src="/blue_team/elk-perfect-survey/cert_hu_84cd5489351c354a.png"
+    srcset="/blue_team/elk-perfect-survey/cert_hu_84cd5489351c354a.png 800w, /blue_team/elk-perfect-survey/cert.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/cert.png"></figure>
+</p>
+<p>This is <strong>ESC1-style AD CS abuse</strong> - by requesting a certificate from a template that allows the requester to specify a Subject Alternative Name (SAN), the attacker embedded <code>administrator@worldcup.ball</code> as the UPN in the certificate. This certificate can then be used to authenticate as <code>administrator</code> via Kerberos PKINIT, bypassing password requirements entirely. At <strong>02:54:32</strong>, 8 seconds later, <strong>Event ID 4769</strong> fired on <code>PACIFIC-DC.worldcup.ball</code> with <code>target_user_name: administrator@worldcup.ball</code>, <code>service_name: Administrator</code>, and <code>ip_address: ::ffff:47.128.63.0</code> - confirming full domain administrator access was achieved.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="administrator Kerberos ticket"
+    width="1319"
+    height="819"
+    src="/blue_team/elk-perfect-survey/4672_hu_df892ea18b46afea.png"
+    srcset="/blue_team/elk-perfect-survey/4672_hu_df892ea18b46afea.png 800w, /blue_team/elk-perfect-survey/4672_hu_278a90e0c3e7e9ae.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-perfect-survey/4672.png"></figure>
+</p>
+
+<h3 class="relative group"><span class="hl">IOCs</span>
+    <div id="iocs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#iocs" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Type</th>
+          <th>Value</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>IP</td>
+          <td><code>47.128.63.0</code></td>
+          <td>attacker IP, all attack stages</td>
+      </tr>
+      <tr>
+          <td>Host</td>
+          <td><code>feefaworldcup.co.th</code></td>
+          <td>targeted WordPress host</td>
+      </tr>
+      <tr>
+          <td>Host</td>
+          <td><code>PACIFIC-DC.worldcup.ball</code></td>
+          <td>Domain Controller, lateral movement target</td>
+      </tr>
+      <tr>
+          <td>Host</td>
+          <td><code>APP-BKUP01$</code></td>
+          <td>backup server, RBCD target</td>
+      </tr>
+      <tr>
+          <td>Domain</td>
+          <td><code>worldcup.ball</code></td>
+          <td>compromised AD domain</td>
+      </tr>
+      <tr>
+          <td>CVE</td>
+          <td>CVE-2021-24762</td>
+          <td>Perfect Survey plugin SQLi, CVSS 9.8</td>
+      </tr>
+      <tr>
+          <td>Plugin</td>
+          <td><code>/wordpress/wp-content/plugins/perfect-survey/</code></td>
+          <td>vulnerable plugin path</td>
+      </tr>
+      <tr>
+          <td>Account</td>
+          <td><code>mourinho.j</code></td>
+          <td>initial AD foothold via cracked WordPress credentials</td>
+      </tr>
+      <tr>
+          <td>Account</td>
+          <td><code>alonso.x</code></td>
+          <td>Kerberoasted service account, used for RBCD setup</td>
+      </tr>
+      <tr>
+          <td>Account</td>
+          <td><code>MADRID$</code></td>
+          <td>rogue computer account created by attacker</td>
+      </tr>
+      <tr>
+          <td>Account</td>
+          <td><code>administrator@worldcup.ball</code></td>
+          <td>final compromised account via AD CS abuse</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group"><span class="hl">Attack Timeline</span>
+    <div id="attack-timeline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#attack-timeline" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<pre class="not-prose mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'background': '#ffffff', 'mainBkg': '#ffffff', 'primaryTextColor': '#000000', 'lineColor': '#333333', 'clusterBkg': '#ffffff', 'clusterBorder': '#333333'}}}%%
+graph TD
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:1px,color:#000;
+    classDef recon fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,color:#000;
+    classDef exploit fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#000;
+    classDef lateral fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000;
+    classDef persist fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000;
+    classDef pwned fill:#fce4ec,stroke:#880e4f,stroke-width:2px,color:#000;
+
+    A([47.128.63.0 - Attacker]):::default --> B[02:12:30 - Nmap NSE scan<br/>feefaworldcup.co.th/wordpress/]:::recon
+    B --> C[02:19:21 - WPScan v3.8.28<br/>Perfect Survey plugin discovered<br/>version.php and wp-cron.php accessed]:::recon
+    C --> D[02:23:39 - sqlmap 1.9.3<br/>CVE-2021-24762 initial probe<br/>/wp-admin/admin-ajax.php?action=get_question]:::exploit
+    D --> E[02:25:31 - UNION+XSS+RCE payload<br/>HTTP 200 - injection confirmed]:::exploit
+    E --> F[02:52:47 - Blind SQLi extraction<br/>user_pass from wordpress.wp_users<br/>ends at 03:11:50]:::exploit
+
+    subgraph AD [Active Directory Compromise]
+        F --> G[02:35 - mourinho.j access<br/>initial AD foothold]:::lateral
+        G --> H[02:40:44 - Event 4769<br/>Kerberoasting alonso.x<br/>RC4-HMAC ticket requested]:::lateral
+        H --> I[02:50 - alonso.x access<br/>hash cracked offline]:::lateral
+        I --> J[02:50:30 - Event 4741<br/>MADRID$ computer account created]:::persist
+        J --> K[02:50:31 - Event 4742<br/>RBCD configured on APP-BKUP01$]:::persist
+        K --> L[02:54:23 - logged into APP-BKUP01$]:::persist
+    end
+
+    subgraph Escalation [Domain Escalation]
+        L --> M[02:54:24 - Event 4886<br/>AD CS certificate request<br/>SAN: administrator@worldcup.ball]:::pwned
+        M --> N[02:54:32 - Event 4769<br/>administrator@worldcup.ball TGS<br/>PACIFIC-DC.worldcup.ball]:::pwned
+    end
+</pre>
+
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_blue_team\ELK-Perfect Survey\index.md"
+          data-oid-likes="likes_blue_team\ELK-Perfect Survey\index.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+
+    
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
