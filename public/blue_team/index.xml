@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/blue_team/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/blue_team/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ELK-Black Basta</title>
+      <link>http://localhost:1313/blue_team/elk-black-basta/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-black-basta/</guid>
+      <description>A finance employee opened a malicious Excel macro from a drive-by download, which executed a VBS dropper, loaded WindowsUpdaterFX.dll via regsvr32, established persistence, dropped Pancake.jpg.exe as a C2 backdoor, performed internal reconnaissance, laterally moved to a domain controller via PsExec using compromised credentials, exfiltrated client data to MEGA via rclone, deleted shadow copies, and deployed BlackBasta ransomware.</description>
+      
+    </item>
     
     <item>
       <title>ELK-Perfect Survey</title>

