@@ -281,3 +281,9 @@ article.flex.flex-col:hover h2 {
   text-decoration: underline;
   border-radius: 6px !important;
 }
+
+
+.active {
+  color: #10b981 !important;
+}
+

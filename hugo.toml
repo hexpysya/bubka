@@ -39,8 +39,8 @@ theme = "blowfish"
 colorScheme = "github"
 # avocado, fire, ocean, forest, princess, neon, bloody, terminal, marvel, noir, autumn, congo, slate, github, and one-light
 defaultAppearance = "light" # valid options: light or dark
-defaultBackgroundImage = ".jpg"
-highlightCurrentMenuArea = false
+defaultBackgroundImage = "gif1.gif"
+highlightCurrentMenuArea = true
 smartTOC = true
 favicon = "favicon.ico"
 description = " "
@@ -63,7 +63,7 @@ mainSections = ["investigations", "blue_team"]
 
 [params.homepage]
   layout = "background" # valid options: page, profile, hero, card, background, custom
-  homepage = "IMAGE.jpg"
+  homepage = "gif1.gif"
   showRecent = true
   showRecentItems = 3
   showMoreLink = true

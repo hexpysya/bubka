@@ -102,8 +102,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.d06df2e245feea7637bdd5686a930feabbf2e5249dd8448f2c72a8bc2a301701f778181c92cf08e97fbc7b2528032a6b55b124d53526a8007fdb6231f93716d6.css"
-    integrity="sha512-0G3y4kX&#43;6nY3vdVoapMP6rvy5SSd2ESPLHKovCowFwH3eBgcks8I6X&#43;8eyUoAyprVbEk1TUmqAB/22Ix&#43;TcW1g==">
+    href="/css/main.bundle.min.6fd4b8900b1491642e45a301ddc0e62e3044b29aba5cede445916db78d319096920cf87a472337976190ba979e93c155cfc2d99e5fb87cf220b6b36107fce6dd.css"
+    integrity="sha512-b9S4kAsUkWQuRaMB3cDmLjBEspq6XO3kRZFtt40xkJaSDPh6RyM3l2GQupeek8FVz8LZnl&#43;4fPIgtrNhB/zm3Q==">
 
   
   
@@ -485,6 +485,23 @@
 
 
 
+  <script>
+    (function () {
+      var mainmenu = document.querySelector(".main-menu");
+      if (!mainmenu) return;
+
+      var path = window.location.pathname;
+      var links = mainmenu.querySelectorAll('a[href="' + path + '"]');
+
+      links.forEach(function (link) {
+        var targets = link.querySelectorAll("span");
+        targets.forEach(function (el) {
+          el.classList.add("active");
+        });
+      });
+    })();
+  </script>
+
 
   </div>
 </div>
@@ -531,16 +548,60 @@
 
   
   
+    
+    
+  
 
 
 
 
+  
+    
+    
+      
+      
+    
   
 
 
 
 
 
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  
+  <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    
+    
+    
+    <img
+      id="background-image"
+      src="/gif1_hu_a5b3836485f3ff9f.gif"
+      role="presentation"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+      >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+    <div
+      class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal"></div>
+  </div>
+
+  
+    <div
+      id="background-blur"
+      class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div>
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+      integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+      data-blur-id="background-blur"
+      data-image-id="background-image"
+      data-image-url="/gif1_hu_a5b3836485f3ff9f.gif"></script>
+  
       
     
 

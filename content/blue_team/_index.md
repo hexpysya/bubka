@@ -1,17 +1,6 @@
----
-draft: false
-layout: "list"
-cascade:
-  showDate: true
-  showAuthor: false
-  showReadingTime: false
-  showTaxonomies: true
-  invertPagination: true
----
-
 <style>
   h2 {
-    font-size: 15px !important;
+    font-size: 16px !important;
   }
   .max-w-prose {
     max-width: none !important;
