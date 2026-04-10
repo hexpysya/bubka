@@ -12,7 +12,6 @@
 }
 
 body {
-  font-family: 'Sitka Small', sans-serif;
   font-size: small;
 }
 
@@ -27,6 +26,10 @@ body a {
 }
 
 
+h1 {
+  font-family: 'Sitka Small', sans-serif;
+}
+
 .hl {
   color: #121212;
 }
@@ -35,6 +38,17 @@ body a {
   color: lightblue;
 }
 
+.dark {
+  --color-primary-600: 0, 110, 184;
+  --color-primary-400: 31, 158, 234;
+  --color-secondary-400: 237, 36, 65;
+}
+
+
+:root {
+  font-size: 1rem;
+  --color-secondary-700: 237, 36, 65 !important;
+}
 
 .meta-box {
   display: flex;
@@ -283,7 +297,8 @@ article.flex.flex-col:hover h2 {
 }
 
 
-.active {
-  color: #10b981 !important;
+.active:not(#TableOfContents *) {
+  text-decoration: none; 
+  border-bottom: 2px solid; 
+  padding-bottom: 0.5px; 
 }
-

