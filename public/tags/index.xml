@@ -7,7 +7,107 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Active Directory</title>
+      <link>http://localhost:1313/tags/active-directory/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/active-directory/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>BruteForce</title>
+      <link>http://localhost:1313/tags/bruteforce/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/bruteforce/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ELK</title>
+      <link>http://localhost:1313/tags/elk/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/elk/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Log Analysis</title>
+      <link>http://localhost:1313/tags/log-analysis/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/log-analysis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Lsass</title>
+      <link>http://localhost:1313/tags/lsass/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/lsass/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Mimikatz</title>
+      <link>http://localhost:1313/tags/mimikatz/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/mimikatz/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PowerShell</title>
+      <link>http://localhost:1313/tags/powershell/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/powershell/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>RDP</title>
+      <link>http://localhost:1313/tags/rdp/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/rdp/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SIEM</title>
+      <link>http://localhost:1313/tags/siem/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/siem/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SOC</title>
+      <link>http://localhost:1313/tags/soc/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/soc/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>BlackBasta</title>
@@ -20,61 +120,11 @@
     </item>
     
     <item>
-      <title>ELK</title>
-      <link>http://localhost:1313/tags/elk/</link>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/elk/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Log Analysis</title>
-      <link>http://localhost:1313/tags/log-analysis/</link>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/log-analysis/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Ransomware</title>
       <link>http://localhost:1313/tags/ransomware/</link>
       <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/ransomware/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>SIEM</title>
-      <link>http://localhost:1313/tags/siem/</link>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/siem/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>SOC</title>
-      <link>http://localhost:1313/tags/soc/</link>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/soc/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Active Directory</title>
-      <link>http://localhost:1313/tags/active-directory/</link>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/active-directory/</guid>
       <description></description>
       
     </item>
@@ -180,16 +230,6 @@
     </item>
     
     <item>
-      <title>BruteForce</title>
-      <link>http://localhost:1313/tags/bruteforce/</link>
-      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/bruteforce/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Emotet</title>
       <link>http://localhost:1313/tags/emotet/</link>
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
@@ -225,16 +265,6 @@
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/password-spraying/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>RDP</title>
-      <link>http://localhost:1313/tags/rdp/</link>
-      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/rdp/</guid>
       <description></description>
       
     </item>
@@ -430,7 +460,7 @@
     </item>
     
     <item>
-      <title>Path-Traversal</title>
+      <title>Path Traversal</title>
       <link>http://localhost:1313/tags/path-traversal/</link>
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
       
@@ -620,16 +650,6 @@
     </item>
     
     <item>
-      <title>PowerShell</title>
-      <link>http://localhost:1313/tags/powershell/</link>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/powershell/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>SMTP</title>
       <link>http://localhost:1313/tags/smtp/</link>
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
@@ -810,7 +830,7 @@
     </item>
     
     <item>
-      <title>IDA</title>
+      <title>Ida</title>
       <link>http://localhost:1313/tags/ida/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       
@@ -1505,16 +1525,6 @@
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/cve-2024-4577/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Mimikatz</title>
-      <link>http://localhost:1313/tags/mimikatz/</link>
-      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/mimikatz/</guid>
       <description></description>
       
     </item>

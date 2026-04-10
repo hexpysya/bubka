@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/active-directory/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/active-directory/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Splunk-GoldenSpray</title>
+      <link>http://localhost:1313/blue_team/splunk-goldenspray/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-goldenspray/</guid>
+      <description>An attacker from 77.91.78.115 brute-forced mwilliams credentials, connected via RDP, dropped OfficeUpdater.exe with registry persistence, staged Backup_Tools including mimikatz, dumped lsass to obtain jsmith credentials, laterally moved to ST-DC01 and ST-FS01, established scheduled task persistence on the DC, and archived client data for exfiltration.</description>
+      
+    </item>
     
     <item>
       <title>ELK-Perfect Survey</title>

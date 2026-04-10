@@ -10,6 +10,11 @@ tags:
   - Log Analysis
   - BlackBasta
   - Ransomware
+  - Phishing
+  - LOLbins
+  - MEGA
+  - VBA
+  - PsExec
 ---
 
 ### <span class="hl">TL;DR</span>

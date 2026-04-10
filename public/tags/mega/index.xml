@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MEGA on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/mega/</link>
+    <description>Recent content in MEGA on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/mega/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ELK-Black Basta</title>
+      <link>http://localhost:1313/blue_team/elk-black-basta/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-black-basta/</guid>
+      <description>A finance employee opened a malicious Excel macro from a drive-by download, which executed a VBS dropper, loaded WindowsUpdaterFX.dll via regsvr32, established persistence, dropped Pancake.jpg.exe as a C2 backdoor, performed internal reconnaissance, laterally moved to a domain controller via PsExec using compromised credentials, exfiltrated client data to MEGA via rclone, deleted shadow copies, and deployed BlackBasta ransomware.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
