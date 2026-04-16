@@ -1001,18 +1001,18 @@
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">EventID :               116
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Event Time :            Feb, 26, 2022, 06:56 PM
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Rule :                  SOC166 - Javascript Code Detected in Requested URL
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Level :                 Security Analyst
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">Hostname :              WebServer1002
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">Destination IP Address : 172.16.17.17
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Source IP Address :     112.85.42.13
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">HTTP Request Method :   GET
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Requested URL :         https://172.16.17.17/search/?q=&lt;$script&gt;javascript:$alert(1)&lt;$/script&gt;
-</span></span><span class="line"><span class="ln">10</span><span class="cl">User-Agent :            Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
-</span></span><span class="line"><span class="ln">11</span><span class="cl">Alert Trigger Reason :  Javascript code detected in URL
-</span></span><span class="line"><span class="ln">12</span><span class="cl">Device Action :         Allowed</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>EventID :               116
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Event Time :            Feb, 26, 2022, 06:56 PM
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>Rule :                  SOC166 - Javascript Code Detected in Requested URL
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>Level :                 Security Analyst
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>Hostname :              WebServer1002
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Destination IP Address : 172.16.17.17
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Source IP Address :     112.85.42.13
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>HTTP Request Method :   GET
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>Requested URL :         https://172.16.17.17/search/?q=&lt;$script&gt;javascript:$alert(1)&lt;$/script&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>User-Agent :            Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>Alert Trigger Reason :  Javascript code detected in URL
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>Device Action :         Allowed</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Identification</span>
     <div id="identification" class="anchor"></div>
@@ -1111,13 +1111,13 @@
     data-zoom-src="/blue_team/ld-javascript-code-detected-in-requested-url/one_log_detailed.png"></figure>
 </p>
 <p>The full request history on the <code>/search/</code> endpoint reveals a systematic XSS probing sequence - the attacker started with a benign <code>q=test</code> request (HTTP 200, 885 bytes) to confirm the endpoint was live, then escalated through multiple injection techniques:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">q=test                                              - HTTP 200 (baseline probe)
-</span></span><span class="line"><span class="ln">2</span><span class="cl">q=prompt(8)                                         - HTTP 302
-</span></span><span class="line"><span class="ln">3</span><span class="cl">q=&lt;img src=q onerror=prompt(8)&gt;                     - HTTP 302 (img onerror)
-</span></span><span class="line"><span class="ln">4</span><span class="cl">q=&lt;svg&gt;&lt;script ?&gt;alert(1)                           - HTTP 302 (SVG vector)
-</span></span><span class="line"><span class="ln">5</span><span class="cl">q=&lt;script&gt;for((i)in(self))eval(i)(1)&lt;/script&gt;       - HTTP 302 (obfuscated eval)
-</span></span><span class="line"><span class="ln">6</span><span class="cl">q=&lt;script&gt;javascript:alert(1)                       - HTTP 302 (unclosed tag)
-</span></span><span class="line"><span class="ln">7</span><span class="cl">q=&lt;script&gt;javascript:alert(1)&lt;/script&gt;              - HTTP 302 (final payload)</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>q=test                                              - HTTP 200 (baseline probe)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>q=prompt(8)                                         - HTTP 302
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>q=&lt;img src=q onerror=prompt(8)&gt;                     - HTTP 302 (img onerror)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>q=&lt;svg&gt;&lt;script ?&gt;alert(1)                           - HTTP 302 (SVG vector)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>q=&lt;script&gt;for((i)in(self))eval(i)(1)&lt;/script&gt;       - HTTP 302 (obfuscated eval)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>q=&lt;script&gt;javascript:alert(1)                       - HTTP 302 (unclosed tag)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>q=&lt;script&gt;javascript:alert(1)&lt;/script&gt;              - HTTP 302 (final payload)</span></span></code></pre></div></div>
 <p>This pattern is consistent with manual or semi-automated XSS fuzzing - testing multiple bypass techniques to find one that evades server-side filtering.</p>
 
 <h4 class="relative group"><span class="hl">Did anyone else get targeted?</span>

@@ -982,7 +982,7 @@ The capture contains 4003 frames. TCP dominates at 93.3% of packets. Two protoco
     
 </h3>
 <p>I found a <code>GET</code> request from the victim <code>10.4.10.132</code> to <code>217.182.138.150</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">GET /proforma/tkraw_Protected99.exe HTTP/1.1</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>GET /proforma/tkraw_Protected99.exe HTTP/1.1</span></span></code></pre></div></div>
 <p>The server responded with <code>HTTP/1.1 200 OK</code> and <code>Content-Type: application/x-msdownload</code>, confirming a successful executable download.</p>
 <p><figure><img
     class="my-0 rounded-md"
@@ -1012,8 +1012,8 @@ The capture contains 4003 frames. TCP dominates at 93.3% of packets. Two protoco
     data-zoom-src="/investigations/cdef-hawkeye/image2.png"></figure>
 </p>
 <p>I then submitted the file hash to <strong>VirusTotal</strong>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">MD5: 71826ba081e303866ce2a2534491a2f7
-</span></span><span class="line"><span class="ln">2</span><span class="cl">File: tkraw_Protected99.exe (1.93 MB)</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>MD5: 71826ba081e303866ce2a2534491a2f7
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>File: tkraw_Protected99.exe (1.93 MB)</span></span></code></pre></div></div>
 <p><strong>58 out of 72</strong> security vendors flagged it as malicious. The popular threat label is <code>trojan.autoit/gen8</code>, with family labels including <strong>hawkeye</strong> - confirming this is a <strong>HawkEye Keylogger</strong> dropper packed with AutoIt. VirusTotal behavior tags include <code>persistence</code>, <code>clipboard</code>, <code>checks-network-adapters</code>, <code>detect-debug-environment</code> and <code>long-sleeps</code> - consistent with a keylogger.</p>
 <p><figure><img
     class="my-0 rounded-md"
@@ -1039,9 +1039,9 @@ The capture contains 4003 frames. TCP dominates at 93.3% of packets. Two protoco
     
 </h3>
 <p>After the download, filtering HTTP traffic revealed a recurring pattern - every 10 minutes, <code>10.4.10.132</code> sent a <code>GET /</code> request to <code>66.171.248.178</code>.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">GET / HTTP/1.1
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Host: bot.whatismyipaddress.com
-</span></span><span class="line"><span class="ln">3</span><span class="cl">Connection: Keep-Alive</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>GET / HTTP/1.1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Host: bot.whatismyipaddress.com
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Connection: Keep-Alive</span></span></code></pre></div></div>
 <p>The server responded with the victim&rsquo;s external IP address - <code>173.66.146.112</code>. This is a common technique used by malware to determine the public IP of the infected machine before exfiltration, allowing the attacker to correlate the victim&rsquo;s identity.</p>
 <p><figure><img
     class="my-0 rounded-md"
@@ -1067,20 +1067,20 @@ The capture contains 4003 frames. TCP dominates at 93.3% of packets. Two protoco
     
 </h3>
 <p>Switching focus to SMTP traffic, I followed the TCP streams on port 25 connections going to <code>23.229.162.69</code>. The captured SMTP session revealed the attacker&rsquo;s exfiltration channel:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">From: sales.del@macwinlogistics.in
-</span></span><span class="line"><span class="ln">2</span><span class="cl">To:   sales.del@macwinlogistics.in
-</span></span><span class="line"><span class="ln">3</span><span class="cl">Content-Transfer-Encoding: base64</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>From: sales.del@macwinlogistics.in
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>To:   sales.del@macwinlogistics.in
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Content-Transfer-Encoding: base64</span></span></code></pre></div></div>
 <p>The credentials used to authenticate to the SMTP server: <code>Sales@23</code>. The email body was base64-encoded - after decoding, the content confirmed the malware identity and revealed stolen credentials:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">HawkEye Keylogger - Reborn v9
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Passwords Logs
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">roman.mcguire \ BEIJING-5CD1-PC
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">URL               : https://login.aol.com/account/challenge/password
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">Web Browser       : Internet Explorer 7.0 - 9.0
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">User Name         : roman.mcguire914@aol.com
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">Password          : P@ssw0rd$
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Password Strength : Very Strong
-</span></span><span class="line"><span class="ln">10</span><span class="cl">...</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>HawkEye Keylogger - Reborn v9
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Passwords Logs
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>roman.mcguire \ BEIJING-5CD1-PC
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>URL               : https://login.aol.com/account/challenge/password
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Web Browser       : Internet Explorer 7.0 - 9.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>User Name         : roman.mcguire914@aol.com
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>Password          : P@ssw0rd$
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>Password Strength : Very Strong
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>...</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"

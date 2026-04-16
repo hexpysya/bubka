@@ -727,7 +727,7 @@
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    LOLbins
+    LOLBins
   </span>
 </span>
 
@@ -1063,10 +1063,10 @@ and others including <code>C:\Users\Administrator\Desktop\</code> and <code>C:\U
     data-zoom-src="/blue_team/elk-revil/pid.png"></figure>
 </p>
 <p>The expanded document showed the responsible process was <code>C:\Users\Administrator\Downloads\facebook assistant.exe</code> running as <strong>WIN-1RKSOVFDBN0\Administrator</strong> with PID <strong>5348</strong>, created at <strong>2023-09-07 16:09:59</strong>. The file was executed directly from the Administrator&rsquo;s Downloads folder with <strong>High</strong> integrity level. I extracted the hash from <code>winlog.event_data.Hashes</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">SHA1=E5D8D5EECF7957996485CBC1CDBEAD9221672A1A
-</span></span><span class="line"><span class="ln">2</span><span class="cl">MD5=4D84641B65D8BB6C3EF03BF59434242D
-</span></span><span class="line"><span class="ln">3</span><span class="cl">SHA256=B8D7FB4488C0556385498271AB9FFFDF0EB38BB2A330265D9852E3A6288092AA
-</span></span><span class="line"><span class="ln">4</span><span class="cl">IMPHASH=C686E5B9F7A178EB79F1CF16460B6A18</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>SHA1=E5D8D5EECF7957996485CBC1CDBEAD9221672A1A
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>MD5=4D84641B65D8BB6C3EF03BF59434242D
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>SHA256=B8D7FB4488C0556385498271AB9FFFDF0EB38BB2A330265D9852E3A6288092AA
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>IMPHASH=C686E5B9F7A178EB79F1CF16460B6A18</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1105,7 +1105,7 @@ and others including <code>C:\Users\Administrator\Desktop\</code> and <code>C:\U
     data-zoom-src="/blue_team/elk-revil/powershell.png"></figure>
 </p>
 <p>The query returned 1 hit - a <strong>PowerShell</strong> process (PID 1860) launched at <strong>2023-09-07 16:09:53</strong> with a base64-encoded command line. Decoding the payload revealed:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Get-WmiObject Win32_Shadowcopy | ForEach-Object {$_.Delete();}</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Get-WmiObject Win32_Shadowcopy | ForEach-Object {$_.Delete();}</span></span></code></pre></div></div>
 <p>This command enumerates all <strong>Volume Shadow Copies</strong> via WMI and deletes them - the standard technique used by ransomware to prevent victims from restoring files from Windows built-in snapshots. The PowerShell binary was signed by Microsoft Corporation, confirming the attacker used a legitimate system binary (LOLBin) to execute the destructive command.</p>
 
 <h3 class="relative group"><span style="color:red">Malware Confirmation</span>
@@ -1143,7 +1143,7 @@ and others including <code>C:\Users\Administrator\Desktop\</code> and <code>C:\U
     
 </h3>
 <p>I submitted the sample to <strong>any.run</strong> for dynamic analysis. The sandbox captured DNS resolution activity showing the sample contacted the Tor onion address:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">aplebzu47wgazapdqks6vrcv6zcnjppkbxbr6wketf56nf6aq2nmyoyd.onion</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>aplebzu47wgazapdqks6vrcv6zcnjppkbxbr6wketf56nf6aq2nmyoyd.onion</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"

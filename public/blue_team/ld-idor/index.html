@@ -989,18 +989,18 @@
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">EventID :               119
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Event Time :            Feb, 28, 2022, 10:48 PM
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Rule :                  SOC169 - Possible IDOR Attack Detected
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Level :                 Security Analyst
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">Hostname :              WebServer1005
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">Destination IP Address: 172.16.17.15
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Source IP Address :     134.209.118.137
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">HTTP Request Method :   POST
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Requested URL :         https://172.16.17.15/get_user_info/
-</span></span><span class="line"><span class="ln">10</span><span class="cl">User-Agent :            Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)
-</span></span><span class="line"><span class="ln">11</span><span class="cl">Alert Trigger Reason :  consecutive requests to the same page
-</span></span><span class="line"><span class="ln">12</span><span class="cl">Device Action :         Allowed</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>EventID :               119
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Event Time :            Feb, 28, 2022, 10:48 PM
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>Rule :                  SOC169 - Possible IDOR Attack Detected
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>Level :                 Security Analyst
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>Hostname :              WebServer1005
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Destination IP Address: 172.16.17.15
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Source IP Address :     134.209.118.137
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>HTTP Request Method :   POST
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>Requested URL :         https://172.16.17.15/get_user_info/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>User-Agent :            Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>Alert Trigger Reason :  consecutive requests to the same page
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>Device Action :         Allowed</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Identification</span>
     <div id="identification" class="anchor"></div>
@@ -1085,13 +1085,13 @@
     sizes="(min-width: 768px) 50vw, 65vw"
     data-zoom-src="/blue_team/ld-idor/logs.png"></figure>
 </p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Request URL: https://172.16.17.15/get_user_info/
-</span></span><span class="line"><span class="ln">2</span><span class="cl">User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)
-</span></span><span class="line"><span class="ln">3</span><span class="cl">Request Method: POST
-</span></span><span class="line"><span class="ln">4</span><span class="cl">Device Action: Permitted
-</span></span><span class="line"><span class="ln">5</span><span class="cl">HTTP Response Size: 253
-</span></span><span class="line"><span class="ln">6</span><span class="cl">HTTP Response Status: 200
-</span></span><span class="line"><span class="ln">7</span><span class="cl">POST Parameters: ?user_id=2</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Request URL: https://172.16.17.15/get_user_info/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Request Method: POST
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Device Action: Permitted
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>HTTP Response Size: 253
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>HTTP Response Status: 200
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>POST Parameters: ?user_id=2</span></span></code></pre></div></div>
 <p><strong>I</strong>nsecure <strong>D</strong>irect <strong>O</strong>bject <strong>R</strong>eference (IDOR) is an access control vulnerability where an attacker manipulates object references - such as user IDs in a URL or request body - to access data belonging to other users. The endpoint <code>/get_user_info/</code> is a target for this type of enumeration. The consecutive POST requests from a single external IP suggest the attacker was iterating through user identifiers to extract account data without authorization.</p>
 
 <h4 class="relative group"><span class="hl">Did anyone else get targeted?</span>

@@ -1077,7 +1077,7 @@
     
 </h3>
 <p>I started with a broad query to catch anything suspicious in Downloads around process creation and file activity:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">index=shadowroast event.code IN (1, 11, 15) AND *Downloads* | sort _time</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>index=shadowroast event.code IN (1, 11, 15) AND *Downloads* | sort _time</span></span></code></pre></div></div>
 <p>At <strong>01:05:15</strong>, CORPNET\sanderson ran <code>AdobeUpdater.exe</code> from their Downloads folder - parent was Explorer (PID 4340), medium integrity. Four seconds later they ran it again, this time getting PID 4928 at High integrity.</p>
 <p><figure><img
     class="my-0 rounded-md"
@@ -1127,9 +1127,9 @@
     
 </h4>
 <p>Within two seconds of execution, PID 4928 wrote a Run key:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">HKU\...\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\wyW5PZyF</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>HKU\...\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\wyW5PZyF</span></span></code></pre></div></div>
 <p>The value is a one-liner that reads a base64 blob from a registry key (<code>HKCU:Software\EdI86bhr</code>, value <code>OQqd5sjJ</code>) and executes it via <code>iex</code> in a hidden PowerShell window - fileless execution straight from the registry.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">%</span><span class="k">%</span><span class="n">COMSPEC</span><span class="p">%%</span> <span class="p">/</span><span class="n">b</span> <span class="p">/</span><span class="n">c</span> <span class="nb">start </span><span class="p">/</span><span class="n">b</span> <span class="p">/</span><span class="n">min</span> <span class="n">powershell</span> <span class="n">-nop</span> <span class="n">-w</span> <span class="n">hidden</span> <span class="n">-c</span> <span class="s2">&#34;sleep 0; iex([System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String((Get-Item &#39;HKCU:Software\EdI86bhr&#39;).GetValue(&#39;OQqd5sjJ&#39;))))&#34;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>%<span style="color:#66d9ef">%</span>COMSPEC%% /b /c start /b /min powershell -nop -w hidden -c <span style="color:#e6db74">&#34;sleep 0; iex([System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String((Get-Item &#39;HKCU:Software\EdI86bhr&#39;).GetValue(&#39;OQqd5sjJ&#39;))))&#34;</span></span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1178,9 +1178,9 @@
     
 </h4>
 <p>Between <strong>01:07:09 and 01:07:19</strong>, event id 11 showed PID 4928 dropping three files into <code>C:\Users\Default\AppData\Local\Temp\</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">BackupUtility.exe    - 01:07:09
-</span></span><span class="line"><span class="ln">2</span><span class="cl">SystemDiagnostics.ps1 - 01:07:14
-</span></span><span class="line"><span class="ln">3</span><span class="cl">DefragTool.exe       - 01:07:19</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>BackupUtility.exe    - 01:07:09
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>SystemDiagnostics.ps1 - 01:07:14
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>DefragTool.exe       - 01:07:19</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1282,7 +1282,7 @@
 </h4>
 <p>After several LDAP connections to DC01 at <code>10.0.0.147:389</code>, at <strong>01:10:45</strong> the attacker executed BackupUtility.exe, which is actually a Rubeus (MD5: 95BA181C0359495EFFEF4A990365752F).
 Rubeus is a command-line tool developed to misuse and manipulate Kerberos authentication in Windows Active Directory environments. Its main purpose is to launch different attacks based on Kerberos, including ticket-grabbing, ticket-manipulation, and pass-the-ticket attacks. Rubeus offers an interface for using Kerberos functionality to elevate privileges, impersonate users, and gain unauthorized access to resources within a compromised Active Directory environment.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">&#34;C:\Users\Default\AppData\Local\Temp\BackupUtility.exe&#34; asreproast /format:hashcat</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&#34;C:\Users\Default\AppData\Local\Temp\BackupUtility.exe&#34; asreproast /format:hashcat</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1322,7 +1322,7 @@ Rubeus is a command-line tool developed to misuse and manipulate Kerberos authen
     data-zoom-src="/blue_team/splunk-shadowroast/image-11.png"></figure>
 </p>
 <p>A Splunk query for Kerberos TGT requests with pre-auth type 0 (meaning no pre-authentication was required) confirmed the attack succeeded against four accounts:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">index=shadowroast event.code=4768 winlog.event_data.PreAuthType=0</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>index=shadowroast event.code=4768 winlog.event_data.PreAuthType=0</span></span></code></pre></div></div>
 <p>The query returned 11 events between <strong>01:03:38 and 01:19:20</strong>, with target usernames sanderson, tcooper, FileShareService, and Administrator - all returning status <code>0x0</code> (success), meaning the AS-REP hashes were successfully obtained for offline cracking.</p>
 <p><figure><img
     class="my-0 rounded-md"
@@ -1420,7 +1420,7 @@ Rubeus is a command-line tool developed to misuse and manipulate Kerberos authen
     
 </h4>
 <p>At <strong>01:17:14</strong>, the attacker ran a <code>reg.exe</code> command on FileServer to enable incoming RDP connections by setting <code>fDenyTSConnections</code> to 0 - by default this value is 1, which blocks Remote Desktop. Setting it to 0 opens the server to RDP from any address:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">&#34;C:\Windows\system32\reg.exe&#34; add &#34;hklm\system\currentcontrolset\control\terminal server&#34; /f /v fDenyTSConnections /t REG_DWORD /d 0</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&#34;C:\Windows\system32\reg.exe&#34; add &#34;hklm\system\currentcontrolset\control\terminal server&#34; /f /v fDenyTSConnections /t REG_DWORD /d 0</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1446,7 +1446,7 @@ Rubeus is a command-line tool developed to misuse and manipulate Kerberos authen
     
 </h3>
 <p>At <strong>01:20:44</strong>, via the RDP session, a PowerShell command navigated to the shares directory:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">powershell</span><span class="p">.</span><span class="py">exe</span> <span class="n">-noexit</span> <span class="n">-command</span> <span class="nb">Set-Location</span> <span class="n">-literalPath</span> <span class="s1">&#39;C:\Shares&#39;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>powershell.exe -noexit -command Set-Location -literalPath <span style="color:#e6db74">&#39;C:\Shares&#39;</span></span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"

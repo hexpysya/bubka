@@ -11,10 +11,10 @@
     
     <item>
       <title>Splunk-AWSRaid</title>
-      <link>http://localhost:1313/blue_team/sentinel-s3credentialshunt/</link>
+      <link>http://localhost:1313/blue_team/splunk-awsraid/</link>
       <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/blue_team/sentinel-s3credentialshunt/</guid>
+      <guid>http://localhost:1313/blue_team/splunk-awsraid/</guid>
       <description>An attacker conducted a brute-force attack to compromise the helpdesk.luke account, performed reconnaissance from various VPN IPs, exfiltrated sensitive data including customer backups and secrets, modified bucket permissions, and established persistence by creating an admin backdoor account.</description>
       
     </item>

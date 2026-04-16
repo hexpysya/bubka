@@ -1168,7 +1168,7 @@
     
 </h4>
 <p>The attacker immediately established persistence by executing <code>reg.exe</code> with <strong>High</strong> integrity level to write a Run key:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v OfficeUpdater /t REG_SZ /d &#34;C:\Windows\Temp\OfficeUpdater.exe&#34; /f</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v OfficeUpdater /t REG_SZ /d &#34;C:\Windows\Temp\OfficeUpdater.exe&#34; /f</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1316,7 +1316,7 @@ Placing these in <code>C:\Users\Public\</code> ensures they are accessible from 
     
 </h4>
 <p>Between <strong>17:36:36 and 17:42:27</strong> on <code>ST-DC01</code>, the attacker dropped <code>C:\Windows\Temp\FileCleaner.exe</code> (Event ID 11) and created a scheduled task for persistent SYSTEM-level execution:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">schtasks /create /tn &#34;FilesCheck&#34; /tr &#34;powershell.exe -ExecutionPolicy Bypass -File C:\Windows\Temp\FileCleaner.exe&#34; /sc hourly /ru SYSTEM</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>schtasks /create /tn &#34;FilesCheck&#34; /tr &#34;powershell.exe -ExecutionPolicy Bypass -File C:\Windows\Temp\FileCleaner.exe&#34; /sc hourly /ru SYSTEM</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"

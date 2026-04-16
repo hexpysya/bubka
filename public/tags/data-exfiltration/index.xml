@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/data-exfiltration/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/data-exfiltration/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>ELK-BumbleBee - GOLD CABIN</title>
-      <link>http://localhost:1313/blue_team/elk-bumblebee---gold-cabin/</link>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <title>CDEF-CallMeOnTheChain - EtherRAT</title>
+      <link>http://localhost:1313/investigations/cdef-callmeonthechain---etherrat/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/blue_team/elk-bumblebee---gold-cabin/</guid>
-      <description>An employee at CompliantSecure received a phishing email from emkei.cz, downloaded a malicious ISO containing BumbleBee loader 23.dll, which established C2 to 3.68.97.124 and injected into ImagingDevices.exe, dumped LSASS credentials, laterally moved to DC01 via PsExec using markw credentials, staged AdFind and AnyDesk, created sql_admin backdoor account, moved to FileServer01 and Support01, exfiltrated archived share data, and deployed Conti ransomware dropping R3ADM3.txt ransom notes.</description>
+      <guid>http://localhost:1313/investigations/cdef-callmeonthechain---etherrat/</guid>
+      <description>An attacker breached Maromalix&amp;rsquo;s public-facing web application by exploiting CVE-2025-55182 (Next.js Deserialization RCE). They deployed a multi-stage implant dubbed EtherRAT, which utilizes a blockchain-based C2 mechanism via Ethereum smart contracts to dynamically resolve infrastructure. The attacker exfiltrated sensitive data, established multiple persistence mechanisms, and ultimately patched the vulnerability to lock out other actors.</description>
       
     </item>
     

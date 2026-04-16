@@ -920,27 +920,27 @@
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln">1</span><span class="cl"><span class="go">msf.doc: Rich Text Format data, version 1, ANSI, code page 1252, default middle east language ID 1025
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>msf.doc: Rich Text Format data, version 1, ANSI, code page 1252, default middle east language ID 1025
+</span></span></code></pre></div></div>
 <p><code>rtfobj</code> identified an embedded OLE object of class <code>OLE2Link</code> containing a URL pointing to a remote HTA file:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="gp">$</span> rtfobj msf.doc
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="go">===============================================================================
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="go">File: &#39;msf.doc&#39; - size: 5743 bytes
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="go">---+----------+---------------------------------------------------------------
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="go">id |index     |OLE Object
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="go">---+----------+---------------------------------------------------------------
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="go">0  |000001B4h |format_id: 2 (Embedded)
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="go">   |          |class name: b&#39;OLE2Link&#39;
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="go">   |          |data size: 2560
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="go">   |          |MD5 = &#39;053ba4dffb352244944dba6f29957f4c&#39;
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="go">   |          |CLSID: 00000300-0000-0000-C000-000000000046
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="go">   |          |StdOleLink (embedded OLE object - Known Related to
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="go">   |          |CVE-2017-0199, CVE-2017-8570, CVE-2017-8759 or CVE-2018-8174)
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="go">   |          |Possibly an exploit for the OLE2Link vulnerability (VU#921560,
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="go">   |          |CVE-2017-0199)
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="go">   |          |URL extracted: http://192.168.248.129:8080/default.hta
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="go">---+----------+---------------------------------------------------------------
-</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>$ rtfobj msf.doc
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>===============================================================================
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>File: &#39;msf.doc&#39; - size: 5743 bytes
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>---+----------+---------------------------------------------------------------
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>id |index     |OLE Object
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>---+----------+---------------------------------------------------------------
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>0  |000001B4h |format_id: 2 (Embedded)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>   |          |class name: b&#39;OLE2Link&#39;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>   |          |data size: 2560
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>   |          |MD5 = &#39;053ba4dffb352244944dba6f29957f4c&#39;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>   |          |CLSID: 00000300-0000-0000-C000-000000000046
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>   |          |StdOleLink (embedded OLE object - Known Related to
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>   |          |CVE-2017-0199, CVE-2017-8570, CVE-2017-8759 or CVE-2018-8174)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>   |          |Possibly an exploit for the OLE2Link vulnerability (VU#921560,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>   |          |CVE-2017-0199)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>   |          |URL extracted: http://192.168.248.129:8080/default.hta
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>---+----------+---------------------------------------------------------------
+</span></span></code></pre></div></div>
 <p><strong>CVE-2017-0199</strong> is a Microsoft Office vulnerability that allows a malicious RTF document to automatically fetch and execute a remote HTA file via <code>mshta.exe</code> when the document is opened — without requiring macros to be enabled or any additional user interaction.</p>
 
 <h3 class="relative group"><span style="color:lightblue">IOCs</span>

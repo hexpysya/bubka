@@ -999,18 +999,18 @@
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">EventID :                       120
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Event Time :                    Mar, 01, 2022, 10:10 AM
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Rule :                          SOC170 - Passwd Found in Requested URL - Possible LFI Attack
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">Level :                         Security Analyst
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">Hostname :                      WebServer1006
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">Destination IP Address :        172.16.17.13
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Source IP Address :             106.55.45.162
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">HTTP Request Method :           GET
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Requested URL :                 https://172.16.17.13/?file=../../../../etc/passwd
-</span></span><span class="line"><span class="ln">10</span><span class="cl">User-Agent :                    Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)
-</span></span><span class="line"><span class="ln">11</span><span class="cl">Alert Trigger Reason :          URL Contains passwd
-</span></span><span class="line"><span class="ln">12</span><span class="cl">Device Action :                 Allowed</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>EventID :                       120
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Event Time :                    Mar, 01, 2022, 10:10 AM
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>Rule :                          SOC170 - Passwd Found in Requested URL - Possible LFI Attack
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>Level :                         Security Analyst
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>Hostname :                      WebServer1006
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Destination IP Address :        172.16.17.13
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Source IP Address :             106.55.45.162
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>HTTP Request Method :           GET
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>Requested URL :                 https://172.16.17.13/?file=../../../../etc/passwd
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>User-Agent :                    Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>Alert Trigger Reason :          URL Contains passwd
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>Device Action :                 Allowed</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Identification</span>
     <div id="identification" class="anchor"></div>
@@ -1095,11 +1095,11 @@
     sizes="(min-width: 768px) 50vw, 65vw"
     data-zoom-src="/blue_team/ld-passwd-found-in-requested-url---possible-lfi-attack/logs.png"></figure>
 </p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Request URL:   https://172.16.17.13/?file=../../../../etc/passwd
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Request Method: GET
-</span></span><span class="line"><span class="ln">3</span><span class="cl">Device Action: Permitted
-</span></span><span class="line"><span class="ln">4</span><span class="cl">HTTP Response Size: 0
-</span></span><span class="line"><span class="ln">5</span><span class="cl">HTTP Response Status: 500</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Request URL:   https://172.16.17.13/?file=../../../../etc/passwd
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Request Method: GET
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Device Action: Permitted
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>HTTP Response Size: 0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>HTTP Response Status: 500</span></span></code></pre></div></div>
 <p>Only one connection from <code>106.55.45.162</code> was observed in the firewall logs - a single probe rather than a multi-payload enumeration campaign.</p>
 
 <h4 class="relative group"><span class="hl">Did anyone else get targeted?</span>

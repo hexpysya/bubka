@@ -1036,9 +1036,9 @@
     
 </h4>
 <p>By analyzing the victim&rsquo;s Chrome history using ChromeHistoryView, I identified that on <strong>2025-05-23 14:20:07</strong> the victim visited the legitimate company intranet. Two days later, on <strong>2025-05-25 13:36:42</strong>, they clicked a phishing URL that harvested their credentials:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">http://intranet.wowzainc.co.th/landing.php     2025-05-23 14:20:07
-</span></span><span class="line"><span class="ln">2</span><span class="cl">https://login.wowzalnc.co.th/logon.php         2025-05-25 13:36:42  &lt;- phishing
-</span></span><span class="line"><span class="ln">3</span><span class="cl">https://mail.wowzainc.co.th/inbox.php          2025-05-23 14:21:17</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>http://intranet.wowzainc.co.th/landing.php     2025-05-23 14:20:07
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>https://login.wowzalnc.co.th/logon.php         2025-05-25 13:36:42  &lt;- phishing
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>https://mail.wowzainc.co.th/inbox.php          2025-05-23 14:21:17</span></span></code></pre></div></div>
 <p>The phishing domain <code>wowzalnc.co.th</code> impersonates the legitimate <code>wowzainc.co.th</code> by replacing the letter <code>i</code> with <code>l</code>.</p>
 
 <h4 class="relative group">RDP Access
@@ -1051,12 +1051,12 @@
     
 </h4>
 <p>Using the harvested credentials, the attacker gained remote access via RDP on <strong>2025-05-27 11:59:57</strong>. This was confirmed by Event ID 4624 in <code>Security.evtx</code> with Logon Type 10 (RemoteInteractive):</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl"># Security.evtx / Event ID 4624
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Logon Type:       10
-</span></span><span class="line"><span class="ln">3</span><span class="cl">Account Name:     otello.j
-</span></span><span class="line"><span class="ln">4</span><span class="cl">Account Domain:   WORKSTATION6
-</span></span><span class="line"><span class="ln">5</span><span class="cl">Logon ID:         0x2A017F
-</span></span><span class="line"><span class="ln">6</span><span class="cl">Security ID:      S-1-5-21-888844466-1397619329-4015378808-1001</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span># Security.evtx / Event ID 4624
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Logon Type:       10
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Account Name:     otello.j
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Account Domain:   WORKSTATION6
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>Logon ID:         0x2A017F
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>Security ID:      S-1-5-21-888844466-1397619329-4015378808-1001</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Privilege Escalation</span>
     <div id="privilege-escalation" class="anchor"></div>
@@ -1078,10 +1078,10 @@
     
 </h4>
 <p>On <strong>2025-05-28 12:36:59</strong>, the attacker visited <code>freehackingtool.com</code> and browsed its tools section:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">http://freehackingtool.com/              2025-05-28 12:36:59
-</span></span><span class="line"><span class="ln">2</span><span class="cl">http://freehackingtool.com/tools/        2025-05-28 12:37:09
-</span></span><span class="line"><span class="ln">3</span><span class="cl">http://freehackingtool.com/tools/        2025-05-28 12:53:36
-</span></span><span class="line"><span class="ln">4</span><span class="cl">http://freehackingtool.com/              2025-05-28 12:55:02</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>http://freehackingtool.com/              2025-05-28 12:36:59
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>http://freehackingtool.com/tools/        2025-05-28 12:37:09
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>http://freehackingtool.com/tools/        2025-05-28 12:53:36
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>http://freehackingtool.com/              2025-05-28 12:55:02</span></span></code></pre></div></div>
 <p>From this site, download attempts were made for three files: <code>SeManageVolumeExploit.exe</code>, <code>a.vbs</code>, and <code>PrintConfig.dll</code>.</p>
 <p><figure><img
     class="my-0 rounded-md"
@@ -1133,14 +1133,14 @@
 </p>
 <p>To work around this, the attacker used the LOLBIN <code>certutil.exe</code> to download the file at <strong>2025-05-28 12:45:37</strong>. This was confirmed by analyzing the <code>CryptnetUrlCache/Metadata</code> artifacts. The legitimate DLL at <code>C:\Windows\system32\spool\drivers\x64\12\PrintConfig.dll</code> was then removed and replaced with the malicious version.</p>
 <p>At <strong>2025-05-28 15:19:35</strong>, Windows Defender detected and flagged the replaced DLL:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Name:      Trojan:Win64/Meterpreter.E
-</span></span><span class="line"><span class="ln">2</span><span class="cl">ID:        2147721833
-</span></span><span class="line"><span class="ln">3</span><span class="cl">Severity:  Severe
-</span></span><span class="line"><span class="ln">4</span><span class="cl">Path:      C:\Windows\system32\spool\drivers\x64\3\PrintConfig.dll
-</span></span><span class="line"><span class="ln">5</span><span class="cl">           service: PrintNotify
-</span></span><span class="line"><span class="ln">6</span><span class="cl">Detection Origin:  Local machine
-</span></span><span class="line"><span class="ln">7</span><span class="cl">User:              NT AUTHORITY\SYSTEM
-</span></span><span class="line"><span class="ln">8</span><span class="cl">Engine Version:    AM: 1.1.25050.2</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Name:      Trojan:Win64/Meterpreter.E
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>ID:        2147721833
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>Severity:  Severe
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>Path:      C:\Windows\system32\spool\drivers\x64\3\PrintConfig.dll
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>           service: PrintNotify
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>Detection Origin:  Local machine
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>User:              NT AUTHORITY\SYSTEM
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>Engine Version:    AM: 1.1.25050.2</span></span></code></pre></div></div>
 
 <h4 class="relative group">tzres.dll — Secondary Malicious DLL
     <div id="tzresdll--secondary-malicious-dll" class="anchor"></div>
@@ -1176,11 +1176,11 @@
     
 </h4>
 <p>From the PowerShell console history, I found that the attacker triggered execution of the malicious <code>PrintConfig.dll</code> by instantiating a COM object associated with the Windows spooler service:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">dir
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nv">$type</span> <span class="p">=</span> <span class="p">[</span><span class="no">Type</span><span class="p">]::</span><span class="n">GetTypeFromCLSID</span><span class="p">(</span><span class="s2">&#34;{854A20FB-2D44-457D-992F-EF13785D2B51}&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nv">$object</span> <span class="p">=</span> <span class="p">[</span><span class="no">Activator</span><span class="p">]::</span><span class="n">CreateInstance</span><span class="p">(</span><span class="nv">$type</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">dir
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="n">reg</span> <span class="n">add</span> <span class="s2">&#34;HKCU\control panel\desktop&#34;</span> <span class="p">/</span><span class="n">v</span> <span class="n">wallpaper</span> <span class="p">/</span><span class="n">t</span> <span class="n">REG_SZ</span> <span class="p">/</span><span class="n">d</span> <span class="s2">&#34;C:/Users/Public/Pictures/gg.bmp&#34;</span> <span class="p">/</span><span class="n">f</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>dir
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>$type = [<span style="color:#66d9ef">Type</span>]::GetTypeFromCLSID(<span style="color:#e6db74">&#34;{854A20FB-2D44-457D-992F-EF13785D2B51}&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>$object = [<span style="color:#66d9ef">Activator</span>]::CreateInstance($type)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>dir
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>reg add <span style="color:#e6db74">&#34;HKCU\control panel\desktop&#34;</span> /v wallpaper /t REG_SZ /d <span style="color:#e6db74">&#34;C:/Users/Public/Pictures/gg.bmp&#34;</span> /f</span></span></code></pre></div></div>
 <p>The CLSID <code>{854A20FB-2D44-457D-992F-EF13785D2B51}</code> is associated with the <code>PrintNotify</code> service. Instantiating it caused <code>spoolsv.exe</code> to load and execute the malicious <code>PrintConfig.dll</code>. Additionally, the attacker downloaded an image <code>gg.bmp</code> and set it as the desktop wallpaper — likely to signal successful compromise.</p>
 
 <h3 class="relative group"><span style="color:red">Persistence</span>
@@ -1203,13 +1203,13 @@
     
 </h4>
 <p>At <strong>2025-05-28 12:55:05</strong>, <code>a.vbs</code> was downloaded and moved to the Windows Startup folder to ensure execution on every boot:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\a.vbs</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\a.vbs</span></span></code></pre></div></div>
 <p>The script creates a <code>WScript.Shell</code> object and silently runs <code>systeminfo</code>:</p>
 <div class="highlight-wrapper"><pre tabindex="0"><code class="language-vbscript" data-lang="vbscript">Set WshShell = CreateObject(&#34;WScript.Shell&#34;)
 WshShell.Run &#34;cmd.exe /c systeminfo&#34;, 0, False</code></pre></div>
 <p><code>systeminfo</code> collects data via WMI, which triggers the WMI Provider Host (<code>wmiprvse.exe</code>). Since <code>wmiprvse.exe</code> executes all providers from the <code>\wbem\</code> directory, this causes the malicious <code>tzres.dll</code> to be loaded automatically.</p>
 <p>At <strong>2025-05-28 12:56:11</strong>, the <code>Hidden</code> attribute was set on <code>a.vbs</code> to conceal it from the victim:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">a.vbs  12:56:11  BasicInfoChange  Hidden|Archive</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>a.vbs  12:56:11  BasicInfoChange  Hidden|Archive</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:lightblue">Attack Timeline</span>
     <div id="attack-timeline" class="anchor"></div>
@@ -1220,17 +1220,17 @@ WshShell.Run &#34;cmd.exe /c systeminfo&#34;, 0, False</code></pre></div>
     </span>
     
 </h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">2025-05-23 14:20:07 - Victim visits legitimate intranet site
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">2025-05-25 13:36:42 - Victim clicks phishing URL, credentials harvested
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">2025-05-27 11:59:57 - Attacker gains RDP access as otello.j (Logon Type 10)
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">2025-05-28 12:36:59 - Attacker visits freehackingtool.com
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">2025-05-28 12:43:33 - SeManageVolumeExploit.exe successfully downloaded
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">2025-05-28 12:44:01 - Browser download of PrintConfig.dll interrupted (code 41)
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">2025-05-28 12:45:37 - PrintConfig.dll downloaded via certutil, replaces legitimate DLL
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">2025-05-28 12:54:23 - tzres.dll downloaded via certutil, placed in wbem\
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">2025-05-28 12:55:05 - a.vbs downloaded and placed in Startup folder
-</span></span><span class="line"><span class="ln">10</span><span class="cl">2025-05-28 12:56:11 - Hidden attribute set on a.vbs
-</span></span><span class="line"><span class="ln">11</span><span class="cl">2025-05-28 15:19:35 - Windows Defender detects PrintConfig.dll as Trojan:Win64/Meterpreter.E</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>2025-05-23 14:20:07 - Victim visits legitimate intranet site
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>2025-05-25 13:36:42 - Victim clicks phishing URL, credentials harvested
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>2025-05-27 11:59:57 - Attacker gains RDP access as otello.j (Logon Type 10)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>2025-05-28 12:36:59 - Attacker visits freehackingtool.com
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>2025-05-28 12:43:33 - SeManageVolumeExploit.exe successfully downloaded
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>2025-05-28 12:44:01 - Browser download of PrintConfig.dll interrupted (code 41)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>2025-05-28 12:45:37 - PrintConfig.dll downloaded via certutil, replaces legitimate DLL
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>2025-05-28 12:54:23 - tzres.dll downloaded via certutil, placed in wbem\
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>2025-05-28 12:55:05 - a.vbs downloaded and placed in Startup folder
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>2025-05-28 12:56:11 - Hidden attribute set on a.vbs
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>2025-05-28 15:19:35 - Windows Defender detects PrintConfig.dll as Trojan:Win64/Meterpreter.E</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:lightblue">IOCs</span>
     <div id="iocs" class="anchor"></div>

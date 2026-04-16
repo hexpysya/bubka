@@ -10,7 +10,7 @@ tags:
   - ELF64
   - Linux
   - AES
-  - Volatility Framework
+  - Volatility3
   - IDA
 platform: Malware Analysis
 ---

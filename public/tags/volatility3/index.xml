@@ -29,5 +29,15 @@
       
     </item>
     
+    <item>
+      <title>HTB-Lockpick3.0</title>
+      <link>http://localhost:1313/investigations/htb-lockpick3.0/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-lockpick3.0/</guid>
+      <description>A ELF64 ransomware binary uses XOR string obfuscation keyed on a CLI passphrase, contacts a DigitalOcean C2 to register and retrieve an AES-256-CBC key and IV, recursively encrypts target files in /share/ renaming them to .24bes, exfiltrates the originals via HTTP PUT, zeroes and removes the source files, and installs a systemd service for persistence.</description>
+      
+    </item>
+    
   </channel>
 </rss>
