@@ -7,17 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/phishing/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>LD-Malicious File Download Attempt</title>
-      <link>http://localhost:1313/blue_team/ld-malicious-file-download-attempt/</link>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/blue_team/ld-malicious-file-download-attempt/</guid>
-      <description>A malicious DOCM file was blocked on download at NicolasPRD. VirusTotal confirmed 38/65 detections with an AutoOpen macro that downloads and executes a PowerShell payload. No C2 contact was made.</description>
-      
-    </item>
+    <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/phishing/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>LD-Detected Suspicious Xls File</title>
@@ -26,6 +16,16 @@
       
       <guid>http://localhost:1313/blue_team/ld-detected-suspicious-xls-file/</guid>
       <description>A user executed a malicious XLSM file that exploited CVE-2017-11882 via the Equation Editor, dropped and ran an obfuscated VBS payload hidden in an NTFS alternate data stream, and connected to a Brazilian C2 domain flagged by 8/91 VirusTotal vendors.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Malicious File Download Attempt</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-file-download-attempt/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-file-download-attempt/</guid>
+      <description>A malicious DOCM file was blocked on download at NicolasPRD. VirusTotal confirmed 38/65 detections with an AutoOpen macro that downloads and executes a PowerShell payload. No C2 contact was made.</description>
       
     </item>
     

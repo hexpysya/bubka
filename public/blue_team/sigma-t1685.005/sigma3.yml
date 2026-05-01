@@ -1,0 +1,23 @@
+title: Detect Event Log Clearing
+id: 54c48b69-e2a4-43b7-a3e0-f636bc814c28
+status: test
+description: Detects attempts to clear Windows Event Logs via Event Log Clearing events (Event ID 1102 or 104).
+references:
+    - https://attack.mitre.org/techniques/T1070/001/
+author: bubka
+date: 2026-05-01
+tags:
+    - attack.t1070.001
+logsource:
+  product: windows
+  service: system
+detection:
+    selection:
+        EventID:
+            - 1102
+            - 104
+    condition: selection
+falsepositives:
+    - Legitimate administrative or maintenance scripts
+    - Automated monitoring or housekeeping tasks
+level: high
