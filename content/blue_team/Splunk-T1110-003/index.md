@@ -4,13 +4,14 @@ date: 2026-04-07
 draft: false
 summary: "An attacker from 192.168.1.60 (Kali) conducted a 5-minute RDP password spraying attack against dev.cyberdefenders.org, generating 4302 failed logon attempts across multiple usernames, and successfully authenticated as administrator and five other accounts via RDP."
 tags:
- - Splunk
- - SOC
- - SIEM
- - Log Analysis
- - Password Spraying
- - BruteForce
- - RDP
+  - Splunk
+  - SOC
+  - SIEM
+  - Log Analysis
+  - Password Spraying
+  - BruteForce
+  - RDP
+  - Windows
 ---
 
 ### <span class="hl">TL;DR</span>

@@ -4,12 +4,16 @@ date: 2026-04-02
 draft: false
 summary: "Alert triggered on the string 'ls' found in a legitimate search query parameter. The traffic originated from an internal IP to letsdefend.io and contains no malicious payload. False positive - rule lacks context awareness for partial string matches."
 tags:
- - SOC
- - SIEM
- - EDR
- - Log Analysis
- - False Positive
+  - SOC
+  - SIEM
+  - EDR
+  - Log Analysis
+  - False Positive
 ---
+
+### <span style="color:lightblue">TL;DR</span>
+
+The alert triggered on a legitimate blog search request from an internal host to letsdefend.io. The detection rule matched the letters “ls” inside the word “skills”, but there was no Linux command execution, command injection attempt, or malicious traffic. This is a false positive caused by a substring match without enough URL context.
 
 ### <span class="hl">Alert</span>
 ```

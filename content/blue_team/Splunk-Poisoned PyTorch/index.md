@@ -14,11 +14,12 @@ tags:
   - Python
   - Cobalt Strike
   - Active Directory
-  - Powershell
+  - PowerShell
   - RDP
   - WSL
   - Ransomware
   - Lynx
+  - VirusTotal
 ---
 
 ### <span class="hl">TL;DR</span>

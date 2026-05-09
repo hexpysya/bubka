@@ -7,9 +7,8 @@ tags:
   - Reverse Engineering
   - Linux
   - ELF
-  - ghidra
-  - avr
-
+  - Ghidra
+  - Avr
 platform: 
 ---
 **Description**  

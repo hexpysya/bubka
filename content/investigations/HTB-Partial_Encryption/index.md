@@ -7,9 +7,11 @@ tags:
   - Reverse Engineering
   - Windows
   - PE
-  - packer
-  - ida
-  - x64dbg
+  - Packer
+  - Ida
+  - X64dbg
+  - AES
+  - Anti-Debugging
 platform: reversing
 ---
 

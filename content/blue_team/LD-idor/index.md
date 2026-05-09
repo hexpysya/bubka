@@ -4,16 +4,21 @@ date: 2026-04-02
 draft: false
 summary: "External IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts."
 tags:
- - SOC
- - SIEM
- - EDR
- - Log Analysis
- - Web Attack
- - IDOR
- - Broken Access Control
- - DigitalOcean
- - True Positive
+  - SOC
+  - SIEM
+  - EDR
+  - Log Analysis
+  - Web Attack
+  - IDOR
+  - DigitalOcean
+  - True Positive
+  - AbuseIPDB
+  - VirusTotal
 ---
+
+### <span style="color:lightblue">TL;DR</span>
+
+An external DigitalOcean IP performed sequential IDOR enumeration against the get_user_info endpoint on WebServer1005 by requesting multiple user IDs. All requests were allowed and returned HTTP 200 with different response sizes, indicating successful access to user data for multiple accounts. The attacker IP was blocked, and the endpoint should be reviewed for proper authorization checks.
 
 ### <span class="hl">Alert</span>
 ```

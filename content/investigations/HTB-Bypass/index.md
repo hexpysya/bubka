@@ -7,7 +7,8 @@ tags:
   - Reverse Engineering
   - Windows
   - .NET
-  - dnspy
+  - Dnspy
+  - AES
 platform: reversing
 ---
 

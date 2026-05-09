@@ -15,7 +15,9 @@ tags:
   - UPnP Exploitation
   - NAT Traversal
   - MotW Bypass
-  - IDA 
+  - Ida
+  - Sandbox
+  - ANY.RUN
 platform: Malware Analysis
 ---
 

@@ -7,9 +7,11 @@ tags:
   - Malware Analysis
   - Windows
   - PE
-  - winDBG
-  - mini dump
-  - cobalt
+  - WinDBG
+  - Mini Dump
+  - Cobalt Strike
+  - Process Injection
+  - Memory Analysis
 platform: Malware Analysis
 ---
 

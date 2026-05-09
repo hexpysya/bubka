@@ -7,6 +7,8 @@ tags:
   - DFIR
   - Log Analysis
   - Linux
+  - BruteForce
+  - Credential Dumping
 platform: DFIR
 ---
 

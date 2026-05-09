@@ -7,9 +7,10 @@ tags:
   - Reverse Engineering
   - Linux
   - ELF
-  - ida
-  - rootkit
+  - Ida
+  - Rootkit
   - LKM
+  - Privilege Escalation
 platform: reversing
 ---
 

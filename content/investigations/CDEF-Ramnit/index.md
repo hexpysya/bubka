@@ -4,10 +4,11 @@ date: 2026-03-30
 draft: false
 summary: "Memory forensics of a compromised Windows host revealed ChromeSetup.exe spawned under explorer.exe, establishing a C2 connection to a Hong Kong-based IP. The dumped binary was identified as the Ramnit worm - flagged by 68/72 VirusTotal vendors."
 tags:
- - Endpoint Forensic
- - Memory Analysis
- - Volatility3
- - Windows
+  - Endpoint Forensic
+  - Memory Analysis
+  - Volatility3
+  - Windows
+  - VirusTotal
 platform: DFIR
 ---
 {{< infobox platform="CyberDefenders" difficulty="Easy" os="Windows" date="2026-03-30" >}}

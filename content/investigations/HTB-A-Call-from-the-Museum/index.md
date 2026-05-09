@@ -9,6 +9,8 @@ tags:
   - LNK
   - PDF
   - PowerShell
+  - Windows
+  - Pdfid
 platform: Malware Analysis
 ---
 {{< infobox platform="HackTheBox" difficulty="Easy" os="Windows" date="2026-03-07" >}}

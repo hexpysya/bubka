@@ -9,7 +9,8 @@ tags:
   - RTF
   - CVE-2017-0199
   - HTA
-  - rtfobj
+  - Rtfobj
+  - Mshta
 platform: Malware Analysis
 ---
 

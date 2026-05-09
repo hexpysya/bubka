@@ -8,13 +8,18 @@ tags:
   - SOC
   - SIEM
   - Log Analysis
+  - Windows
   - Active Directory
   - RDP
   - PowerShell
-  - lsass
-  - mimikatz
+  - Lsass
+  - Mimikatz
   - BruteForce
   - PsExec
+  - PowerView
+  - Sysmon
+  - Credential Dumping
+  - AbuseIPDB
 ---
 
 ### <span class="hl">TL;DR</span>

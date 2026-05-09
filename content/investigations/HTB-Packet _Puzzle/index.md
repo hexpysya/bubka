@@ -8,8 +8,10 @@ tags:
   - Network Analysis
   - Windows
   - CVE-2024-4577
-  - T1190
   - Wireshark
+  - PCAP
+  - Privilege Escalation
+  - PowerShell
 platform: SOC
 ---
 {{< infobox difficulty="Easy" os="Windows" date="2026-01-31" >}}

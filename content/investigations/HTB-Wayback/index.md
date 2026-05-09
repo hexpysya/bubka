@@ -6,9 +6,10 @@ summary: " "
 tags:
   - Reverse Engineering
   - Linux
-  - ida
+  - Ida
   - ELF
-  - srand
+  - Srand
+  - AES
 platform: reversing
 ---
 

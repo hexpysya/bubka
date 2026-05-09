@@ -11,7 +11,10 @@ tags:
   - PE
   - ChaCha20
   - Wireshark
-  - IDA
+  - Ida
+  - Keylogger
+  - PCAP
+  - Anti-Debugging
 platform: Malware Analysis
 ---
 

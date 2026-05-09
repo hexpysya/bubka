@@ -15,11 +15,16 @@ tags:
   - LOLBins
   - Mshta
   - Infostealer
-  - VirusTotal
+  - Windows
   - AbuseIPDB
+  - VirusTotal
   - True Positive
 platform: LetsDefend
 ---
+
+### <span style="color:lightblue">TL;DR</span>
+
+A Click Fix phishing email impersonating a Windows 11 Pro upgrade led Dylan to a fake Microsoft update site. The user executed a disguised PowerShell command, which launched mshta.exe to download a Lumma Stealer payload from overcoatpassably.shop. The payload execution was confirmed, so credential theft and browser data compromise should be assumed until L2 forensics confirms scope. The host was contained, malicious domains and IPs were blocked, and the case was escalated for memory acquisition and credential rotation.
 
 ### <span class="hl">Alert</span>
 ```

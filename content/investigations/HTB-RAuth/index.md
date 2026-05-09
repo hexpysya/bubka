@@ -7,10 +7,10 @@ tags:
   - Reverse Engineering
   - Linux
   - ELF
-  - ida
-  - rust
-  - rust-gdb
-  - salsa20
+  - Ida
+  - Rust
+  - Rust-Gdb
+  - Salsa20
 platform: reversing
 ---
 

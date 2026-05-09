@@ -6,15 +6,19 @@ summary: "A .NET XWorm RAT that establishes triple persistence via scheduled tas
 tags:
   - Malware Analysis
   - Reverse Engineering
-  - PE 
+  - PE
   - Windows
   - .NET
   - RAT
   - XWorm
   - Clipboard Hijacking
   - Cryptocurrency Stealer
-  - dnspy
+  - Keylogger
+  - AES
+  - Dnspy
   - Sandbox
+  - ANY.RUN
+  - CAPEv2
 platform: Malware Analysis
 ---
 {{< infobox platform="CyberDefenders" difficulty="Medium" os="Windows" date="2026-02-28" >}}

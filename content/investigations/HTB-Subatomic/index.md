@@ -8,10 +8,15 @@ tags:
   - Windows
   - PE
   - Installer
-  - Self-extracting archive
+  - sfx
   - JavaScript
   - Debug
   - NSIS
+  - Infostealer
+  - Anti-VM
+  - Sandbox
+  - Sqlite
+  - AES
 platform: Malware Analysis
 ---
 {{< infobox platform="HackTheBox" difficulty="Medium" os="Windows" date="2026-02-08" >}}
@@ -228,7 +233,6 @@ external IP via `ipinfo.io`, then reported the infection to
 `options.api + 'new-injection'` along with the list of successfully
 injected Discord clients.
 
-### <span style="color:red">Sandbox</span>
 
 ### <span style="color:lightblue">IOCs</span>
 

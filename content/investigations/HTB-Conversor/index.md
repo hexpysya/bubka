@@ -1,18 +1,20 @@
-
 ---
 title: "HTB-Conversor"
 date: 2026-01-19
 draft: false
 summary: "Flask web application vulnerable to path traversal during file uploads. Exploited by uploading Python reverse shell to cron-executed directory → gained www-data shell → extracted MD5 hashes from SQLite database → cracked password for user fismathack → leveraged CVE-2024-48990 in needrestart 3.7 for privilege escalation to root."
 tags:
-  - web 
+  - Pentest
+  - Web Attack
   - Linux
   - CVE-2024-48990
-  - file-upload
-  - path-traversal
-  - needrestart
-  - sqlite
-  - nmap 
+  - File-Upload
+  - Path Traversal
+  - Needrestart
+  - Sqlite
+  - Nmap
+  - Privilege Escalation
+  - Python
 platform: machines
 ---
 

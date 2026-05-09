@@ -4,18 +4,25 @@ date: 2026-03-22
 draft: false
 summary: "An attacker exploited CVE-2025-53770 against a SharePoint server, achieving unauthenticated RCE via .NET deserialization. The attacker extracted the MachineKey, compiled and dropped a payload, planted a webshell in the SharePoint layouts directory, and established a reverse connection to the attacker-controlled server."
 tags:
- - SOC
- - SIEM
- - EDR
- - Log Analysis
- - Web Attack
- - RCE
- - CVE-2025-53770
- - SharePoint
- - True Positive
- - AbuseIPDB
- - VirusTotal
+  - SOC
+  - SIEM
+  - EDR
+  - Log Analysis
+  - Web Attack
+  - RCE
+  - CVE-2025-53770
+  - SharePoint
+  - .NET
+  - PowerShell
+  - Windows
+  - True Positive
+  - AbuseIPDB
+  - VirusTotal
 ---
+
+### <span style="color:lightblue">TL;DR</span>
+
+An external Vultr-hosted IP exploited CVE-2025-53770 against SharePoint01 and achieved unauthenticated remote code execution through the ToolPane.aspx endpoint. After exploitation, the attacker extracted the SharePoint MachineKey, compiled and staged a payload, wrote a webshell into the SharePoint layouts directory, and triggered an outbound connection back to the attacker server. The host is fully compromised and should remain isolated while L2 performs full forensic review, patching, webshell removal, and credential/key rotation.
 
 ### <span class="hl">Alert</span>
 ```

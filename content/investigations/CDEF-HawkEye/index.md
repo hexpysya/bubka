@@ -10,6 +10,8 @@ tags:
   - SMTP
   - Keylogger
   - Phishing
+  - AbuseIPDB
+  - VirusTotal
 platform: Network Analysis
 ---
 {{< infobox platform="CyberDefenders" difficulty="Medium" os="Windows" date="2026-03-18" >}}

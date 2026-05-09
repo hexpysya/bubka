@@ -9,6 +9,13 @@ tags:
   - Ransomware
   - MSSQL
   - PowerShell
+  - Windows
+  - Wireshark
+  - PCAP
+  - BruteForce
+  - Credential Dumping
+  - SMB
+  - ANY.RUN
 platform: Network Analysis
 ---
 {{< infobox difficulty="Medium" os="Windows" date="2026-03-10" >}}

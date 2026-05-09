@@ -10,6 +10,9 @@ tags:
   - VBA
   - Doc
   - Windows
+  - Olevba
+  - RC4
+  - WordPress
 platform: Malware Analysis
 ---
 {{< infobox platform="CyberDefenders" difficulty="Medium" os="Windows" date="2026-03-18" >}}

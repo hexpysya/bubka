@@ -5,11 +5,21 @@ draft: false
 summary: "A malicious DOCM file was blocked on download at NicolasPRD. VirusTotal confirmed 38/65 detections with an AutoOpen macro that downloads and executes a PowerShell payload. No C2 contact was made."
 tags:
   - SOC
+  - SIEM
+  - EDR
   - Log Analysis
   - Phishing
+  - Doc
   - VBA
+  - PowerShell
+  - VirusTotal
+  - True Positive
 platform: LetsDefend
 ---
+
+### <span style="color:lightblue">TL;DR</span>
+
+A malicious DOCM invoice file was blocked on download at NicolasPRD before it reached execution. VirusTotal confirmed the file as malicious, and analysis showed an AutoOpen VBA macro designed to launch PowerShell and download a second-stage payload. No C2 traffic or payload execution was observed, so the endpoint was not compromised.
 
 ### <span class="hl">Alert</span>
 ```

@@ -9,10 +9,18 @@ tags:
   - EDR
   - Log Analysis
   - Phishing
+  - Doc
   - VBA
+  - PowerShell
+  - Sandbox Evasion
+  - Windows
+  - VirusTotal
   - True Positive
-platform: LetsDefend
 ---
+
+### <span style="color:lightblue">TL;DR</span>
+
+A phishing email delivered a ZIP archive containing a malicious Word macro document to Jayne. After execution, the macro launched PowerShell, downloaded messbox.exe from greyhathacker.net, and executed it as mess.exe on the endpoint. The host was isolated, malicious sender and payload infrastructure were blocked, and the case was escalated to L2 for memory acquisition and full forensic investigation.
 
 ### <span class="hl">Alert</span>
 ```

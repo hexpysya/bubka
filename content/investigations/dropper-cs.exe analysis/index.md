@@ -10,7 +10,12 @@ tags:
   - PE
   - .NET
   - PoshC2
-  - dnspy
+  - Dnspy
+  - Anti-Debugging
+  - AES
+  - ANY.RUN
+  - Sandbox
+  - Fileless Malware
 platform: Malware Analysis
 ---
 

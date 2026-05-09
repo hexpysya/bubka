@@ -4,17 +4,17 @@ date: 2026-03-16
 draft: false
 summary: " "
 tags:
- - SOC
- - Splunk
- - Phishing
- - DFIR
- - PowerShell
- - PowerView
- - Powercat
- - DNS Tunneling
- - LNK
- - LOLbins
- - True Positive
+  - SOC
+  - Splunk
+  - Phishing
+  - DFIR
+  - PowerShell
+  - PowerView
+  - Powercat
+  - DNS Tunneling
+  - LNK
+  - LOLBins
+  - Active Directory
 ---
 
 ### <span style="color:lightblue">TL;DR</span>

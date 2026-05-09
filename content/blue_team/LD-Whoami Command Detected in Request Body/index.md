@@ -11,10 +11,14 @@ tags:
  - Web Attack
  - Command Injection
  - RCE
- - True Positive
  - AbuseIPDB
  - VirusTotal
+ - True Positive
 ---
+
+### <span style="color:lightblue">TL;DR</span>
+
+External attacker *61.177.172.87* exploited a command injection vulnerability on WebServer1004 through the `/video/` endpoint using the `?c=` parameter. The attacker successfully executed Linux commands including `whoami`, `uname`, `cat /etc/passwd`, and `cat /etc/shadow`. All requests returned HTTP 200 with different response sizes, confirming successful RCE. The source IP was blocked, the vulnerable endpoint was taken offline, and the case was escalated to Tier 2.
 
 ### <span class="hl">Alert</span>
 ```
@@ -31,6 +35,7 @@ User-Agent :                Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; S
 Alert Trigger Reason :      Request Body Contains whoami string
 Device Action :             Allowed
 ```
+
 
 ### <span style="color:red">Identification</span>
 

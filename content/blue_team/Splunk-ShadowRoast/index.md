@@ -16,6 +16,7 @@ tags:
   - Rubeus
   - Mimikatz
   - Credential Dumping
+  - Lsass
   - Process Injection
   - Fileless Malware
   - PowerShell

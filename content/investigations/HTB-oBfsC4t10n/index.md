@@ -11,9 +11,11 @@ tags:
   - VBA
   - HTA
   - Process Injection
-  - olevba
-  - vmonkey
-  - scdbg
+  - Olevba
+  - Vmonkey
+  - Scdbg
+  - Phishing
+  - Mshta
 platform: Malware Analysis
 ---
 {{< infobox platform="HackTheBox" difficulty="Hard" os="Windows" date="2026-02-23" >}}

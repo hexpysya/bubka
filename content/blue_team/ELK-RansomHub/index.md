@@ -22,6 +22,9 @@ tags:
   - Dnspy
   - .NET
   - AES
+  - LOLBins
+  - Click Fix
+  - Windows
 ---
 
 ### <span class="hl">TL;DR</span>

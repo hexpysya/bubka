@@ -4,17 +4,22 @@ date: 2026-04-02
 draft: false
 summary: "An external IP performed XSS reconnaissance against the /search/ endpoint, cycling through multiple injection payloads. All requests except the first returned HTTP 302, indicating server-side sanitization blocked execution. The attack did not succeed."
 tags:
- - SOC
- - SIEM
- - EDR
- - Log Analysis
- - Web Attack
- - XSS
- - Injection
- - True Positive
- - AbuseIPDB
- - VirusTotal
+  - SOC
+  - SIEM
+  - EDR
+  - Log Analysis
+  - Web Attack
+  - XSS
+  - Injection
+  - JavaScript
+  - True Positive
+  - AbuseIPDB
+  - VirusTotal
 ---
+
+### <span style="color:lightblue">TL;DR</span>
+
+An external IP performed XSS reconnaissance against WebServer1002 through the search endpoint. The attacker tested multiple JavaScript injection payloads, including image, SVG, script tag, and obfuscated eval variants. Only the initial baseline request returned HTTP 200, while all XSS payloads returned HTTP 302 with no response body, indicating the payloads were blocked or redirected. The attacker IP was blocked, and the endpoint should be reviewed for stronger input validation coverage.
 
 ### <span class="hl">Alert</span>
 ```

@@ -18,6 +18,7 @@ tags:
   - UPX
   - VirusTotal
   - Windows
+  - SMTP
 platform: Network Analysis
 ---
 

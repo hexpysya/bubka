@@ -11,7 +11,9 @@ tags:
   - Linux
   - AES
   - Volatility3
-  - IDA
+  - Ida
+  - DigitalOcean
+  - Memory Analysis
 platform: Malware Analysis
 ---
 {{< infobox platform="HackTheBox" difficulty="Hard" os="Linux" date="2026-03-15" >}}

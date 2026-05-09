@@ -11,8 +11,9 @@ tags:
   - DLL
   - .NET
   - Windows
-  - dnspy
-  - IDA
+  - Dnspy
+  - Ida
+  - PoshC2
 platform: Malware Analysis
 ---
 

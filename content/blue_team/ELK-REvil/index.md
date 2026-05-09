@@ -8,6 +8,7 @@ tags:
   - SOC
   - SIEM
   - Log Analysis
+  - Windows
   - Ransomware
   - REvil
   - Sysmon

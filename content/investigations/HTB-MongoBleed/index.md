@@ -8,7 +8,8 @@ tags:
   - Log Analysis
   - Linux
   - CVE-2024-14847
-  - mongodb
+  - Mongodb
+  - BruteForce
 platform: DFIR
 ---
 

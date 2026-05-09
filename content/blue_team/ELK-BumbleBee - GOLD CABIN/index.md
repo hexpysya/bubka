@@ -8,6 +8,8 @@ tags:
   - SOC
   - SIEM
   - Log Analysis
+  - Windows
+  - Active Directory
   - BumbleBee
   - GOLD CABIN
   - Conti
@@ -22,6 +24,7 @@ tags:
   - PsExec
   - AdFind
   - AnyDesk
+  - VirusTotal
 ---
 
 ### <span class="hl">TL;DR</span>

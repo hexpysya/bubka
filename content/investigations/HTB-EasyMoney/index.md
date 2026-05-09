@@ -13,6 +13,10 @@ tags:
   - MFTExplorer
   - RegistryExplorer
   - PECmd
+  - LNK
+  - PowerShell
+  - CryptnetUrlCache
+  - Golang
 platform: DFIR
 ---
 {{< infobox platform="HackTheBox" difficulty="Medium" os="Windows" date="2026-02-05" >}}

@@ -8,14 +8,21 @@ tags:
   - SIEM
   - EDR
   - Log Analysis
-  - CVE-2017-11882
   - Phishing
-  - True Positive
+  - CVE-2017-11882
+  - Excel
   - VBA
-  - VirusTotal
+  - VBScript
+  - RCE
+  - Windows
+  - True Positive
   - AbuseIPDB
-  - EDR
+  - VirusTotal
 ---
+
+### <span style="color:lightblue">TL;DR</span>
+
+Nolan executed a malicious XLSM file that triggered CVE-2017-11882 through Microsoft Equation Editor and launched additional script execution through cscript.exe. The attack also used an NTFS Alternate Data Stream to hide a VBS payload and contacted a suspicious Brazilian domain flagged by VirusTotal. The file executed successfully before containment, so the host was isolated and submitted for deeper forensic review.
 
 ### <span class="hl">Alert</span>
 ```

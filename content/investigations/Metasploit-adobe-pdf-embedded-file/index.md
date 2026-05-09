@@ -9,8 +9,9 @@ tags:
   - PDF
   - PE
   - JavaScript
-  - pdfid
-  - pdf-parser
+  - Pdfid
+  - Pdf-Parser
+  - ANY.RUN
   - Sandbox
 platform: Malware Analysis
 ---

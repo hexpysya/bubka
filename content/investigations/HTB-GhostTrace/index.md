@@ -11,6 +11,11 @@ tags:
   - Event Viewer
   - Mimikatz
   - PowerView
+  - Phishing
+  - Kerberoasting
+  - PsExec
+  - PowerShell
+  - Lsass
 platform: SOC
 ---
 

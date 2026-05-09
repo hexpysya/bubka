@@ -15,9 +15,11 @@ tags:
   - WordPress
   - RBCD
   - AD CS
+  - ESC1
   - Privilege Escalation
-  - sqlmap
+  - Sqlmap
   - WPScan
+  - Nmap
 ---
 
 ### <span class="hl">TL;DR</span>

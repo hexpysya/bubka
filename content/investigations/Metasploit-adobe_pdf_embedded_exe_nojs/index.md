@@ -11,6 +11,7 @@ tags:
   - VBScript
   - pdfid
   - pdf-parser
+  - ANY.RUN
   - Sandbox
 platform: Malware Analysis
 ---

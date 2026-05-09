@@ -7,7 +7,13 @@ tags:
   - DFIR
   - Log Analysis
   - Windows
+  - Phishing
+  - RDP
   - DLL Hijacking
+  - Privilege Escalation
+  - LOLBins
+  - VBScript
+  - WMI
   - CryptnetUrlCache
   - Event Viewer
   - ChromeHistoryView

@@ -8,13 +8,15 @@ tags:
   - SOC
   - SIEM
   - Log Analysis
+  - Windows
   - BlackBasta
   - Ransomware
   - Phishing
-  - LOLbins
+  - LOLBins
   - MEGA
   - VBA
   - PsExec
+  - VirusTotal
 ---
 
 ### <span class="hl">TL;DR</span>

@@ -4,16 +4,26 @@ date: 2026-03-17
 draft: false
 summary: "A phishing email with a password-protected ZIP delivered AsyncRAT via a SILENTBUILDER dropper. The victim executed the payload, establishing an active C2 channel and triggering full host reconnaissance before containment."
 tags:
- - SOC
- - SIEM
- - EDR
- - Log Analysis
- - Phishing
- - AsyncRAT
- - True Positive
- - VirusTotal
- - AbuseIPDB
+  - SOC
+  - SIEM
+  - EDR
+  - Log Analysis
+  - Phishing
+  - AsyncRAT
+  - RAT
+  - .NET
+  - Sandbox Evasion
+  - AWS
+  - S3
+  - SMTP
+  - AbuseIPDB
+  - VirusTotal
+  - True Positive
 ---
+
+### <span style="color:lightblue">TL;DR</span>
+
+A phishing email with a fake coffee voucher link delivered a password-protected ZIP archive containing Coffee.exe, identified as AsyncRAT. Felix downloaded and executed the payload, after which the malware established C2 communication and performed host reconnaissance through cmd.exe. The endpoint was isolated, malicious infrastructure was blocked, and the case was escalated to L2 for full forensic investigation.
 
 ### <span class="hl">Alert</span>
 ```

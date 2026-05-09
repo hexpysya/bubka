@@ -5,12 +5,15 @@ draft: false
 summary: " "
 tags:
   - Malware Analysis
-  - Linux
-  - excel
-  - xlm-macros
-  - olevba
-  - oleid
-  - xlmdeobfuscator
+  - Windows
+  - Excel
+  - Xlm-Macros
+  - Olevba
+  - Oleid
+  - Xlmdeobfuscator
+  - Phishing
+  - LOLBins
+  - Sandbox Evasion
 platform: 
 ---
 

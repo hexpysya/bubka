@@ -4,12 +4,16 @@ date: 2026-04-01
 draft: false
 summary: "A user opened a malicious Word document that dropped FSETPBEUsIek.exe, which spawned a VBS script, injected into notepad.exe, established persistence via registry Run key, exfiltrated sami.xlsx to an attacker-controlled server, and triggered a Metasploit reverse shell detected by Suricata."
 tags:
- - SOC
- - SIEM
- - Qradar
- - Log Analysis
- - Active Directory
-
+  - SOC
+  - SIEM
+  - Qradar
+  - Log Analysis
+  - Windows
+  - Active Directory
+  - Phishing
+  - VBA
+  - Process Injection
+  - Suricata
 ---
 
 ### <span class="hl">TL;DR</span>

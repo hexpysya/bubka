@@ -7,8 +7,10 @@ tags:
   - SOC
   - Network Analysis
   - CVE-2026-24061
-  - telnet
+  - Telnet
   - Wireshark
+  - Linux
+  - PCAP
 platform: SOC
 ---
 {{< infobox difficulty="Very Easy" os="Windows" date="2026-03-06" >}}

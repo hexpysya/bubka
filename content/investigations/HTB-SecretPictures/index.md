@@ -8,6 +8,7 @@ tags:
   - PE
   - Windows
   - Sandbox
+  - ANY.RUN
   - Golang
 platform: Malware Analysis
 ---

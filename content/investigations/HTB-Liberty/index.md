@@ -13,6 +13,11 @@ tags:
   - Event Viewer
   - Phishing
   - PowerShell
+  - Password Spraying
+  - SMB
+  - RDP
+  - IIS
+  - Sqlite
 platform: DFIR
 ---
 {{< infobox platform="HackTheBox" difficulty="Medium" os="Windows" date="2026-03-25" >}}

@@ -9,6 +9,10 @@ tags:
   - EDR
   - SIEM
   - SQL Injection
+  - Suricata
+  - IDS
+  - Log Analysis
+  - Sqlmap
 ---
 
 
