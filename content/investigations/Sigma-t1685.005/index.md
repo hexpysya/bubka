@@ -4,6 +4,7 @@ date: 2026-05-01
 draft: false
 summary: "An analysis of techniques used by attackers to clear Windows Event Logs, creating Sigma rules and using them to detect malicious activity"
 tags:
+  - SOC
   - Sigma
   - DFIR
   - Log Analysis

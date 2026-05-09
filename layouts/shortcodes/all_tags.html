@@ -11,7 +11,7 @@
   <div class="flex flex-wrap gap-2 mb-4 w-full">
     {{ range $name, $taxonomy := site.Taxonomies.tags }}
       {{ with site.GetPage (printf "/tags/%s" $name) }}
-        {{ if or (eq .Title "Malware Analysis") (eq .Title "SOC") (eq .Title "Reverse Engineering") (eq .Title "SIEM") }}
+        {{ if or (eq .Title "Malware Analysis") (eq .Title "SOC") (eq .Title "Reverse Engineering") (eq .Title "SIEM") (eq .Title "Network Analysis") }}
           <a href="{{ .RelPermalink }}"
              class="featured-tag rounded-md border px-3 py-1 text-sm font-semibold">
             {{ .Title }}
