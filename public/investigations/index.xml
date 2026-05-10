@@ -90,16 +90,6 @@
     </item>
     
     <item>
-      <title>CDEF-Ransomed</title>
-      <link>http://localhost:1313/investigations/cdef-ransomed/</link>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/investigations/cdef-ransomed/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>HTB-Lockpick3.0</title>
       <link>http://localhost:1313/investigations/htb-lockpick3.0/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
@@ -197,16 +187,6 @@
       <guid>http://localhost:1313/investigations/htb-workfromhome/</guid>
       <description>A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.</description>
       
-    </item>
-    
-    <item>
-      <title>HTB-Pterodactyl</title>
-      <link>http://localhost:1313/investigations/htb-pterodactyl/</link>
-      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/investigations/htb-pterodactyl/</guid>
-      <description>Exploiting Pterodactyl Panel CVE-2025-49132 for unauthenticated RCE, database credential extraction, and privilege escalation through Wazuh agent vulnerabilities.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/investigations/htb-pterodactyl/featured.png" />
     </item>
     
     <item>

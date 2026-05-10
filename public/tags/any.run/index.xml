@@ -19,5 +19,75 @@
       
     </item>
     
+    <item>
+      <title>CDEF-BlueSky Ransomware</title>
+      <link>http://localhost:1313/investigations/cdef-bluesky-ransomware/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/cdef-bluesky-ransomware/</guid>
+      <description>An attacker performed a port scan, exploited a Microsoft SQL Server via the sa account, enabled xp_cmdshell to drop and execute a base64-encoded payload, then deployed a multi-stage PowerShell toolkit to disable AV, dump NTLM hashes, perform lateral movement via SMB, and stage the BlueSky ransomware payload.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-XWorm</title>
+      <link>http://localhost:1313/investigations/cdef-xworm/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/cdef-xworm/</guid>
+      <description>A .NET XWorm RAT that establishes triple persistence via scheduled task, startup shortcut, and registry Run key, implements keylogging, clipboard hijacking for crypto wallets, and communicates with multiple C2 servers over TCP using AES-ECB encrypted payloads.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-SecretPictures</title>
+      <link>http://localhost:1313/investigations/htb-secretpictures/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-secretpictures/</guid>
+      <description>A Go-based backdoor that copies itself to a system directory, establishes persistence via a registry Run key, enumerates connected drives, and attempts to connect to a hardcoded C2 domain.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Lupin</title>
+      <link>http://localhost:1313/investigations/htb-lupin/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-lupin/</guid>
+      <description>Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.</description>
+      
+    </item>
+    
+    <item>
+      <title>PoshC2: Dropper-cs.exe</title>
+      <link>http://localhost:1313/investigations/dropper-cs.exe-analysis/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/dropper-cs.exe-analysis/</guid>
+      <description>C2 .NET implant. AES-encrypted config, HTTPS beacon to &lt;code&gt;192.168.248.128&lt;/code&gt;, fileless in-memory execution, anti-debug via divide-by-zero.</description>
+      
+    </item>
+    
+    <item>
+      <title>Metasploit: adobe_pdf_embedded_exe_nojs</title>
+      <link>http://localhost:1313/investigations/metasploit-adobe_pdf_embedded_exe_nojs/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/metasploit-adobe_pdf_embedded_exe_nojs/</guid>
+      <description>A malicious PDF uses a Launch action to execute cmd.exe, which runs an inline VBScript that reads hex-encoded shellcode directly from the PDF body, writes it to disk as an executable, and launches a Metasploit reverse shell.</description>
+      
+    </item>
+    
+    <item>
+      <title>Metasploit: adobe-pdf-embedded-file</title>
+      <link>http://localhost:1313/investigations/metasploit-adobe-pdf-embedded-file/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/metasploit-adobe-pdf-embedded-file/</guid>
+      <description>A malicious PDF exploits JavaScript and Launch actions to extract and execute an embedded PE payload, establishing a reverse shell connection to an attacker-controlled server.</description>
+      
+    </item>
+    
   </channel>
 </rss>

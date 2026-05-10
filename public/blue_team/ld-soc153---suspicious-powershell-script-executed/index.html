@@ -24,7 +24,7 @@
     <meta name="description" content="User Tony downloaded and executed a malicious PowerShell script (payload_1.ps1 / agent3.ps1) classified as trojan.powershell/boxter (Azorult family). The script bypassed execution policy, then fetched and invoked a second-stage payload from kionagranada.com (161.22.46.148), establishing a two-stage C2 chain with a final pivot to 91.236.116.163.">
   
   
-    <meta name="keywords" content="SOC,SIEM,EDR,PowerShell,Fileless Malware,Sandbox Evasion,True Positive,VirusTotal,">
+    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,PowerShell,Fileless Malware,Sandbox Evasion,Infostealer,Sysmon,AWS,S3,Windows,VirusTotal,True Positive,">
   
   
   
@@ -50,9 +50,9 @@
     <meta property="article:tag" content="SOC">
     <meta property="article:tag" content="SIEM">
     <meta property="article:tag" content="EDR">
-    <meta property="article:tag" content="Powershell">
+    <meta property="article:tag" content="Log Analysis">
+    <meta property="article:tag" content="PowerShell">
     <meta property="article:tag" content="Fileless Malware">
-    <meta property="article:tag" content="Sandbox Evasion">
 
   
   <meta name="twitter:card" content="summary">
@@ -224,7 +224,7 @@
     
     "dateModified": "2026-03-14T00:00:00\u002b00:00",
     
-    "keywords": ["SOC","SIEM","EDR","PowerShell","Fileless Malware","Sandbox Evasion","True Positive","VirusTotal"],
+    "keywords": ["SOC","SIEM","EDR","Log Analysis","PowerShell","Fileless Malware","Sandbox Evasion","Infostealer","Sysmon","AWS","S3","Windows","VirusTotal","True Positive"],
     
     "mainEntityOfPage": "true",
     "wordCount": "593"
@@ -673,11 +673,21 @@
 
               </a>
             
+              <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Log Analysis
+  </span>
+</span>
+
+              </a>
+            
               <a class="relative mt-[0.5rem] me-2" href="/tags/powershell/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Powershell
+    PowerShell
   </span>
 </span>
 
@@ -703,11 +713,51 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/infostealer/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    True Positive
+    Infostealer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/sysmon/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Sysmon
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/aws/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AWS
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/s3/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    S3
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
   </span>
 </span>
 
@@ -718,6 +768,16 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     VirusTotal
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    True Positive
   </span>
 </span>
 

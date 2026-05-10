@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/virustotal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/virustotal/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Splunk-Poisoned PyTorch</title>
+      <link>http://localhost:1313/blue_team/splunk-poisoned-pytorch/</link>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-poisoned-pytorch/</guid>
+      <description>A tampered python dependency executed a powershell stager on developer michelvic&amp;rsquo;s workstation, dropped a C2 DLL with Run key persistence, extracted domain.admin credentials from sysprep files, laterally moved to DC01, BACKUP-SERVER-0, and FILE-SERVER-01 via RDP, deleted shadow copies, and deployed Lynx ransomware across all three hosts.</description>
+      
+    </item>
     
     <item>
       <title>LD-Detected Suspicious Xls File</title>
@@ -16,6 +26,16 @@
       
       <guid>http://localhost:1313/blue_team/ld-detected-suspicious-xls-file/</guid>
       <description>A user executed a malicious XLSM file that exploited CVE-2017-11882 via the Equation Editor, dropped and ran an obfuscated VBS payload hidden in an NTFS alternate data stream, and connected to a Brazilian C2 domain flagged by 8/91 VirusTotal vendors.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Malicious File Download Attempt</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-file-download-attempt/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-file-download-attempt/</guid>
+      <description>A malicious DOCM file was blocked on download at NicolasPRD. VirusTotal confirmed 38/65 detections with an AutoOpen macro that downloads and executes a PowerShell payload. No C2 contact was made.</description>
       
     </item>
     
@@ -36,6 +56,36 @@
       
       <guid>http://localhost:1313/blue_team/ld-lumma-stealer---dll-side-loading-via-click-fix-phishing/</guid>
       <description>A Click Fix phishing email impersonating Microsoft lured Dylan into visiting a malicious site, which executed a disguised PowerShell command launching mshta.exe to download Lumma Stealer payload from overcoatpassably.shop. The host was contained before confirmed data exfiltration.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Malicious Macro Executed</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-macro-has-been-executed/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-macro-has-been-executed/</guid>
+      <description>A phishing email from &lt;a href=&#34;mailto:jake.admin@cybercommunity.info&#34; &gt;jake.admin@cybercommunity.info&lt;/a&gt; delivered a ZIP-archived Word macro document, which executed a PowerShell downloader fetching messbox.exe from greyhathacker.net. The host Jayne was contained after execution was confirmed.</description>
+      
+    </item>
+    
+    <item>
+      <title>ELK-BumbleBee - GOLD CABIN</title>
+      <link>http://localhost:1313/blue_team/elk-bumblebee---gold-cabin/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-bumblebee---gold-cabin/</guid>
+      <description>An employee at CompliantSecure received a phishing email from emkei.cz, downloaded a malicious ISO containing BumbleBee loader 23.dll, which established C2 to 3.68.97.124 and injected into ImagingDevices.exe, dumped LSASS credentials, laterally moved to DC01 via PsExec using markw credentials, staged AdFind and AnyDesk, created sql_admin backdoor account, moved to FileServer01 and Support01, exfiltrated archived share data, and deployed Conti ransomware dropping R3ADM3.txt ransom notes.</description>
+      
+    </item>
+    
+    <item>
+      <title>ELK-Black Basta</title>
+      <link>http://localhost:1313/blue_team/elk-black-basta/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-black-basta/</guid>
+      <description>A finance employee opened a malicious Excel macro from a drive-by download, which executed a VBS dropper, loaded WindowsUpdaterFX.dll via regsvr32, established persistence, dropped Pancake.jpg.exe as a C2 backdoor, performed internal reconnaissance, laterally moved to a domain controller via PsExec using compromised credentials, exfiltrated client data to MEGA via rclone, deleted shadow copies, and deployed BlackBasta ransomware.</description>
       
     </item>
     
@@ -80,6 +130,16 @@
     </item>
     
     <item>
+      <title>LD-Possible IDOR Attack Detected</title>
+      <link>http://localhost:1313/blue_team/ld-idor/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-idor/</guid>
+      <description>External IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts.</description>
+      
+    </item>
+    
+    <item>
       <title>LD-Whoami Command Detected in Request Body</title>
       <link>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</link>
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
@@ -96,6 +156,26 @@
       
       <guid>http://localhost:1313/blue_team/ld-arbitrary-file-read-on-checkpoint-security-gateway-cve-2024-24919/</guid>
       <description>An attacker exploited CVE-2024-24919 against a Check Point Security Gateway, successfully reading /etc/passwd via a path traversal payload. A second request targeting /etc/shadow from a related IP was blocked. The attack succeeded and the endpoint was escalated to Tier 2.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-Ramnit</title>
+      <link>http://localhost:1313/investigations/cdef-ramnit/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/cdef-ramnit/</guid>
+      <description>Memory forensics of a compromised Windows host revealed ChromeSetup.exe spawned under explorer.exe, establishing a C2 connection to a Hong Kong-based IP. The dumped binary was identified as the Ramnit worm - flagged by 68/72 VirusTotal vendors.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-HawkEye</title>
+      <link>http://localhost:1313/investigations/cdef-hawkeye/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/cdef-hawkeye/</guid>
+      <description>A victim host downloaded a HawkEye Keylogger dropper via HTTP, which established persistence, periodically checked the external IP via bot.whatismyipaddress.com, and exfiltrated harvested credentials every 10 minutes over SMTP.</description>
       
     </item>
     

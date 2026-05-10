@@ -20,6 +20,16 @@
     </item>
     
     <item>
+      <title>LD-Malicious File Download Attempt</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-file-download-attempt/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-file-download-attempt/</guid>
+      <description>A malicious DOCM file was blocked on download at NicolasPRD. VirusTotal confirmed 38/65 detections with an AutoOpen macro that downloads and executes a PowerShell payload. No C2 contact was made.</description>
+      
+    </item>
+    
+    <item>
       <title>LD-Lumma Stealer - DLL Side-Loading via Click Fix Phishing</title>
       <link>http://localhost:1313/blue_team/ld-lumma-stealer---dll-side-loading-via-click-fix-phishing/</link>
       <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>

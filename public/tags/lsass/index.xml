@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/lsass/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/lsass/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Splunk-ShadowRoast</title>
+      <link>http://localhost:1313/blue_team/splunk-shadowroast/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-shadowroast/</guid>
+      <description>A masqueraded AdobeUpdater.exe binary established persistence via a registry Run key, injected into cmd.exe, performed AS-REP Roasting with Rubeus against four AD accounts, laterally moved to FileServer using cracked tcooper credentials, enabled RDP, and staged share data for exfiltration.</description>
+      
+    </item>
     
     <item>
       <title>ELK-BumbleBee - GOLD CABIN</title>
@@ -26,6 +36,16 @@
       
       <guid>http://localhost:1313/blue_team/splunk-goldenspray/</guid>
       <description>An attacker from 77.91.78.115 brute-forced mwilliams credentials, connected via RDP, dropped OfficeUpdater.exe with registry persistence, staged Backup_Tools including mimikatz, dumped lsass to obtain jsmith credentials, laterally moved to ST-DC01 and ST-FS01, established scheduled task persistence on the DC, and archived client data for exfiltration.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-GhostTrace</title>
+      <link>http://localhost:1313/investigations/htb-ghosttrace/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-ghosttrace/</guid>
+      <description>Analyzed Windows Event Logs revealing a complete AD compromise chain: phishing email with macro-enabled document → credential dumping with Mimikatz → lateral movement via PsExec → DCSync attack → domain admin compromise → persistence via scheduled task, service, and registry run key.</description>
       
     </item>
     

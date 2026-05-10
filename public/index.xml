@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LD-Utilman.exe Winlogon Exploit Attempt</title>
+      <link>http://localhost:1313/blue_team/ld-utilman.exe-winlogon-exploit-attempt/</link>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-utilman.exe-winlogon-exploit-attempt/</guid>
+      <description>An attacker with physical or RDP access replaced Utilman.exe with cmd.exe on host Henry, then invoked it from the Windows lock screen via Winlogon to create a backdoor administrator account superman without authentication.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-VPN Connection Detected from Unauthorized Country</title>
+      <link>http://localhost:1313/blue_team/ld-vpn-connection-detected-from-unauthorized-country/</link>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-vpn-connection-detected-from-unauthorized-country/</guid>
+      <description>An external IP from Vietnam attempted to authenticate to the corporate VPN as &lt;a href=&#34;mailto:monica@letsdefend.io&#34; &gt;monica@letsdefend.io&lt;/a&gt;. MFA blocked access after an incorrect OTP submission. The IP is flagged for SSH brute-force activity. No systems compromised.</description>
+      
+    </item>
     
     <item>
       <title>CDEF-SigmaPredator</title>
@@ -330,16 +350,6 @@
     </item>
     
     <item>
-      <title>CDEF-Ransomed</title>
-      <link>http://localhost:1313/investigations/cdef-ransomed/</link>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/investigations/cdef-ransomed/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>LD-Deceptive Mail Detected</title>
       <link>http://localhost:1313/blue_team/ld-phishing-alert/</link>
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
@@ -517,16 +527,6 @@
       <guid>http://localhost:1313/investigations/htb-workfromhome/</guid>
       <description>A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.</description>
       
-    </item>
-    
-    <item>
-      <title>HTB-Pterodactyl</title>
-      <link>http://localhost:1313/investigations/htb-pterodactyl/</link>
-      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/investigations/htb-pterodactyl/</guid>
-      <description>Exploiting Pterodactyl Panel CVE-2025-49132 for unauthenticated RCE, database credential extraction, and privilege escalation through Wazuh agent vulnerabilities.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/investigations/htb-pterodactyl/featured.png" />
     </item>
     
     <item>

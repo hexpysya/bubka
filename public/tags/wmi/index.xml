@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Tue, 07 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/wmi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/wmi/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CDEF-SigmaPredator</title>
+      <link>http://localhost:1313/investigations/sigma-t1685.005/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/sigma-t1685.005/</guid>
+      <description>An analysis of techniques used by attackers to clear Windows Event Logs, creating Sigma rules and using them to detect malicious activity</description>
+      
+    </item>
     
     <item>
       <title>ELK-REvil - GOLD SOUTHFIELD</title>
@@ -16,6 +26,16 @@
       
       <guid>http://localhost:1313/blue_team/elk-revil/</guid>
       <description>An administrator executed facebook assistant.exe on a Windows Server 2019 host, which dropped REvil ransomware (Sodinokibi), spawned a PowerShell process that deleted Volume Shadow Copies, and dropped ransom notes across multiple user profile directories.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-WorkFromHome</title>
+      <link>http://localhost:1313/investigations/htb-workfromhome/</link>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-workfromhome/</guid>
+      <description>A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.</description>
       
     </item>
     

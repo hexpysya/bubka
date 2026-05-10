@@ -24,7 +24,7 @@
     <meta name="description" content="A user executed a malicious XLSM file that exploited CVE-2017-11882 via the Equation Editor, dropped and ran an obfuscated VBS payload hidden in an NTFS alternate data stream, and connected to a Brazilian C2 domain flagged by 8/91 VirusTotal vendors.">
   
   
-    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,CVE-2017-11882,Phishing,True Positive,VBA,VirusTotal,AbuseIPDB,EDR,">
+    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Phishing,CVE-2017-11882,Excel,VBA,VBScript,RCE,Windows,True Positive,AbuseIPDB,VirusTotal,">
   
   
   
@@ -49,10 +49,10 @@
     <meta property="article:modified_time" content="2026-04-17T00:00:00+00:00">
     <meta property="article:tag" content="SOC">
     <meta property="article:tag" content="SIEM">
+    <meta property="article:tag" content="EDR">
     <meta property="article:tag" content="Log Analysis">
-    <meta property="article:tag" content="CVE-2017-11882">
     <meta property="article:tag" content="Phishing">
-    <meta property="article:tag" content="True Positive">
+    <meta property="article:tag" content="CVE-2017-11882">
 
   
   <meta name="twitter:card" content="summary">
@@ -224,10 +224,10 @@
     
     "dateModified": "2026-04-17T00:00:00\u002b00:00",
     
-    "keywords": ["SOC","SIEM","EDR","Log Analysis","CVE-2017-11882","Phishing","True Positive","VBA","VirusTotal","AbuseIPDB","EDR"],
+    "keywords": ["SOC","SIEM","EDR","Log Analysis","Phishing","CVE-2017-11882","Excel","VBA","VBScript","RCE","Windows","True Positive","AbuseIPDB","VirusTotal"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "690"
+    "wordCount": "752"
   }]
   </script>
 
@@ -663,21 +663,21 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/edr/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Log Analysis
+    EDR
   </span>
 </span>
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/cve-2017-11882/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CVE-2017-11882
+    Log Analysis
   </span>
 </span>
 
@@ -693,11 +693,21 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/cve-2017-11882/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    True Positive
+    CVE-2017-11882
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/excel/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Excel
   </span>
 </span>
 
@@ -713,11 +723,41 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/virustotal/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/vbscript/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    VirusTotal
+    VBScript
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/rce/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    RCE
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    True Positive
   </span>
 </span>
 
@@ -733,11 +773,11 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/edr/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/virustotal/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    EDR
+    VirusTotal
   </span>
 </span>
 
@@ -798,6 +838,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -838,6 +879,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -980,6 +1022,17 @@
 
         <div class="article-content max-w-prose mb-20">
           
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Nolan executed a malicious XLSM file that triggered CVE-2017-11882 through Microsoft Equation Editor and launched additional script execution through cscript.exe. The attack also used an NTFS Alternate Data Stream to hide a VBS payload and contacted a suspicious Brazilian domain flagged by VirusTotal. The file executed successfully before containment, so the host was isolated and submitted for deeper forensic review.</p>
+
 <h3 class="relative group"><span class="hl">Alert</span>
     <div id="alert" class="anchor"></div>
     

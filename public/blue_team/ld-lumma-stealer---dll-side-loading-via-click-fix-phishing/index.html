@@ -24,7 +24,7 @@
     <meta name="description" content="A Click Fix phishing email impersonating Microsoft lured Dylan into visiting a malicious site, which executed a disguised PowerShell command launching mshta.exe to download Lumma Stealer payload from overcoatpassably.shop. The host was contained before confirmed data exfiltration.">
   
   
-    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Phishing,Lumma Stealer,Click Fix,PowerShell,LOLBins,Mshta,Infostealer,VirusTotal,AbuseIPDB,True Positive,">
+    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Phishing,Lumma Stealer,Click Fix,PowerShell,LOLBins,Mshta,Infostealer,Windows,AbuseIPDB,VirusTotal,True Positive,">
   
   
   
@@ -224,10 +224,10 @@
     
     "dateModified": "2026-04-14T00:00:00\u002b00:00",
     
-    "keywords": ["SOC","SIEM","EDR","Log Analysis","Phishing","Lumma Stealer","Click Fix","PowerShell","LOLBins","Mshta","Infostealer","VirusTotal","AbuseIPDB","True Positive"],
+    "keywords": ["SOC","SIEM","EDR","Log Analysis","Phishing","Lumma Stealer","Click Fix","PowerShell","LOLBins","Mshta","Infostealer","Windows","AbuseIPDB","VirusTotal","True Positive"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "830"
+    "wordCount": "910"
   }]
   </script>
 
@@ -717,7 +717,7 @@
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Powershell
+    PowerShell
   </span>
 </span>
 
@@ -727,7 +727,7 @@
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    LOLbins
+    LOLBins
   </span>
 </span>
 
@@ -753,11 +753,11 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/virustotal/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/windows/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    VirusTotal
+    Windows
   </span>
 </span>
 
@@ -768,6 +768,16 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     AbuseIPDB
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/virustotal/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    VirusTotal
   </span>
 </span>
 
@@ -838,6 +848,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -879,6 +890,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -1022,6 +1034,17 @@
 
         <div class="article-content max-w-prose mb-20">
           
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>A Click Fix phishing email impersonating a Windows 11 Pro upgrade led Dylan to a fake Microsoft update site. The user executed a disguised PowerShell command, which launched mshta.exe to download a Lumma Stealer payload from overcoatpassably.shop. The payload execution was confirmed, so credential theft and browser data compromise should be assumed until L2 forensics confirms scope. The host was contained, malicious domains and IPs were blocked, and the case was escalated for memory acquisition and credential rotation.</p>
+
 <h3 class="relative group"><span class="hl">Alert</span>
     <div id="alert" class="anchor"></div>
     

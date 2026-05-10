@@ -40,6 +40,16 @@
     </item>
     
     <item>
+      <title>CDEF-BlueSky Ransomware</title>
+      <link>http://localhost:1313/investigations/cdef-bluesky-ransomware/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/cdef-bluesky-ransomware/</guid>
+      <description>An attacker performed a port scan, exploited a Microsoft SQL Server via the sa account, enabled xp_cmdshell to drop and execute a base64-encoded payload, then deployed a multi-stage PowerShell toolkit to disable AV, dump NTLM hashes, perform lateral movement via SMB, and stage the BlueSky ransomware payload.</description>
+      
+    </item>
+    
+    <item>
       <title>HTB-Telly</title>
       <link>http://localhost:1313/investigations/htb-telly/</link>
       <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>

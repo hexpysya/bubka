@@ -24,7 +24,7 @@
     <meta name="description" content="A fake therapy installer distributed as an NSIS self-extracting archive delivers an Electron-based Node.js infostealer that performs anti-VM checks, injects malicious code into Discord clients, and exfiltrates browser credentials, cookies, autofill data, and Discord tokens to a hardcoded C2.">
   
   
-    <meta name="keywords" content="Malware Analysis,Windows,PE,Installer,Self-extracting archive,JavaScript,Debug,NSIS,">
+    <meta name="keywords" content="Malware Analysis,Windows,PE,Installer,sfx,JavaScript,Debug,NSIS,Infostealer,Anti-VM,Sandbox,Sqlite,AES,">
   
   
   
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Windows">
     <meta property="article:tag" content="PE">
     <meta property="article:tag" content="Installer">
-    <meta property="article:tag" content="Self-Extracting Archive">
+    <meta property="article:tag" content="Sfx">
     <meta property="article:tag" content="JavaScript">
 
   
@@ -224,10 +224,10 @@
     
     "dateModified": "2026-02-28T00:00:00\u002b00:00",
     
-    "keywords": ["Malware Analysis","Windows","PE","Installer","Self-extracting archive","JavaScript","Debug","NSIS"],
+    "keywords": ["Malware Analysis","Windows","PE","Installer","sfx","JavaScript","Debug","NSIS","Infostealer","Anti-VM","Sandbox","Sqlite","AES"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "953"
+    "wordCount": "951"
   }]
   </script>
 
@@ -683,11 +683,11 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/self-extracting-archive/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/sfx/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Self-Extracting Archive
+    Sfx
   </span>
 </span>
 
@@ -718,6 +718,56 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     NSIS
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/infostealer/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Infostealer
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/anti-vm/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Anti-VM
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/sandbox/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Sandbox
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/sqlite/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Sqlite
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/aes/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AES
   </span>
 </span>
 
@@ -797,7 +847,6 @@
             <li><a href="#newinjection">newInjection</a></li>
           </ul>
         </li>
-        <li><a href="#sandbox"><span>Sandbox</span></a></li>
         <li><a href="#iocs"><span>IOCs</span></a></li>
       </ul>
     </li>
@@ -835,7 +884,6 @@
             <li><a href="#newinjection">newInjection</a></li>
           </ul>
         </li>
-        <li><a href="#sandbox"><span>Sandbox</span></a></li>
         <li><a href="#iocs"><span>IOCs</span></a></li>
       </ul>
     </li>
@@ -1323,16 +1371,6 @@ POSTed to <code>options.api + 'browsers-data'</code>.</p>
 external IP via <code>ipinfo.io</code>, then reported the infection to
 <code>options.api + 'new-injection'</code> along with the list of successfully
 injected Discord clients.</p>
-
-<h3 class="relative group"><span style="color:red">Sandbox</span>
-    <div id="sandbox" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#sandbox" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
 
 <h3 class="relative group"><span style="color:lightblue">IOCs</span>
     <div id="iocs" class="anchor"></div>

@@ -19,5 +19,25 @@
       
     </item>
     
+    <item>
+      <title>HTB-Liberty</title>
+      <link>http://localhost:1313/investigations/htb-liberty/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-liberty/</guid>
+      <description>Password spraying led to domain account compromise, followed by NetNTLM hash theft via a malicious .url file, RDP access, data exfiltration to a C2 server, and PSWA backdoor installation for persistence.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-BlueSky Ransomware</title>
+      <link>http://localhost:1313/investigations/cdef-bluesky-ransomware/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/cdef-bluesky-ransomware/</guid>
+      <description>An attacker performed a port scan, exploited a Microsoft SQL Server via the sa account, enabled xp_cmdshell to drop and execute a base64-encoded payload, then deployed a multi-stage PowerShell toolkit to disable AV, dump NTLM hashes, perform lateral movement via SMB, and stage the BlueSky ransomware payload.</description>
+      
+    </item>
+    
   </channel>
 </rss>

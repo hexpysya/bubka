@@ -40,12 +40,32 @@
     </item>
     
     <item>
+      <title>CDEF-Qradar101</title>
+      <link>http://localhost:1313/blue_team/cdef-qradar101/</link>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/cdef-qradar101/</guid>
+      <description>A user opened a malicious Word document that dropped FSETPBEUsIek.exe, which spawned a VBS script, injected into notepad.exe, established persistence via registry Run key, exfiltrated sami.xlsx to an attacker-controlled server, and triggered a Metasploit reverse shell detected by Suricata.</description>
+      
+    </item>
+    
+    <item>
       <title>HTB-oBfsC4t10n</title>
       <link>http://localhost:1313/investigations/htb-obfsc4t10n/</link>
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/investigations/htb-obfsc4t10n/</guid>
       <description>A phishing HTML file masquerading as an invoice delivers a macro-enabled Excel workbook that drops and executes a multi-stage obfuscated HTA payload, ultimately injecting a reverse shell shellcode into rundll32.exe and establishing a C2 connection.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-CrashDump</title>
+      <link>http://localhost:1313/investigations/htb-crashdump/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-crashdump/</guid>
+      <description>Analyzed two process dumps (notepad.exe and update.exe) revealing a Cobalt Strike Beacon infection. The malware used process injection with reflective DLL loading, communicated with C2 server at &lt;code&gt;101.10.25.4:8023&lt;/code&gt;, and possessed capabilities for privilege escalation, token manipulation, and lateral movement via named pipes.</description>
       
     </item>
     

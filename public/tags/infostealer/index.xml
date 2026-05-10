@@ -39,5 +39,35 @@
       
     </item>
     
+    <item>
+      <title>LD-Suspicious PowerShell Script Executed</title>
+      <link>http://localhost:1313/blue_team/ld-soc153---suspicious-powershell-script-executed/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-soc153---suspicious-powershell-script-executed/</guid>
+      <description>User Tony downloaded and executed a malicious PowerShell script (payload_1.ps1 / agent3.ps1) classified as trojan.powershell/boxter (Azorult family). The script bypassed execution policy, then fetched and invoked a second-stage payload from kionagranada.com (161.22.46.148), establishing a two-stage C2 chain with a final pivot to 91.236.116.163.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh &#43; Suricata: Malware traffic</title>
+      <link>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</guid>
+      <description>Replayed a malicious PCAP file containing Hancitor dropper traffic that deployed Cobalt Strike, Dridex, and Ficker Stealer. Analyzed 423 Suricata alerts in Wazuh, reconstructed the full infection chain, and mapped findings to MITRE ATT&amp;amp;CK.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Subatomic</title>
+      <link>http://localhost:1313/investigations/htb-subatomic/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-subatomic/</guid>
+      <description>A fake therapy installer distributed as an NSIS self-extracting archive delivers an Electron-based Node.js infostealer that performs anti-VM checks, injects malicious code into Discord clients, and exfiltrates browser credentials, cookies, autofill data, and Discord tokens to a hardcoded C2.</description>
+      
+    </item>
+    
   </channel>
 </rss>

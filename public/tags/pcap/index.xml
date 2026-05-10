@@ -39,5 +39,55 @@
       
     </item>
     
+    <item>
+      <title>CDEF-BlueSky Ransomware</title>
+      <link>http://localhost:1313/investigations/cdef-bluesky-ransomware/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/cdef-bluesky-ransomware/</guid>
+      <description>An attacker performed a port scan, exploited a Microsoft SQL Server via the sa account, enabled xp_cmdshell to drop and execute a base64-encoded payload, then deployed a multi-stage PowerShell toolkit to disable AV, dump NTLM hashes, perform lateral movement via SMB, and stage the BlueSky ransomware payload.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Telly</title>
+      <link>http://localhost:1313/investigations/htb-telly/</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-telly/</guid>
+      <description>An attacker exploited CVE-2026-24061, an authentication bypass in GNU inetutils telnetd, to obtain an unauthenticated root shell, established persistence via linper.sh across multiple cron and systemd locations, and exfiltrated a credit card database before deleting it from the victim server.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh &#43; Suricata: Malware traffic</title>
+      <link>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</guid>
+      <description>Replayed a malicious PCAP file containing Hancitor dropper traffic that deployed Cobalt Strike, Dridex, and Ficker Stealer. Analyzed 423 Suricata alerts in Wazuh, reconstructed the full infection chain, and mapped findings to MITRE ATT&amp;amp;CK.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-SneakyKeys</title>
+      <link>http://localhost:1313/investigations/htb-sneakykeys/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-sneakykeys/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Packet_Puzzle</title>
+      <link>http://localhost:1313/investigations/htb-packet-_puzzle/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-packet-_puzzle/</guid>
+      <description>Analyzed network traffic showing exploitation of CVE-2024-4577 (PHP-CGI argument injection) against a Windows server running PHP 8.1.25. Attacker achieved RCE, established reverse shell on port 4545, then escalated privileges using GodPotato to spawn a SYSTEM-level shell on port 5555.</description>
+      
+    </item>
+    
   </channel>
 </rss>

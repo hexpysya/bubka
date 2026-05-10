@@ -24,7 +24,7 @@
     <meta name="description" content="An external Tencent Cloud IP sent a single LFI request targeting /etc/passwd via path traversal. The server returned HTTP 500 with an empty response body, confirming the attack did not succeed.">
   
   
-    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Web Attack,LFI,Path Traversal,True Positive,AbuseIPDB,VirusTotal,">
+    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Web Attack,LFI,Path Traversal,Linux,AbuseIPDB,VirusTotal,True Positive,">
   
   
   
@@ -224,10 +224,10 @@
     
     "dateModified": "2026-04-02T00:00:00\u002b00:00",
     
-    "keywords": ["SOC","SIEM","EDR","Log Analysis","Web Attack","LFI","Path Traversal","True Positive","AbuseIPDB","VirusTotal"],
+    "keywords": ["SOC","SIEM","EDR","Log Analysis","Web Attack","LFI","Path Traversal","Linux","AbuseIPDB","VirusTotal","True Positive"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "623"
+    "wordCount": "691"
   }]
   </script>
 
@@ -713,11 +713,11 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/linux/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    True Positive
+    Linux
   </span>
 </span>
 
@@ -738,6 +738,16 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     VirusTotal
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    True Positive
   </span>
 </span>
 
@@ -798,6 +808,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -838,6 +849,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -980,6 +992,17 @@
 
         <div class="article-content max-w-prose mb-20">
           
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>An external Tencent Cloud IP sent a single Local File Inclusion attempt against WebServer1006, trying to access the Linux passwd file through path traversal. The request reached the application but returned HTTP 500 with an empty response body, so no file contents were exposed and no compromise was confirmed. The attacker IP was blocked, and the vulnerable file parameter should be reviewed for proper input validation.</p>
+
 <h3 class="relative group"><span class="hl">Alert</span>
     <div id="alert" class="anchor"></div>
     

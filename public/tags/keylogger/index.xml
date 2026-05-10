@@ -29,5 +29,25 @@
       
     </item>
     
+    <item>
+      <title>CDEF-XWorm</title>
+      <link>http://localhost:1313/investigations/cdef-xworm/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/cdef-xworm/</guid>
+      <description>A .NET XWorm RAT that establishes triple persistence via scheduled task, startup shortcut, and registry Run key, implements keylogging, clipboard hijacking for crypto wallets, and communicates with multiple C2 servers over TCP using AES-ECB encrypted payloads.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-SneakyKeys</title>
+      <link>http://localhost:1313/investigations/htb-sneakykeys/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-sneakykeys/</guid>
+      <description></description>
+      
+    </item>
+    
   </channel>
 </rss>

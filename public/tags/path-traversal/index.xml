@@ -30,6 +30,16 @@
     </item>
     
     <item>
+      <title>HTB-Facts</title>
+      <link>http://localhost:1313/investigations/htb-facts/</link>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-facts/</guid>
+      <description>Discovered Camaleon CMS 2.9.0 with two critical vulnerabilities: CVE-2025-2304 (mass assignment privilege escalation) and CVE-2024-46987 (path traversal). Escalated to admin, extracted S3 credentials, downloaded SSH private key from MinIO bucket, cracked passphrase, and achieved root via sudo facter exploitation.</description>
+      
+    </item>
+    
+    <item>
       <title>HTB-Conversor</title>
       <link>http://localhost:1313/investigations/htb-conversor/</link>
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>

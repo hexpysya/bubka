@@ -19,5 +19,25 @@
       
     </item>
     
+    <item>
+      <title>HTB-oBfsC4t10n</title>
+      <link>http://localhost:1313/investigations/htb-obfsc4t10n/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-obfsc4t10n/</guid>
+      <description>A phishing HTML file masquerading as an invoice delivers a macro-enabled Excel workbook that drops and executes a multi-stage obfuscated HTA payload, ultimately injecting a reverse shell shellcode into rundll32.exe and establishing a C2 connection.</description>
+      
+    </item>
+    
+    <item>
+      <title>Metasploit: office_word_hta</title>
+      <link>http://localhost:1313/investigations/metasploit-office_word_hta/</link>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/metasploit-office_word_hta/</guid>
+      <description>A malicious RTF document exploits CVE-2017-0199 via an embedded OLE2Link object to fetch and execute a remote HTA payload from an attacker-controlled server.</description>
+      
+    </item>
+    
   </channel>
 </rss>

@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Powershell on bubka hacks stuff</title>
+    <title>PowerShell on bubka hacks stuff</title>
     <link>http://localhost:1313/tags/powershell/</link>
-    <description>Recent content in Powershell on bubka hacks stuff</description>
+    <description>Recent content in PowerShell on bubka hacks stuff</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CDEF-SigmaPredator</title>
+      <link>http://localhost:1313/investigations/sigma-t1685.005/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/sigma-t1685.005/</guid>
+      <description>An analysis of techniques used by attackers to clear Windows Event Logs, creating Sigma rules and using them to detect malicious activity</description>
+      
+    </item>
     
     <item>
       <title>Splunk-Poisoned PyTorch</title>
@@ -30,12 +40,32 @@
     </item>
     
     <item>
+      <title>LD-Malicious File Download Attempt</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-file-download-attempt/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-file-download-attempt/</guid>
+      <description>A malicious DOCM file was blocked on download at NicolasPRD. VirusTotal confirmed 38/65 detections with an AutoOpen macro that downloads and executes a PowerShell payload. No C2 contact was made.</description>
+      
+    </item>
+    
+    <item>
       <title>LD-Lumma Stealer - DLL Side-Loading via Click Fix Phishing</title>
       <link>http://localhost:1313/blue_team/ld-lumma-stealer---dll-side-loading-via-click-fix-phishing/</link>
       <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blue_team/ld-lumma-stealer---dll-side-loading-via-click-fix-phishing/</guid>
       <description>A Click Fix phishing email impersonating Microsoft lured Dylan into visiting a malicious site, which executed a disguised PowerShell command launching mshta.exe to download Lumma Stealer payload from overcoatpassably.shop. The host was contained before confirmed data exfiltration.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Malicious Macro Executed</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-macro-has-been-executed/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-macro-has-been-executed/</guid>
+      <description>A phishing email from &lt;a href=&#34;mailto:jake.admin@cybercommunity.info&#34; &gt;jake.admin@cybercommunity.info&lt;/a&gt; delivered a ZIP-archived Word macro document, which executed a PowerShell downloader fetching messbox.exe from greyhathacker.net. The host Jayne was contained after execution was confirmed.</description>
       
     </item>
     
@@ -66,6 +96,16 @@
       
       <guid>http://localhost:1313/investigations/htb-liberty/</guid>
       <description>Password spraying led to domain account compromise, followed by NetNTLM hash theft via a malicious .url file, RDP access, data exfiltration to a C2 server, and PSWA backdoor installation for persistence.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-CVE-2025-53770 SharePoint ToolShell Auth Bypass and RCE</title>
+      <link>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</guid>
+      <description>An attacker exploited CVE-2025-53770 against a SharePoint server, achieving unauthenticated RCE via .NET deserialization. The attacker extracted the MachineKey, compiled and dropped a payload, planted a webshell in the SharePoint layouts directory, and established a reverse connection to the attacker-controlled server.</description>
       
     </item>
     
@@ -106,6 +146,36 @@
       
       <guid>http://localhost:1313/investigations/htb-a-call-from-the-museum/</guid>
       <description>A phishing email with a password-protected ZIP delivered an LNK file that executed an obfuscated PowerShell stager — collecting system fingerprint data, checking in to a C2, and fetching a next-stage implant using hardcoded credentials. A decoy PDF was opened simultaneously to distract the victim.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-EasyMoney</title>
+      <link>http://localhost:1313/investigations/htb-easymoney/</link>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-easymoney/</guid>
+      <description>Administrator executed a malicious shortcut that triggered a hidden PowerShell command, downloading and executing payload and gaining a shell access. The attacker enumerated installed software, identified a vulnerable Yandex Browser (CVE-2024-6473), and exploited DLL hijacking by planting a malicious library that acts as a dropper. This dropper deployed a Sliver C2 implant establishing persistence via a scheduled task and maintaining communication</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-GhostTrace</title>
+      <link>http://localhost:1313/investigations/htb-ghosttrace/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-ghosttrace/</guid>
+      <description>Analyzed Windows Event Logs revealing a complete AD compromise chain: phishing email with macro-enabled document → credential dumping with Mimikatz → lateral movement via PsExec → DCSync attack → domain admin compromise → persistence via scheduled task, service, and registry run key.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Packet_Puzzle</title>
+      <link>http://localhost:1313/investigations/htb-packet-_puzzle/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-packet-_puzzle/</guid>
+      <description>Analyzed network traffic showing exploitation of CVE-2024-4577 (PHP-CGI argument injection) against a Windows server running PHP 8.1.25. Attacker achieved RCE, established reverse shell on port 4545, then escalated privileges using GodPotato to spawn a SYSTEM-level shell on port 5555.</description>
       
     </item>
     

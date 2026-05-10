@@ -24,7 +24,7 @@
     <meta name="description" content="A phishing email from jake.admin@cybercommunity.info delivered a ZIP-archived Word macro document, which executed a PowerShell downloader fetching messbox.exe from greyhathacker.net. The host Jayne was contained after execution was confirmed.">
   
   
-    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Phishing,VBA,True Positive,">
+    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Phishing,Doc,VBA,PowerShell,Sandbox Evasion,Windows,VirusTotal,True Positive,">
   
   
   
@@ -52,7 +52,7 @@
     <meta property="article:tag" content="EDR">
     <meta property="article:tag" content="Log Analysis">
     <meta property="article:tag" content="Phishing">
-    <meta property="article:tag" content="VBA">
+    <meta property="article:tag" content="Doc">
 
   
   <meta name="twitter:card" content="summary">
@@ -224,10 +224,10 @@
     
     "dateModified": "2026-04-14T00:00:00\u002b00:00",
     
-    "keywords": ["SOC","SIEM","EDR","Log Analysis","Phishing","VBA","True Positive"],
+    "keywords": ["SOC","SIEM","EDR","Log Analysis","Phishing","Doc","VBA","PowerShell","Sandbox Evasion","Windows","VirusTotal","True Positive"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "583"
+    "wordCount": "643"
   }]
   </script>
 
@@ -693,11 +693,61 @@
 
               </a>
             
+              <a class="relative mt-[0.5rem] me-2" href="/tags/doc/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Doc
+  </span>
+</span>
+
+              </a>
+            
               <a class="relative mt-[0.5rem] me-2" href="/tags/vba/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     VBA
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/powershell/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PowerShell
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/sandbox-evasion/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Sandbox Evasion
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/windows/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Windows
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/virustotal/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    VirusTotal
   </span>
 </span>
 
@@ -768,6 +818,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -808,6 +859,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -950,6 +1002,17 @@
 
         <div class="article-content max-w-prose mb-20">
           
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>A phishing email delivered a ZIP archive containing a malicious Word macro document to Jayne. After execution, the macro launched PowerShell, downloaded messbox.exe from greyhathacker.net, and executed it as mess.exe on the endpoint. The host was isolated, malicious sender and payload infrastructure were blocked, and the case was escalated to L2 for memory acquisition and full forensic investigation.</p>
+
 <h3 class="relative group"><span class="hl">Alert</span>
     <div id="alert" class="anchor"></div>
     

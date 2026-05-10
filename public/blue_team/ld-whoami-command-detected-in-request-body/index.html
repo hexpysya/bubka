@@ -24,7 +24,7 @@
     <meta name="description" content="An external attacker from a CHINANET-hosted IP (61.177.172.87) exploited a command injection vulnerability on WebServer1004, executing five OS commands via the ?c= parameter against /video/ - including cat /etc/passwd and cat /etc/shadow - all of which returned HTTP 200 with distinct response sizes, confirming successful remote code execution. The case was escalated to Tier 2.">
   
   
-    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Web Attack,Command Injection,RCE,True Positive,AbuseIPDB,VirusTotal,">
+    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Web Attack,Command Injection,RCE,AbuseIPDB,VirusTotal,True Positive,">
   
   
   
@@ -224,10 +224,10 @@
     
     "dateModified": "2026-04-02T00:00:00\u002b00:00",
     
-    "keywords": ["SOC","SIEM","EDR","Log Analysis","Web Attack","Command Injection","RCE","True Positive","AbuseIPDB","VirusTotal"],
+    "keywords": ["SOC","SIEM","EDR","Log Analysis","Web Attack","Command Injection","RCE","AbuseIPDB","VirusTotal","True Positive"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "549"
+    "wordCount": "614"
   }]
   </script>
 
@@ -713,16 +713,6 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    True Positive
-  </span>
-</span>
-
-              </a>
-            
               <a class="relative mt-[0.5rem] me-2" href="/tags/abuseipdb/">
                 <span class="flex cursor-pointer">
   <span
@@ -738,6 +728,16 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     VirusTotal
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    True Positive
   </span>
 </span>
 
@@ -798,6 +798,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -838,6 +839,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -980,6 +982,17 @@
 
         <div class="article-content max-w-prose mb-20">
           
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>External attacker <em>61.177.172.87</em> exploited a command injection vulnerability on WebServer1004 through the <code>/video/</code> endpoint using the <code>?c=</code> parameter. The attacker successfully executed Linux commands including <code>whoami</code>, <code>uname</code>, <code>cat /etc/passwd</code>, and <code>cat /etc/shadow</code>. All requests returned HTTP 200 with different response sizes, confirming successful RCE. The source IP was blocked, the vulnerable endpoint was taken offline, and the case was escalated to Tier 2.</p>
+
 <h3 class="relative group"><span class="hl">Alert</span>
     <div id="alert" class="anchor"></div>
     

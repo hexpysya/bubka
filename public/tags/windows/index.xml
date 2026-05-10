@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CDEF-SigmaPredator</title>
+      <link>http://localhost:1313/investigations/sigma-t1685.005/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/sigma-t1685.005/</guid>
+      <description>An analysis of techniques used by attackers to clear Windows Event Logs, creating Sigma rules and using them to detect malicious activity</description>
+      
+    </item>
     
     <item>
       <title>Splunk-Poisoned PyTorch</title>
@@ -16,6 +26,26 @@
       
       <guid>http://localhost:1313/blue_team/splunk-poisoned-pytorch/</guid>
       <description>A tampered python dependency executed a powershell stager on developer michelvic&amp;rsquo;s workstation, dropped a C2 DLL with Run key persistence, extracted domain.admin credentials from sysprep files, laterally moved to DC01, BACKUP-SERVER-0, and FILE-SERVER-01 via RDP, deleted shadow copies, and deployed Lynx ransomware across all three hosts.</description>
+      
+    </item>
+    
+    <item>
+      <title>ELK-RansomHub</title>
+      <link>http://localhost:1313/blue_team/elk-ransomhub/</link>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-ransomhub/</guid>
+      <description>An attacker breached Maromalix Corporation&amp;rsquo;s network by placing a fake browser error message on their public website, tricking a user into executing a Cobalt Strike stager hidden in DNS TXT records. The attacker mapped the domain, exploited CVE-2025-24071 via a malicious .library-ms file to steal credentials, and performed an AD CS ESC1 attack for privilege escalation. After moving laterally with smbexec and evading the SIEM, they deployed the RansomHub payload to exfiltrate and encrypt sensitive data.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Detected Suspicious Xls File</title>
+      <link>http://localhost:1313/blue_team/ld-detected-suspicious-xls-file/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-detected-suspicious-xls-file/</guid>
+      <description>A user executed a malicious XLSM file that exploited CVE-2017-11882 via the Equation Editor, dropped and ran an obfuscated VBS payload hidden in an NTFS alternate data stream, and connected to a Brazilian C2 domain flagged by 8/91 VirusTotal vendors.</description>
       
     </item>
     
@@ -30,12 +60,92 @@
     </item>
     
     <item>
+      <title>LD-Lumma Stealer - DLL Side-Loading via Click Fix Phishing</title>
+      <link>http://localhost:1313/blue_team/ld-lumma-stealer---dll-side-loading-via-click-fix-phishing/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-lumma-stealer---dll-side-loading-via-click-fix-phishing/</guid>
+      <description>A Click Fix phishing email impersonating Microsoft lured Dylan into visiting a malicious site, which executed a disguised PowerShell command launching mshta.exe to download Lumma Stealer payload from overcoatpassably.shop. The host was contained before confirmed data exfiltration.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Malicious Macro Executed</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-macro-has-been-executed/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-macro-has-been-executed/</guid>
+      <description>A phishing email from &lt;a href=&#34;mailto:jake.admin@cybercommunity.info&#34; &gt;jake.admin@cybercommunity.info&lt;/a&gt; delivered a ZIP-archived Word macro document, which executed a PowerShell downloader fetching messbox.exe from greyhathacker.net. The host Jayne was contained after execution was confirmed.</description>
+      
+    </item>
+    
+    <item>
       <title>Splunk-ShadowRoast</title>
       <link>http://localhost:1313/blue_team/splunk-shadowroast/</link>
       <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blue_team/splunk-shadowroast/</guid>
       <description>A masqueraded AdobeUpdater.exe binary established persistence via a registry Run key, injected into cmd.exe, performed AS-REP Roasting with Rubeus against four AD accounts, laterally moved to FileServer using cracked tcooper credentials, enabled RDP, and staged share data for exfiltration.</description>
+      
+    </item>
+    
+    <item>
+      <title>ELK-BumbleBee - GOLD CABIN</title>
+      <link>http://localhost:1313/blue_team/elk-bumblebee---gold-cabin/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-bumblebee---gold-cabin/</guid>
+      <description>An employee at CompliantSecure received a phishing email from emkei.cz, downloaded a malicious ISO containing BumbleBee loader 23.dll, which established C2 to 3.68.97.124 and injected into ImagingDevices.exe, dumped LSASS credentials, laterally moved to DC01 via PsExec using markw credentials, staged AdFind and AnyDesk, created sql_admin backdoor account, moved to FileServer01 and Support01, exfiltrated archived share data, and deployed Conti ransomware dropping R3ADM3.txt ransom notes.</description>
+      
+    </item>
+    
+    <item>
+      <title>Splunk-GoldenSpray</title>
+      <link>http://localhost:1313/blue_team/splunk-goldenspray/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-goldenspray/</guid>
+      <description>An attacker from 77.91.78.115 brute-forced mwilliams credentials, connected via RDP, dropped OfficeUpdater.exe with registry persistence, staged Backup_Tools including mimikatz, dumped lsass to obtain jsmith credentials, laterally moved to ST-DC01 and ST-FS01, established scheduled task persistence on the DC, and archived client data for exfiltration.</description>
+      
+    </item>
+    
+    <item>
+      <title>ELK-Black Basta</title>
+      <link>http://localhost:1313/blue_team/elk-black-basta/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-black-basta/</guid>
+      <description>A finance employee opened a malicious Excel macro from a drive-by download, which executed a VBS dropper, loaded WindowsUpdaterFX.dll via regsvr32, established persistence, dropped Pancake.jpg.exe as a C2 backdoor, performed internal reconnaissance, laterally moved to a domain controller via PsExec using compromised credentials, exfiltrated client data to MEGA via rclone, deleted shadow copies, and deployed BlackBasta ransomware.</description>
+      
+    </item>
+    
+    <item>
+      <title>ELK-REvil - GOLD SOUTHFIELD</title>
+      <link>http://localhost:1313/blue_team/elk-revil/</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-revil/</guid>
+      <description>An administrator executed facebook assistant.exe on a Windows Server 2019 host, which dropped REvil ransomware (Sodinokibi), spawned a PowerShell process that deleted Volume Shadow Copies, and dropped ransom notes across multiple user profile directories.</description>
+      
+    </item>
+    
+    <item>
+      <title>Splunk-T1110-003</title>
+      <link>http://localhost:1313/blue_team/splunk-t1110-003/</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-t1110-003/</guid>
+      <description>An attacker from 192.168.1.60 (Kali) conducted a 5-minute RDP password spraying attack against dev.cyberdefenders.org, generating 4302 failed logon attempts across multiple usernames, and successfully authenticated as administrator and five other accounts via RDP.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-Qradar101</title>
+      <link>http://localhost:1313/blue_team/cdef-qradar101/</link>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/cdef-qradar101/</guid>
+      <description>A user opened a malicious Word document that dropped FSETPBEUsIek.exe, which spawned a VBS script, injected into notepad.exe, established persistence via registry Run key, exfiltrated sami.xlsx to an attacker-controlled server, and triggered a Metasploit reverse shell detected by Suricata.</description>
       
     </item>
     
@@ -60,6 +170,16 @@
     </item>
     
     <item>
+      <title>LD-CVE-2025-53770 SharePoint ToolShell Auth Bypass and RCE</title>
+      <link>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</guid>
+      <description>An attacker exploited CVE-2025-53770 against a SharePoint server, achieving unauthenticated RCE via .NET deserialization. The attacker extracted the MachineKey, compiled and dropped a payload, planted a webshell in the SharePoint layouts directory, and established a reverse connection to the attacker-controlled server.</description>
+      
+    </item>
+    
+    <item>
       <title>CDEF-Obfuscated</title>
       <link>http://localhost:1313/investigations/cdef-obfuscated/</link>
       <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
@@ -70,12 +190,62 @@
     </item>
     
     <item>
+      <title>LD-Malicious Attachment Detected</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</guid>
+      <description>Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Suspicious PowerShell Script Executed</title>
+      <link>http://localhost:1313/blue_team/ld-soc153---suspicious-powershell-script-executed/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-soc153---suspicious-powershell-script-executed/</guid>
+      <description>User Tony downloaded and executed a malicious PowerShell script (payload_1.ps1 / agent3.ps1) classified as trojan.powershell/boxter (Azorult family). The script bypassed execution policy, then fetched and invoked a second-stage payload from kionagranada.com (161.22.46.148), establishing a two-stage C2 chain with a final pivot to 91.236.116.163.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-BlueSky Ransomware</title>
+      <link>http://localhost:1313/investigations/cdef-bluesky-ransomware/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/cdef-bluesky-ransomware/</guid>
+      <description>An attacker performed a port scan, exploited a Microsoft SQL Server via the sa account, enabled xp_cmdshell to drop and execute a base64-encoded payload, then deployed a multi-stage PowerShell toolkit to disable AV, dump NTLM hashes, perform lateral movement via SMB, and stage the BlueSky ransomware payload.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-A Call from the Museum</title>
+      <link>http://localhost:1313/investigations/htb-a-call-from-the-museum/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-a-call-from-the-museum/</guid>
+      <description>A phishing email with a password-protected ZIP delivered an LNK file that executed an obfuscated PowerShell stager — collecting system fingerprint data, checking in to a C2, and fetching a next-stage implant using hardcoded credentials. A decoy PDF was opened simultaneously to distract the victim.</description>
+      
+    </item>
+    
+    <item>
       <title>CDEF-$tealer</title>
       <link>http://localhost:1313/investigations/cdef-tealer/</link>
       <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/investigations/cdef-tealer/</guid>
       <description>A Dridex loader DLL that dynamically resolves APIs via CRC32 hashing, uses int3/retn as an indirect call mechanism to evade analysis, decrypts embedded strings with RC4, and connects to four hardcoded C2 servers over HTTPS to download additional modules.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh &#43; Suricata: Malware traffic</title>
+      <link>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</guid>
+      <description>Replayed a malicious PCAP file containing Hancitor dropper traffic that deployed Cobalt Strike, Dridex, and Ficker Stealer. Analyzed 423 Suricata alerts in Wazuh, reconstructed the full infection chain, and mapped findings to MITRE ATT&amp;amp;CK.</description>
       
     </item>
     
@@ -205,6 +375,16 @@
       <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/investigations/htb-partial_encryption/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-oBfsC4t10n2</title>
+      <link>http://localhost:1313/investigations/htb-obfsc4t10n2/</link>
+      <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-obfsc4t10n2/</guid>
       <description></description>
       
     </item>

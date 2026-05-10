@@ -20,6 +20,26 @@
     </item>
     
     <item>
+      <title>LD-Passwd Found in Requested URL - Possible LFI Attack</title>
+      <link>http://localhost:1313/blue_team/ld-passwd-found-in-requested-url---possible-lfi-attack/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-passwd-found-in-requested-url---possible-lfi-attack/</guid>
+      <description>An external Tencent Cloud IP sent a single LFI request targeting /etc/passwd via path traversal. The server returned HTTP 500 with an empty response body, confirming the attack did not succeed.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Arbitrary File Read on Checkpoint Security Gateway (CVE-2024-24919)</title>
+      <link>http://localhost:1313/blue_team/ld-arbitrary-file-read-on-checkpoint-security-gateway-cve-2024-24919/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-arbitrary-file-read-on-checkpoint-security-gateway-cve-2024-24919/</guid>
+      <description>An attacker exploited CVE-2024-24919 against a Check Point Security Gateway, successfully reading /etc/passwd via a path traversal payload. A second request targeting /etc/shadow from a related IP was blocked. The attack succeeded and the endpoint was escalated to Tier 2.</description>
+      
+    </item>
+    
+    <item>
       <title>HTB-Lockpick3.0</title>
       <link>http://localhost:1313/investigations/htb-lockpick3.0/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
@@ -30,13 +50,23 @@
     </item>
     
     <item>
-      <title>HTB-Pterodactyl</title>
-      <link>http://localhost:1313/investigations/htb-pterodactyl/</link>
-      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      <title>HTB-Telly</title>
+      <link>http://localhost:1313/investigations/htb-telly/</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/investigations/htb-pterodactyl/</guid>
-      <description>Exploiting Pterodactyl Panel CVE-2025-49132 for unauthenticated RCE, database credential extraction, and privilege escalation through Wazuh agent vulnerabilities.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/investigations/htb-pterodactyl/featured.png" />
+      <guid>http://localhost:1313/investigations/htb-telly/</guid>
+      <description>An attacker exploited CVE-2026-24061, an authentication bypass in GNU inetutils telnetd, to obtain an unauthenticated root shell, established persistence via linper.sh across multiple cron and systemd locations, and exfiltrated a credit card database before deleting it from the victim server.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh: SSH Brute Force</title>
+      <link>http://localhost:1313/blue_team/wazuh_ssh-brute-force/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh_ssh-brute-force/</guid>
+      <description>Simulated an SSH brute force attack using Hydra, observed Wazuh detection across 7 rule IDs, identified a gap in default alerting (max level 10), wrote a custom rule to escalate severity to level 12, and configured automated IP blocking via active response.</description>
+      
     </item>
     
     <item>
@@ -46,6 +76,16 @@
       
       <guid>http://localhost:1313/investigations/htb-luckyshot/</guid>
       <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Facts</title>
+      <link>http://localhost:1313/investigations/htb-facts/</link>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-facts/</guid>
+      <description>Discovered Camaleon CMS 2.9.0 with two critical vulnerabilities: CVE-2025-2304 (mass assignment privilege escalation) and CVE-2024-46987 (path traversal). Escalated to admin, extracted S3 credentials, downloaded SSH private key from MinIO bucket, cracked passphrase, and achieved root via sudo facter exploitation.</description>
       
     </item>
     
@@ -95,16 +135,6 @@
       <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/investigations/htb-hubbub/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>HTB-oBfsC4t10n2</title>
-      <link>http://localhost:1313/investigations/htb-obfsc4t10n2/</link>
-      <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/investigations/htb-obfsc4t10n2/</guid>
       <description></description>
       
     </item>

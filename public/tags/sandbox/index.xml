@@ -30,12 +30,42 @@
     </item>
     
     <item>
+      <title>HTB-Subatomic</title>
+      <link>http://localhost:1313/investigations/htb-subatomic/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-subatomic/</guid>
+      <description>A fake therapy installer distributed as an NSIS self-extracting archive delivers an Electron-based Node.js infostealer that performs anti-VM checks, injects malicious code into Discord clients, and exfiltrates browser credentials, cookies, autofill data, and Discord tokens to a hardcoded C2.</description>
+      
+    </item>
+    
+    <item>
       <title>HTB-oBfsC4t10n</title>
       <link>http://localhost:1313/investigations/htb-obfsc4t10n/</link>
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/investigations/htb-obfsc4t10n/</guid>
       <description>A phishing HTML file masquerading as an invoice delivers a macro-enabled Excel workbook that drops and executes a multi-stage obfuscated HTA payload, ultimately injecting a reverse shell shellcode into rundll32.exe and establishing a C2 connection.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Lupin</title>
+      <link>http://localhost:1313/investigations/htb-lupin/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-lupin/</guid>
+      <description>Reverse engineering PHORPIEX dropper - analyzing clipboard hijacking, USB spreading, and UPnP NAT traversal techniques.</description>
+      
+    </item>
+    
+    <item>
+      <title>PoshC2: Dropper-cs.exe</title>
+      <link>http://localhost:1313/investigations/dropper-cs.exe-analysis/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/dropper-cs.exe-analysis/</guid>
+      <description>C2 .NET implant. AES-encrypted config, HTTPS beacon to &lt;code&gt;192.168.248.128&lt;/code&gt;, fileless in-memory execution, anti-debug via divide-by-zero.</description>
       
     </item>
     

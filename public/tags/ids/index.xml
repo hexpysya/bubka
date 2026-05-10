@@ -20,6 +20,16 @@
     </item>
     
     <item>
+      <title>Wazuh &#43; Suricata: injection detection</title>
+      <link>http://localhost:1313/blue_team/wazuh-injection/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh-injection/</guid>
+      <description>Detected a SQL Injection attack, observed 85 alerts across 6 rule IDs, and configured automated IP blocking via active response.</description>
+      
+    </item>
+    
+    <item>
       <title>Wazuh &#43; Suricata: Malware traffic</title>
       <link>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</link>
       <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>

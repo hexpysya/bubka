@@ -24,7 +24,7 @@
     <meta name="description" content="A phishing email with a password-protected ZIP delivered AsyncRAT via a SILENTBUILDER dropper. The victim executed the payload, establishing an active C2 channel and triggering full host reconnaissance before containment.">
   
   
-    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Phishing,AsyncRAT,True Positive,VirusTotal,AbuseIPDB,">
+    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Phishing,AsyncRAT,RAT,.NET,Sandbox Evasion,AWS,S3,SMTP,AbuseIPDB,VirusTotal,True Positive,">
   
   
   
@@ -224,10 +224,10 @@
     
     "dateModified": "2026-03-17T00:00:00\u002b00:00",
     
-    "keywords": ["SOC","SIEM","EDR","Log Analysis","Phishing","AsyncRAT","True Positive","VirusTotal","AbuseIPDB"],
+    "keywords": ["SOC","SIEM","EDR","Log Analysis","Phishing","AsyncRAT","RAT",".NET","Sandbox Evasion","AWS","S3","SMTP","AbuseIPDB","VirusTotal","True Positive"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "667"
+    "wordCount": "726"
   }]
   </script>
 
@@ -703,11 +703,71 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/rat/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    True Positive
+    RAT
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/.net/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    .NET
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/sandbox-evasion/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Sandbox Evasion
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/aws/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AWS
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/s3/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    S3
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/smtp/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SMTP
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/abuseipdb/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AbuseIPDB
   </span>
 </span>
 
@@ -723,11 +783,11 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/abuseipdb/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    AbuseIPDB
+    True Positive
   </span>
 </span>
 
@@ -788,6 +848,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -828,6 +889,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -970,6 +1032,17 @@
 
         <div class="article-content max-w-prose mb-20">
           
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>A phishing email with a fake coffee voucher link delivered a password-protected ZIP archive containing Coffee.exe, identified as AsyncRAT. Felix downloaded and executed the payload, after which the malware established C2 communication and performed host reconnaissance through cmd.exe. The endpoint was isolated, malicious infrastructure was blocked, and the case was escalated to L2 for full forensic investigation.</p>
+
 <h3 class="relative group"><span class="hl">Alert</span>
     <div id="alert" class="anchor"></div>
     

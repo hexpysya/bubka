@@ -7,7 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/log-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/log-analysis/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LD-Utilman.exe Winlogon Exploit Attempt</title>
+      <link>http://localhost:1313/blue_team/ld-utilman.exe-winlogon-exploit-attempt/</link>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-utilman.exe-winlogon-exploit-attempt/</guid>
+      <description>An attacker with physical or RDP access replaced Utilman.exe with cmd.exe on host Henry, then invoked it from the Windows lock screen via Winlogon to create a backdoor administrator account superman without authentication.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-VPN Connection Detected from Unauthorized Country</title>
+      <link>http://localhost:1313/blue_team/ld-vpn-connection-detected-from-unauthorized-country/</link>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-vpn-connection-detected-from-unauthorized-country/</guid>
+      <description>An external IP from Vietnam attempted to authenticate to the corporate VPN as &lt;a href=&#34;mailto:monica@letsdefend.io&#34; &gt;monica@letsdefend.io&lt;/a&gt;. MFA blocked access after an incorrect OTP submission. The IP is flagged for SSH brute-force activity. No systems compromised.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-SigmaPredator</title>
+      <link>http://localhost:1313/investigations/sigma-t1685.005/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/sigma-t1685.005/</guid>
+      <description>An analysis of techniques used by attackers to clear Windows Event Logs, creating Sigma rules and using them to detect malicious activity</description>
+      
+    </item>
     
     <item>
       <title>Splunk-Poisoned PyTorch</title>
@@ -256,6 +286,66 @@
       
       <guid>http://localhost:1313/blue_team/ld-phishing-alert/</guid>
       <description>A phishing email with a password-protected ZIP delivered AsyncRAT via a SILENTBUILDER dropper. The victim executed the payload, establishing an active C2 channel and triggering full host reconnaissance before containment.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Malicious Attachment Detected</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</guid>
+      <description>Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Suspicious PowerShell Script Executed</title>
+      <link>http://localhost:1313/blue_team/ld-soc153---suspicious-powershell-script-executed/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-soc153---suspicious-powershell-script-executed/</guid>
+      <description>User Tony downloaded and executed a malicious PowerShell script (payload_1.ps1 / agent3.ps1) classified as trojan.powershell/boxter (Azorult family). The script bypassed execution policy, then fetched and invoked a second-stage payload from kionagranada.com (161.22.46.148), establishing a two-stage C2 chain with a final pivot to 91.236.116.163.</description>
+      
+    </item>
+    
+    <item>
+      <title>THM-Phishing</title>
+      <link>http://localhost:1313/blue_team/thm-phishing/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/thm-phishing/</guid>
+      <description>Three phishing campaigns were identified across four alerts: a legitimate HR onboarding email (false positive), a fake Amazon delivery notification whose bit.ly link was blocked by the firewall, and a Microsoft account spoofing email from m1crosoftsupport.co whose link was allowed through the firewall</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh &#43; Suricata: injection detection</title>
+      <link>http://localhost:1313/blue_team/wazuh-injection/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh-injection/</guid>
+      <description>Detected a SQL Injection attack, observed 85 alerts across 6 rule IDs, and configured automated IP blocking via active response.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh &#43; Suricata: Malware traffic</title>
+      <link>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</guid>
+      <description>Replayed a malicious PCAP file containing Hancitor dropper traffic that deployed Cobalt Strike, Dridex, and Ficker Stealer. Analyzed 423 Suricata alerts in Wazuh, reconstructed the full infection chain, and mapped findings to MITRE ATT&amp;amp;CK.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh: SSH Brute Force</title>
+      <link>http://localhost:1313/blue_team/wazuh_ssh-brute-force/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh_ssh-brute-force/</guid>
+      <description>Simulated an SSH brute force attack using Hydra, observed Wazuh detection across 7 rule IDs, identified a gap in default alerting (max level 10), wrote a custom rule to escalate severity to level 12, and configured automated IP blocking via active response.</description>
       
     </item>
     

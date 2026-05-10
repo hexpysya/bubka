@@ -19,5 +19,35 @@
       
     </item>
     
+    <item>
+      <title>HTB-SneakyKeys</title>
+      <link>http://localhost:1313/investigations/htb-sneakykeys/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-sneakykeys/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Partial_Encryption</title>
+      <link>http://localhost:1313/investigations/htb-partial_encryption/</link>
+      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-partial_encryption/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PoshC2: Dropper-cs.exe</title>
+      <link>http://localhost:1313/investigations/dropper-cs.exe-analysis/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/dropper-cs.exe-analysis/</guid>
+      <description>C2 .NET implant. AES-encrypted config, HTTPS beacon to &lt;code&gt;192.168.248.128&lt;/code&gt;, fileless in-memory execution, anti-debug via divide-by-zero.</description>
+      
+    </item>
+    
   </channel>
 </rss>

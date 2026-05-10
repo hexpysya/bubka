@@ -30,6 +30,16 @@
     </item>
     
     <item>
+      <title>Splunk-GoldenSpray</title>
+      <link>http://localhost:1313/blue_team/splunk-goldenspray/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-goldenspray/</guid>
+      <description>An attacker from 77.91.78.115 brute-forced mwilliams credentials, connected via RDP, dropped OfficeUpdater.exe with registry persistence, staged Backup_Tools including mimikatz, dumped lsass to obtain jsmith credentials, laterally moved to ST-DC01 and ST-FS01, established scheduled task persistence on the DC, and archived client data for exfiltration.</description>
+      
+    </item>
+    
+    <item>
       <title>LD-Javascript Code Detected in Requested URL</title>
       <link>http://localhost:1313/blue_team/ld-javascript-code-detected-in-requested-url/</link>
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
@@ -50,6 +60,16 @@
     </item>
     
     <item>
+      <title>LD-Possible IDOR Attack Detected</title>
+      <link>http://localhost:1313/blue_team/ld-idor/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-idor/</guid>
+      <description>External IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts.</description>
+      
+    </item>
+    
+    <item>
       <title>LD-Whoami Command Detected in Request Body</title>
       <link>http://localhost:1313/blue_team/ld-whoami-command-detected-in-request-body/</link>
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
@@ -66,6 +86,16 @@
       
       <guid>http://localhost:1313/blue_team/ld-arbitrary-file-read-on-checkpoint-security-gateway-cve-2024-24919/</guid>
       <description>An attacker exploited CVE-2024-24919 against a Check Point Security Gateway, successfully reading /etc/passwd via a path traversal payload. A second request targeting /etc/shadow from a related IP was blocked. The attack succeeded and the endpoint was escalated to Tier 2.</description>
+      
+    </item>
+    
+    <item>
+      <title>CDEF-HawkEye</title>
+      <link>http://localhost:1313/investigations/cdef-hawkeye/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/cdef-hawkeye/</guid>
+      <description>A victim host downloaded a HawkEye Keylogger dropper via HTTP, which established persistence, periodically checked the external IP via bot.whatismyipaddress.com, and exfiltrated harvested credentials every 10 minutes over SMTP.</description>
       
     </item>
     
@@ -96,16 +126,6 @@
       
       <guid>http://localhost:1313/blue_team/ld-phishing-alert/</guid>
       <description>A phishing email with a password-protected ZIP delivered AsyncRAT via a SILENTBUILDER dropper. The victim executed the payload, establishing an active C2 channel and triggering full host reconnaissance before containment.</description>
-      
-    </item>
-    
-    <item>
-      <title>LD-Malicious Attachment Detected</title>
-      <link>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</link>
-      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</guid>
-      <description>Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato</description>
       
     </item>
     

@@ -40,6 +40,16 @@
     </item>
     
     <item>
+      <title>ELK-BumbleBee - GOLD CABIN</title>
+      <link>http://localhost:1313/blue_team/elk-bumblebee---gold-cabin/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/elk-bumblebee---gold-cabin/</guid>
+      <description>An employee at CompliantSecure received a phishing email from emkei.cz, downloaded a malicious ISO containing BumbleBee loader 23.dll, which established C2 to 3.68.97.124 and injected into ImagingDevices.exe, dumped LSASS credentials, laterally moved to DC01 via PsExec using markw credentials, staged AdFind and AnyDesk, created sql_admin backdoor account, moved to FileServer01 and Support01, exfiltrated archived share data, and deployed Conti ransomware dropping R3ADM3.txt ransom notes.</description>
+      
+    </item>
+    
+    <item>
       <title>Splunk-GoldenSpray</title>
       <link>http://localhost:1313/blue_team/splunk-goldenspray/</link>
       <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
@@ -66,6 +76,16 @@
       
       <guid>http://localhost:1313/blue_team/cdef-qradar101/</guid>
       <description>A user opened a malicious Word document that dropped FSETPBEUsIek.exe, which spawned a VBS script, injected into notepad.exe, established persistence via registry Run key, exfiltrated sami.xlsx to an attacker-controlled server, and triggered a Metasploit reverse shell detected by Suricata.</description>
+      
+    </item>
+    
+    <item>
+      <title>THM-Phishing Unfolding</title>
+      <link>http://localhost:1313/blue_team/thm-phishing-unfolding/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/thm-phishing-unfolding/</guid>
+      <description></description>
       
     </item>
     

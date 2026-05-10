@@ -24,7 +24,7 @@
     <meta name="description" content="External IP enumerated the /get_user_info/ endpoint via sequential IDOR requests, all returning HTTP 200 - confirming successful data exfiltration across five user accounts.">
   
   
-    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Web Attack,IDOR,Broken Access Control,DigitalOcean,True Positive,">
+    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Web Attack,IDOR,DigitalOcean,True Positive,AbuseIPDB,VirusTotal,">
   
   
   
@@ -224,10 +224,10 @@
     
     "dateModified": "2026-04-02T00:00:00\u002b00:00",
     
-    "keywords": ["SOC","SIEM","EDR","Log Analysis","Web Attack","IDOR","Broken Access Control","DigitalOcean","True Positive"],
+    "keywords": ["SOC","SIEM","EDR","Log Analysis","Web Attack","IDOR","DigitalOcean","True Positive","AbuseIPDB","VirusTotal"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "582"
+    "wordCount": "639"
   }]
   </script>
 
@@ -703,16 +703,6 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/broken-access-control/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Broken Access Control
-  </span>
-</span>
-
-              </a>
-            
               <a class="relative mt-[0.5rem] me-2" href="/tags/digitalocean/">
                 <span class="flex cursor-pointer">
   <span
@@ -728,6 +718,26 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     True Positive
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/abuseipdb/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AbuseIPDB
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/virustotal/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    VirusTotal
   </span>
 </span>
 
@@ -788,6 +798,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -828,6 +839,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -970,6 +982,17 @@
 
         <div class="article-content max-w-prose mb-20">
           
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>An external DigitalOcean IP performed sequential IDOR enumeration against the get_user_info endpoint on WebServer1005 by requesting multiple user IDs. All requests were allowed and returned HTTP 200 with different response sizes, indicating successful access to user data for multiple accounts. The attacker IP was blocked, and the endpoint should be reviewed for proper authorization checks.</p>
+
 <h3 class="relative group"><span class="hl">Alert</span>
     <div id="alert" class="anchor"></div>
     

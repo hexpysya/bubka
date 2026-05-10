@@ -19,5 +19,65 @@
       
     </item>
     
+    <item>
+      <title>LD-Malicious Attachment Detected</title>
+      <link>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-malicious-attachment-detected---phishing-alert/</guid>
+      <description>Investigation of a phishing email delivering a malicious Excel attachment exploiting CVE-2017-11882, leading to payload download and privilege escalation via JuicyPotato</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-WorkFromHome</title>
+      <link>http://localhost:1313/investigations/htb-workfromhome/</link>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-workfromhome/</guid>
+      <description>A victim clicked a phishing link impersonating a corporate login page, leading to credential theft. The attacker used stolen credentials to gain RDP access, then escalated privileges via SeManageVolumeExploit, deployed malicious DLLs using certutil, and established persistence through a hidden VBS script in the Startup folder.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Facts</title>
+      <link>http://localhost:1313/investigations/htb-facts/</link>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-facts/</guid>
+      <description>Discovered Camaleon CMS 2.9.0 with two critical vulnerabilities: CVE-2025-2304 (mass assignment privilege escalation) and CVE-2024-46987 (path traversal). Escalated to admin, extracted S3 credentials, downloaded SSH private key from MinIO bucket, cracked passphrase, and achieved root via sudo facter exploitation.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Packet_Puzzle</title>
+      <link>http://localhost:1313/investigations/htb-packet-_puzzle/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-packet-_puzzle/</guid>
+      <description>Analyzed network traffic showing exploitation of CVE-2024-4577 (PHP-CGI argument injection) against a Windows server running PHP 8.1.25. Attacker achieved RCE, established reverse shell on port 4545, then escalated privileges using GodPotato to spawn a SYSTEM-level shell on port 5555.</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Cyberpsychosis</title>
+      <link>http://localhost:1313/investigations/htb-cyberpsychosis/</link>
+      <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-cyberpsychosis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HTB-Conversor</title>
+      <link>http://localhost:1313/investigations/htb-conversor/</link>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/investigations/htb-conversor/</guid>
+      <description>Flask web application vulnerable to path traversal during file uploads. Exploited by uploading Python reverse shell to cron-executed directory → gained www-data shell → extracted MD5 hashes from SQLite database → cracked password for user fismathack → leveraged CVE-2024-48990 in needrestart 3.7 for privilege escalation to root.</description>
+      
+    </item>
+    
   </channel>
 </rss>

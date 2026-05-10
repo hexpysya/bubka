@@ -40,6 +40,16 @@
     </item>
     
     <item>
+      <title>Splunk-NerisBot</title>
+      <link>http://localhost:1313/blue_team/splunk-nerisbot/</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-nerisbot/</guid>
+      <description>A victim host downloaded multiple malicious executables via HTTP, including Emotet, ransomware, and trojan payloads, detected through Suricata IDS alerts and confirmed malicious via VirusTotal.</description>
+      
+    </item>
+    
+    <item>
       <title>CDEF-HawkEye</title>
       <link>http://localhost:1313/investigations/cdef-hawkeye/</link>
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
@@ -76,6 +86,16 @@
       
       <guid>http://localhost:1313/investigations/htb-telly/</guid>
       <description>An attacker exploited CVE-2026-24061, an authentication bypass in GNU inetutils telnetd, to obtain an unauthenticated root shell, established persistence via linper.sh across multiple cron and systemd locations, and exfiltrated a credit card database before deleting it from the victim server.</description>
+      
+    </item>
+    
+    <item>
+      <title>Wazuh &#43; Suricata: Malware traffic</title>
+      <link>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/wazuh&#43;suricata-malware-traffic/</guid>
+      <description>Replayed a malicious PCAP file containing Hancitor dropper traffic that deployed Cobalt Strike, Dridex, and Ficker Stealer. Analyzed 423 Suricata alerts in Wazuh, reconstructed the full infection chain, and mapped findings to MITRE ATT&amp;amp;CK.</description>
       
     </item>
     

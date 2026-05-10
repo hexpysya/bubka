@@ -24,7 +24,7 @@
     <meta name="description" content="A malicious DOCM file was blocked on download at NicolasPRD. VirusTotal confirmed 38/65 detections with an AutoOpen macro that downloads and executes a PowerShell payload. No C2 contact was made.">
   
   
-    <meta name="keywords" content="SOC,Log Analysis,Phishing,VBA,">
+    <meta name="keywords" content="SOC,SIEM,EDR,Log Analysis,Phishing,Doc,VBA,PowerShell,VirusTotal,True Positive,">
   
   
   
@@ -48,9 +48,11 @@
     <meta property="article:published_time" content="2026-04-17T00:00:00+00:00">
     <meta property="article:modified_time" content="2026-04-17T00:00:00+00:00">
     <meta property="article:tag" content="SOC">
+    <meta property="article:tag" content="SIEM">
+    <meta property="article:tag" content="EDR">
     <meta property="article:tag" content="Log Analysis">
     <meta property="article:tag" content="Phishing">
-    <meta property="article:tag" content="VBA">
+    <meta property="article:tag" content="Doc">
 
   
   <meta name="twitter:card" content="summary">
@@ -222,10 +224,10 @@
     
     "dateModified": "2026-04-17T00:00:00\u002b00:00",
     
-    "keywords": ["SOC","Log Analysis","Phishing","VBA"],
+    "keywords": ["SOC","SIEM","EDR","Log Analysis","Phishing","Doc","VBA","PowerShell","VirusTotal","True Positive"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "365"
+    "wordCount": "418"
   }]
   </script>
 
@@ -651,6 +653,26 @@
 
               </a>
             
+              <a class="relative mt-[0.5rem] me-2" href="/tags/siem/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    SIEM
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/edr/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EDR
+  </span>
+</span>
+
+              </a>
+            
               <a class="relative mt-[0.5rem] me-2" href="/tags/log-analysis/">
                 <span class="flex cursor-pointer">
   <span
@@ -671,11 +693,51 @@
 
               </a>
             
+              <a class="relative mt-[0.5rem] me-2" href="/tags/doc/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Doc
+  </span>
+</span>
+
+              </a>
+            
               <a class="relative mt-[0.5rem] me-2" href="/tags/vba/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     VBA
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/powershell/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PowerShell
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/virustotal/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    VirusTotal
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/true-positive/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    True Positive
   </span>
 </span>
 
@@ -736,6 +798,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -775,6 +838,7 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#tldr"><span>TL;DR</span></a></li>
         <li><a href="#alert"><span class="hl">Alert</span></a></li>
         <li><a href="#identification"><span>Identification</span></a>
           <ul>
@@ -916,6 +980,17 @@
 
         <div class="article-content max-w-prose mb-20">
           
+<h3 class="relative group"><span style="color:lightblue">TL;DR</span>
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tldr" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>A malicious DOCM invoice file was blocked on download at NicolasPRD before it reached execution. VirusTotal confirmed the file as malicious, and analysis showed an AutoOpen VBA macro designed to launch PowerShell and download a second-stage payload. No C2 traffic or payload execution was observed, so the endpoint was not compromised.</p>
+
 <h3 class="relative group"><span class="hl">Alert</span>
     <div id="alert" class="anchor"></div>
     

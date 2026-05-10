@@ -20,6 +20,26 @@
     </item>
     
     <item>
+      <title>LD-CVE-2025-53770 SharePoint ToolShell Auth Bypass and RCE</title>
+      <link>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-cve202553770-sharepoint-toolshell-auth-bypass-and-rce/</guid>
+      <description>An attacker exploited CVE-2025-53770 against a SharePoint server, achieving unauthenticated RCE via .NET deserialization. The attacker extracted the MachineKey, compiled and dropped a payload, planted a webshell in the SharePoint layouts directory, and established a reverse connection to the attacker-controlled server.</description>
+      
+    </item>
+    
+    <item>
+      <title>LD-Deceptive Mail Detected</title>
+      <link>http://localhost:1313/blue_team/ld-phishing-alert/</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/ld-phishing-alert/</guid>
+      <description>A phishing email with a password-protected ZIP delivered AsyncRAT via a SILENTBUILDER dropper. The victim executed the payload, establishing an active C2 channel and triggering full host reconnaissance before containment.</description>
+      
+    </item>
+    
+    <item>
       <title>CDEF-XWorm</title>
       <link>http://localhost:1313/investigations/cdef-xworm/</link>
       <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
