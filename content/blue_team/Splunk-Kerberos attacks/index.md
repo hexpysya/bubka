@@ -6,6 +6,7 @@ summary: "Research covering Kerberoasting and AS-REP Roasting detection"
 tags:
   - Splunk
   - SIEM
+  - SOC
   - Active Directory
   - Kerberos
   - Kerberoasting
