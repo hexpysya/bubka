@@ -7,12 +7,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Sun, 10 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Splunk-DCSync and DCShadow</title>
+      <link>http://localhost:1313/blue_team/splunk-dc-attacks/</link>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-dc-attacks/</guid>
+      <description>Research covering DCSync and DCShadow detection - two advanced techniques abusing Active Directory replication permissions to extract password hashes and inject unauthorized AD changes without standard security logs, with Splunk queries targeting Event IDs 4662 and 4742.</description>
+      
+    </item>
+    
+    <item>
+      <title>Splunk-Kerberos Attacks</title>
+      <link>http://localhost:1313/blue_team/splunk-kerberos-attacks/</link>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-kerberos-attacks/</guid>
+      <description>Research covering Kerberoasting and AS-REP Roasting detection - two Kerberos-based offline hash extraction techniques targeting service accounts and pre-auth disabled users, with Splunk detection queries and the event correlation logic behind them.</description>
+      
+    </item>
+    
+    <item>
+      <title>Splunk-Pass Attacks</title>
+      <link>http://localhost:1313/blue_team/splunk-pass-the-attacks/</link>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-pass-the-attacks/</guid>
+      <description>Research covering Pass-the-Hash, Pass-the-Ticket, and Overpass-the-Hash detection - three lateral movement techniques that authenticate without plaintext credentials by reusing stolen NTLM hashes and Kerberos tickets, with Splunk detection logic for each.</description>
+      
+    </item>
     
     <item>
       <title>LD-Utilman.exe Winlogon Exploit Attempt</title>
       <link>http://localhost:1313/blue_team/ld-utilman.exe-winlogon-exploit-attempt/</link>
-      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blue_team/ld-utilman.exe-winlogon-exploit-attempt/</guid>
       <description>An attacker with physical or RDP access replaced Utilman.exe with cmd.exe on host Henry, then invoked it from the Windows lock screen via Winlogon to create a backdoor administrator account superman without authentication.</description>
@@ -22,7 +52,7 @@
     <item>
       <title>LD-VPN Connection Detected from Unauthorized Country</title>
       <link>http://localhost:1313/blue_team/ld-vpn-connection-detected-from-unauthorized-country/</link>
-      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blue_team/ld-vpn-connection-detected-from-unauthorized-country/</guid>
       <description>An external IP from Vietnam attempted to authenticate to the corporate VPN as &lt;a href=&#34;mailto:monica@letsdefend.io&#34; &gt;monica@letsdefend.io&lt;/a&gt;. MFA blocked access after an incorrect OTP submission. The IP is flagged for SSH brute-force activity. No systems compromised.</description>

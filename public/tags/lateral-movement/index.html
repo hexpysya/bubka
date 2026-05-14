@@ -211,10 +211,10 @@
       "name": "Bubka"
     },
     "copyrightYear": "2026",
-    "dateCreated": "2026-04-27T00:00:00\u002b00:00",
-    "datePublished": "2026-04-27T00:00:00\u002b00:00",
+    "dateCreated": "2026-05-13T00:00:00\u002b00:00",
+    "datePublished": "2026-05-13T00:00:00\u002b00:00",
     
-    "dateModified": "2026-04-27T00:00:00\u002b00:00",
+    "dateModified": "2026-05-13T00:00:00\u002b00:00",
     
     
     
@@ -619,11 +619,11 @@
     <header class="items-center text-start text-xl font-semibold">
       <a
         
-          href="/blue_team/splunk-poisoned-pytorch/"
+          href="/blue_team/splunk-pass-the-attacks/"
         
         class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
         <h2>
-          Splunk-Poisoned PyTorch
+          Splunk-Pass Attacks
           
         </h2>
       </a>
@@ -673,7 +673,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-04-27T00:00:00&#43;00:00">April 27, 2026</time>
+      <time datetime="2026-05-13T00:00:00&#43;00:00">May 13, 2026</time>
     
 
     
@@ -711,21 +711,31 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/cobalt-strike/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/active-directory/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Cobalt Strike
+    Active Directory
   </span>
 </span>
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/fileless/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/pass-the-hash/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Fileless
+    Pass-the-Hash
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/pass-the-ticket/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Pass-the-Ticket
   </span>
 </span>
 
@@ -736,36 +746,6 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Lateral Movement
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/wsl-evasion/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    WSL Evasion
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/ransomware/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Ransomware
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/lynx/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Lynx
   </span>
 </span>
 
@@ -785,7 +765,7 @@
     </div>
     
       <div class="article-link__summary prose dark:prose-invert max-w-fit mt-1 line-clamp-3">
-        An attacker gained initial access to the unucorb domain via a tampered Python dependency during model training. The compromised script deployed a fileless Cobalt Strike beacon, enabling extensive reconnaissance, credential theft via leftover sysprep files, and lateral movement using RDP. Ultimately, the attacker deployed Lynx ransomware across critical infrastructure servers.
+        Research covering Pass-the-Hash, Pass-the-Ticket, and Overpass-the-Hash detection - three lateral movement techniques that authenticate without plaintext credentials by reusing stolen NTLM hashes and Kerberos tickets, with Splunk detection logic for each.
       </div>
     
   </div>

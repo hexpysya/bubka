@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DCShadow on bubka hacks stuff</title>
+    <link>http://localhost:1313/tags/dcshadow/</link>
+    <description>Recent content in DCShadow on bubka hacks stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Wed, 13 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/dcshadow/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Splunk-DCSync and DCShadow</title>
+      <link>http://localhost:1313/blue_team/splunk-dc-attacks/</link>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blue_team/splunk-dc-attacks/</guid>
+      <description>Research covering DCSync and DCShadow detection - two advanced techniques abusing Active Directory replication permissions to extract password hashes and inject unauthorized AD changes without standard security logs, with Splunk queries targeting Event IDs 4662 and 4742.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

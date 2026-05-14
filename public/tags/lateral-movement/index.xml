@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Mon, 27 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/lateral-movement/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/lateral-movement/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Splunk-Poisoned PyTorch</title>
-      <link>http://localhost:1313/blue_team/splunk-poisoned-pytorch/</link>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate>
+      <title>Splunk-Pass Attacks</title>
+      <link>http://localhost:1313/blue_team/splunk-pass-the-attacks/</link>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/blue_team/splunk-poisoned-pytorch/</guid>
-      <description>An attacker gained initial access to the unucorb domain via a tampered Python dependency during model training. The compromised script deployed a fileless Cobalt Strike beacon, enabling extensive reconnaissance, credential theft via leftover sysprep files, and lateral movement using RDP. Ultimately, the attacker deployed Lynx ransomware across critical infrastructure servers.</description>
+      <guid>http://localhost:1313/blue_team/splunk-pass-the-attacks/</guid>
+      <description>Research covering Pass-the-Hash, Pass-the-Ticket, and Overpass-the-Hash detection - three lateral movement techniques that authenticate without plaintext credentials by reusing stolen NTLM hashes and Kerberos tickets, with Splunk detection logic for each.</description>
       
     </item>
     
